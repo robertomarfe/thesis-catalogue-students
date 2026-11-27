@@ -1,0 +1,8 @@
+.venv/
+.runtime-check/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+local-data/
+results/
+.env

@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Mostra esito installazione Python",
+      "type": "process",
+      "command": "python",
+      "args": [
+        "-c",
+        "import json,pathlib; p=pathlib.Path('.runtime-check/receipt.json'); assert p.is_file(), 'No successful receipt yet; inspect postCreate setup or run Prepare and verify Python'; r=json.loads(p.read_text()); print(json.dumps({k:r.get(k) for k in ('kind','python','direct_versions','isolated_no_system_packages','fresh_install_this_run','pip_check','notebook','jupyterlab','published')},indent=2))"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    },
+    {
+      "label": "Prepara e verifica ambiente Python",
+      "type": "process",
+      "command": "python",
+      "args": [
+        "tools/environment.py",
+        "setup"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+# TEMPLATE ONLY: install in a separate, explicitly authorized STUDENT repository.
+# Place the sealed export under site/ and the independent release.py under tools/.
+# Set repository variable STUDENT_PAGES_REPO to the exact authorized owner/repository.
+# Never install or run this in the private master.
+name: Publish authorized student edition
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: student-pages
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: ${{ github.repository == vars.STUDENT_PAGES_REPO && github.repository != 'robertomarfe/thesis-catalogue-master' && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify sealed, positive student-only payload
+        run: python tools/release.py verify site
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+  deploy:
+    needs: verify
+    if: ${{ github.repository == vars.STUDENT_PAGES_REPO && github.repository != 'robertomarfe/thesis-catalogue-master' && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
