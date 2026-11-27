@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Principal Components of Implied Volatility Index Curves | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D02.04.01 · Derivatives · Option models &amp; surfaces</p><h1>Principal Components of Implied Volatility Index Curves</h1><p class="lead">How much of the variation in a common panel of short-, medium- and longer-horizon implied volatility indices can be explained by level, slope and curvature? Are principal components stable across market regimes?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="curves-and-units">Curves and units</h3>
+<p>For index
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mi>j</mi></msub><annotation encoding="application/x-tex">I_j</annotation></semantics></math>
+in volatility percentage points and horizon
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mi>j</mi></msub><annotation encoding="application/x-tex">T_j</annotation></semantics></math>
+in years, define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>j</mi></msub><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>I</mi><mi>j</mi></msub><mi>/</mi><mn>100</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">v_j=(I_j/100)^2</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>j</mi></msub><mo>=</mo><msub><mi>T</mi><mi>j</mi></msub><msub><mi>v</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">w_j=T_jv_j</annotation></semantics></math>.
+A forward-variance proxy between two maturities is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>w</mi><mi>b</mi></msub><mo>−</mo><msub><mi>w</mi><mi>a</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>T</mi><mi>b</mi></msub><mo>−</mo><msub><mi>T</mi><mi>a</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">(w_b-w_a)/(T_b-T_a)</annotation></semantics></math>.
+Confirm exact methodology and maturity conventions; negative values are
+diagnostics. Align all series on actual exchange sessions and retain
+gaps. Baseline input is consecutive daily changes in annualized
+variance, not levels or VIX futures prices.</p>
+<h3 id="out-of-sample-factor-compression">Out-of-sample factor
+compression</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>t</mi></msub><annotation encoding="application/x-tex">x_t</annotation></semantics></math>
+be the vector of variance changes and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>x</mi><mo accent="true">‾</mo></mover><annotation encoding="application/x-tex">\bar x</annotation></semantics></math>
+the training mean. Diagonalize the training covariance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Σ</mi><mo>=</mo><mi>L</mi><mi>Λ</mi><msup><mi>L</mi><mi>⊤</mi></msup></mrow><annotation encoding="application/x-tex">\Sigma=L\Lambda L^\top</annotation></semantics></math>,
+ordering eigenvalues from largest to smallest. For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+components, the held-out reconstruction is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>x</mi><mo accent="true">̂</mo></mover><mi>t</mi></msub><mo>=</mo><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo>+</mo><msub><mi>L</mi><mi>m</mi></msub><msubsup><mi>L</mi><mi>m</mi><mi>⊤</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>t</mi></msub><mo>−</mo><mover><mi>x</mi><mo accent="true">‾</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\hat x_t=\bar x+L_mL_m^\top(x_t-\bar x).</annotation></semantics></math>
+The test mean and covariance are not used to estimate loadings. Compare
+one and two factors with fixed level and slope contrasts; three
+components spanning three maturities mechanically reconstruct
+everything. Require a fourth series for a meaningful three-factor
+compression test. Rolling eigenvectors have arbitrary signs; compare
+aligned loadings and subspace angles, especially for close eigenvalues.
+Reconstruction is descriptive, not forecasting or causal
+identification.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Verify three distinct horizons, common eligible session changes and
+the sample before fitting. Freeze training centering and eigenvectors;
+compare compression against simple contrasts, then investigate rolling
+stability without interpreting arbitrary sign changes as economic
+reversals.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

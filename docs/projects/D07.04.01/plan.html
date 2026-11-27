@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>HJM and the No-Arbitrage Dynamics of Forward Rates | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D07.04.01 · Derivatives · Fixed income &amp; interest rates</p><h1>HJM and the No-Arbitrage Dynamics of Forward Rates</h1><p class="lead">How does the HJM drift restriction discipline the evolution of discount bond prices, and how large are discretization errors when a continuous-time no-arbitrage model is implemented on a finite grid?</p><p class="small">Synthetic core · Level 3/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d07.04.01">Research plan | D07.04.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Keep the counterexample labeled inadmissible under money-market Q,
+not an alternative calibrated pricing model. Separate integration bias,
+sampling uncertainty and runtime.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive bond dynamics by Ito and verify the drift
+cancellation.</p></li>
+<li><p>Implement exact Gaussian forward increments or fine-grid
+benchmark and compare Euler.</p></li>
+<li><p>Test E[P(t,T)/B(t)]=P(0,T) with paired MC uncertainty for each
+maturity and grid.</p></li>
+<li><p>Quantify omitted-drift distortion and compare time versus
+maturity integration errors.</p></li>
+<li><p>Reconstruct level, slope and curvature responses for one and two
+factors under matched initial curves.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Forward and bond evolution plots, discounted-price errors in bp of
+initial notional with MC intervals, convergence and runtime table,
+factor loading curves.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Do not infer physical forecasts from Q drift. Distinguish MC
+sampling, quadrature and time-step error; time-to-maturity coordinates
+require a transport term. Do not claim exact no-arbitrage for arbitrary
+numerical interpolants.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One-factor deterministic volatility HJM, analytic drift, three
+maturity/grid checks and zero-drift counterexample; agreement with
+benchmark within numerical and MC tolerance.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Add a second factor and compare Gaussian bond-option prices with a
+jointly simulated discounted payoff.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Stochastic calculus, bond math, Gaussian processes, numerical
+quadrature, Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Forward rates and bond pricing;</p></li>
+<li><p>HJM restriction;</p></li>
+<li><p>Gaussian benchmark and discretization;</p></li>
+<li><p>Martingale diagnostics;</p></li>
+<li><p>Factor structure and limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive restriction and quote conventions; W4-6: exact reference
+and grid tests; W7-9: paired MC; W10-12: factor/grid robustness; W13-16:
+write and reproduce.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

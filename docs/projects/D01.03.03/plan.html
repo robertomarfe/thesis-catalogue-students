@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Option Pricing and Hedging in the Presence of Extreme Market Movements | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D01.03.03 · Derivatives · Option models &amp; surfaces</p><h1>Option Pricing and Hedging in the Presence of Extreme Market Movements</h1><p class="lead">How sensitive are hedge losses to rare market gaps, and how much can a second traded vanilla option reduce jump-related tail risk at the same initial capital?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d01.03.03">Research plan | D01.03.03</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Predeclare gamma caps and fallback before comparing stress scenarios.
+Use matched paths, initial capital and funding; report ES uncertainty
+and the frequency of constrained positions, including the no-jump
+subset.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Validate jump compensator and series prices against MC and
+lambda=0 BSM.</p></li>
+<li><p>Derive and test self-financing ledgers, common initial wealth and
+terminal payoffs.</p></li>
+<li><p>Compare BSM delta, Merton delta and delta-gamma policies, with
+predeclared cap/fallback for small secondary gamma.</p></li>
+<li><p>Estimate mean, RMSE, 95% ES and paired loss differences under
+baseline and stress P.</p></li>
+<li><p>Separate no-jump from jump paths, report hedging frequency and
+trading cost sensitivity.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Jump residual versus size, hedge error distributions and tail tables,
+paired bootstrap intervals, turnover and stress loss decomposition.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Stress is a stipulated scenario not a calibrated market disaster
+probability. Gamma matching is local, secondary option has its own jumps
+and transaction costs; compare common caps and capital, disclose
+rare-tail uncertainty. Distinct from D01.03.01, which emphasizes pricing
+and diffusion/jump identification.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Merton pricing reference, common-path delta versus capped delta-gamma
+hedge under two P scenarios with ES uncertainty and funding checks.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Choose hedge ratios by conditional squared jump residual or
+training-sample ES; freeze policy before independent tests.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Option Greeks, jump diffusion, portfolio accounting, Monte Carlo,
+ES.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Gap risk and replication;</p></li>
+<li><p>Q pricing and P stress;</p></li>
+<li><p>Hedge construction;</p></li>
+<li><p>Tail-loss comparisons;</p></li>
+<li><p>Practical constraints.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: jump model and hedge algebra; W4-6: benchmark/ledger; W7-9:
+simulation; W10-12: tail and costs; W13-16: dissertation.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

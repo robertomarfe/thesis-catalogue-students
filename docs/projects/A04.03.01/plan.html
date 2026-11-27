@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Monetary Policy Surprises and the Stock Market | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A04.03.01 · Asset Pricing · Macro-finance &amp; policy</p><h1>Monetary Policy Surprises and the Stock Market</h1><p class="lead">How strongly do US equity prices respond to unexpected shifts in the expected policy-rate path around FOMC communications, and does the response differ between statements and press conferences? Assess conditional associations without automatically assigning a causal structural policy shock interpretation.</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> USMPD event and surprise workbooks; matched equity windows, units and rights.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="required-tasks">Required tasks</h3>
+<ol type="1">
+<li><p>Audit unique event IDs, windows, missing rows and units; match
+the published surprise data by date/type and verify signs/scale against
+rate changes.</p></li>
+<li><p>Plot equity reactions versus normalized surprises, estimate
+separate OLS slopes for statements and conferences with
+heteroskedasticity-robust intervals. Report response to +25 bp (rescale
+from a coefficient per bp).</p></li>
+<li><p>In stacked same-day pairs test slope difference via event-type
+interaction, cluster by FOMC date; bootstrap by date if sample is
+small.</p></li>
+<li><p>Prespecify regime splits (e.g. effective-lower-bound periods
+based on institutional dates) and target/path measures if data support.
+Leave extreme events in baseline and show influence
+sensitivity.</p></li>
+</ol>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Event coverage table; distribution and first-stage rate-surprise
+correlations; scatterplots with regression fits; coefficients/intervals
+for a 25 bp change; paired-window comparison and regime table. Explain
+that sign differences may reflect information effects rather than pure
+policy transmission.</p>
+<h3 id="robustness">Robustness</h3>
+<p>No same equity response used to construct the baseline surprise
+(avoid mechanical correlation); if exploring information-shock sign
+classification, treat it as descriptive or use independently identified
+shocks. Do not infer precise causal effects of policy levels from
+surprise variation. Distinguish percentage points, percent changes and
+bp; do not mix event windows.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Validated downloaded USMPD file and surprise series; one transparent
+window-specific regression plus the matched statement/conference
+comparison where data allow, uncertainty and identification caveats. If
+press-conference coverage is too small, use statement events only and
+record the scope change.</p>
+<h3 id="optional-extension">Optional extension</h3>
+<p>Reproduce the rate-only PC surprise using provided R code or Python;
+add 2Y/10Y yield responses and discuss transmission. A different public
+surprises dataset is an acceptable fallback only after reconciling
+definitions and windows.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>OLS and robust inference, monetary policy basics, event study,
+pandas/statsmodels; PCA optional. No proprietary tick data needed if
+public extract is usable.</p>
+<h3 id="thesis-outline">Thesis outline</h3>
+<ol type="1">
+<li><p>Monetary policy and asset valuation;</p></li>
+<li><p>High-frequency identification and information effects;</p></li>
+<li><p>Event data and estimators;</p></li>
+<li><p>Equity reaction evidence;</p></li>
+<li><p>Identification, robustness and conclusion.</p></li>
+</ol>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: study surprise construction and acquire full USMPD release;
+W4-6: audit windows and reproduce summary; W7-10: estimate responses and
+paired comparisons; W11-13: regime/influence tests and interpretation;
+W14-16: document data/code and write.</p>
+<p>At every meeting submit your own code, inputs/parameter ledger,
+outputs and unresolved issues. Report null results and failed cases.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

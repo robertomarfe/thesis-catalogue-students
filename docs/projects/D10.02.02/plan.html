@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Pricing Commodity Options under Mean Reversion | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D10.02.02 · Derivatives · International, FX &amp; commodities</p><h1>Pricing Commodity Options under Mean Reversion</h1><p class="lead">How does mean reversion affect the maturity pattern of option prices on commodity forwards, holding the initial forward curve fixed?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d10.02.02">Research plan | D10.02.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Check the constant-volatility limit, separate expiry from delivery
+and hold forward/discount fixed. Use independent seeds, report sampling
+error and keep both matching designs distinct.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive forward price, martingale and total variance; check
+kappa-&gt;0 limit numerically.</p></li>
+<li><p>Price calls and puts analytically and by independent Monte Carlo
+with confidence intervals.</p></li>
+<li><p>Plot ATM option time value and implied forward volatility against
+expiry and delivery lag.</p></li>
+<li><p>Decompose effects of changing kappa versus re-matching the
+reference contract volatility.</p></li>
+<li><p>Add a two-factor Gaussian log-spot/convenience yield scenario,
+using the integrated squared forward diffusion and correlation term;
+test whether maturity patterns remain monotonic.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Formula checks, option price/error table, expiry-delivery heatmaps,
+volatility term structures, matched-variance comparison.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Use deterministic rates and European payoff on F(u,T), not S_u unless
+u=T. Ensure Q drift and initial curve are consistent; forward and
+futures equality needs deterministic rates. Gaussian model is an
+illustrative positive-price model, not calibrated oil data.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One-factor derivation, two matching designs, analytic/Monte Carlo
+agreement and economic interpretation of delivery lag; two-factor
+extension optional. Distinct from D10.01.02, which studies the forward
+curve itself.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>With lawful historical options and futures quotes, estimate
+volatility term structure and test one-factor restrictions.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Gaussian processes, risk-neutral pricing, Black formula, Monte
+Carlo.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Commodity forward economics;</p></li>
+<li><p>Mean-reverting model and Black pricing;</p></li>
+<li><p>Synthetic experiment;</p></li>
+<li><p>Maturity and matching comparisons;</p></li>
+<li><p>Limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive dynamics and pricing; W4-6: implement analytic benchmark
+and simulation; W7-9: maturity grids and matched comparisons; W10-12:
+robustness and optional second factor; W13-16: write and reproduce.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

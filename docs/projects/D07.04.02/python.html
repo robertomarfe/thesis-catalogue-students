@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>One-Factor versus Two-Factor Models for Interest Rate Hedging | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D07.04.02 · Derivatives · Fixed income &amp; interest rates</p><h1>One-Factor versus Two-Factor Models for Interest Rate Hedging</h1><p class="lead">How much additional interest rate risk can a two-factor hedge remove relative to a one-factor hedge, after controlling for estimation error and gross notional?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html" aria-current="page">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Python lab</h2><div class="actions"><a href="files/student_start.ipynb" class="button secondary" download>Open student_start.ipynb</a><a href="files/requirements.txt" class="button secondary" download>Open requirements.txt</a></div><p class="notice">Unexecuted starter only. No solved thesis or external data supplied.</p><h3>Run locally</h3><p>Extract the workspace ZIP and open the notebook in an isolated Python environment. Install requirements.txt, read the data guide, and retain your own results.</p><h3>Run in Codespaces</h3><p><a href="https://codespaces.new/robertomarfe/thesis-catalogue-students/tree/main" class="button secondary">Open student Python environment</a></p><p>Check costs. Use Tasks: Run Task > Prepare my research draft, select D07.04.02, then File > Open File and open /workspaces/thesis-research/D07.04.02/student_start.ipynb. Select the isolated .venv interpreter. No forwarded port required. Do not commit raw data or results.</p><h3 id="d07.04.02-student-research-starter">D07.04.02 | Student research
+starter</h3>
+<p><strong>Current review draft; approval pending.</strong> Empirical
+core; actual rights, coverage and input validation pending.</p>
+<h4 id="goal">Goal</h4>
+<p>Yield-curve changes can span more than one empirically important
+direction. Additional hedge instruments may remove a second factor, but
+unstable estimated loadings and large notionals can offset the benefit.
+Test risk reduction on genuinely subsequent curve shocks.</p>
+<p><strong>Research question:</strong> How much additional interest rate
+risk can a two-factor hedge remove relative to a one-factor hedge, after
+controlling for estimation error and gross notional?</p>
+<h4 id="setup-check">Setup check</h4>
+<p>Check dimensions of a toy key-rate exposure system. This artificial
+example does not validate the full research design or actual data.</p>
+<pre><code>import numpy as np
+L=np.zeros((6,2)); D=np.zeros((6,2)); assert (L.T@D).shape==(2,2)
+print(&#x27;Setup check passed.&#x27;)</code></pre><h4 id="student-owned-research">Student-owned research</h4>
+<p>Do not treat physical PCA loadings as risk-neutral parameters. Unlike
+D07.01.02, compare statistical factor spanning with zero-bond hedges
+rather than single-curve swap DV01.</p>
+<ol type="1">
+<li><p>Estimate one/two/three PCA factors on training windows and align
+signs; document loadings and out-of-sample scores.</p></li>
+<li><p>Solve exposure-matching hedges; compare unhedged, parallel DV01
+and first-factor alternatives.</p></li>
+<li><p>Reprice each portfolio under next observed curve shock at fixed
+maturities; report residual SD, tail loss and variance
+reduction.</p></li>
+<li><p>Diagnose hedge matrix condition numbers, gross notionals and
+periods of hedge instability; compare bounded least-squares
+hedge.</p></li>
+<li><p>Repeat using alternate hedge tenors fixed before evaluation and
+separate slope stress scenarios.</p></li>
+</ol>
+<p><strong>Minimum viable thesis:</strong> GSW panel, rolling PCA, one-
+and two-factor zero-bond hedges, held-out shock repricing and
+notional/condition diagnostics. Distinct from D07.01.02, which focuses
+on swap DV01.</p>
+<p>Record assumptions, independent checks, uncertainty and limitations
+in a separate research notebook. No core solver or research output is
+supplied.</p>
+<p><a href="files/student_start.ipynb">Notebook source</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

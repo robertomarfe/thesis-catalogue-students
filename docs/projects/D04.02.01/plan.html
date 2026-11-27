@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Delta-Vega Hedging under Stochastic Volatility | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D04.02.01 · Derivatives · Hedging &amp; volatility derivatives</p><h1>Delta-Vega Hedging under Stochastic Volatility</h1><p class="lead">When does a second traded vanilla option materially improve hedging of a target option in a stochastic-volatility market, net of rebalancing and conditioning risk?</p><p class="small">Synthetic core · Level 3/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d04.02.01">Research plan | D04.02.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Retain small-vega configurations and report unhedged exposures after
+caps. Compare identical premium, costs and paths; do not treat simulated
+option liquidity as observed market liquidity.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Verify BSM deterministic variance limit, parity and Greek finite
+differences; cache/interpolate prices with documented error.</p></li>
+<li><p>Initialize replicating stock/option/cash at target Q price;
+implement no-external-cash rebalances, close hedge option at target
+maturity.</p></li>
+<li><p>Compare delta-only (Heston delta) and delta-vega discounted
+terminal residuals on identical paths.</p></li>
+<li><p>Vary xi, rho, v0, hedge strike and rebalance interval; report
+variance, expected shortfall, turnover and tail ratios.</p></li>
+<li><p>Test threshold for H_v and capped h_H, with conditioning
+diagnostics and common-path cost comparisons.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Heston pricer checks, hedge exposure panels, P&amp;L distributions,
+tail/turnover/cost tables, condition-number/vega threshold
+diagnostics.</p>
+<h4 id="robustness">Robustness</h4>
+<p>This is a coherent simulated market, not evidence of traded option
+liquidity. A variance derivative is not volatility vega unless
+consistently rescaled. Distinguish Q pricer accuracy, P simulation bias,
+discrete hedging and cash-account errors; near-expiry Greeks and small
+vega can destabilize hedges.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One target and two hedge strikes, validated prices and sensitivities,
+delta versus delta-vega on common paths at two frequencies, cost and
+ill-conditioning sensitivity. Distinct from single-stock discrete
+hedging studies.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Hedge under model misspecification or optimize a constrained
+minimum-variance hedge with transaction costs.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Stochastic calculus, options Greeks, Fourier integration, simulation
+and Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Heston market and two-factor exposure;</p></li>
+<li><p>Pricer and Greeks;</p></li>
+<li><p>Self-financing simulation;</p></li>
+<li><p>Hedge performance and conditioning;</p></li>
+<li><p>Costs and conclusions.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive hedge ratios; W4-6: validate Heston pricer and DGP;
+W7-9: cash-ledger hedges; W10-12: sensitivity and costs; W13-16: tests,
+interpretation and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Protective Puts and the Cost of Crash Insurance | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D08.04.01 · Derivatives · Hedging &amp; volatility derivatives</p><h1>Protective Puts and the Cost of Crash Insurance</h1><p class="lead">How much downside protection does a systematic protective-put strategy provide relative to buy-and-hold and risk-matched stock-cash allocations, and at what realized return cost?</p><p class="small">Data access warning · Level 2/3 · Research draft</p><p class="warning" data-warning="true"><strong>Data access warning: the required datasets may be difficult or costly to obtain. Verify availability, coverage and permitted use with your supervisor. This topic is not currently ready for assignment.</strong><br>Authorized PPUT index history and comparable benchmark.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Hedging and volatility derivatives · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Empirical design blocked pending authorized
+access and coverage; not assignable on this design.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>A rolling protective-put index may limit large losses at the cost of
+repeated insurance purchases. Its realized protection depends on
+contract design and market history, and must be compared with lower
+equity exposure rather than attributed mechanically to put premiums.</p>
+<h3 id="research-question">Research question</h3>
+<p>How much downside protection does a systematic protective-put
+strategy provide relative to buy-and-hold and risk-matched stock-cash
+allocations, and at what realized return cost?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>Stock plus put pays
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>max</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mi>T</mi></msub><mo>,</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\max(S_T,K)</annotation></semantics></math>;
+with financed premium
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mn>0</mn></msub><annotation encoding="application/x-tex">P_0</annotation></semantics></math>,
+terminal wealth subtracts
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mn>0</mn></msub><msup><mi>e</mi><mrow><mi>r</mi><mi>T</mi></mrow></msup></mrow><annotation encoding="application/x-tex">P_0e^{rT}</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Obtain authorized PPUT and common total-return comparator or declared
+proxy. Assess monthly risk-matched performance and tail outcomes, with a
+small synthetic roll illustration; separate live and backfilled
+periods.</p>
+<p>Unlike D08.04.02, this is historical rolling insurance evaluation.
+Gate remains blocked. Report achieved risk and uncertainty;
+simulation-only redesign needs explicit approval.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Index provenance and comparator check; wealth/drawdown charts;
+risk-return and stress table; synthetic insurance-cost
+decomposition.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Authorized PPUT and comparator, historical risk-matched comparison
+and a small transparent synthetic payoff exercise, or approved
+simulation variant.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Do not use price-only SP500; distinguish hypothetical index, trade
+costs and actual investability. Tail estimates imprecise; no claim of
+optimal insurance. If rights or history unavailable, switch to
+synthetic-only variant only with supervisor approval and revise
+empirical claim.</p>
+<p><strong>Prerequisites:</strong> Options, portfolio returns, risk
+measures, bootstrap, Python.</p>
+<p><strong>Optional extension:</strong> Compare puts with put spreads at
+common budget, separating protection and cap.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: acquisition/rights and payoff; W4-6: index validation; W7-9:
+benchmarks; W10-12: tail and synthetic attribution; W13-16: writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

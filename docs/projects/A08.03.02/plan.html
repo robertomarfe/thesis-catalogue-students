@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Volatility Targeting in Equity Portfolio Management | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A08.03.02 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Volatility Targeting in Equity Portfolio Management</h1><p class="lead">Does past-only volatility targeting improve risk-adjusted performance and drawdowns versus static equity allocations after matching ex-ante risk and charging realistic costs?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a08.03.02">Research plan | A08.03.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Check target/cap and funding ledger against two hand-computed
+periods; keep realized equity and cash returns separately, lag
+volatility at month end, disclose haircut cost approximation and
+insolvencies. Predeclare static matched-risk rule and borrowing spread;
+report turnover, downside, CE and paired test uncertainty.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>At each month-end use complete trailing 21/63/252 daily total market
+returns (Mkt-RF+RF), annualize SD sqrt(252); target .10/.15, cap
+1/1.5/2. Forecast only with data through t, hold next monthly total
+market and RF. Borrowing spread 0/100/200bp annual charged on negative
+cash weight; equity turnover against drifted weight, 0/10/25bp per
+dollar. Static comparator set with 1990-2004 training-only
+volatility/cap; 2005-25 final. No ex-post risk matching. Report
+insolvent paths rather than silently omit; compare net returns and
+leverage/trading distribution. Daily RF and monthly RF use consistent
+source vintage, audit month compounding.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Validate total and excess returns, dates and lagged volatility
+forecasts.</p></li>
+<li><p>Implement portfolio wealth and drifted turnover, borrowing cost
+only on exposure above one.</p></li>
+<li><p>Compare volatility targeting with buy-and-hold, fixed
+risk-matched equity/cash and inverse-variance alternative on common
+evaluation dates.</p></li>
+<li><p>Report realized target deviation, leverage, turnover, Sharpe, ES,
+drawdown and certainty equivalent; use block bootstrap of paired
+outcomes.</p></li>
+<li><p>Test alternative horizons, caps/costs and high-volatility states;
+lock hyperparameter selection to training.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Weight and forecast volatility time series; realized
+volatility/target plot; wealth and drawdown; leverage/cost/performance
+table; paired uncertainty.</p>
+<h4 id="robustness">Robustness</h4>
+<p>No use of month t+1 information for w_t; do not set target scale
+using full test sample. Excess returns may not include cash financing at
+investor rates; make assumptions explicit. Leverage caps and drawdown
+paths matter. Index-based synthetic portfolios not executed trades.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Market and cash, one target and two caps, fixed equity/cash
+benchmark, past-only weights and cost-aware evaluation. Distinct from
+risk parity across multiple assets.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare conditional mean forecasts or apply to FF factors with
+explicit notional/margin conventions.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Portfolio theory, volatility estimation, Python and backtest
+discipline.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Volatility-managed portfolios;</p></li>
+<li><p>Forecasts and allocation;</p></li>
+<li><p>Data and ledger;</p></li>
+<li><p>Performance and costs;</p></li>
+<li><p>Robustness.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: theory/data checks; W4-6: ledger and forecasts; W7-9: baseline;
+W10-12: stress and costs; W13-16: reproduce/write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

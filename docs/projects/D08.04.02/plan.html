@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Designing Cost-Constrained Tail Risk Hedges | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D08.04.02 · Derivatives · Hedging &amp; volatility derivatives</p><h1>Designing Cost-Constrained Tail Risk Hedges</h1><p class="lead">For a fixed annual initial premium budget, how do a protective put, a put spread and a collar differ in expected shortfall, expected return and extreme-loss protection? Which rankings survive changes in the tail distribution and the volatility risk premium?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d08.04.02">Research plan | D08.04.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Separate single-horizon synthetic choice from historical rolling
+strategies. Verify equal net wealth, budget and extreme-spot payoff
+limits; report cost, expected return, tail protection, upside and paired
+uncertainty.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive payoff diagrams and solve budget-constrained
+strikes/quantities; verify initial wealth identity and realistic upper
+bound on covered call quantity.</p></li>
+<li><p>Compare expected return, loss probability, VaR and ES, upside
+participation and terminal stress outcomes versus unhedged
+stock.</p></li>
+<li><p>Plot efficient frontier of ES versus premium using only
+prespecified contracts; if choosing an optimal hedge, choose on design
+sample and report performance on independent paths.</p></li>
+<li><p>Stress implied premiums, jump tails and financing assumptions;
+report residual exposure below lower put strike and above call
+strike.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Budget/payoff table, terminal wealth and ES distributions,
+protection-cost frontier, tail stress table, sensitivity to Q-P
+differences and upside cost. Confidence intervals from simulation
+replications or independent seed batches.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Use matched initial wealth and feasible quantities, no free arbitrage
+from pricing choices, common random draws and explicit Q/P separation.
+Report budget utilization and separate severe scenarios from expected
+performance. Historical French returns may contextualize physical
+volatility but cannot establish historical option returns; no actual
+executable backtest is claimed.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Three feasible hedge structures and unhedged benchmark, explicit
+budget and financing, baseline and jump-tail physical distributions,
+cost/ES trade-off and limiting cases; results may favor different hedges
+by criterion.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Add repeated monthly roll in a fully specified joint P/Q simulation
+with transaction cost, or public Cboe put-protection benchmark as a
+separate descriptive comparison after access check.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Vanilla option pricing, risk measures, simulation and elementary
+optimization. No proprietary quotes required.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Portfolio insurance and tail risk;</p></li>
+<li><p>Pricing, budget and wealth accounting;</p></li>
+<li><p>Physical scenario design;</p></li>
+<li><p>Hedge comparisons and robustness;</p></li>
+<li><p>Economic interpretation.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: payoff and ES definitions; W4-6: implement pricing and budget
+constraints; W7-10: run independent scenario comparisons; W11-13:
+frontier and tail robustness; W14-16: write and reproduce.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

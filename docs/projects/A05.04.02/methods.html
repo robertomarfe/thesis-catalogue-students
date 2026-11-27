@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Inflation Risk and the Term Structure of Nominal and Real Interest Rates | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A05.04.02 · Asset Pricing · Fixed income &amp; interest rates</p><h1>Inflation Risk and the Term Structure of Nominal and Real Interest Rates</h1><p class="lead">How does the term structure of inflation compensation covary with survey inflation expectations and inflation uncertainty, and how much variation remains after accounting for available expectations proxies?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="measurement">Measurement</h3>
+<p>Breakeven inflation is a nominal-real zero yield difference; TIPS
+indexation, liquidity, deflation protection and fitted-curve conventions
+may matter. A stylized decomposition is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mi>E</mi><mi>I</mi><mo>=</mo><mi>E</mi><mi>π</mi><mo>+</mo><mi>I</mi><mi>R</mi><mi>P</mi><mo>+</mo><mo>ℓ</mo><mo>+</mo><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">v</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">x</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">y</mi></mrow></mrow><annotation encoding="application/x-tex">BEI=E\pi+IRP+\ell+\mathrm{convexity}</annotation></semantics></math>,
+where signs and grouping depend on the convention. Only the sum is
+observed as a curve difference. CPI10 covers current and next nine
+calendar years, not automatically a rolling ten-year horizon.
+Short-horizon SPF forecasts cannot be subtracted from ten-year BEI as a
+matched expectation.</p>
+<h3 id="association-rather-than-identification">Association rather than
+identification</h3>
+<p>Compare nominal, real and compensation changes and their co-movement
+with the released proxy. Use trailing inflation volatility as realized
+historical uncertainty proxy, not expected conditional uncertainty.
+Without a documented horizon reconciliation, report co-movement only;
+even a matched residual is not a pure risk premium.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Verify nominal/real compounding, exact common dates, provider
+identity and release. Never claim a residual decomposition if the survey
+alignment fails. This thesis studies inflation compensation, not an ACM
+nominal premium.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

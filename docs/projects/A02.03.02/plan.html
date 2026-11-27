@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Structural Instability in Equity Premium Predictability | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A02.03.02 · Asset Pricing · Predictability &amp; machine learning</p><h1>Structural Instability in Equity Premium Predictability</h1><p class="lead">Do rolling or discounted-window predictive regressions outperform expanding estimates when equity premium predictability is unstable?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a02.03.02">Research plan | A02.03.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Hand-check weighted least squares on a toy matrix; rolling window
+never uses an immature label; freeze menu before holdout; report MC
+uncertainty and stable-null behavior; do not optimize break location on
+final errors.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Fixed expanding, rolling 120/240 months and exponentially weighted
+OLS half-life 120. Predeclare collinearity rule using training data
+only. In artificial piecewise slope scenario compare adaptation delay,
+then actual common dates; no ex-post breakpoint used to forecast. Use
+historical mean baseline.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Simulate persistent predictor with null, fixed beta and one
+break, 500 seeded paths; compare forecast errors and break-test
+size/power.</p></li>
+<li><p>Plot rolling coefficients and intervals; implement trimmed
+full-sample break statistic using appropriate bootstrap.</p></li>
+<li><p>Generate recursive forecasts with fixed windows and same
+information, expanding historical mean.</p></li>
+<li><p>Compare OOS R2 and block-bootstrap loss differences on common
+dates; predefine subperiods 1970-1999 and 2000-2025 as
+feasible.</p></li>
+<li><p>Stress persistent predictors and valuation definitions,
+alternative lags; report negative results and instability without ex
+post timing.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Simulated bias-variance curves, coefficient paths, break-statistic
+diagnostics, recursive forecast and loss tables.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Full-sample break date cannot be used in real-time prediction.
+Rolling estimates are correlated; naive t-tests over dates invalid.
+Persistent predictor and endogenous innovations require careful
+bootstrap. Distinct from forecast combinations (A02.03.01).</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Simulation and common-date empirical comparison of three window
+schemes, one predictor and historical-mean benchmark; descriptive break
+analysis.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Online change detection or Bayesian time-varying coefficients with
+past-only tuning.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Time-series regressions, rolling estimation, bootstrap, Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Predictability and instability;</p></li>
+<li><p>Estimators and inference;</p></li>
+<li><p>Simulation;</p></li>
+<li><p>Empirical forecasts;</p></li>
+<li><p>Conclusions.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: theory/simulation; W4-6: data and timing; W7-9: break
+diagnostics; W10-12: forecasts; W13-16: write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

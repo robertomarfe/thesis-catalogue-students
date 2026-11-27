@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Information Content of the Equity Index Volatility Skew | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D02.01.01 · Derivatives · Option models &amp; surfaces</p><h1>The Information Content of the Equity Index Volatility Skew</h1><p class="lead">Does a consistently defined equity index option-skew measure improve forecasts of downside equity returns beyond the VIX?</p><p class="small">Data access warning · Level 2/3 · Research draft</p><p class="warning" data-warning="true"><strong>Data access warning: the required datasets may be difficult or costly to obtain. Verify availability, coverage and permitted use with your supervisor. This topic is not currently ready for assignment.</strong><br>Authorized SKEW vintage, final methodology, common sample and downside event counts.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d02.01.01">Research plan | D02.01.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Do not begin an empirical claim before the source vintage and use
+permission pass. Freeze the -5% event and chronological split; retain
+all missing labels, compare common origins and discuss event scarcity
+rather than adjusting the threshold after inspection.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Document methodology vintage, release dates and daily/monthly
+alignment; plot SKEW, VIX and downside events.</p></li>
+<li><p>Estimate in-sample nested logit models and interpret marginal
+effects, not causal effects.</p></li>
+<li><p>Expanding-window forecasts with fixed models; compare Brier/log
+score and calibration against VIX and base rate.</p></li>
+<li><p>Report block-bootstrap intervals and event counts, especially in
+test years.</p></li>
+<li><p>Repeat with threshold -3%, quantile regression and post-launch
+sample; separate methodology versions if both available.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Data audit, index correlation and event plot, coefficient and
+forecast-score tables, calibration curve and event-count table.</p>
+<h4 id="robustness">Robustness</h4>
+<p>The October 5, 2026 Cboe consultation proposed methodology changes
+and a restated history from 2013; confirm final decision before
+download. Do not splice legacy and new histories or treat
+back-calculated values as contemporaneous observations. FF market return
+is a proxy for SPX. Rare events limit statistical power; no significant
+incremental effect required.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One consistently defined licensed skew series, VIX and market proxy;
+documented event count and chronological score comparison. If
+unavailable, simulate Gaussian and asymmetric Q mixtures with P tail
+scenarios, label exercise as non-empirical and obtain supervisor
+approval for redesign.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>If lawful strike-level option data become available, compare
+third-moment index with fixed-delta skew on matched expiries.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Option pricing, logistic regression, probability, time-series
+validation and Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Risk-neutral moments and skew;</p></li>
+<li><p>Index definitions and data;</p></li>
+<li><p>Tail-event forecast design;</p></li>
+<li><p>Incremental information and robustness;</p></li>
+<li><p>Limits and conclusions.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: validate index history and theory; W4-6: align returns and
+audit events; W7-9: estimate nested models; W10-12: chronological scores
+and robustness; W13-16: interpret and write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Financial Stress and the Stock-Bond Correlation | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A04.04.02 · Asset Pricing · Macro-finance &amp; policy</p><h1>Financial Stress and the Stock-Bond Correlation</h1><p class="lead">Does the stock-bond return correlation vary with prior financial stress, and does that variation change the diversification benefit of a fixed stock-bond portfolio?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html" aria-current="page">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Python lab</h2><div class="actions"><a href="files/student_start.ipynb" class="button secondary" download>Open student_start.ipynb</a><a href="files/requirements.txt" class="button secondary" download>Open requirements.txt</a></div><p class="notice">Unexecuted starter only. No solved thesis or external data supplied.</p><h3>Run locally</h3><p>Extract the workspace ZIP and open the notebook in an isolated Python environment. Install requirements.txt, read the data guide, and retain your own results.</p><h3>Run in Codespaces</h3><p><a href="https://codespaces.new/robertomarfe/thesis-catalogue-students/tree/main" class="button secondary">Open student Python environment</a></p><p>Check costs. Use Tasks: Run Task > Prepare my research draft, select A04.04.02, then File > Open File and open /workspaces/thesis-research/A04.04.02/student_start.ipynb. Select the isolated .venv interpreter. No forwarded port required. Do not commit raw data or results.</p><h3 id="a04.04.02-student-research-starter">A04.04.02 | Student research
+starter</h3>
+<p><strong>Current review draft; approval pending.</strong> Empirical
+core; actual rights, coverage and input validation pending.</p>
+<h4 id="goal">Goal</h4>
+<p>Financial stress can change the joint distribution of stock and bond
+returns. A correlation shift alone does not establish whether a fixed
+allocation becomes riskier, because marginal variances also move.</p>
+<p><strong>Research question:</strong> Does the stock-bond return
+correlation vary with prior financial stress, and does that variation
+change the diversification benefit of a fixed stock-bond portfolio?</p>
+<h4 id="setup-check">Setup check</h4>
+<p>Check a fixed-weight variance ledger on a toy covariance matrix. This
+artificial example does not validate the full research design or actual
+data.</p>
+<pre><code>import numpy as np
+w=np.array([.6,.4]); S=np.array([[.04,-.002],[-.002,.01]])
+assert np.all(np.linalg.eigvalsh(S)&gt;0)
+assert np.isclose(w@S@w,.04*.6**2+.01*.4**2+2*.6*.4*(-.002))
+print(&#x27;Setup check passed.&#x27;)</code></pre><h4 id="student-owned-research">Student-owned research</h4>
+<p>Use a release ledger or explicitly pseudo-real-time extra lag; set
+threshold from fixed rule or past data. Compute exact aging bond return
+and nominal equity total return; report regime counts, marginal
+variances, covariance and 2<em>w_s</em>w_b*cov contribution with
+date-block inference and fixed-weight risk decomposition.</p>
+<ol type="1">
+<li><p>Build discount factors and verify zero-bond holding-return
+formula against parallel-shock duration approximation.</p></li>
+<li><p>Plot rolling 36/60-month covariance/correlation and
+volatilities.</p></li>
+<li><p>Split by lagged stress above zero and training-sample quantiles;
+estimate conditional covariance and correlation with paired block
+bootstrap.</p></li>
+<li><p>Compare 60/40 portfolio risk to an independence counterfactual
+across regimes.</p></li>
+<li><p>Test robustness by bond maturity, alternative NFCI, lag and
+pre/post-2008 or inflationary periods; report event counts.</p></li>
+</ol>
+<p><strong>Minimum viable thesis:</strong> Monthly market and 5y
+synthetic zero returns, lagged stress, conditional risk and paired block
+inference. Distinct from macro inflation hedge A04.02.02.</p>
+<p>Record assumptions, independent checks, uncertainty and limitations
+in a separate research notebook. No core solver or research output is
+supplied.</p>
+<p><a href="files/student_start.ipynb">Notebook source</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

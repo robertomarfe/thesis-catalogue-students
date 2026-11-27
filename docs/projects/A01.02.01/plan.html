@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Three Factors or Five? Comparing Fama-French Asset Pricing Models | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A01.02.01 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>Three Factors or Five? Comparing Fama-French Asset Pricing Models</h1><p class="lead">Does the Fama-French five-factor model improve pricing of US industry and characteristic portfolios relative to the three-factor model, and are the gains stable across samples? Do the additional factors have explanatory power conditional on common market, size and value factors?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a01.02.01">Research plan | A01.02.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Require the monthly return blocks, matched RF and common complete
+calendar, positive GRS degrees of freedom, and at least the original
+provisional subperiod coverage. Refit paired alpha differences in joint
+time blocks. Document covariance singularity rather than silently
+regularizing the classical GRS statistic.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Document factor definitions and common-sample descriptive
+statistics; estimate FF3 and FF5 for the same excess-return
+matrix.</p></li>
+<li><p>Compute annualized mean absolute alpha, alpha RMSE, adjusted
+R-squared, GRS statistic/p-value separately by model and test-asset set;
+display individual alpha estimates with HAC intervals.</p></li>
+<li><p>Estimate a deliberately nested pair with Mkt-RF, SMB and HML from
+FF5 held fixed, then add RMW and CMA; compare joint restrictions and
+factor spanning regressions.</p></li>
+<li><p>Repeat by prespecified subperiod and alternative portfolio
+family; use block-bootstrap paired alpha-RMSE differences for
+uncertainty, not raw GRS p-value rankings alone.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Factor summary and correlation matrix; pricing-error/GRS table for
+common assets; alpha scatter or forest plot and portfolio-by-portfolio
+errors; nested comparison; subperiod and bootstrap table. Interpret any
+improvement in annualized return units.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Use common dates and factor source conventions; avoid claiming causal
+risk factors. Report non-iid limitations of classical GRS, and do not
+use higher adjusted R-squared alone as evidence of better pricing. Check
+smaller industry set if covariance is ill-conditioned; report all
+selected asset sets even if results are mixed.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Reproduce FF3 and FF5 for industries plus one secondary test-asset
+set, compare pricing errors and joint tests on a common sample, include
+the nested-model check and time split. A five-factor rejection or weak
+improvement is a legitimate conclusion.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Add momentum as a common factor or compare European factors and
+matched regional test assets; keep currency and RF consistent. Test
+factor redundancy with spanning, not by deleting a factor merely because
+its mean is small.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Linear regression, matrix algebra, portfolio returns, multivariate
+hypothesis tests, pandas/statsmodels. No individual stock database
+necessary.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Factor pricing and motivation;</p></li>
+<li><p>CAPM, FF3, FF5 and tests;</p></li>
+<li><p>Data and comparison design;</p></li>
+<li><p>Pricing errors and factor spanning;</p></li>
+<li><p>Stability, limitations and implications.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive factor pricing/GRS and acquire files; W4-6: clean
+returns and reproduce one regression; W7-10: common-sample model
+comparison and nested analysis; W11-13: subperiods, bootstrap and
+interpretation; W14-16: draft and reproduce all results.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

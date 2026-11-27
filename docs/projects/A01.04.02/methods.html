@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Principal Components versus Observable Asset Pricing Factors | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A01.04.02 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>Principal Components versus Observable Asset Pricing Factors</h1><p class="lead">At equal factor dimension, do principal-component factors estimated on training assets produce smaller held-out pricing errors than observable FF factors?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="covariance-versus-traded-factors">Covariance versus traded
+factors</h3>
+<p>Compute
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>k</mi></msub><annotation encoding="application/x-tex">V_k</annotation></semantics></math>
+from the covariance of centered training returns. Apply those weights to
+raw excess returns
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>t</mi></msub><annotation encoding="application/x-tex">x_t</annotation></semantics></math>
+at all dates, not to returns demeaned by a test mean (which would remove
+their premia). Eigenvector signs are arbitrary but factor exposures and
+signs must transform consistently. Report variance reconstruction using
+the frozen subspace, separately from expected-return pricing.</p>
+<h3 id="pricing-evaluation">Pricing evaluation</h3>
+<p>Estimate a candidate normalized SDF
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mi>t</mi></msub><mo>=</mo><mn>1</mn><mo>−</mo><msup><mi>b</mi><mi>⊤</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>f</mi><mi>t</mi></msub><mo>−</mo><msub><mi>μ</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">m_t=1-b^\top(f_t-\mu_f)</annotation></semantics></math>
+using training means and common weights. Freeze
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>k</mi></msub><mo>,</mo><mi>b</mi><mo>,</mo><msub><mi>μ</mi><mi>f</mi></msub></mrow><annotation encoding="application/x-tex">V_k,b,\mu_f</annotation></semantics></math>
+for later moment evaluation. For two-pass pricing of held-out portfolio
+definitions, estimate their betas from pre-test returns to the fixed
+factors; never use future means to form forecasts. A descriptive later
+regression alpha is a separate diagnostic. Shared underlying stocks
+limit independence claims.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Freeze factor dimensions, weights, means and model selection before
+the test. Audit date and asset holdouts separately, report factor return
+scaling and rank, and retain common pricing moments. Optional OSAP
+alternative requires its own access verification.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

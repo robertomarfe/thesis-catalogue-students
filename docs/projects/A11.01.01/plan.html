@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Stochastic Discount Factor and the Geometry of Risk Premia | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A11.01.01 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>The Stochastic Discount Factor and the Geometry of Risk Premia</h1><p class="lead">How do the payoff span and market incompleteness determine the minimum-norm SDF, the attainable Sharpe ratio and the set of admissible positive pricing kernels?</p><p class="small">Synthetic core · Level 1/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="required-tasks">Required tasks</h3>
+<ol type="1">
+<li><p>Derive projection, orthogonality and normalization; verify
+pricing residual and rank.</p></li>
+<li><p>Generate incomplete/complete economies, compute minimum-norm and
+positive alternative SDFs, show common pricing.</p></li>
+<li><p>Add assets sequentially, compare projection variance, maximum
+attainable Sharpe and equality conditions.</p></li>
+<li><p>Construct cases where unrestricted minimum-norm SDF is negative
+despite an arbitrage-free positive alternative; solve constrained
+minimum-norm and compare.</p></li>
+<li><p>Perturb payoffs/prices to examine numerical conditioning and
+redundant assets; test invariance to basis change and scaling.</p></li>
+</ol>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Payoff/price tables; projection and null-space diagnostics; SDF
+dispersion and Sharpe frontier; positive feasibility and conditioning
+plots.</p>
+<h3 id="robustness">Robustness</h3>
+<p>Use probability-weighted inner product. Distinguish a minimum-norm
+linear SDF from true structural marginal utility; positivity matters for
+arbitrage but is not automatic. Bound equality requires traded span and
+unconstrained portfolio assumptions. Distinct from empirical HJ bound
+A11.02.01 and beta mapping A11.01.02.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Two nested finite-state economies, exact pricing and projection,
+null-space alternatives, positivity and Sharpe geometry with numerical
+verification.</p>
+<h3 id="optional-extension">Optional extension</h3>
+<p>Compare constrained SDF with entropy-minimizing kernel or apply
+projection to public portfolio moments, with estimation-error
+caveat.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Linear algebra, probability, asset pricing and convex optimization in
+Python.</p>
+<h3 id="thesis-outline">Thesis outline</h3>
+<ol type="1">
+<li><p>Pricing kernels and payoff space;</p></li>
+<li><p>Projection geometry;</p></li>
+<li><p>Synthetic economies;</p></li>
+<li><p>Risk-premium and positivity results;</p></li>
+<li><p>Implications.</p></li>
+</ol>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: theory and proof; W4-6: finite-state solver; W7-9: nested
+spans; W10-12: positivity/conditioning; W13-16: code and thesis.</p>
+<p>At every meeting submit your own code, inputs/parameter ledger,
+outputs and unresolved issues. Report null results and failed cases.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

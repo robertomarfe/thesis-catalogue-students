@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Transaction Costs and the Economic Viability of Published Anomalies | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A12.04.02 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Transaction Costs and the Economic Viability of Published Anomalies</h1><p class="lead">For a preselected set of published anomalies, what combinations of turnover and per-dollar trading costs eliminate gross mean returns or factor-adjusted alpha?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> OSAP and signal metadata; turnover requires separate verification.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a12.04.02">Research plan | A12.04.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Pin eight named signals and OSAP dictionary, common factor sample;
+report cost/turnover grid with exact units, negative alphas and
+uncertainty. Verify intercept translation with constant costs; use exact
+matched turnover only when authorized and documented, else scenario
+exercise. Do not compound unfunded spread or claim tradability.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Pin matching OSAP returns/metadata and FF3/5+Mom; select 8-12 signal
+holding periods/categories before observing Sharpe; common 1990-2025,
+1990-2009 descriptive and 2010-25 comparison. Returns already
+long-short; verify leverage/turnover convention and whether gross or
+net. If no matched turnover, use monthly tau .1/.25/.5/1/2, cost
+5..100bp; net spread r-c*tau, break-even c=mean/tau with units; negative
+mean has no nonnegative break-even. For constant deduction alpha shifts
+equally under same factor matrix, distinguish mean break-even and alpha
+break-even. If actual turnover use same portfolio/vintage/leverage only.
+No funded wealth/compounding on zero-cost spreads. Report paired
+inference and multiplicity, no investability assertion.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Check units, gross/net definitions and capital
+normalization.</p></li>
+<li><p>Estimate gross mean, alpha and HAC intervals.</p></li>
+<li><p>Compute scenario net returns and break-even frontiers with
+uncertainty.</p></li>
+<li><p>Compare rankings by costs and holding-period categories;
+distinguish fixed versus hypothetical state-dependent turnover.</p></li>
+<li><p>Add separately stated financing and borrow-cost scenarios; test
+gross-notional convention sensitivity.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Break-even cost/turnover contours, gross and scenario-net alpha
+table, data/provenance audit and uncertainty.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Return-only series cannot recover traded notional, spreads, market
+impact, borrow or capacity. Scenario analysis is not historical
+executable net performance. No turnover inferred from return
+autocorrelation. Avoid look-ahead signal selection.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Eight signals, common factor sample, two-dimensional cost grid and
+explicit no-turnover-data limitation.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Use verified published holdings/turnover for a subset, then compare
+scenario and observed turnover-based estimates.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Factor models, portfolio accounting, regression, Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Implementation frictions;</p></li>
+<li><p>Cost accounting;</p></li>
+<li><p>Data;</p></li>
+<li><p>Break-even analysis;</p></li>
+<li><p>Limits.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: source/turnover audit; W4-6: gross benchmarks; W7-9: cost
+grids; W10-12: alpha and uncertainty; W13-16: writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

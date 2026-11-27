@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Does the VIX Improve Realized Volatility Forecasts? | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.04.01 · Derivatives · Volatility &amp; tail risk</p><h1>Does the VIX Improve Realized Volatility Forecasts?</h1><p class="lead">Does lagged VIX improve one-month physical variance forecasts relative to historical and GARCH-based forecasts in genuine chronological evaluation?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="risk-neutral-and-physical-objects">Risk-neutral and physical
+objects</h3>
+<p>The VIX is an annualized volatility index on SPX option-implied
+variation. For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>H</mi><mi>c</mi></msub><annotation encoding="application/x-tex">H_c</annotation></semantics></math>
+calendar days,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>I</mi><mi>t</mi></msub><mi>/</mi><mn>100</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><msub><mi>H</mi><mi>c</mi></msub><mi>/</mi><mn>365</mn></mrow><annotation encoding="application/x-tex">(I_t/100)^2 H_c/365</annotation></semantics></math>
+is a horizon-variance approximation; it assumes scaling from the 30-day
+maturity. Actual squared daily log returns on the broad FF market proxy
+are neither exact SPX returns nor intraday quadratic variation. Record
+this distinction explicitly.</p>
+<h3 id="forecast-evaluation">Forecast evaluation</h3>
+<p>Use lagged returns and scaled implied variance in a model for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mrow><mi>t</mi><mo>,</mo><mi>H</mi></mrow></msub><mo>=</mo><msub><mo>∑</mo><mrow><mi>j</mi><mo>∈</mo><mi>𝒮</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><mi>H</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msub><msubsup><mi>u</mi><mi>j</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">Y_{t,H}=\sum_{j\in\mathcal S(t,H)}u_j^2</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝒮</mi><annotation encoding="application/x-tex">\mathcal S</annotation></semantics></math>
+is the set of audited trading sessions in the target window. Fit on
+matured labels only, preserve positivity through a log link or
+training-only floor, and compare QLIKE
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mi>f</mi><mo>+</mo><mi>Y</mi><mi>/</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">\log f+Y/f</annotation></semantics></math>
+and MSE at common origins. Estimate uncertainty from paired loss
+differences, not independent errors from separate samples.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>The value added by VIX is a forecasting question, not evidence that
+the risk-neutral and physical measures are equal. Treat month-length
+scaling and broad-market versus SPX mismatch as limitations and preserve
+missing close dates.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

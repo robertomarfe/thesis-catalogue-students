@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Black-Litterman Portfolio Choice under Uncertain Expected Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A08.02.01 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Black-Litterman Portfolio Choice under Uncertain Expected Returns</h1><p class="lead">How do prior strength and uncertainty in relative-return views affect Black-Litterman posterior allocations and their held-out economic performance?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>A08.02.01 / Asset pricing / Empirical / Difficulty 2/3 / 16
+weeks / Data gate: pending</strong></p>
+<p>Current research proposal. Not approved for assignment.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Portfolio choice based on estimated expected returns is vulnerable to
+sampling error. Black-Litterman uses a reference portfolio and noisy
+relative-return views to regularize estimates of the mean. Its economic
+value depends on whether those views improve held-out allocation
+decisions after constraints and costs. The project distinguishes a
+genuine sensitivity to prior uncertainty from a parameter that cancels
+by construction.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do prior strength and uncertainty in relative-return views affect
+Black-Litterman posterior allocations and their held-out economic
+performance?</p>
+<h3 id="model-and-economic-intuition">Model and economic intuition</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math>
+be the monthly return covariance,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>w</mi><mn>0</mn></msub><annotation encoding="application/x-tex">w_0</annotation></semantics></math>
+a reference portfolio and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi><mo>=</mo><mi>δ</mi><mi>Σ</mi><msub><mi>w</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">\pi=\delta\Sigma w_0</annotation></semantics></math>
+a prior mean. Assume
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>∼</mo><mi>N</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>π</mi><mo>,</mo><mi>τ</mi><mi>Σ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mu\sim N(\pi,\tau\Sigma)</annotation></semantics></math>
+and noisy views
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>=</mo><mi>P</mi><mi>μ</mi><mo>+</mo><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">Q=P\mu+\epsilon</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϵ</mi><mo>∼</mo><mi>N</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>Ω</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\epsilon\sim N(0,\Omega)</annotation></semantics></math>.
+The posterior mean is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mrow><mi>B</mi><mi>L</mi></mrow></msub><mo>=</mo><mi>π</mi><mo>+</mo><mi>τ</mi><mi>Σ</mi><msup><mi>P</mi><mi>⊤</mi></msup><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>P</mi><mi>τ</mi><mi>Σ</mi><msup><mi>P</mi><mi>⊤</mi></msup><mo>+</mo><mi>Ω</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>−</mi><mn>1</mn></mrow></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>Q</mi><mo>−</mo><mi>P</mi><mi>π</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\mu_{BL}=\pi+\tau\Sigma P^\top(P\tau\Sigma P^\top+\Omega)^{-1}(Q-P\pi).</annotation></semantics></math></p>
+<p>Keep the return covariance fixed when comparing mean updates. If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mo>=</mo><mi>c</mi><mi>τ</mi><mo>diag</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>P</mi><mi>Σ</mi><msup><mi>P</mi><mi>⊤</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Omega=c\tau\operatorname{diag}(P\Sigma P^\top)</annotation></semantics></math>,
+the factor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>
+cancels from the posterior mean. An anchored
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>
+permits a distinct sensitivity to prior uncertainty.</p>
+<h3 id="data-and-research-design">Data and research design</h3>
+<p>Use monthly value-weighted ten-industry French total returns and FF3
+risk-free returns, 1970–2025 subject to valid common coverage. Use
+trailing 120-month excess-return means/covariances, identical shrinkage
+across methods, equal-weight reference and delta=3. Predeclare relative
+views using lagged sample means; verify portfolio labels. Freeze the
+evaluation design before 2005–2025 held-out evaluation. No data or
+empirical results are provided.</p>
+<h3 id="applied-research-programme">Applied research programme</h3>
+<ol type="1">
+<li>Derive the Gaussian posterior and check zero-innovation and
+weak-view limits.</li>
+<li>At one prespecified origin compare confidence settings 0.1, 1, 10
+and the anchored versus proportional Omega experiment.</li>
+<li>Compute long-only fully invested rolling allocations with common
+covariance and risk aversion; compare equal-weight, prior-only and
+sample-mean benchmarks.</li>
+<li>Compute drift-adjusted turnover and 10/25 bp trading cost
+sensitivity; report Sharpe, certainty equivalent, concentration and
+performance.</li>
+<li>Use paired date-block uncertainty and prespecified alternative view
+definitions. No test-sample tuning.</li>
+</ol>
+<h3 id="deliverables-and-acceptance">Deliverables and acceptance</h3>
+<p>Posterior diagnostic and sensitivity curves; rolling weight and
+performance tables; cost-adjusted results, turnover, concentration and
+reproducible code. Reference weights are stylized, not observed
+market-equilibrium weights.</p>
+<p><strong>Minimum viable thesis.</strong> Validated posterior, one
+relative-view pair, at least three confidence settings and long-only
+rolling comparison with prior/equal/sample-mean benchmarks; show tau
+invariance under proportional Omega and a separate prior-strength
+sensitivity at one prespecified origin with Omega anchored at a fixed
+tau reference. Keep the return covariance and risk aversion fixed in
+mean comparisons.</p>
+<h3 id="work-plan">Work plan</h3>
+<p>Weeks 1–3: theory and source review; 4–6: data or numerical setup;
+7–10: core implementation; 11–13: robustness; 14–16: writing and
+replication. Preserve the more detailed canonical milestones.</p>
+<h3 id="core-reading">Core reading</h3>
+<p>Black and Litterman (1992); He and Litterman (1999); DeMiguel,
+Garlappi and Uppal (2009). Consult inherited reading guide and verify
+source metadata before final citation.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

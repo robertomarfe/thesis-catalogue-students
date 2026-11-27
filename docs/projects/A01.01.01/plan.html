@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Testing the CAPM across Size and Value Portfolios | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A01.01.01 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>Testing the CAPM across Size and Value Portfolios</h1><p class="lead">Does market beta account for differences in average excess returns across size and book-to-market portfolios? How sensitive is the conclusion to test assets and inference?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a01.01.01">Research plan | A01.01.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Use one RF subtraction, common complete dates and separate portfolio
+panels. Report T, N, K, eigenvalues and failed draws. Re-estimate both
+regression passes in joint date blocks; do not interpret a rejected
+joint hypothesis as proof of inefficiency.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Summarize excess return, volatility and beta across 5x5
+portfolios; plot mean return and market beta heatmaps.</p></li>
+<li><p>Estimate time-series alpha/beta, HAC intervals, RMSE of alphas
+and GRS joint test; report covariance condition.</p></li>
+<li><p>Estimate cross-sectional beta price and intercept using two-pass
+regressions; use joint date-block bootstrap that re-estimates betas and
+premia.</p></li>
+<li><p>Compare predicted and observed means against the CAPM
+restriction, reporting economic magnitudes and uncertainty.</p></li>
+<li><p>Repeat across subperiods and industries; use FF3 as a limited
+diagnostic for omitted exposures.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Beta/alpha heatmaps, GRS and robust joint test table, security market
+line scatter, pricing error summary, beta uncertainty and sample split
+results.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Use a common month index and risk-free series; test equal-weighted
+size/value portfolios separately, not mixed with value-weighted series.
+Do not interpret GRS rejection as a unique rejection of rationality;
+market proxy and joint hypothesis matter. Bootstrap entire time slices
+jointly; report near-singular matrices.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One full 25-portfolio panel, derivation, alpha tests, security market
+line and cross-sectional inference with a separate industry or temporal
+robustness panel.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Use rolling or conditional betas, but retain the unconditional CAPM
+as the primary object.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>OLS, multivariate statistics, portfolio theory, Python
+statsmodels/NumPy.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Mean-variance theory and CAPM;</p></li>
+<li><p>Testing restrictions and inference;</p></li>
+<li><p>Test assets and data;</p></li>
+<li><p>Time-series and cross-sectional evidence;</p></li>
+<li><p>Interpretation.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: CAPM and test derivations; W4-5: construct portfolio panel;
+W6-8: estimate alpha/beta and GRS; W9-12: two-pass and bootstrap;
+W13-16: robustness and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

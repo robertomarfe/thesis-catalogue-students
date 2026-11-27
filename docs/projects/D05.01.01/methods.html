@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Variance Reduction in Monte Carlo Option Pricing | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D05.01.01 · Derivatives · Numerical pricing &amp; exotics</p><h1>Variance Reduction in Monte Carlo Option Pricing</h1><p class="lead">Which of antithetic variates, control variates and their combination yields the best pricing precision per unit runtime for European and discretely monitored Asian calls? Does the efficiency ranking depend on moneyness?</p><p class="small">Synthetic core · Level 1/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="sampling-and-controls">Sampling and controls</h3>
+<p>Under the pricing measure
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℚ</mi><annotation encoding="application/x-tex">\mathbb Q</annotation></semantics></math>,
+exact GBM log increments over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+have mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><mi>q</mi><mo>−</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>h</mi></mrow><annotation encoding="application/x-tex">(r-q-\sigma^2/2)h</annotation></semantics></math>
+and variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><mi>h</mi></mrow><annotation encoding="application/x-tex">\sigma^2h</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>,</mo><mi>q</mi><mo>,</mo><mi>σ</mi></mrow><annotation encoding="application/x-tex">r,q,\sigma</annotation></semantics></math>
+are rate, dividend yield and volatility. The price is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝔼</mi><mi>ℚ</mi></msup><mi>X</mi></mrow><annotation encoding="application/x-tex">\mathbb E^{\mathbb Q}X</annotation></semantics></math>
+for discounted payoff
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>.
+Antithetic normals
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>,</mo><mi>−</mi><mi>Z</mi></mrow><annotation encoding="application/x-tex">Z,-Z</annotation></semantics></math>
+produce one independent pair average. A control
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
+with known mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>μ</mi><mi>Y</mi></msub><annotation encoding="application/x-tex">\mu_Y</annotation></semantics></math>
+gives the adjusted payoff
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>−</mo><mi>b</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>−</mo><msub><mi>μ</mi><mi>Y</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">X-b(Y-\mu_Y)</annotation></semantics></math>;
+minimizing variance yields
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>b</mi><mo>*</mo></msup><mo>=</mo><mo>Cov</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mo>Var</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">b^*=\operatorname{Cov}(X,Y)/\operatorname{Var}(Y)</annotation></semantics></math>
+for positive control variance. Estimate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>
+on independent pilot paths to preserve conditional unbiasedness.
+Discounted stock has mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub><msup><mi>e</mi><mrow><mi>−</mi><mi>q</mi><mi>T</mi></mrow></msup></mrow><annotation encoding="application/x-tex">S_0e^{-qT}</annotation></semantics></math>.
+The geometric Asian payoff is a control for the arithmetic claim; the
+Gaussian log-average variance is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><msup><mi>m</mi><mrow><mi>−</mi><mn>2</mn></mrow></msup><msub><mo>∑</mo><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub><mo>min</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>t</mi><mi>i</mi></msub><mo>,</mo><msub><mi>t</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\sigma^2m^{-2}\sum_{i,j}\min(t_i,t_j)</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+fixings.</p>
+<h3 id="precision-and-cost">Precision and cost</h3>
+<p>Compare equal raw payoff evaluations and include pilot overhead.
+Assess coverage against the analytic European reference and RMSE
+relative to an independent arithmetic reference with its own
+uncertainty. Count pairs rather than treating their members as
+independent. Variance times runtime measures cost-adjusted precision;
+report absolute errors where ratios are unstable.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Freeze the payoff, seed and timing protocol. The combined estimator
+addresses the full question even when the MVT requires only two methods.
+Do not label a high-budget arithmetic reference exact.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

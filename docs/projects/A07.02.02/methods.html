@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Downside versus Upside Market Risk in Factor Investing | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A07.02.02 · Asset Pricing · Volatility &amp; tail risk</p><h1>Downside versus Upside Market Risk in Factor Investing</h1><p class="lead">Which equity factors have asymmetric market exposures and payoff distributions across down and up markets, and how stable is the asymmetry?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="asymmetric-regression">Asymmetric regression</h3>
+<p>In up markets the conditional intercept and slope are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(a,b)</annotation></semantics></math>;
+in down markets they are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>+</mo><mi>c</mi><mo>,</mo><mi>b</mi><mo>+</mo><mi>d</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(a+c,b+d)</annotation></semantics></math>.
+Including the indicator itself prevents a forced equal intercept.
+Estimate the two state-specific regressions as a check. Summarize
+conditional means, dispersions and lower partial moments about a
+declared threshold. Long-short factor payoffs are already spreads; do
+not subtract RF a second time.</p>
+<h3 id="inference">Inference</h3>
+<p>The state is contemporaneous, not observable before the month’s
+return. Use common dates and the required minimum count per state.
+Estimate joint confidence intervals or multiplicity-adjusted tests
+across factors, preserving common month blocks; inspect rolling
+estimates without treating overlapping windows as independent. A slope
+difference describes payoff asymmetry, not necessarily an independently
+priced factor.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Prespecify the sign cutoff and rolling windows. Report all factors,
+state counts and crisis sensitivity; distinguish conditional descriptive
+analysis from a trading signal or a pricing test.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

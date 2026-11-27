@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Which Stock Return Anomalies Survive Standard Factor Adjustment? | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A01.03.01 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>Which Stock Return Anomalies Survive Standard Factor Adjustment?</h1><p class="lead">Which prespecified replicated anomalies retain nonzero alphas after common factor adjustment and dependence-aware multiplicity controls?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> OSAP release, signal metadata, permissions and common factor sample.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="returns-and-the-test-family">Returns and the test family</h3>
+<p>Long-short payoffs
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>L</mi><mi>i</mi></msub><annotation encoding="application/x-tex">L_i</annotation></semantics></math>
+are zero-investment spreads; do not subtract the bill return again.
+Freeze signed signal definitions and eligibility using metadata and
+coverage only. Test factor-adjusted intercepts using dependence-aware
+standard errors for the time series. Declare the family of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+hypotheses before testing.</p>
+<h3 id="multiple-testing">Multiple testing</h3>
+<p>Order p-values
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></msub><mo>≤</mo><mi>⋯</mi><mo>≤</mo><msub><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow></msub></mrow><annotation encoding="application/x-tex">p_{(1)}\le\cdots\le p_{(m)}</annotation></semantics></math>.
+At FDR target
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>,
+BH selects through the largest
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow></msub><mo>≤</mo><mi>k</mi><mi>q</mi><mi>/</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">p_{(k)}\le kq/m</annotation></semantics></math>
+(zero discoveries if none). BY replaces
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>
+by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mi>/</mi><msub><mi>H</mi><mi>m</mi></msub></mrow><annotation encoding="application/x-tex">q/H_m</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mi>m</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></msubsup><mn>1</mn><mi>/</mi><mi>j</mi></mrow><annotation encoding="application/x-tex">H_m=\sum_{j=1}^m1/j</annotation></semantics></math>.
+BH needs independence or appropriate positive dependence; BY
+accommodates arbitrary dependence of valid p-values but is conservative.
+FDR concerns expected false-discovery proportion, not probability of any
+false discovery. Distinguish discovery from a later frozen replication
+sample; neither is a claim of implementable net profits.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Use one shared revision and record a separate SHA-256 for each OSAP
+file; the October 2026 route and metadata are inherited candidates, not
+verified. Freeze the coverage-only rule before outcomes; report
+exclusions, common calendar, sign and multiple-testing family. Resample
+entire date slices, preserving cross-anomaly dependence.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

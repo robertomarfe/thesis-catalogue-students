@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Monetary Policy and the Joint Response of Nominal and Real Yields | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A04.03.02 · Asset Pricing · Macro-finance &amp; policy</p><h1>Monetary Policy and the Joint Response of Nominal and Real Yields</h1><p class="lead">How do the matched-maturity nominal and real Treasury yield responses to FOMC surprises vary with horizon and communication window, and what is the associated breakeven response?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> USMPD: same-window, same-maturity nominal and real yields, plus surprise data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="mathematical-framework">Mathematical framework</h3>
+<p>For matched maturity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>,
+define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>B</mi><msub><mi>E</mi><mi>e</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>Δ</mi><msubsup><mi>y</mi><mi>e</mi><mi>N</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>Δ</mi><msubsup><mi>y</mi><mi>e</mi><mi>R</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Delta BE_e(n)=\Delta y^N_e(n)-\Delta y^R_e(n)</annotation></semantics></math>,
+all in basis points, on the identical event window
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>e</mi><annotation encoding="application/x-tex">e</annotation></semantics></math>.</p>
+<p>For a common design matrix containing an intercept and rates-only
+surprise, OLS is linear in the response:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>b</mi><mo accent="true">̂</mo></mover><mrow><mi>B</mi><mi>E</mi></mrow></msub><mo>=</mo><msub><mover><mi>b</mi><mo accent="true">̂</mo></mover><mi>N</mi></msub><mo>−</mo><msub><mover><mi>b</mi><mo accent="true">̂</mo></mover><mi>R</mi></msub></mrow><annotation encoding="application/x-tex">\widehat b_{BE}=\widehat b_N-\widehat b_R</annotation></semantics></math>.
+This holds for every coefficient only if rows and regressors match.
+Estimate uncertainty directly from the difference response or paired
+meeting resampling; subtracting standard errors is invalid. Breakeven
+changes include inflation risk and liquidity compensation. Verify actual
+same-window nominal/TIPS coverage, units, time zone, event IDs and
+unmatched counts before fitting. If intraday matching fails, a
+daily-response design for both yields needs explicit approval, with
+distinct shock and response windows.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Validate one actual nominal/real maturity and exact same-window
+surprise mapping. Estimate all three responses with identical design
+rows; verify intercept and slope identity beta_BE=beta_N-beta_R and
+compute inference on the actual difference (not by subtracting standard
+errors). Report unmatched counts and TIPS caveats; if overlap fails
+defer or seek explicit daily redesign.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

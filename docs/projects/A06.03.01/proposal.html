@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Equity Yield Slopes and the Sensitivity of Equity Portfolios to Interest Rates | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A06.03.01 · Asset Pricing · Consumption &amp; equity valuation</p><h1>Equity Yield Slopes and the Sensitivity of Equity Portfolios to Interest Rates</h1><p class="lead">Do portfolio-level model-implied equity yield slopes predict differential subsequent exposure to government yield changes, and does the association survive controls for investment style and market exposure?</p><p class="small">Conditional data access · Level 3/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> GKK archive and exact style-return matching (at least four styles).</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Consumption-based asset pricing and equity
+term structures · Level 3/3</strong></p>
+<p><strong>Data:</strong> Empirical design conditional on actual access
+and coverage. <strong>Status:</strong> current review draft; supervisor
+approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Rate sensitivity may depend on the timing of priced dividends and on
+equity valuation states. An interaction design tests this association
+without claiming that an observed rate movement is an exogenous
+discount-rate shock.</p>
+<h3 id="research-question">Research question</h3>
+<p>Do portfolio-level model-implied equity yield slopes predict
+differential subsequent exposure to government yield changes, and does
+the association survive controls for investment style and market
+exposure?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mrow><mi>i</mi><mo>,</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>e</mi><mrow><mi>i</mi><mo>,</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>10</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>e</mi><mrow><mi>i</mi><mo>,</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">s_{i,t-1}=e_{i,t-1}(10)-e_{i,t-1}(1)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>s</mi><mo accent="true">̃</mo></mover><mrow><mi>i</mi><mo>,</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">\widetilde s_{i,t-1}</annotation></semantics></math>
+be its within-date centered value.</p>
+<h3 id="research-design">Research design</h3>
+<p>At least four exactly mapped GKK style portfolios and corresponding
+returns; lagged 10–1 slope, monthly rate changes, primary asset/date
+effects and joint blocks.</p>
+<p>Prespecify pooled asset-FE diagnostic separately from primary time-FE
+specification. In latter omit common dy and market main effects,
+interact market with portfolio indicators as appropriate, center lagged
+slopes within date and check rank; include slope main effect, joint
+month block inference and exact t-1 availability. Require &gt;=4 exactly
+mapped styles and scale effects per 100bp. Do not silently treat helper
+output as the primary panel test.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Match table and definition audit; yield slopes by style; sensitivity
+and interaction table; joint intervals; robustness. Primary two-way
+fixed-effect interaction estimate, relative market loadings, rank check
+and joint month-block intervals.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>At least four matched style portfolios, 1/10Y slope, common sample
+return-rate interactions and joint inference plus theoretical duration
+example.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Yield changes contain growth and risk-premium news; not pure
+exogenous discount shocks. GKK estimated curves are not observed
+dividend strip quotes or real-time predictors. No exact duration
+inference from slope alone. No assignment until matching confirmed;
+narrow to matched subset rather than fabricate returns.</p>
+<p><strong>Prerequisites:</strong> Asset pricing, fixed income, panel
+econometrics, Python.</p>
+<p><strong>Optional extension:</strong> Use monetary-policy event
+surprises with matched frequency and information-effect caveats, subject
+to separate return data gate.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: GKK definitions and gate; W4-6: exact merge and theory; W7-9:
+estimation; W10-12: joint inference; W13-16: writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

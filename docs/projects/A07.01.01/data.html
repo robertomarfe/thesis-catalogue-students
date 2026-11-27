@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Variance Risk Premium and the Predictability of Stock Market Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A07.01.01 · Asset Pricing · Volatility &amp; tail risk</p><h1>The Variance Risk Premium and the Predictability of Stock Market Returns</h1><p class="lead">Does an ex ante 30-day variance risk premium proxy help forecast US equity excess returns over 1 and 3 months relative to a historical mean, and how sensitive is the result to the physical variance forecast and sample coverage?</p><p class="small">Data access warning · Level 2/3 · Research draft</p><p class="warning" data-warning="true"><strong>Data access warning: the required datasets may be difficult or costly to obtain. Verify availability, coverage and permitted use with your supervisor. This topic is not currently ready for assignment.</strong><br>An authorized SP500 price source with adequate history, or an explicitly approved redesign.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a07.01.01">Data and model setup |
+A07.01.01</h3>
+<p><strong>Current data gate: blocked.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Cboe historical VIX
+https://www.cboe.com/tradable-products/vix/vix-historical-data/ ; SPX
+price index FRED https://fred.stlouisfed.org/series/SP500 (rolling
+10-year history; excludes dividends); French monthly and daily market/RF
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html
+. Freeze latest common file and actual dates. Baseline matched SPX daily
+log-return physical variance, monthly last common trading day as
+forecast origin, target FF market total excess return (clearly
+cross-index). For a long-sample sensitivity use daily FF market
+reconstructed returns as a different underlying proxy, not SPX. Reserve
+initial 2 years for physical forecast warmup and at least 3 more years
+for predictive training where feasible; long proxy sample from 1990 with
+2005 OOS start. Report sample size and do not promise precise OOS
+inference on short SPX history.</p>
+<h4 id="files-to-obtain-locally">Files to obtain locally</h4>
+<ul>
+<li><strong>FF3M — US FF3 monthly</strong> (Core / planned robustness).
+Expected file: <code>F-F_Research_Data_Factors_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Link status from v13 inventory: Direct link observed in
+provider page; bytes not inspected. Use correct monthly/daily and
+value-weighted total return block; retain vintage.</li>
+<li><strong>FF3D — US FF3 daily</strong> (Core / planned robustness).
+Expected file: <code>F-F_Research_Data_Factors_daily_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Link status from v13 inventory: Direct link observed in
+provider page; bytes not inspected. Use correct monthly/daily and
+value-weighted total return block; retain vintage.</li>
+<li><strong>SP500 — SP500</strong> (Core / planned robustness). Expected
+file: <code>SP500.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=SP500">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/SP500">provider page</a>. Link
+status from v13 inventory: Direct CSV endpoint constructed from exact
+series ID; not fetched. FRED limited rolling history; price index
+only.</li>
+<li><strong>CBOE_VIX — VIX daily closing history</strong> (Core /
+planned robustness). Expected file: <code>VIX_History.csv</code>. <a
+href="https://cdn-api.cboe.com/us/indices/daily_prices/VIX_History.csv">Download
+or provider route</a>; <a
+href="https://www.cboe.com/tradable_products/vix/vix_historical_data">provider
+page</a>. Link status from v13 inventory: Provider lists named
+historical file; candidate direct endpoint not confirmed in this turn.
+If direct endpoint fails select named historical price link; observe use
+terms.</li>
+</ul>
+<p>Direct paths are inherited from the frozen acquisition inventory, not
+a guarantee that current bytes or licenses have been verified. If a path
+fails, use the official page and select the exact dataset/frequency.
+Optional sources are not required. Use the provider documentation and
+the return conventions, publication timing and rights checks in this
+guide.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>For each origin use a scheduled exchange calendar (not business days
+as actual calendar); estimate historical/EWMA daily expected squared log
+returns using past data; multiply by scheduled sessions in next 30
+calendar days. Q variance=(VIX/100)^2*30/365. Separate matched SP500
+price return baseline (rights and rolling 10-year coverage gate) from
+French broad-market total-return proxy robustness; do not silently
+replace. Use FF monthly total market and bill compounded separately for
+1/3-month excess targets. Fit only mature labels.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Hand-check horizon VRP and month-gap target handling. A permitted
+matched SPX source or explicit supervisor-approved proxy redesign is
+required before empirical assignment; do not imply that FRED permission
+extends to reproduction.</p>
+<p>Build a local inventory, inspect each actual schema and license, save
+an input ledger, row counts and actual dates. Validate session calendar,
+coverage, duplicate keys and missingness before merging; do not compress
+gaps. Provide joint sample and training/validation/evaluation counts,
+mature-label counts for forecasts and state/event counts for conditional
+estimates. No real inputs bundled or verified. If a required source
+fails, seek supervisor-approved adjustment preserving the research
+question or retain the gate. Do not silently replace data or assert a
+real-time backtest from revised values.</p>
+<h4 id="stage-2b-student-local-acquisition-and-decision-gate-v47">Stage
+2B | Student-local acquisition and decision gate (v47)</h4>
+<p><strong>Current gate:</strong> blocked. No actual empirical file or
+permission has been validated. Do not redistribute raw files or change
+data source without authorization.</p>
+<h5 id="exact-requested-routes">Exact requested routes</h5>
+<ul>
+<li><strong>CBOE_VIX — VIX daily closing history</strong>:
+VIX_History.csv. Route:
+https://cdn-api.cboe.com/us/indices/daily_prices/VIX_History.csv.
+Provider:
+https://www.cboe.com/tradable_products/vix/vix_historical_data.
+Inherited inventory route; re-check provider, schema, vintage and
+permissions locally. Prior link status: Provider lists named historical
+file; candidate direct endpoint not confirmed in this turn.</li>
+<li><strong>FF3D — US FF3 daily</strong>:
+F-F_Research_Data_Factors_daily_CSV.zip. Route:
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip.
+Provider:
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html.
+Inherited inventory route; re-check provider, schema, vintage and
+permissions locally. Prior link status: Direct link observed in provider
+page; bytes not inspected.</li>
+<li><strong>FF3M — US FF3 monthly</strong>:
+F-F_Research_Data_Factors_CSV.zip. Route:
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip.
+Provider:
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html.
+Inherited inventory route; re-check provider, schema, vintage and
+permissions locally. Prior link status: Direct link observed in provider
+page; bytes not inspected.</li>
+<li><strong>SP500 — SP500</strong>: SP500.csv. Route:
+https://fred.stlouisfed.org/graph/fredgraph.csv?id=SP500. Provider:
+https://fred.stlouisfed.org/series/SP500. Rolling ten years of daily
+price-index history, not total return. Reproduction requires S&amp;P
+permission; no permission established. Prior link status: Direct CSV
+endpoint constructed from exact series ID; not fetched.</li>
+</ul>
+<h5 id="acceptance-of-the-local-input-set">Acceptance of the local input
+set</h5>
+<p>Obtain documented permission and matched daily sample; freeze
+30-calendar-day maturity and scheduled sessions, exclude incomplete
+labels and compare both 1/3-month compounded excess returns on identical
+origins with recursive mean. Three-month inference must account for
+overlap. Any broad-market redesign requires approval.</p>
+<p>Keep a local ledger with provider, original filename, release/version
+or commit, download date, SHA-256, terms/permission and permitted use;
+inspect actual headers/tabs, date range, missing/duplicate observations,
+units and calendar; retain raw files only as allowed. Provide code and a
+nonrestricted audit summary, not raw data unless rights permit. Preserve
+planned common-sample and timing rules. The supervisor decides whether
+the input gate passes.</p>
+<h5 id="if-the-gate-fails">If the gate fails</h5>
+<p>Use a broad market physical-variance proxy only with explicit
+approval and label cross-index mismatch; otherwise a synthetic VRP
+mechanism study, not an empirical SPX predictability result.</p>
+<h4 id="timing-and-units">Timing and units</h4>
+<p>Freeze the provider vintage and documented availability of each
+predictor. Define formation time, return interval, target end and label
+availability separately. Use common dates for model comparisons; never
+encode a missing session as a zero return. A revised historical extract
+supports pseudo-real-time evaluation only unless actual historical
+vintages are verified.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Quanto Options and Currency Risk in International Derivatives | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D06.04.02 · Derivatives · Numerical pricing &amp; exotics</p><h1>Quanto Options and Currency Risk in International Derivatives</h1><p class="lead">How do FX volatility and equity-FX correlation affect quanto prices and deltas relative to ordinary foreign options converted at spot?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d06.04.02">Research plan | D06.04.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Check the discounted domestic stock martingale and currency units.
+Hold contractual conversion fixed for delta. Validate random conversion
+by numeraire invariance; do not use physical correlation as risk-neutral
+calibration.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive drift and pricing identity, specify currency
+units.</p></li>
+<li><p>Verify domestic martingale for XS and random-conversion
+benchmark.</p></li>
+<li><p>Check sigma_X=0/rho=0 and deterministic FX carry
+conventions.</p></li>
+<li><p>Compute quanto price, delta and correlation sensitivity across
+grid with MC confidence intervals.</p></li>
+<li><p>Stress reversed quote with correct numeraire/drift
+transformation; distinguish fixed conversion from FX-hedged foreign
+position. For each FX-volatility and correlation pair, compute analytic,
+central-bump and pathwise or independent Monte Carlo spot delta with FX
+spot and contractual conversion fixed. Match the spot-converted foreign
+option in domestic units.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Price and delta curves, quanto adjustment heatmap, domestic/foreign
+pricing parity and MC error table. Spot-delta comparison in common
+domestic currency per unit of foreign spot, including numerical
+validation.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Zero correlation removes drift correction, not discount or
+fixed-versus-random conversion differences. Reversing X changes sign of
+diffusion and measure, not just labels. No observed quanto prices; no P
+correlations used as Q calibration.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Analytic and Monte Carlo quanto call prices and spot deltas for two
+FX volatilities and three equity–FX correlations at one maturity;
+validate the analytic spot delta by a central bump and a pathwise or
+independently simulated estimate, holding the fixed conversion rate and
+FX spot fixed. Include the random-conversion control and the matched
+spot-converted foreign option price and delta.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Quanto put or basket under stochastic correlations and rate
+scenarios, retaining consistent currency ledger.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Ito calculus, BSM, change of numeraire, Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>FX conventions;</p></li>
+<li><p>Numeraire and drift;</p></li>
+<li><p>Pricing and tests;</p></li>
+<li><p>Sensitivities;</p></li>
+<li><p>Limits.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: currency and measure; W4-6: formulas and MC; W7-9: parity
+checks; W10-12: sensitivity; W13-16: writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

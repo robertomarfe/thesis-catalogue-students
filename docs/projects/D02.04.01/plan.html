@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Principal Components of Implied Volatility Index Curves | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D02.04.01 · Derivatives · Option models &amp; surfaces</p><h1>Principal Components of Implied Volatility Index Curves</h1><p class="lead">How much of the variation in a common panel of short-, medium- and longer-horizon implied volatility indices can be explained by level, slope and curvature? Are principal components stable across market regimes?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d02.04.01">Research plan | D02.04.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Verify three distinct horizons, common eligible session changes and
+the sample before fitting. Freeze training centering and eigenvectors;
+compare compression against simple contrasts, then investigate rolling
+stability without interpreting arbitrary sign changes as economic
+reversals.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Document maturity, units and historical methodology for each
+index; align observations and summarize missingness.</p></li>
+<li><p>Plot variance curves, crisis episodes and forward variance
+proxies; flag negative values without automatic repair.</p></li>
+<li><p>Fit covariance PCA to daily changes; report loadings,
+eigenvalues, explained variance and one/two/three-component
+reconstructions.</p></li>
+<li><p>Measure held-out reconstruction error and compare fixed
+level/slope contrasts with PCA.</p></li>
+<li><p>Examine rolling loading stability using sign alignment and
+subspace angles; distinguish genuine changes from near-equal
+eigenvalues.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Data dictionary, maturity curves, scree plots, loading plots, holdout
+RMSE by maturity and rolling subspace diagnostics; reproducible
+date-aligned panel.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Repeat with standardized changes, weekly changes and levels, always
+labeling the estimand. For three maturities report one/two factor
+compression, never claim that three-factor fit is evidence. Handle Cboe
+backfilled histories and crisis concentration explicitly. PCA does not
+identify a causal risk factor or tradable VIX futures curve.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>At least three verified maturity series, reproducible alignment,
+factor interpretation, held-out one/two-factor comparison and stability
+analysis. A fourth maturity is required for a nontrivial three-factor
+compression test.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Estimate a parsimonious factor VAR and test forecasts of variance
+curves against persistence; separate from D02.01.02, which targets
+realized variance prediction.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Linear algebra, time-series statistics, derivatives basics and Python
+pandas/NumPy.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Volatility indices and variance horizons;</p></li>
+<li><p>PCA and factor interpretation;</p></li>
+<li><p>Data construction;</p></li>
+<li><p>Dimensionality and stability;</p></li>
+<li><p>Limits and extensions.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: read index methods and PCA; W4-5: acquire and align series;
+W6-8: estimate PCA; W9-12: held-out and rolling diagnostics; W13-16:
+robustness and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

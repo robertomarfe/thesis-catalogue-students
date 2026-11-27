@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Quanto Options and Currency Risk in International Derivatives | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D06.04.02 · Derivatives · Numerical pricing &amp; exotics</p><h1>Quanto Options and Currency Risk in International Derivatives</h1><p class="lead">How do FX volatility and equity-FX correlation affect quanto prices and deltas relative to ordinary foreign options converted at spot?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="currency-convention-and-measure">Currency convention and
+measure</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+be domestic currency per foreign unit and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
+foreign equity in foreign currency. Under domestic
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ℚ</mi><mi>d</mi></msub><annotation encoding="application/x-tex">\mathbb Q_d</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>X</mi><mi>/</mi><mi>X</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>r</mi><mi>d</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mo>+</mo><msub><mi>σ</mi><mi>X</mi></msub><mi>d</mi><msub><mi>W</mi><mi>X</mi></msub></mrow><annotation encoding="application/x-tex">dX/X=(r_d-r_f)dt+\sigma_XdW_X</annotation></semantics></math>.
+For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>S</mi><mi>/</mi><mi>S</mi><mo>=</mo><msub><mi>μ</mi><mi>S</mi></msub><mi>d</mi><mi>t</mi><mo>+</mo><msub><mi>σ</mi><mi>S</mi></msub><mi>d</mi><msub><mi>W</mi><mi>S</mi></msub></mrow><annotation encoding="application/x-tex">dS/S=\mu_Sdt+\sigma_SdW_S</annotation></semantics></math>,
+Itô’s product rule gives drift of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">XS</annotation></semantics></math>
+equal to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>d</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo>+</mo><msub><mi>μ</mi><mi>S</mi></msub><mo>+</mo><mi>ρ</mi><msub><mi>σ</mi><mi>S</mi></msub><msub><mi>σ</mi><mi>X</mi></msub></mrow><annotation encoding="application/x-tex">r_d-r_f+\mu_S+\rho\sigma_S\sigma_X</annotation></semantics></math>.
+Equating it to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>d</mi></msub><mo>−</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">r_d-q</annotation></semantics></math>
+implies
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mi>S</mi></msub><mo>=</mo><msub><mi>r</mi><mi>f</mi></msub><mo>−</mo><mi>q</mi><mo>−</mo><mi>ρ</mi><msub><mi>σ</mi><mi>S</mi></msub><msub><mi>σ</mi><mi>X</mi></msub></mrow><annotation encoding="application/x-tex">\mu_S=r_f-q-\rho\sigma_S\sigma_X</annotation></semantics></math>.</p>
+<h3 id="fixed-and-random-conversion">Fixed and random conversion</h3>
+<p>A quanto pays
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mi>T</mi></msub><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">k(S_T-K)^+</annotation></semantics></math>
+in domestic units, with lognormal forward
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mi>q</mi></msub><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><msup><mi>e</mi><mrow><msub><mi>μ</mi><mi>S</mi></msub><mi>T</mi></mrow></msup></mrow><annotation encoding="application/x-tex">F_q=S_0e^{\mu_ST}</annotation></semantics></math>
+and domestic discount. Derive price and spot delta at fixed
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>,</mo><msub><mi>X</mi><mn>0</mn></msub><mo>,</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">k,X_0,K</annotation></semantics></math>;
+check with central bump and pathwise or independently simulated
+estimates. Random conversion pays
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>T</mi></msub><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mi>T</mi></msub><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">X_T(S_T-K)^+</annotation></semantics></math>
+and must price at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>X</mi><mn>0</mn></msub><annotation encoding="application/x-tex">X_0</annotation></semantics></math>
+times the foreign option under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ℚ</mi><mi>f</mi></msub><annotation encoding="application/x-tex">\mathbb Q_f</annotation></semantics></math>.
+Zero covariance removes the drift correction, not the discount or
+conversion distinction. Inverting the quote requires transforming drift,
+diffusion and measure consistently.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Check the discounted domestic stock martingale and currency units.
+Hold contractual conversion fixed for delta. Validate random conversion
+by numeraire invariance; do not use physical correlation as risk-neutral
+calibration.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

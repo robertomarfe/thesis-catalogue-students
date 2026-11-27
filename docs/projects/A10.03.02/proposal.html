@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Sparse Predictors and the Factor Zoo | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A10.03.02 · Asset Pricing · Predictability &amp; machine learning</p><h1>Sparse Predictors and the Factor Zoo</h1><p class="lead">Do sparse factor selections learned on one set of test assets and historical dates reduce pricing errors for different assets on future dates relative to FF3/FF5 and dense shrinkage?</p><p class="small">Conditional data access · Level 3/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> Specific OSAP release, dictionary, data rights and coverage.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Predictability and machine learning · Level
+3/3</strong></p>
+<p><strong>Data:</strong> Empirical design conditional on actual access
+and coverage. <strong>Status:</strong> current review draft; supervisor
+approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>A large zoo of proposed factors creates a high-dimensional pricing
+problem. Sparse selection can reduce redundancy but may be unstable; the
+decisive distinction is performance on new dates for known assets versus
+new dates and different assets. Data rights and exact factor definitions
+are binding.</p>
+<h3 id="research-question">Research question</h3>
+<p>Do sparse factor selections learned on one set of test assets and
+historical dates reduce pricing errors for different assets on future
+dates relative to FF3/FF5 and dense shrinkage?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For centered factor vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>−</mo><msub><mi>μ</mi><mi>f</mi></msub></mrow><annotation encoding="application/x-tex">f-\mu_f</annotation></semantics></math>,
+the normalized linear kernel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mn>1</mn><mo>−</mo><msup><mi>b</mi><mi>⊤</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo>−</mo><msub><mi>μ</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">m=1-b^\top(f-\mu_f)</annotation></semantics></math>
+gives excess-payoff pricing moment
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>r</mi><mi>e</mi></msup><mo stretchy="true" form="postfix">]</mo></mrow><mo>−</mo><mo>Cov</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>r</mi><mi>e</mi></msup><mo>,</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">g(b)=E[r^e]-\operatorname{Cov}(r^e,f)b</annotation></semantics></math>
+on the training sample.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use authorized pinned OSAP dictionary/returns, 30–60
+metadata-selected signals and French industries plus size/BM. Fit on
+industries and past dates, tune on chronological industry blocks;
+evaluate same assets later and different assets later in 2016–2025.
+FF3/FF5 and ridge benchmarks.</p>
+<p>Use one shared OSAP revision and distinct file hashes; freeze
+candidate selection and common SPD weight on training only. Check KKT,
+scale and unpenalized FF3. Compare same assets future and different
+assets future, fixed kernel, mean and scale, common metric. No
+post-selection p-values. Conditional access; no silent substitution.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Factor selection path, held-out moment table, overlap/conditioning
+audit, selection stability and uncertainty.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>One pinned candidate panel, two held-out asset/date tests, FF3 and
+ridge comparison, training-only tuning.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Shared underlying stocks and correlated factors limit independent
+validation. No post-selection classical p-values; no claim of unique
+true factors. Pin OSAP release and exact definitions; equal weighting
+across assets as baseline.</p>
+<p><strong>Prerequisites:</strong> Linear algebra, regularization, SDF
+moments, Python.</p>
+<p><strong>Optional extension:</strong> Elastic net and grouped factors
+by documented economic families, with nested chronological
+validation.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: data and moments; W4-6: synthetic/benchmark; W7-9: nested fit;
+W10-12: held-out and stability; W13-16: writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

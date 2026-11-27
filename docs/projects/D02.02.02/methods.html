@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Calibrating Equity Option Surfaces with Real Market Quotes | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D02.02.02 · Derivatives · Option models &amp; surfaces</p><h1>Calibrating Equity Option Surfaces with Real Market Quotes</h1><p class="lead">How sensitive are SVI and Heston calibration and interpolation to quote cleaning, error weighting and held-out market prices on the same underlying?</p><p class="small">Data access warning · Level 3/3 · Research draft</p><p class="warning" data-warning="true"><strong>Data access warning: the required datasets may be difficult or costly to obtain. Verify availability, coverage and permitted use with your supervisor. This topic is not currently ready for assignment.</strong><br>Licensed option quotes with at least 10 dates, settlement and synchronized forwards.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="contract-level-quote-normalization">Contract-level quote
+normalization</h3>
+<p>For one European cash-settled contract family, use matched settlement
+dates, discount
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
+and forward
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>−</mo><mi>P</mi><mo>=</mo><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>F</mi><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">C-P=D(F-K)</annotation></semantics></math>
+only for synchronized, otherwise comparable contracts. With
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mi>/</mi><mi>F</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">k=\log(K/F)</annotation></semantics></math>
+and total implied variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>=</mo><mi>T</mi><msup><mi>I</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">w=T I^2</annotation></semantics></math>,
+use out-of-the-money quotes and convert puts to call equivalents by
+parity. Record bid, ask, timestamp, multiplier, exact expiry, exercise
+convention and the origin of the forward. Bound violations are
+diagnostics, not values to clip indiscriminately.</p>
+<h3 id="static-versus-structural-calibration">Static versus structural
+calibration</h3>
+<p>Fit raw SVI
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>=</mo><mi>a</mi><mo>+</mo><mi>b</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>ρ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo>−</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msqrt><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo>−</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mi>s</mi><mn>2</mn></msup></mrow></msqrt><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">w=a+b[\rho(k-m)+\sqrt{(k-m)^2+s^2}]</annotation></semantics></math>
+slice by slice, and Heston jointly across maturities under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℚ</mi><annotation encoding="application/x-tex">\mathbb Q</annotation></semantics></math>.
+A baseline flat Black volatility gives a simpler reference. For common
+price errors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mi>i</mi></msub><mo>=</mo><msubsup><mi>C</mi><mi>i</mi><mrow><mi>f</mi><mi>i</mi><mi>t</mi></mrow></msubsup><mo>−</mo><msubsup><mi>C</mi><mi>i</mi><mrow><mi>m</mi><mi>i</mi><mi>d</mi></mrow></msubsup></mrow><annotation encoding="application/x-tex">e_i=C_i^{fit}-C_i^{mid}</annotation></semantics></math>
+compare raw currency loss and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mi>i</mi></msub><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>e</mi><mi>i</mi></msub><mi>/</mi><mo>max</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>s</mi><mi>i</mi></msub><mo>,</mo><msub><mi>s</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\sum_i(e_i/\max(s_i,s_{min}))^2</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mi>i</mi></msub><annotation encoding="application/x-tex">s_i</annotation></semantics></math>
+denotes the spread and the floor is chosen before the test. Report
+fraction inside bid/ask, held-out price and IV errors, and finite-grid
+arbitrage. Slice interpolation is not a stochastic price model; an
+entire-maturity holdout requires explicit interpolation for SVI. No
+rights, quote coverage or empirical results are supplied. A commercial
+sample file does not establish feasibility.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Do not assign the original empirical design until rights,
+underlying/forward synchronization and accepted dates/strikes are
+verified. Freeze cleaning variants, objective and held-out contracts;
+compare identical observations and retain rejected quote counts.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

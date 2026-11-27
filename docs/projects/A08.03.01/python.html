@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Risk Parity versus Minimum-Variance Portfolios | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A08.03.01 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Risk Parity versus Minimum-Variance Portfolios</h1><p class="lead">Does equal risk contribution deliver more stable risk allocation than minimum variance, and at what cost in realized volatility and turnover?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html" aria-current="page">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Python lab</h2><div class="actions"><a href="files/student_start.ipynb" class="button secondary" download>Open student_start.ipynb</a><a href="files/requirements.txt" class="button secondary" download>Open requirements.txt</a></div><p class="notice">Unexecuted starter only. No solved thesis or external data supplied.</p><h3>Run locally</h3><p>Extract the workspace ZIP and open the notebook in an isolated Python environment. Install requirements.txt, read the data guide, and retain your own results.</p><h3>Run in Codespaces</h3><p><a href="https://codespaces.new/robertomarfe/thesis-catalogue-students/tree/main" class="button secondary">Open student Python environment</a></p><p>Check costs. Use Tasks: Run Task > Prepare my research draft, select A08.03.01, then File > Open File and open /workspaces/thesis-research/A08.03.01/student_start.ipynb. Select the isolated .venv interpreter. No forwarded port required. Do not commit raw data or results.</p><h3 id="a08.03.01-student-research-starter">A08.03.01 | Student research
+starter</h3>
+<p><strong>Current review draft; approval pending.</strong> Empirical
+core; actual rights, coverage and input validation pending.</p>
+<h4 id="goal">Goal</h4>
+<p>Risk parity allocates component risk rather than capital, potentially
+balancing exposures without mechanically minimizing total variance.</p>
+<p><strong>Research question:</strong> Does equal risk contribution
+deliver more stable risk allocation than minimum variance, and at what
+cost in realized volatility and turnover?</p>
+<h4 id="setup-check">Setup check</h4>
+<p>Check diagonal equal contributions. This artificial example does not
+validate the full research design or actual data.</p>
+<pre><code>import numpy as np
+S=np.diag([.04,.01]);w=np.array([1/3,2/3]);rc=w*(S@w)/(w@S@w)
+assert np.allclose(rc,[.5,.5])
+print(&#x27;Setup check passed.&#x27;)</code></pre><h4 id="student-owned-research">Student-owned research</h4>
+<p>Check contribution sum, positive budget and ERC residual on diagonal
+and correlated SPD matrices; report KKT for GMV and eigenvalues. Compare
+four methods with common dates/covariance, cost drift and ex-ante
+contributions plus held-out realized contribution estimates and
+uncertainty.</p>
+<ol type="1">
+<li><p>Derive risk decomposition; test ERC solution on diagonal and
+equicorrelation matrices, GMV against unconstrained formula.</p></li>
+<li><p>Simulate known covariance with unequal variances and changing
+correlation.</p></li>
+<li><p>Run rolling monthly portfolios using only past data; track
+drifted weights before trading.</p></li>
+<li><p>Compare realized volatility, Sharpe, drawdown, turnover and
+effective number of holdings; record ex ante RC residuals and realized
+contributions in evaluation windows.</p></li>
+<li><p>Repeat 36/120-month windows and covariance estimator choices with
+paired bootstrap; no ex post optimal selection.</p></li>
+</ol>
+<p><strong>Minimum viable thesis:</strong> Four portfolios on same
+long-only industry sample, validated ERC and GMV, drift-corrected
+backtest and contribution analysis.</p>
+<p>Record assumptions, independent checks, uncertainty and limitations
+in a separate research notebook. No core solver or research output is
+supplied.</p>
+<p><a href="files/student_start.ipynb">Notebook source</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

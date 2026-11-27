@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Tail Dependence in Equity Portfolios and Factor Strategies | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A07.03.02 · Asset Pricing · Volatility &amp; tail risk</p><h1>Tail Dependence in Equity Portfolios and Factor Strategies</h1><p class="lead">Do US equity industry portfolios and factor strategies display excess lower-tail co-exceedance relative to Gaussian copulas with the same rank dependence?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Volatility forecasting and tail risk · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Two assets with the same ordinary correlation may have very different
+probabilities of jointly extreme losses. A copula comparison separates
+the marginal distributions from dependence and asks whether Gaussian
+dependence understates joint downside events at observable
+thresholds.</p>
+<h3 id="research-question">Research question</h3>
+<p>Do US equity industry portfolios and factor strategies display excess
+lower-tail co-exceedance relative to Gaussian copulas with the same rank
+dependence?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For continuous uniform transforms
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>U</mi><mo>,</mo><mi>V</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(U,V)</annotation></semantics></math>,
+finite-threshold lower-tail co-exceedance is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>χ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>Pr</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>V</mi><mo>≤</mo><mi>q</mi><mo>∣</mo><mi>U</mi><mo>≤</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo>,</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mi>q</mi></mrow><annotation encoding="application/x-tex">\chi(q)=\Pr(V\le q\mid U\le q)=C(q,q)/q</annotation></semantics></math>.
+The asymptotic coefficient is the limit as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>↓</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">q\downarrow0</annotation></semantics></math>,
+not a single observed tail fraction.</p>
+<h3 id="research-design">Research design</h3>
+<p>Prespecify three industry and two market-factor pairs, fit Gaussian
+and Student-t copulas using training pseudo-observations, and compare
+held-out lower-tail probabilities at fixed thresholds with common-date
+uncertainty.</p>
+<p>Prespecify pair labels and thresholds; do not search over pairs to
+obtain significant tail dependence. Report sparse counts and
+uncertainty, and distinguish the conditioning direction in finite
+samples.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Copula scatter and tail plots, finite-q dependence table with
+counts/intervals, held-out calibration and sensitivity to marginal
+scaling.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Three industry pairs and two market-factor pairs, Gaussian/t copula
+comparison, empirical co-exceedance and uncertainty at .05/.10. Distinct
+from coskewness pricing A07.03.01.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Do not infer asymptotic tail dependence from a single threshold. Keep
+short-long factor returns distinct from fully invested portfolios.
+Serial dependence and shared stocks limit inference; avoid multiple pair
+searches for significance.</p>
+<p><strong>Prerequisites:</strong> Probability, rank statistics,
+likelihood, time-series bootstrap, Python.</p>
+<p><strong>Optional extension:</strong> Rolling copula parameters or
+asymmetric Clayton/Gumbel copulas with held-out comparison.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: copulas and simulations; W4-6: aligned data; W7-9: estimation;
+W10-12: tail validation; W13-16: write.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

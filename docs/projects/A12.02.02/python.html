@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Sentiment and the Cross-Section of Anomaly Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A12.02.02 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Sentiment and the Cross-Section of Anomaly Returns</h1><p class="lead">Do preselected equity anomaly portfolios earn different subsequent factor-adjusted returns in high versus low Baker-Wurgler sentiment states?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> Matching OSAP and Baker–Wurgler sentiment releases and coverage.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html" aria-current="page">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Python lab</h2><div class="actions"><a href="files/student_start.ipynb" class="button secondary" download>Open student_start.ipynb</a><a href="files/requirements.txt" class="button secondary" download>Open requirements.txt</a></div><p class="notice">Unexecuted starter only. No solved thesis or external data supplied.</p><h3>Run locally</h3><p>Extract the workspace ZIP and open the notebook in an isolated Python environment. Install requirements.txt, read the data guide, and retain your own results.</p><h3>Run in Codespaces</h3><p><a href="https://codespaces.new/robertomarfe/thesis-catalogue-students/tree/main" class="button secondary">Open student Python environment</a></p><p>Check costs. Use Tasks: Run Task > Prepare my research draft, select A12.02.02, then File > Open File and open /workspaces/thesis-research/A12.02.02/student_start.ipynb. Select the isolated .venv interpreter. No forwarded port required. Do not commit raw data or results.</p><h3 id="a12.02.02-student-research-starter">A12.02.02 | Student research
+starter</h3>
+<p><strong>Current review draft; approval pending.</strong> Empirical
+design conditional on actual access and coverage.</p>
+<h4 id="goal">Goal</h4>
+<p>Sentiment may be associated with different subsequent anomaly
+returns. Prespecified published spreads test state-dependent residual
+performance without mining stock-level strategies.</p>
+<p><strong>Research question:</strong> Do preselected equity anomaly
+portfolios earn different subsequent factor-adjusted returns in high
+versus low Baker-Wurgler sentiment states?</p>
+<h4 id="setup-check">Setup check</h4>
+<p>Check a training-only cutoff. This artificial example does not
+validate the full research design or actual data.</p>
+<pre><code>import numpy as np
+train=np.array([-1.,0.,1.]);cutoff=np.median(train)
+assert .3&gt;cutoff&gt;-.3
+print(&#x27;Setup check passed.&#x27;)</code></pre><h4 id="student-owned-research">Student-owned research</h4>
+<p>Pin actual sentiment workbook and matching eight OSAP
+signals/dictionary, state definition and fixed selection. Use lagged
+states and common months, show alpha=a+c*z and beta interactions, joint
+date-block uncertainty with familywise/FDR sensitivity and predeclared
+regime robustness. No data substitution without supervisor approval.</p>
+<ol type="1">
+<li><p>Audit signal orientation, sample and index timing; register
+hypotheses and signs.</p></li>
+<li><p>Compare unconditional and sentiment-sorted returns using
+past-only median thresholds.</p></li>
+<li><p>Estimate conditional alpha regressions with FF3 and
+FF5+momentum.</p></li>
+<li><p>Use common date block bootstrap, adjust multiple tests and report
+joint and individual effects.</p></li>
+<li><p>Compare raw and orthogonalized sentiment and alternative lags;
+evaluate stable sign and magnitude in later subsample.</p></li>
+</ol>
+<p><strong>Minimum viable thesis:</strong> Eight named portfolios,
+documented sentiment version, unconditional and conditional factor
+regressions, common-sample inference.</p>
+<p>Record assumptions, independent checks, uncertainty and limitations
+in a separate research notebook. No core solver or research output is
+supplied.</p>
+<p><a href="files/student_start.ipynb">Notebook source</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

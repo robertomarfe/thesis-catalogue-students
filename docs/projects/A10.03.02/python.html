@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Sparse Predictors and the Factor Zoo | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A10.03.02 · Asset Pricing · Predictability &amp; machine learning</p><h1>Sparse Predictors and the Factor Zoo</h1><p class="lead">Do sparse factor selections learned on one set of test assets and historical dates reduce pricing errors for different assets on future dates relative to FF3/FF5 and dense shrinkage?</p><p class="small">Conditional data access · Level 3/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> Specific OSAP release, dictionary, data rights and coverage.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html" aria-current="page">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Python lab</h2><div class="actions"><a href="files/student_start.ipynb" class="button secondary" download>Open student_start.ipynb</a><a href="files/requirements.txt" class="button secondary" download>Open requirements.txt</a></div><p class="notice">Unexecuted starter only. No solved thesis or external data supplied.</p><h3>Run locally</h3><p>Extract the workspace ZIP and open the notebook in an isolated Python environment. Install requirements.txt, read the data guide, and retain your own results.</p><h3>Run in Codespaces</h3><p><a href="https://codespaces.new/robertomarfe/thesis-catalogue-students/tree/main" class="button secondary">Open student Python environment</a></p><p>Check costs. Use Tasks: Run Task > Prepare my research draft, select A10.03.02, then File > Open File and open /workspaces/thesis-research/A10.03.02/student_start.ipynb. Select the isolated .venv interpreter. No forwarded port required. Do not commit raw data or results.</p><h3 id="a10.03.02-student-research-starter">A10.03.02 | Student research
+starter</h3>
+<p><strong>Current review draft; approval pending.</strong> Empirical
+design conditional on actual access and coverage.</p>
+<h4 id="goal">Goal</h4>
+<p>A large zoo of proposed factors creates a high-dimensional pricing
+problem. Sparse selection can reduce redundancy but may be unstable; the
+decisive distinction is performance on new dates for known assets versus
+new dates and different assets. Data rights and exact factor definitions
+are binding.</p>
+<p><strong>Research question:</strong> Do sparse factor selections
+learned on one set of test assets and historical dates reduce pricing
+errors for different assets on future dates relative to FF3/FF5 and
+dense shrinkage?</p>
+<h4 id="setup-check">Setup check</h4>
+<p>Check dimension compatibility of a toy moment weight and factor
+matrix; no estimation. This artificial example does not validate the
+full research design or actual data.</p>
+<pre><code>import numpy as np
+B=np.zeros((4,3)); W=np.eye(4)
+assert W.shape==(B.shape[0],B.shape[0]) and np.all(np.linalg.eigvalsh(W)&gt;0)
+print(&#x27;Setup check passed.&#x27;)</code></pre><h4 id="student-owned-research">Student-owned research</h4>
+<p>Use one shared OSAP revision and distinct file hashes; freeze
+candidate selection and common SPD weight on training only. Check KKT,
+scale and unpenalized FF3. Compare same assets future and different
+assets future, fixed kernel, mean and scale, common metric. No
+post-selection p-values. Conditional access; no silent substitution.</p>
+<ol type="1">
+<li><p>Build aligned factor panel and freeze candidate universe;
+document missingness.</p></li>
+<li><p>Implement penalized moment fit and synthetic known-sparse
+check.</p></li>
+<li><p>Select lambda by blocked training-only folds and lock
+models.</p></li>
+<li><p>Compare held-out pricing RMSE, maximum absolute moment and
+selection frequency over rolling training windows.</p></li>
+<li><p>Compare ridge and alternative asset panels, common-date bootstrap
+of frozen model scores; report unstable selection.</p></li>
+</ol>
+<p><strong>Minimum viable thesis:</strong> One pinned candidate panel,
+two held-out asset/date tests, FF3 and ridge comparison, training-only
+tuning.</p>
+<p>Record assumptions, independent checks, uncertainty and limitations
+in a separate research notebook. No core solver or research output is
+supplied.</p>
+<p><a href="files/student_start.ipynb">Notebook source</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Does Return Predictability Translate into Better Portfolio Decisions? | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A02.04.01 · Asset Pricing · Predictability &amp; machine learning</p><h1>Does Return Predictability Translate into Better Portfolio Decisions?</h1><p class="lead">Do recursive equity-premium forecasts improve realized certainty equivalent and risk-adjusted portfolio performance relative to historical-mean and fixed-weight policies?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a02.04.01">Research plan | A02.04.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Reconcile two consecutive months manually including drifted weight
+and fees; no contemporaneous variance; check compounding and return
+units; net CE comparison on common dates; clearly label cost-on-pretrade
+approximation and annualization.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Use a common lagged variance model and same return/RF source,
+w=clip(mu/(gamma*v),0,1). Baseline gamma 3/5/10, costs 0/10/25 bp on
+absolute traded stock weight relative to previous drifted weight. Deduct
+costs at start before return. Evaluate monthly CE annualized by 12 as
+arithmetic approximation, gross/net Sharpe, turnover and drawdown; no
+forecast-dependent volatility specification.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Build date-indexed expanding forecasts and trailing variance;
+verify no future inputs.</p></li>
+<li><p>Implement historic mean and predictor/combination forecasts;
+record OOS R2 and loss.</p></li>
+<li><p>Implement self-financing weight and drifted-turnover ledger;
+validate buy-and-hold and cash limits.</p></li>
+<li><p>Compare test-period CE, Sharpe, turnover and drawdown against
+fixed 60% and historical mean weights; pair date block
+bootstrap.</p></li>
+<li><p>Vary gamma, costs and leverage cap without selecting best test
+setting; report when statistical and economic rankings diverge.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Forecast and position ledger; OOS accuracy table; net wealth and CE;
+sensitivity and paired intervals.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Use identical RF and return series; estimate forecast variance on
+past returns only; revised predictors make pseudo-real-time experiment,
+not historical live trading. Avoid optimizing CE on test data.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Historical mean and two prespecified predictor policies, common
+variance model, locked evaluation and net CE with uncertainty.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Use shrinkage of expected returns toward historical mean; compare
+forecast combination and uncertainty-adjusted weights.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Predictive regressions, portfolio choice, time series and Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Predictability and investor utility;</p></li>
+<li><p>Forecast-to-weight mapping;</p></li>
+<li><p>Data and timing;</p></li>
+<li><p>Economic value;</p></li>
+<li><p>Robustness.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: utility and data; W4-6: forecast pipeline; W7-9: ledger and
+validation; W10-12: locked evaluation; W13-16: sensitivity and
+writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

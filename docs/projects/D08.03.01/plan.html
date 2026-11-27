@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Covered Calls versus Buy-and-Hold: Risk and Performance | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D08.03.01 · Derivatives · Hedging &amp; volatility derivatives</p><h1>Covered Calls versus Buy-and-Hold: Risk and Performance</h1><p class="lead">How much upside does a covered-call benchmark sacrifice, and does its downside protection survive comparison with a volatility-matched equity/cash portfolio?</p><p class="small">Data access warning · Level 2/3 · Research draft</p><p class="warning" data-warning="true"><strong>Data access warning: the required datasets may be difficult or costly to obtain. Verify availability, coverage and permitted use with your supervisor. This topic is not currently ready for assignment.</strong><br>Authorized BXM index history and comparable benchmark.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d08.03.01">Research plan | D08.03.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>This is historical buy-write evaluation, not synthetic hedge
+optimization. Gate remains blocked until BXM rights and history pass.
+Price-only SP500 is not an admissible comparator; no pure option-premium
+interpretation.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive payoff and explain BXM roll/dividend methodology.</p></li>
+<li><p>Validate index levels, common end-month dates, returns and
+rebasing.</p></li>
+<li><p>Compare cumulative wealth, Sharpe, drawdown, tail losses and
+conditional upside/downside returns.</p></li>
+<li><p>Build equity/RF mix using trailing 60-month volatility ratio
+capped at one; compare on identical evaluation dates.</p></li>
+<li><p>Estimate market beta and up/down beta with HAC; bootstrap paired
+months in blocks; repeat live-only and cost scenarios.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Payoff diagram; wealth/drawdown plots; paired performance, capture
+and beta table; volatility-matched comparison.</p>
+<h4 id="robustness">Robustness</h4>
+<p>BXM is a hypothetical benchmark, not actual investor returns.
+Price-only SP500 is invalid as total-return comparator. Proxy basis
+risk, taxes, costs and index methodology must be disclosed; do not infer
+pure option premium from differences.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>BXM plus authorized equity total-return comparator/proxy, monthly
+paired returns, risk/capture and trailing volatility-matched baseline.
+If BXM unavailable, defer assignment; synthetic-only redesign needs
+approval.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Add BXMD or BXY if complete authorized histories exist; compare
+strike selection.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Option payoffs, total returns, portfolio metrics, regression and
+bootstrap.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Covered-call economics;</p></li>
+<li><p>Index methodology and data;</p></li>
+<li><p>Performance and exposures;</p></li>
+<li><p>Risk-matched benchmark;</p></li>
+<li><p>Limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: payoff and data gate; W4-6: clean indices; W7-9: performance
+and exposures; W10-12: risk-matched and robustness; W13-16: write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

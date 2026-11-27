@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Sentiment and the Cross-Section of Anomaly Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A12.02.02 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Sentiment and the Cross-Section of Anomaly Returns</h1><p class="lead">Do preselected equity anomaly portfolios earn different subsequent factor-adjusted returns in high versus low Baker-Wurgler sentiment states?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> Matching OSAP and Baker–Wurgler sentiment releases and coverage.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a12.02.02">Research plan | A12.02.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Pin actual sentiment workbook and matching eight OSAP
+signals/dictionary, state definition and fixed selection. Use lagged
+states and common months, show alpha=a+c*z and beta interactions, joint
+date-block uncertainty with familywise/FDR sensitivity and predeclared
+regime robustness. No data substitution without supervisor approval.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Pin OSAP long-short and SignalDoc revision, preselect 8-12 signals by
+valuation/profitability/issuance/investment metadata before viewing
+outcomes. Baker–Wurgler SENTIMENT.xlsx author-linked; page snapshot here
+lists 196507-202312, frozen proposal says through Dec 2025: pin actual
+downloaded version and report shortened coverage, not infer missing
+2024-25. Choose raw or orthogonalized series before results; minimum
+two-month lag and expanding past-only standardization, revised not
+real-time. FF3/5+Mom common sample, interactions in alpha and betas,
+joint calendar inference with multiplicity; no RF subtraction for
+long-short. No stock-level sorting from published factor series.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Audit signal orientation, sample and index timing; register
+hypotheses and signs.</p></li>
+<li><p>Compare unconditional and sentiment-sorted returns using
+past-only median thresholds.</p></li>
+<li><p>Estimate conditional alpha regressions with FF3 and
+FF5+momentum.</p></li>
+<li><p>Use common date block bootstrap, adjust multiple tests and report
+joint and individual effects.</p></li>
+<li><p>Compare raw and orthogonalized sentiment and alternative lags;
+evaluate stable sign and magnitude in later subsample.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Signal selection log; conditional return plots; regression and joint
+inference table; lag/subsample sensitivity.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Do not use full-sample median for a trading rule or changes in
+revised sentiment as real-time innovations. Factor adjustment does not
+identify mispricing; account for correlated strategies, sample selection
+and revised data.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Eight named portfolios, documented sentiment version, unconditional
+and conditional factor regressions, common-sample inference.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Analyze cross-sectional heterogeneity by independently defined
+limits-to-arbitrage categories, not by selecting extreme estimated
+coefficients.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Factor regressions, bootstrap, financial econometrics, Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Sentiment and limits to arbitrage;</p></li>
+<li><p>Conditional factor models;</p></li>
+<li><p>Data and hypotheses;</p></li>
+<li><p>Results and inference;</p></li>
+<li><p>Interpretation.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: literature and data gate; W4-6: sample and hypotheses; W7-9:
+conditional models; W10-12: inference/robustness; W13-16: replication
+and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

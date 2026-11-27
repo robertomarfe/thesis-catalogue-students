@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Cash Flow News and Discount Rate News in Aggregate Stock Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A06.04.02 · Asset Pricing · Consumption &amp; equity valuation</p><h1>Cash Flow News and Discount Rate News in Aggregate Stock Returns</h1><p class="lead">How much of unexpected aggregate equity return variation is associated with discount-rate versus cash-flow news under alternative parsimonious VAR information sets?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Consumption-based asset pricing and equity
+term structures · Level 3/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Unexpected returns can reflect revisions in future cash flows or
+discount rates. A VAR provides one operational decomposition whose
+dependence on information and horizon is itself a research object.</p>
+<h3 id="research-question">Research question</h3>
+<p>How much of unexpected aggregate equity return variation is
+associated with discount-rate versus cash-flow news under alternative
+parsimonious VAR information sets?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For centered return-first VAR
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>A</mi><msub><mi>X</mi><mi>t</mi></msub><mo>+</mo><msub><mi>u</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">X_{t+1}=AX_t+u_{t+1}</annotation></semantics></math>,
+discount-rate news at horizon
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mrow><mi>D</mi><mi>R</mi></mrow></msub><mo>=</mo><msubsup><mi>e</mi><mn>1</mn><mi>⊤</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>H</mi></msubsup><msup><mi>ρ</mi><mi>j</mi></msup><msup><mi>A</mi><mi>j</mi></msup><msub><mi>u</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">N_{DR}=e_1^\top\sum_{j=1}^H\rho^j A^j u_{t+1}</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Goyal real annual return-first VAR with dividend-price and short
+rate, alternative term spread; finite 5/10/20 and stable long-run
+decomposition with uncertainty.</p>
+<p>Use return-first VAR, stable roots, same calendar and real gross
+convention; verify direct discounted sums and signed
+Var(CF)+Var(DR)-2Cov identity, report finite and infinite estimates,
+horizon and information-set sensitivity. Refit rho and VAR inside
+bootstrap, retain inadmissible draws and note weak stability near unit
+roots.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>VAR estimates and eigenvalues, time series of both news components,
+variance decomposition including covariance term, intervals and
+finite-horizon robustness.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>One stable annual VAR, exact algebra checks, news series,
+variance/covariance table, finite versus infinite horizon and two
+information sets with uncertainty.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Infinite sum requires spectral radius of rho*A below one;
+near-unit-root results fragile. Residual N_CF not a structural cash-flow
+shock and absorbs omitted news and approximation error; no causal
+attribution. Annual sample modest; avoid many predictors and do not
+impose nonnegative variance shares. Distinct from A06.01.02
+forecast-level decomposition of valuation ratios.</p>
+<p><strong>Prerequisites:</strong> Asset valuation, VAR, matrix algebra,
+bootstrap and Python.</p>
+<p><strong>Optional extension:</strong> Use a richer monthly VAR with
+explicit cash-flow proxy and compare with a direct dividend-growth
+forecast system or GKK equity duration.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: derive news formulas; W4-6: construct annual data; W7-9: VAR
+and decomposition; W10-12: bootstrap and robustness; W13-16: interpret
+and write.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

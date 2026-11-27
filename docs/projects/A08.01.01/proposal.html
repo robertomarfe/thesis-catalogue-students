@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Mean-Variance Optimization and the Cost of Estimation Error | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A08.01.01 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Mean-Variance Optimization and the Cost of Estimation Error</h1><p class="lead">How much does estimation error in expected returns and covariance reduce out-of-sample mean-variance portfolio performance relative to equal weights and minimum variance?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Portfolio choice, behavioral finance and
+market frictions · Level 2/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Optimization amplifies estimation error into unstable allocations. A
+known-moment experiment separates the effects of mean and covariance
+estimation before historical evaluation.</p>
+<h3 id="research-question">Research question</h3>
+<p>How much does estimation error in expected returns and covariance
+reduce out-of-sample mean-variance portfolio performance relative to
+equal weights and minimum variance?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>Maximize
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>w</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>w</mi><mi>⊤</mi></msup><mi>μ</mi><mo>−</mo><mi>γ</mi><msup><mi>w</mi><mi>⊤</mi></msup><mi>Σ</mi><mi>w</mi><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">U(w)=w^\top\mu-\gamma w^\top\Sigma w/2</annotation></semantics></math>
+on the long-only simplex using monthly excess means and covariance.</p>
+<h3 id="research-design">Research design</h3>
+<p>10 assets, 24/60/120/240 months, 1,000 paired replications; French 10
+industries, 60/120-month histories, common origins, fixed gamma and cost
+menu.</p>
+<p>Run paired known-moment cells: true/estimated mean crossed with
+true/estimated covariance, same random draws and out-of-sample returns,
+verify oracle objective and feasibility. For actual data record
+long-only weights, exact OOS dates, drifted trades, net wealth and CE
+units; date blocks and estimation uncertainty; report failed cells.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Oracle regret plots, simulated weight dispersion, historical
+portfolio weight/wealth paths, risk/CE and turnover table, optimization
+failure diagnostics and reproducible timestamp ledger.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Known-moment simulation isolating mean/covariance error, matched
+rolling 1/N, GMV and mean-variance backtest, weight stability and CE
+comparison with uncertainty.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>No use of future returns in estimation or tuning. Use one-way traded
+notional convention explicitly (if turnover=0.5*sum absolute trades,
+convert costs accordingly). Risky portfolios use total returns; same
+cost schedule and rebalance. Published portfolio returns do not
+establish implementable net strategy returns. Distinguish mean
+estimation from covariance shrinkage thesis A08.01.02.</p>
+<p><strong>Prerequisites:</strong> Portfolio theory, covariance
+estimation, convex optimization and Python SciPy/cvxpy.</p>
+<p><strong>Optional extension:</strong> Compare shrinkage of mean toward
+common mean, without turning thesis into a covariance-shrinkage
+comparison.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: portfolio theory and optimizer; W4-6: clean returns and
+validate weights; W7-9: oracle simulations; W10-12: rolling backtest;
+W13-16: costs, uncertainty and writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

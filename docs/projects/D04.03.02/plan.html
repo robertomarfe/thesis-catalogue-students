@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>No-Trade Bands for Option Hedging | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D04.03.02 · Derivatives · Hedging &amp; volatility derivatives</p><h1>No-Trade Bands for Option Hedging</h1><p class="lead">Can a delta-band policy reduce expected replication cost at a given tail hedging-error budget, compared with fixed-frequency rebalancing?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d04.03.02">Research plan | D04.03.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Report achieved risk, not merely the intended budget. The comparison
+must use the same opportunities, shares, premium and cost convention
+across policies; this is not a neural-policy training study.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Verify BSM prices, deltas and discounted ledger in the zero-cost
+limit.</p></li>
+<li><p>Implement calendar, reset-to-delta and band-edge policies on
+common paths.</p></li>
+<li><p>On training paths choose bands to minimize mean cost subject to a
+predeclared 95% expected-shortfall loss limit; report
+infeasibility.</p></li>
+<li><p>Freeze policies and compare held-out error-cost frontiers with
+paired confidence intervals.</p></li>
+<li><p>Stress volatility mismatch and time-to-expiry gamma; examine how
+a gamma-scaled band changes turnover.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Self-financing unit tests; error-cost frontier; turnover and ES
+table; band policy trajectories; out-of-sample stress comparison.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Keep initial premium, trade convention and paths identical.
+Distinguish hedge error before costs from net P&amp;L. Do not optimize
+bands on evaluation paths; compare uncertainty and not just mean loss.
+This is a finite-grid policy comparison, not a proof of global
+optimality.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One ATM call, three nonzero cost levels, two band rules and calendar
+benchmarks, independent evaluation with paired uncertainty. Distinct
+from D04.03.01 (calendar optimization).</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Fit a state-dependent band using gamma and remaining maturity, with
+separate validation; compare under Heston dynamics.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>BSM, stochastic calculus, simulation, risk measures and Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Replication with frictions;</p></li>
+<li><p>No-trade regions;</p></li>
+<li><p>Simulation and ledger;</p></li>
+<li><p>Cost-risk frontiers;</p></li>
+<li><p>Implications and limits.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive ledger and policies; W4-6: validate GBM engine; W7-9:
+train and select bands; W10-12: evaluate and stress; W13-16: reproduce
+and write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

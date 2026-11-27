@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Estimating Option Greeks with Monte Carlo Methods | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D05.04.02 · Derivatives · Numerical pricing &amp; exotics</p><h1>Estimating Option Greeks with Monte Carlo Methods</h1><p class="lead">Which of bump-and-revalue, pathwise and likelihood-ratio estimators delivers the best accuracy-cost trade-off for delta and vega of European calls, digitals and Asian options?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="required-tasks">Required tasks</h3>
+<ol type="1">
+<li><p>Derive estimators and analytic references; verify units.</p></li>
+<li><p>Implement independent seed replications and antithetic
+controls.</p></li>
+<li><p>Compare bias, empirical SD, RMSE, CI coverage and runtime for
+increasing paths.</p></li>
+<li><p>Inspect bump bias-variance and near-expiry/OTM cases.</p></li>
+<li><p>Explain invalid digital pathwise result and quantify Asian
+reference uncertainty. For one arithmetic Asian call with 12 fixings,
+derive the likelihood-ratio score from all conditional log-increment
+densities and differentiate all fixings for pathwise vega. Use
+independent reference simulations with uncertainty; do not rank the
+invalid naive digital pathwise estimator.</p></li>
+</ol>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>RMSE versus path count/time, bump sensitivity plot, estimator
+bias/variance table and reference diagnostics. One Asian delta/vega
+estimator comparison with reference uncertainty, bump bias and
+cost-normalized RMSE.</p>
+<h3 id="robustness">Robustness</h3>
+<p>Use identical random draws where appropriate and independent
+reference; distinguish sampling error from finite-difference bias. No
+universal ranking. State vega per unit volatility or per 1 vol point
+explicitly.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>European call and digital delta and vega, and one arithmetic Asian
+call (12 fixings, one strike and maturity), using bump-and-revalue,
+pathwise and likelihood-ratio estimators where valid. Include analytic
+European benchmarks, an independently generated numerical Asian
+reference with uncertainty and bump-size diagnostics, repeated seeds and
+a cost-normalized RMSE comparison. Explicitly report the invalid digital
+pathwise estimator rather than rank it.</p>
+<h3 id="optional-extension">Optional extension</h3>
+<p>Conditional smoothing for digital or barrier sensitivities; automatic
+differentiation for smooth payoffs.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>BSM, calculus, probability, Monte Carlo, Python.</p>
+<h3 id="thesis-outline">Thesis outline</h3>
+<ol type="1">
+<li><p>Greeks and estimators;</p></li>
+<li><p>Derivations;</p></li>
+<li><p>Numerical design;</p></li>
+<li><p>Efficiency comparisons;</p></li>
+<li><p>Limits.</p></li>
+</ol>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: derive estimators; W4-6: analytic checks; W7-9: experiments;
+W10-12: Asian and robustness; W13-16: writing.</p>
+<p>At every meeting submit your own code, inputs/parameter ledger,
+outputs and unresolved issues. Report null results and failed cases.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

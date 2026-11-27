@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Backtest Overfitting and the Illusion of Predictability | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A10.04.02 · Asset Pricing · Predictability &amp; machine learning</p><h1>Backtest Overfitting and the Illusion of Predictability</h1><p class="lead">How does the number of candidate predictive models affect apparent OOS performance under a no-predictability null, and how much does nested temporal validation reduce the gap between reported and independent test performance?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="mathematical-framework">Mathematical framework</h3>
+<p>For candidate set
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ℳ</mi><mi>K</mi></msub><annotation encoding="application/x-tex">\mathcal M_K</annotation></semantics></math>,
+a development winner is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>j</mi><mo>*</mo></msup><mo>=</mo><mo>arg</mo><msub><mo>min</mo><mrow><mi>j</mi><mo>∈</mo><msub><mi>ℳ</mi><mi>K</mi></msub></mrow></msub><msub><mover><mi>L</mi><mo accent="true">¯</mo></mover><mrow><mi>j</mi><mo>,</mo><mi>d</mi><mi>e</mi><mi>v</mi></mrow></msub></mrow><annotation encoding="application/x-tex">j^*=\arg\min_{j\in\mathcal M_K}\overline L_{j,dev}</annotation></semantics></math>.
+Evaluate that fixed rule on independent final data. The invalid oracle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>min</mo><mrow><mi>j</mi><mo>∈</mo><msub><mi>ℳ</mi><mi>K</mi></msub></mrow></msub><msub><mover><mi>L</mi><mo accent="true">¯</mo></mover><mrow><mi>j</mi><mo>,</mo><mi>t</mi><mi>e</mi><mi>s</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\min_{j\in\mathcal M_K}\overline L_{j,test}</annotation></semantics></math>
+reuses the final test and is deliberately not deployable. Under a
+no-conditional-mean-predictability null
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mn>0.005</mn><mo>+</mo><msub><mi>σ</mi><mi>t</mi></msub><msub><mi>ϵ</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">y_{t+1}=0.005+\sigma_t\epsilon_{t+1}</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>t</mi></msub><msub><mi>ϵ</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">E_t\epsilon_{t+1}=0</annotation></semantics></math>,
+compare constant and time-varying
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>σ</mi><mi>t</mi></msub><annotation encoding="application/x-tex">\sigma_t</annotation></semantics></math>.
+Use nested candidate sets and paired paths across
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+to quantify search-size effects and Monte Carlo uncertainty.</p>
+<h3 id="identification-and-implementation">Identification and
+implementation</h3>
+<p>Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mn>0.005</mn><mo>+</mo><msub><mi>σ</mi><mi>t</mi></msub><msub><mi>ϵ</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">y_{t+1}=0.005+\sigma_t\epsilon_{t+1}</annotation></semantics></math>,
+with constant
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>t</mi></msub><mo>=</mo><mn>0.04</mn></mrow><annotation encoding="application/x-tex">\sigma_t=0.04</annotation></semantics></math>
+in the iid null and prespecified conditional-variance dynamics in the
+second. Compare the development-selected rule on final data against the
+invalid test oracle; purge immature labels at the boundary. Report
+paired gap and Monte Carlo standard error, not an independent-samples
+standard error.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Perturb immature/final targets and ensure development winner is
+unchanged. Check nested candidate membership, paired common draws,
+strict boundary purge and same benchmark dates. Oracle never used in
+deployable policy. Real illustration remains required under original
+scope.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

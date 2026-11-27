@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Downside versus Upside Market Risk in Factor Investing | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A07.02.02 · Asset Pricing · Volatility &amp; tail risk</p><h1>Downside versus Upside Market Risk in Factor Investing</h1><p class="lead">Which equity factors have asymmetric market exposures and payoff distributions across down and up markets, and how stable is the asymmetry?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a07.02.02">Research plan | A07.02.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Prespecify the sign cutoff and rolling windows. Report all factors,
+state counts and crisis sensitivity; distinguish conditional descriptive
+analysis from a trading signal or a pricing test.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Describe factor means, volatility, lower partial moments and
+payoff distributions in up/down states.</p></li>
+<li><p>Estimate separate and interaction regressions; verify slope
+equivalence and use HAC intervals.</p></li>
+<li><p>Estimate joint time-block bootstrap confidence intervals for
+slope differences across all factors; control multiple comparisons (Holm
+or joint max statistic).</p></li>
+<li><p>Analyze 120-month rolling asymmetry and predefined crisis
+periods, reporting state counts.</p></li>
+<li><p>Repeat using market bottom/top terciles defined on training
+sample and examine sensitivity to extreme observations.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Conditional payoff table, slope asymmetry estimates and intervals,
+rolling exposures, state-count and joint-test diagnostics.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Market states are contemporaneous, not a trading signal. Nonlinear
+slope differences may arise from factor construction and conditional
+market variance; do not claim structural pricing. Do not subtract RF
+again from factor payoffs. Report whole sample and crisis sensitivity,
+not selected best results.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Five factors plus Mom, predeclared states, conditional slopes and
+means, uncertainty and subperiod checks. Distinct from A07.02.01, which
+tests cross-sectional pricing of downside beta.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare factor-level downside exposure with a drawdown-defined state
+or BAB, without changing baseline selection after results.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Factor models, regression, bootstrap and Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Asymmetric market risk;</p></li>
+<li><p>Factor construction and conditional regressions;</p></li>
+<li><p>Data and state definitions;</p></li>
+<li><p>Conditional exposure evidence;</p></li>
+<li><p>Economic interpretation.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: risk and factors; W4-6: align data and descriptive statistics;
+W7-9: conditional regressions; W10-12: joint inference and regimes;
+W13-16: writing and code.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

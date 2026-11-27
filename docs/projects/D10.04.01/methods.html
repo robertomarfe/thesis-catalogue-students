@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Currency Option Pricing and Interest Rate Differentials | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D10.04.01 · Derivatives · International, FX &amp; commodities</p><h1>Currency Option Pricing and Interest Rate Differentials</h1><p class="lead">How do domestic and foreign rates affect currency option prices and hedge ratios, and how much of the effect is mediated by forward moneyness?</p><p class="small">Synthetic core · Level 1/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="two-rates-and-option-sensitivities">Two rates and option
+sensitivities</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
+in domestic per foreign units, deterministic rates
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>d</mi></msub><mo>,</mo><msub><mi>r</mi><mi>f</mi></msub></mrow><annotation encoding="application/x-tex">r_d,r_f</annotation></semantics></math>,
+and volatility
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>,
+a European call costs
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mi>S</mi><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>r</mi><mi>f</mi></msub><mi>T</mi></mrow></msup><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>K</mi><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>r</mi><mi>d</mi></msub><mi>T</mi></mrow></msup><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">C=Se^{-r_fT}\Phi(d_1)-Ke^{-r_dT}\Phi(d_2),</annotation></semantics></math>
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mn>1</mn></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>S</mi><mi>/</mi><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>r</mi><mi>d</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo>+</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>σ</mi><msqrt><mi>T</mi></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">d_1=(\log(S/K)+(r_d-r_f+\sigma^2/2)T)/(\sigma\sqrt T)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mn>2</mn></msub><mo>=</mo><msub><mi>d</mi><mn>1</mn></msub><mo>−</mo><mi>σ</mi><msqrt><mi>T</mi></msqrt></mrow><annotation encoding="application/x-tex">d_2=d_1-\sigma\sqrt T</annotation></semantics></math>.
+Put-call parity is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>−</mo><mi>P</mi><mo>=</mo><mi>S</mi><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>r</mi><mi>f</mi></msub><mi>T</mi></mrow></msup><mo>−</mo><mi>K</mi><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>r</mi><mi>d</mi></msub><mi>T</mi></mrow></msup></mrow><annotation encoding="application/x-tex">C-P=Se^{-r_fT}-Ke^{-r_dT}</annotation></semantics></math>.
+Spot delta is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>r</mi><mi>f</mi></msub><mi>T</mi></mrow></msup><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">e^{-r_fT}\Phi(d_1)</annotation></semantics></math>;
+domestic and foreign rhos at fixed contract are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>K</mi><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>r</mi><mi>d</mi></msub><mi>T</mi></mrow></msup><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">TK e^{-r_dT}\Phi(d_2)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mi>T</mi><mi>S</mi><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>r</mi><mi>f</mi></msub><mi>T</mi></mrow></msup><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">-TS e^{-r_fT}\Phi(d_1)</annotation></semantics></math>.
+Matched K/F changes the contract across rate cases and is not a
+fixed-strike Greek.</p>
+<h3 id="foreign-accrual">Foreign accrual</h3>
+<p>Under domestic pricing probabilities
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>S</mi><mi>/</mi><mi>S</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>r</mi><mi>d</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mo>+</mo><mi>σ</mi><mi>d</mi><msup><mi>W</mi><msub><mi>ℚ</mi><mi>d</mi></msub></msup></mrow><annotation encoding="application/x-tex">dS/S=(r_d-r_f)dt+\sigma dW^{\mathbb Q_d}</annotation></semantics></math>.
+At time
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
+a foreign money-market unit has domestic value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>t</mi></msub><msup><mi>e</mi><mrow><msub><mi>r</mi><mi>f</mi></msub><mi>t</mi></mrow></msup></mrow><annotation encoding="application/x-tex">S_t e^{r_ft}</annotation></semantics></math>,
+so a position replicating spot delta holds
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Δ</mi><mi>t</mi></msub><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>r</mi><mi>f</mi></msub><mi>t</mi></mrow></msup></mrow><annotation encoding="application/x-tex">\Delta_t e^{-r_ft}</annotation></semantics></math>
+units. Domestic cash accrues at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mi>d</mi></msub><annotation encoding="application/x-tex">r_d</annotation></semantics></math>;
+account for foreign accrual and self-financing at each rebalance.
+Optional spot/rate proxies do not provide observed market option
+prices.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Check parity, fixed-strike sensitivities and self-financing ledger.
+Separate matched moneyness comparisons from Greeks. Keep quote
+orientation and foreign accrual explicit.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

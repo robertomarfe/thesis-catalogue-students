@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Black-Litterman Portfolio Choice under Uncertain Expected Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A08.02.01 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Black-Litterman Portfolio Choice under Uncertain Expected Returns</h1><p class="lead">How do prior strength and uncertainty in relative-return views affect Black-Litterman posterior allocations and their held-out economic performance?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="required-tasks">Required tasks</h3>
+<ol type="1">
+<li><p>Derive Gaussian posterior and validate zero-innovation/no-view
+limits on a two-asset example.</p></li>
+<li><p>Plot posterior mean and weight response to view confidence and
+conflicts using one historical origin.</p></li>
+<li><p>Implement monthly rolling allocations with same covariance, risk
+aversion and constraints; calculate returns after drift-adjusted
+rebalancing.</p></li>
+<li><p>Compare volatility, Sharpe, certainty equivalent, concentration
+and turnover; add prespecified 10/25 bp turnover costs.</p></li>
+<li><p>Use paired block bootstrap and alternative view definitions
+chosen before holdout; vary tau at a prespecified origin under a fixed
+Omega anchor, not as a distinct effect under proportional Omega. Show
+algebraically and numerically that tau cancels from the posterior mean
+when Omega is proportional to tau. At one prespecified origin vary tau
+separately using Omega anchored at tau_ref=0.05; keep the prior mean,
+return covariance, risk aversion and views fixed. This is sensitivity,
+not identification of true parameters.</p></li>
+</ol>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Posterior diagnostics, confidence/weight curves, portfolio
+performance and turnover tables, view sensitivity and reproducible
+allocation code. Proportional versus anchored Omega sensitivity curves,
+alongside rolling confidence and cost-adjusted performance
+comparisons.</p>
+<h3 id="robustness">Robustness</h3>
+<p>View-generating rule is not validated private information.
+Prior/reference weights not market-cap equilibrium. Use no future data,
+consistent return units and positive-definite covariance. Report gross
+and cost-adjusted performance, including worse-than-benchmark cases.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Validated posterior, one relative-view pair, at least three
+confidence settings and long-only rolling comparison with
+prior/equal/sample-mean benchmarks; show tau invariance under
+proportional Omega and a separate prior-strength sensitivity at one
+prespecified origin with Omega anchored at a fixed tau reference. Keep
+the return covariance and risk aversion fixed in mean comparisons.</p>
+<h3 id="optional-extension">Optional extension</h3>
+<p>Use predictive covariance or a separately justified macro view with
+release timing; compare with robust optimization (A08.02.02).</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Multivariate normal distributions, portfolio optimization, matrix
+algebra and Python.</p>
+<h3 id="thesis-outline">Thesis outline</h3>
+<ol type="1">
+<li><p>Estimation risk and Bayesian allocation;</p></li>
+<li><p>Black-Litterman derivation;</p></li>
+<li><p>Data, views and constraints;</p></li>
+<li><p>Posterior and backtest;</p></li>
+<li><p>Sensitivity and limitations.</p></li>
+</ol>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: posterior derivation; W4-6: portfolio panel and unit tests;
+W7-9: rolling optimizer; W10-12: costs and sensitivity; W13-16:
+interpretation and writing.</p>
+<p>At every meeting submit your own code, inputs/parameter ledger,
+outputs and unresolved issues. Report null results and failed cases.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Skewness Risk and the Cross-Section of Equity Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A07.03.01 · Asset Pricing · Volatility &amp; tail risk</p><h1>Skewness Risk and the Cross-Section of Equity Returns</h1><p class="lead">Do lagged market coskewness exposures have incremental explanatory power for subsequent portfolio returns beyond standard market beta and factors?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Volatility forecasting and tail risk · Level
+3/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>A linear market model ignores exposure to the square of market
+shocks. If marginal utility is sensitive to extreme aggregate outcomes,
+such nonlinear exposures may be relevant for expected returns. The
+empirical difficulty is estimating third-moment-related quantities
+reliably before observing the return to be explained.</p>
+<h3 id="research-question">Research question</h3>
+<p>Do lagged market coskewness exposures have incremental explanatory
+power for subsequent portfolio returns beyond standard market beta and
+factors?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>Center market excess returns as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><msubsup><mi>r</mi><mi>M</mi><mi>e</mi></msubsup><mo>−</mo><msubsup><mover><mi>r</mi><mo accent="true">‾</mo></mover><mi>M</mi><mi>e</mi></msubsup></mrow><annotation encoding="application/x-tex">x=r_M^e-\bar r_M^e</annotation></semantics></math>
+and set
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><msub><mo>Proj</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>,</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></msub><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">z=x^2-\operatorname{Proj}_{(1,x)}x^2</annotation></semantics></math>.
+The coefficient on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>
+measures quadratic exposure orthogonal to linear market variation within
+the estimation window.</p>
+<h3 id="research-design">Research design</h3>
+<p>Match daily and monthly portfolio definitions, estimate lagged
+exposures on trailing daily observations and compare monthly
+cross-sectional models. Retain a beta-only benchmark, predeclared
+scaling and a separate portfolio-sort diagnostic.</p>
+<p>Do not remove extreme days based on their effect on significance.
+Verify that the daily and monthly portfolio labels match, that the
+market is excess return, and that generated-regressor uncertainty is
+recognized.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Exposure distributions and correlations, Fama-MacBeth slopes, sorted
+portfolio returns, alpha and uncertainty tables, common-date
+robustness.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>One daily/monthly test-asset panel, lagged beta/coskewness
+estimation, monthly cross-sectional prices and beta-only comparison with
+robust inference.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Portfolio-level cross-section is small and overlapping stocks create
+dependence; no individual-stock pricing claim. Daily third moments noisy
+and driven by outliers; winsorization, if used, based on past data and
+clearly changes the estimand. Cross-sectional significance not proof of
+a structural SDF. Distinct from downside beta and option-implied skew
+theses.</p>
+<p><strong>Prerequisites:</strong> Factor pricing, regression, higher
+moments, bootstrap and Python.</p>
+<p><strong>Optional extension:</strong> Use open-source characteristic
+portfolios for a different cross-section or evaluate polynomial SDF
+distance on held-out assets.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: derive quadratic SDF; W4-6: prepare panels and exposures; W7-9:
+cross-sectional tests; W10-12: bootstrap and alternative panels; W13-16:
+write.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

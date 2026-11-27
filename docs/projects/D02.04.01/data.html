@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Principal Components of Implied Volatility Index Curves | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D02.04.01 · Derivatives · Option models &amp; surfaces</p><h1>Principal Components of Implied Volatility Index Curves</h1><p class="lead">How much of the variation in a common panel of short-, medium- and longer-horizon implied volatility indices can be explained by level, slope and curvature? Are principal components stable across market regimes?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-d02.04.01">Data and model setup |
+D02.04.01</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract">Original input contract</h4>
+<p>Cboe daily closing VIX9D, VIX, VIX3M and VIX6M when downloadable;
+https://www.cboe.com/tradable_products/vix/vix_historical_data and FRED
+VIXCLS/VXVCLS https://fred.stlouisfed.org/series/VXVCLS. Proposed
+2014-2025 common dates, subject to file check. Use same close date, no
+forward fill over holidays, fixed horizon days 9,30,90,180 for
+approximate calculations; check actual index methodologies. Estimate PCA
+on first 60% of dates, freeze means/loadings, evaluate remaining 40% and
+separate rolling 3-year windows.</p>
+<h4 id="operational-specification">Operational specification</h4>
+<p>Align VIX9D, VIX, VXVCLS and optional verified VIX6M on common actual
+session dates. Use squared decimal index values; no forward fill. Fit on
+first 60% of eligible changes and hold fixed in 40% test. Compare
+one/two PCs with fixed level/slope contrasts; 3 PCs only when &gt;=4
+maturities. Rolling 3-year stability is descriptive.</p>
+<p>No empirical observations are bundled. Actual data rights, sample and
+schema are unverified; complete the acquisition gate before empirical
+work.</p>
+<h4 id="acceptance-checks">Acceptance checks</h4>
+<p>At least three actual licensed maturity series; fourth needed for
+nontrivial 3-factor compression; train-only loadings and gap-safe
+changes.</p>
+<h4 id="local-source-acquisition-no-provider-data-supplied">Local source
+acquisition (no provider data supplied)</h4>
+<ul>
+<li>VIX: <a href="https://fred.stlouisfed.org/series/VIXCLS">FRED
+VIXCLS</a>; use Download &gt; CSV and keep filename
+<code>VIXCLS.csv</code>. <code>observation_date</code> (YYYY-MM-DD),
+<code>VIXCLS</code> in annualized volatility percentage points. The
+direct FRED graph CSV endpoint is
+<code>https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS</code>
+(not fetched in this release).</li>
+<li>VIX3M: <a href="https://fred.stlouisfed.org/series/VXVCLS">FRED
+VXVCLS</a>; Download &gt; CSV, <code>VXVCLS.csv</code>, same date
+format, column <code>VXVCLS</code>. Candidate direct endpoint
+<code>https://fred.stlouisfed.org/graph/fredgraph.csv?id=VXVCLS</code>
+(not fetched).</li>
+<li>Check source terms: both FRED series are Cboe copyrighted, citation
+required; public access does not imply permission to redistribute.
+Record download date, vintage, rights, raw hashes and units. Never put
+restricted data in a distributable ZIP. Use the documented methodology
+for each series and record launch versus retrospective history. If
+actual column names differ, inspect before configuring the reader.</li>
+<li>Keep missing observations missing. Use the actual market trading
+sessions for the sample (audited from an official calendar or validated
+complete daily market panel); do not use generic weekdays as the
+empirical calendar. Document holidays and missing sessions, date
+alignment and sample losses. No forward-fill. Read the date and value
+columns, divide annualized index percentage points by 100 and compute
+variance by squaring. For every file report row count, duplicate keys
+(reject), range, missing values, nonpositive quotes (reject) and
+coverage. A single clean schema fixture is not real-file
+validation.</li>
+<li>9-day index: <a
+href="https://www.cboe.com/tradable_products/vix/vix_historical_data">Cboe
+official history page</a>, use linked VIX9D historical data. The listed
+link is
+<code>https://cdn-api.cboe.com/api/global/us_indices/daily_prices/VIX9D_History.csv</code>;
+browser fetch failed (cache miss); file schema not certified. Save
+<code>VIX9D_History.csv</code>; inspect actual date and closing columns,
+specify formats explicitly. Verify rights.</li>
+<li>Six-month series VIX6M is optional for a four-dimensional exercise;
+check current provider methodology and locate official download or
+licensed local file. A direct link has not been verified in this turn.
+Do not label an unverified URL as an actual file. Three series are the
+minimum; four required for nontrivial three-PC compression.</li>
+<li>Target 2014–2025 common dates if coverage permits. Calculate
+consecutive daily variance changes using the audited session index,
+after aligning all series to audited sessions; missing days exclude both
+affected changes. Freeze first 60% of usable dates, train-only
+centering/loadings; apply to final 40%. Keep index horizons and sample
+fixed. Record negative forward-variance diagnostics, gaps,
+initial/held-out dates and common observations.</li>
+</ul>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

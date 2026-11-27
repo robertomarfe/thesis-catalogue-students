@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Term Structure of Implied Volatility in Equity Markets | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D02.01.02 · Derivatives · Option models &amp; surfaces</p><h1>The Term Structure of Implied Volatility in Equity Markets</h1><p class="lead">Does the slope of the VIX and three-month implied variance curve improve forecasts of subsequent realized market variance relative to the VIX alone and a historical-variance benchmark?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="horizon-consistent-variance">Horizon-consistent variance</h3>
+<p>For index levels
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>30</mn></msub><mo>,</mo><msub><mi>I</mi><mn>90</mn></msub></mrow><annotation encoding="application/x-tex">I_{30},I_{90}</annotation></semantics></math>
+expressed in volatility percentage points, let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>j</mi></msub><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>I</mi><mi>j</mi></msub><mi>/</mi><mn>100</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">v_j=(I_j/100)^2</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>j</mi></msub><mo>=</mo><mi>j</mi><mi>/</mi><mn>365</mn></mrow><annotation encoding="application/x-tex">T_j=j/365</annotation></semantics></math>
+under the approximate calendar convention. Total variance is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>j</mi></msub><mo>=</mo><msub><mi>T</mi><mi>j</mi></msub><msub><mi>v</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">w_j=T_jv_j</annotation></semantics></math>.
+The implied forward-variance proxy is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mrow><mn>30</mn><mo>,</mo><mn>90</mn></mrow></msub><mo>=</mo><mfrac><mrow><msub><mi>T</mi><mn>90</mn></msub><msub><mi>v</mi><mn>90</mn></msub><mo>−</mo><msub><mi>T</mi><mn>30</mn></msub><msub><mi>v</mi><mn>30</mn></msub></mrow><mrow><msub><mi>T</mi><mn>90</mn></msub><mo>−</mo><msub><mi>T</mi><mn>30</mn></msub></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">v_{30,90}=\frac{T_{90}v_{90}-T_{30}v_{30}}{T_{90}-T_{30}}.</annotation></semantics></math>
+Verify the provider horizons and definitions; raw index differences are
+not forward variance. Flag negative proxies rather than automatically
+repairing them. Finite option strikes and index construction qualify the
+risk-neutral interpretation.</p>
+<h3 id="physical-targets-and-information-sets">Physical targets and
+information sets</h3>
+<p>For daily log returns
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>u</mi><mi>d</mi></msub><annotation encoding="application/x-tex">u_d</annotation></semantics></math>
+and origin
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
+annualize the sum over audited trading sessions inside the next
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+calendar days:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mrow><mi>t</mi><mo>,</mo><mi>h</mi></mrow></msub><mo>=</mo><mfrac><mn>365</mn><mi>h</mi></mfrac><munder><mo>∑</mo><mrow><mi>t</mi><mo>&lt;</mo><mi>d</mi><mo>≤</mo><mi>t</mi><mo>+</mo><mi>h</mi></mrow></munder><msubsup><mi>u</mi><mi>d</mi><mn>2</mn></msubsup><mi>.</mi></mrow><annotation encoding="application/x-tex">Y_{t,h}=\frac{365}{h}\sum_{t&lt;d\le t+h}u_d^2.</annotation></semantics></math>
+A missing required session makes the target missing. The outcome becomes
+available no earlier than
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>+</mo><mi>h</mi></mrow><annotation encoding="application/x-tex">t+h</annotation></semantics></math>.
+Build historical-variance, level-only and level-plus-slope models with
+positive variance predictions, using only matured training targets. Use
+the same held-out origins and horizon for QLIKE
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mi>f</mi><mo>+</mo><mi>Y</mi><mi>/</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">\log f+Y/f</annotation></semantics></math>
+and squared-error comparisons; overlapping targets require
+dependence-aware inference. French market returns are a broad-market
+proxy, not a matched SPX return. Forecast accuracy does not imply
+equality between
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℙ</mi><annotation encoding="application/x-tex">\mathbb P</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℚ</mi><annotation encoding="application/x-tex">\mathbb Q</annotation></semantics></math>
+variance expectations.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Check common month-end dates and complete 30/90-calendar-day target
+intervals before fitting. Preserve the information set at every forecast
+origin; separate the implied level and forward proxy, and score common
+outcomes.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

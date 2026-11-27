@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Skewness Risk and the Cross-Section of Equity Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A07.03.01 · Asset Pricing · Volatility &amp; tail risk</p><h1>Skewness Risk and the Cross-Section of Equity Returns</h1><p class="lead">Do lagged market coskewness exposures have incremental explanatory power for subsequent portfolio returns beyond standard market beta and factors?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="quadratic-sdf-and-exposures">Quadratic SDF and exposures</h3>
+<p>For excess returns,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><msubsup><mi>r</mi><mi>i</mi><mi>e</mi></msubsup><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">E[m r_i^e]=0</annotation></semantics></math>.
+A quadratic approximation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mi>a</mi><mo>−</mo><mi>b</mi><mi>x</mi><mo>−</mo><mi>c</mi><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">m=a-bx-cx^2</annotation></semantics></math>
+connects expected returns to covariances with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mn>2</mn></msup><annotation encoding="application/x-tex">x^2</annotation></semantics></math>
+after normalizing by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">E[m]</annotation></semantics></math>.
+Orthogonalize
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mn>2</mn></msup><annotation encoding="application/x-tex">x^2</annotation></semantics></math>
+on a constant and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+within each past window before estimating
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>r</mi><mi>i</mi><mi>e</mi></msubsup><mo>=</mo><msub><mi>α</mi><mi>i</mi></msub><mo>+</mo><msub><mi>β</mi><mi>i</mi></msub><mi>x</mi><mo>+</mo><msub><mi>γ</mi><mi>i</mi></msub><mi>z</mi><mo>+</mo><msub><mi>e</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">r_i^e=\alpha_i+\beta_i x+\gamma_i z+e_i</annotation></semantics></math>.
+This is not identical to standardized coskewness
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>r</mi><mi>i</mi><mi>e</mi></msubsup><mo>−</mo><mi>E</mi><msubsup><mi>r</mi><mi>i</mi><mi>e</mi></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>x</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">]</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>σ</mi><mi>i</mi></msub><mo>Var</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">E[(r_i^e-E r_i^e)x^2]/(\sigma_i\operatorname{Var}(x))</annotation></semantics></math>;
+report both with documented scaling.</p>
+<h3 id="pricing-design">Pricing design</h3>
+<p>Estimate Fama-MacBeth monthly cross-sectional slopes on predetermined
+exposures, comparing the same assets and evaluation dates. Standardize
+using only the relevant past cross section if prescribed. Report
+beta/coskewness correlations and joint-date bootstrap uncertainty,
+re-estimating past moments and exposures. A significant slope is not
+proof of a structural quadratic SDF.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Do not remove extreme days based on their effect on significance.
+Verify that the daily and monthly portfolio labels match, that the
+market is excess return, and that generated-regressor uncertainty is
+recognized.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

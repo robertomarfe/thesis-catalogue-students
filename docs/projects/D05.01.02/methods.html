@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Quasi-Monte Carlo Methods for Path-Dependent Options | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D05.01.02 · Derivatives · Numerical pricing &amp; exotics</p><h1>Quasi-Monte Carlo Methods for Path-Dependent Options</h1><p class="lead">When do scrambled Sobol sequences and Brownian bridge ordering improve the accuracy and runtime of Asian option pricing compared with plain Monte Carlo?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="integration-and-coordinate-ordering">Integration and coordinate
+ordering</h3>
+<p>At fixing dates
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mi>j</mi></msub><annotation encoding="application/x-tex">t_j</annotation></semantics></math>,
+exact GBM is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><msub><mi>t</mi><mi>j</mi></msub></msub><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><mo>exp</mo><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><mi>q</mi><mo>−</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>t</mi><mi>j</mi></msub><mo>+</mo><mi>σ</mi><msub><mi>W</mi><msub><mi>t</mi><mi>j</mi></msub></msub><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">S_{t_j}=S_0\exp[(r-q-\sigma^2/2)t_j+\sigma W_{t_j}]</annotation></semantics></math>.
+The arithmetic call price is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>T</mi></mrow></msup><msup><mi>𝔼</mi><mi>ℚ</mi></msup><mrow><mo stretchy="true" form="prefix">[</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>m</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msub><mo>∑</mo><mi>j</mi></msub><msub><mi>S</mi><msub><mi>t</mi><mi>j</mi></msub></msub><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">e^{-rT}\mathbb E^{\mathbb Q}[(m^{-1}\sum_j S_{t_j}-K)^+]</annotation></semantics></math>.
+Independent normals generate chronological increments or conditional
+bridge points after sampling
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>W</mi><mi>T</mi></msub><annotation encoding="application/x-tex">W_T</annotation></semantics></math>.
+Either construction must reproduce
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>Cov</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>W</mi><msub><mi>t</mi><mi>i</mi></msub></msub><mo>,</mo><msub><mi>W</mi><msub><mi>t</mi><mi>j</mi></msub></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>min</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>t</mi><mi>i</mi></msub><mo>,</mo><msub><mi>t</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\operatorname{Cov}(W_{t_i},W_{t_j})=\min(t_i,t_j)</annotation></semantics></math>.
+Bridge ordering changes effective dimension, not the contract.</p>
+<h3 id="replication-and-uncertainty">Replication and uncertainty</h3>
+<p>Transform scrambled Sobol points through the inverse normal cdf,
+documenting endpoint handling. Each independent scramble yields a price
+estimate; use between-scramble dispersion rather than IID formulas for
+points. A geometric average has a lognormal law, whereas a separately
+controlled arithmetic reference is numerical. Distinguish
+single-replicate RMSE from the SE of an average of replicates. Compare
+identical path counts, include construction cost and bound memory by
+batching without changing the point set.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Check Gaussian covariance before pricing. If reference uncertainty
+prevents ranking, increase the reference budget or label the result
+unresolved. The exercise measures integration error, not
+continuous-monitoring discretization.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

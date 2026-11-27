@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Financial Stress and the Stock-Bond Correlation | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A04.04.02 · Asset Pricing · Macro-finance &amp; policy</p><h1>Financial Stress and the Stock-Bond Correlation</h1><p class="lead">Does the stock-bond return correlation vary with prior financial stress, and does that variation change the diversification benefit of a fixed stock-bond portfolio?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a04.04.02">Research plan | A04.04.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Use a release ledger or explicitly pseudo-real-time extra lag; set
+threshold from fixed rule or past data. Compute exact aging bond return
+and nominal equity total return; report regime counts, marginal
+variances, covariance and 2<em>w_s</em>w_b*cov contribution with
+date-block inference and fixed-weight risk decomposition.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Construct stock total returns and 5y synthetic zero one-month holding
+returns (2/10y robustness) from GSW; exact remaining maturity and dates,
+convert log bond return with expm1 before variance comparison. Decision
+month t: choose latest stress observation from prior month or earlier,
+actual release strictly before origin and max age declared. STLFSI4
+weekly ending Friday; series revised, do not assign observation as
+release. If only revised histories, conservative lag and
+pseudo-real-time; NFCI robustness. Pair next-month returns with lagged
+stress state; fixed &gt;0 baseline, threshold quantile estimated
+training-only. Use rolling 36/60 month correlation and vol/cov;
+common-date moving blocks with regime assignment preserved/recomputed as
+appropriate. Compare 60/40 variance to independence counterfactual using
+within-state variances, disclose event counts; no causal stress
+interpretation.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Build discount factors and verify zero-bond holding-return
+formula against parallel-shock duration approximation.</p></li>
+<li><p>Plot rolling 36/60-month covariance/correlation and
+volatilities.</p></li>
+<li><p>Split by lagged stress above zero and training-sample quantiles;
+estimate conditional covariance and correlation with paired block
+bootstrap.</p></li>
+<li><p>Compare 60/40 portfolio risk to an independence counterfactual
+across regimes.</p></li>
+<li><p>Test robustness by bond maturity, alternative NFCI, lag and
+pre/post-2008 or inflationary periods; report event counts.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Data construction audit; correlation and covariance plots; regime
+return/risk table; maturity and threshold robustness; diversification
+comparison.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Synthetic zero returns are not traded bond-index returns. Stress
+includes financial prices, so association is not causal; use lagged
+measures, revised-vintage caveat and fixed definitions. Avoid very small
+stress regimes and overlapping-window naive t-tests.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Monthly market and 5y synthetic zero returns, lagged stress,
+conditional risk and paired block inference. Distinct from macro
+inflation hedge A04.02.02.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Inflation and policy regime interactions or bivariate DCC-GARCH, with
+strictly past-only forecasting.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Fixed income, covariance estimation, time-series econometrics and
+Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Stock-bond risk;</p></li>
+<li><p>Return construction;</p></li>
+<li><p>Stress and conditioning;</p></li>
+<li><p>Correlation and diversification;</p></li>
+<li><p>Robustness.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: theory/source checks; W4-6: build return panel; W7-9:
+conditional estimates; W10-12: robustness and portfolio risk; W13-16:
+write/reproduce.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

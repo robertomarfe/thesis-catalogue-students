@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Currency Hedging of US Equity Investments for Euro-Area Investors | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D10.03.02 · Derivatives · International, FX &amp; commodities</p><h1>Currency Hedging of US Equity Investments for Euro-Area Investors</h1><p class="lead">When does a quarterly synthetic currency hedge improve the risk-return profile of a euro investor holding US equities? How do hedge ratio, equity-FX covariance and financing carry affect the result?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="currency-and-principal-accounting">Currency and principal
+accounting</h3>
+<p>For initial EUR wealth one, buy
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>0</mn></msub><annotation encoding="application/x-tex">S_0</annotation></semantics></math>
+USD of equities. Terminal EUR wealth without a hedge is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><msub><mi>R</mi><mrow><mi>U</mi><mi>S</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>S</mi><mn>0</mn></msub><mi>/</mi><msub><mi>S</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">(1+R_{US})S_0/S_1</annotation></semantics></math>.
+Sell
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><msub><mi>S</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">hS_0</annotation></semantics></math>
+USD forward for EUR at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+USD/EUR: the incremental EUR payoff is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mi>G</mi></mrow><annotation encoding="application/x-tex">hG</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mi>/</mi><mi>F</mi><mo>−</mo><mn>1</mn><mi>/</mi><msub><mi>S</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">G=S_0(1/F-1/S_1)</annotation></semantics></math>.
+Thus the net pre-cost return is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>+</mo><mi>h</mi><mi>G</mi></mrow><annotation encoding="application/x-tex">U+hG</annotation></semantics></math>.
+For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">h=1</annotation></semantics></math>,
+the initial USD principal is hedged but future equity gains remain
+FX-sensitive. Use synthetic simple-CIP
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><msub><mi>r</mi><mrow><mi>U</mi><mi>S</mi><mi>D</mi></mrow></msub><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><msub><mi>r</mi><mrow><mi>E</mi><mi>U</mi><mi>R</mi></mrow></msub><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">F=S_0(1+r_{USD}\tau)/(1+r_{EUR}\tau)</annotation></semantics></math>
+with positive accrual factors.</p>
+<h3 id="past-only-hedge-choice">Past-only hedge choice</h3>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>Var</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\operatorname{Var}(G)&gt;0</annotation></semantics></math>,
+the unconstrained variance-minimizing hedge ratio is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mo>Cov</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>U</mi><mo>,</mo><mi>G</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mo>Var</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">-\operatorname{Cov}(U,G)/\operatorname{Var}(G)</annotation></semantics></math>.
+The prescribed benchmark clips to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0,1]</annotation></semantics></math>;
+estimate with at least 40 completed quarters and test after the training
+cutoff. Compound total US market returns including RF before conversion;
+do not treat overlapping monthly three-month contracts as independent
+quarters. Record initial capital, forward notional, cost and basis
+assumptions, paired uncertainty and realized risk. These are synthetic
+proxy contracts, not executable hedge returns.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Audit USD/EUR sign, full-principal identity, common dates, lagged
+rates and no look-ahead. Retain 60 aligned-quarter target; if
+unavailable agree a descriptive fixed-ratio scope. No ex-post optimized
+benchmark.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

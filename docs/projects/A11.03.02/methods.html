@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Conditional versus Unconditional Asset Pricing Restrictions | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A11.03.02 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>Conditional versus Unconditional Asset Pricing Restrictions</h1><p class="lead">Do predetermined valuation and interest-rate instruments reveal conditional pricing errors that an unconditional factor SDF hides?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="from-conditional-to-managed-moments">From conditional to managed
+moments</h3>
+<p>For gross bill payoff
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mrow><mi>f</mi><mo>,</mo><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">R_{f,t}</annotation></semantics></math>
+known at formation,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><msub><mi>R</mi><mrow><mi>f</mi><mo>,</mo><mi>t</mi></mrow></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">E_t[mR_{f,t}]=1</annotation></semantics></math>;
+for excess returns
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><mi>x</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">E_t[mx]=0</annotation></semantics></math>.
+With
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mi>t</mi></msub><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>,</mo><mi>d</mi><msub><mi>p</mi><mi>t</mi></msub><mo>,</mo><mi>t</mi><msub><mi>s</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>⊤</mi></msup></mrow><annotation encoding="application/x-tex">z_t=(1,dp_t,ts_t)^\top</annotation></semantics></math>
+measurable at formation, the law of iterated expectations implies zero
+unconditional moments for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>z</mi><mi>t</mi></msub><annotation encoding="application/x-tex">z_t</annotation></semantics></math>
+times each residual. Finite instruments test selected implications, not
+all conditional restrictions.</p>
+<p>Use the affine candidate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>b</mi><mi>⊤</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo>−</mo><msub><mi>μ</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><msub><mi>R</mi><mrow><mi>f</mi><mo>,</mo><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">m=(1-b^\top(f-\mu_f))/R_{f,t}</annotation></semantics></math>,
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>μ</mi><mi>f</mi></msub><annotation encoding="application/x-tex">\mu_f</annotation></semantics></math>
+a fixed training mean. Even with this scaling, conditional bill pricing
+need not hold:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><msub><mi>R</mi><mrow><mi>f</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mi>−</mi><msup><mi>b</mi><mi>⊤</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>E</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>f</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>−</mo><msub><mi>μ</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">E_t[mR_{f,t}-1]=-b^\top(E_t[f]-\mu_f)</annotation></semantics></math>.
+Include the bill residual with the excess moments. GMM weights and
+Jacobian rank depend on instrument count; compare frozen kernels on an
+identical evaluation moment menu rather than comparing J statistics
+across different menus.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Verify lagged calendar and actual availability of predictors; revised
+data do not establish a real-time exercise. Standardize with training
+statistics only. Include bill moments, report negativity and rank, and
+use paired refits to assess held-out pricing error differences.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

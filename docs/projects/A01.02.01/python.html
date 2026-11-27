@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Three Factors or Five? Comparing Fama-French Asset Pricing Models | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A01.02.01 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>Three Factors or Five? Comparing Fama-French Asset Pricing Models</h1><p class="lead">Does the Fama-French five-factor model improve pricing of US industry and characteristic portfolios relative to the three-factor model, and are the gains stable across samples? Do the additional factors have explanatory power conditional on common market, size and value factors?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html" aria-current="page">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Python lab</h2><div class="actions"><a href="files/student_start.ipynb" class="button secondary" download>Open student_start.ipynb</a><a href="files/requirements.txt" class="button secondary" download>Open requirements.txt</a></div><p class="notice">Unexecuted starter only. No solved thesis or external data supplied.</p><h3>Run locally</h3><p>Extract the workspace ZIP and open the notebook in an isolated Python environment. Install requirements.txt, read the data guide, and retain your own results.</p><h3>Run in Codespaces</h3><p><a href="https://codespaces.new/robertomarfe/thesis-catalogue-students/tree/main" class="button secondary">Open student Python environment</a></p><p>Check costs. Use Tasks: Run Task > Prepare my research draft, select A01.02.01, then File > Open File and open /workspaces/thesis-research/A01.02.01/student_start.ipynb. Select the isolated .venv interpreter. No forwarded port required. Do not commit raw data or results.</p><h3 id="a01.02.01-student-research-starter">A01.02.01 | Student research
+starter</h3>
+<p><strong>Current review draft; approval pending.</strong> Empirical
+core; actual rights, coverage and input validation pending.</p>
+<h4 id="goal">Goal</h4>
+<p>A larger factor model can explain more return variation without
+improving the pricing of expected returns. A further complication is
+that published FF3 and FF5 need not share identical size factors. A
+literal comparison and a deliberately nested comparison answer different
+questions.</p>
+<p><strong>Research question:</strong> Does the Fama-French five-factor
+model improve pricing of US industry and characteristic portfolios
+relative to the three-factor model, and are the gains stable across
+samples? Do the additional factors have explanatory power conditional on
+common market, size and value factors?</p>
+<h4 id="setup-check">Setup check</h4>
+<p>Check that two illustrative lists of factor labels are nested only
+when the common columns coincide. This artificial example does not
+validate the full research design or actual data.</p>
+<pre><code>a=[&#x27;M&#x27;,&#x27;SMB3&#x27;,&#x27;H&#x27;]; b=[&#x27;M&#x27;,&#x27;SMB5&#x27;,&#x27;H&#x27;,&#x27;R&#x27;,&#x27;C&#x27;]
+assert not set(a)&lt;=set(b)
+assert set([&#x27;M&#x27;,&#x27;SMB5&#x27;,&#x27;H&#x27;])&lt;=set(b)
+print(&#x27;Setup check passed.&#x27;)</code></pre><h4 id="student-owned-research">Student-owned research</h4>
+<p>Require the monthly return blocks, matched RF and common complete
+calendar, positive GRS degrees of freedom, and at least the original
+provisional subperiod coverage. Refit paired alpha differences in joint
+time blocks. Document covariance singularity rather than silently
+regularizing the classical GRS statistic.</p>
+<ol type="1">
+<li><p>Document factor definitions and common-sample descriptive
+statistics; estimate FF3 and FF5 for the same excess-return
+matrix.</p></li>
+<li><p>Compute annualized mean absolute alpha, alpha RMSE, adjusted
+R-squared, GRS statistic/p-value separately by model and test-asset set;
+display individual alpha estimates with HAC intervals.</p></li>
+<li><p>Estimate a deliberately nested pair with Mkt-RF, SMB and HML from
+FF5 held fixed, then add RMW and CMA; compare joint restrictions and
+factor spanning regressions.</p></li>
+<li><p>Repeat by prespecified subperiod and alternative portfolio
+family; use block-bootstrap paired alpha-RMSE differences for
+uncertainty, not raw GRS p-value rankings alone.</p></li>
+</ol>
+<p><strong>Minimum viable thesis:</strong> Reproduce FF3 and FF5 for
+industries plus one secondary test-asset set, compare pricing errors and
+joint tests on a common sample, include the nested-model check and time
+split. A five-factor rejection or weak improvement is a legitimate
+conclusion.</p>
+<p>Record assumptions, independent checks, uncertainty and limitations
+in a separate research notebook. No core solver or research output is
+supplied.</p>
+<p><a href="files/student_start.ipynb">Notebook source</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

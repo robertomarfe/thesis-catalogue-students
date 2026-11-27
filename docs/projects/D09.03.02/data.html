@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Do Corporate Bond Spreads Forecast Economic Downturns? | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D09.03.02 · Derivatives · Credit &amp; incomplete markets</p><h1>Do Corporate Bond Spreads Forecast Economic Downturns?</h1><p class="lead">Do corporate credit spreads and the excess bond premium improve recession forecasts relative to the Treasury term spread?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-d09.03.02">Data and model setup |
+D09.03.02</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Federal Reserve GZ/EBP updated CSV,
+https://www.federalreserve.gov/econres/notes/feds-notes/ebp_csv.csv;
+metadata at
+https://www.federalreserve.gov/econres/notes/feds-notes/updating-the-recession-risk-and-the-excess-bond-premium-20161006.html.
+Monthly GS10 minus TB3MS (rate-convention approximation, pp), USREC from
+FRED https://fred.stlouisfed.org/. Target 1973-2025 with final origin at
+least 12 months before last recession observation. Lag credit and rate
+data one month as conservative availability proxy; use revised-vintage
+pseudo-OOS. GZ replaces restricted Moody’s in baseline; do not use
+Fed-published model probability as a predictor.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>GS10 — GS10</strong> (Core). Expected file:
+<code>GS10.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=GS10">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/GS10">provider page</a>. Link
+status from v13 inventory: Direct CSV endpoint constructed from exact
+series ID; not fetched. Monthly Treasury yield percent.</li>
+<li><strong>TB3MS — TB3MS</strong> (Core). Expected file:
+<code>TB3MS.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/TB3MS">provider page</a>. Link
+status from v13 inventory: Direct CSV endpoint constructed from exact
+series ID; not fetched. Monthly discount-basis bill rate.</li>
+<li><strong>USREC — USREC</strong> (Core). Expected file:
+<code>USREC.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=USREC">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/USREC">provider page</a>. Link
+status from v13 inventory: Direct CSV endpoint constructed from exact
+series ID; not fetched. Monthly recession indicator; retrospective.</li>
+<li><strong>BAA — BAA</strong> (Optional only after rights review).
+Expected file: <code>BAA.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAA">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/BAA">provider page</a>. Link
+status from v13 inventory: Direct CSV endpoint constructed from exact
+series ID; not fetched. Moody’s proprietary source: verify permitted use
+before obtaining/retaining; do NOT upload/redistribute without
+permission.</li>
+<li><strong>AAA — AAA</strong> (Optional only after rights review).
+Expected file: <code>AAA.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=AAA">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/AAA">provider page</a>. Link
+status from v13 inventory: Direct CSV endpoint constructed from exact
+series ID; not fetched. Moody’s proprietary source: verify permitted use
+before obtaining/retaining; do NOT upload/redistribute without
+permission.</li>
+<li><strong>GZEBP — GZ credit spread and excess bond premium
+monthly</strong> (Core). Expected file: <code>ebp_csv.csv</code>. <a
+href="https://www.federalreserve.gov/econres/notes/feds-notes/ebp_csv.csv">Download
+or provider route</a>; <a
+href="https://www.federalreserve.gov/econres/notes/feds-notes/updating-the-recession-risk-and-the-excess-bond-premium-20161006.html">provider
+page</a>. Link status from v13 inventory: Permanent CSV URL explicitly
+listed in provider documentation; bytes not inspected. Core replacement
+for restricted Moody spreads. Check columns and revised-vintage timing;
+do not use published fitted recession probability as an input.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Use 1973–94 initial sample; from 1995 estimate expanding logit with
+one-month lagged predictors, only complete 12-month future labels ending
+strictly before each origin. Use identical training/evaluation masks
+across models; base rate, term spread, GZ and nested GZ/EBP; report
+overlap, separation and fixed ridge sensitivity.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Actual Fed CSV and GS10/TB3MS/USREC rights/schema/coverage not
+checked; no optional Moody’s series required. Verify calendar label
+maturation and common sample. Revised-vintage pseudo-OOS only.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel inputs can be inspected with
+pandas/openpyxl locally (not needed for the introductory setup check).
+If source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Validate the actual file columns, release metadata, units and common
+coverage before estimation. Preserve pseudo-OOS wording and the planned
+ridge sensitivity if separation occurs. No inference based solely on a
+convenient AUC or retrospective fit.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Specify physical versus risk-neutral probability, discounted versus
+undiscounted cash flows, maturity and year fractions, and whether rates
+and spreads are decimals, percentages or basis points. Document default
+timing and recovery. For empirical panels freeze provider vintage and
+distinguish observation date, availability and outcome maturity. For
+finite-state models define the state support, probability mass and
+numerical tolerance before fitting.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

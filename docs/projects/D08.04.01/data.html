@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Protective Puts and the Cost of Crash Insurance | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D08.04.01 · Derivatives · Hedging &amp; volatility derivatives</p><h1>Protective Puts and the Cost of Crash Insurance</h1><p class="lead">How much downside protection does a systematic protective-put strategy provide relative to buy-and-hold and risk-matched stock-cash allocations, and at what realized return cost?</p><p class="small">Data access warning · Level 2/3 · Research draft</p><p class="warning" data-warning="true"><strong>Data access warning: the required datasets may be difficult or costly to obtain. Verify availability, coverage and permitted use with your supervisor. This topic is not currently ready for assignment.</strong><br>Authorized PPUT index history and comparable benchmark.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-d08.04.01">Data and model setup |
+D08.04.01</h3>
+<p><strong>Current data gate: blocked.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Conditional core: authorized daily/monthly Cboe S&amp;P 500 5% Put
+Protection Index PPUT https://www.cboe.com/us/indices/dashboard/PPUT/
+plus authorized S&amp;P500 total return; French market+RF
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html
+as explicitly mismatched proxy if exact comparator unavailable. Common
+history up to 2025, inspect live/backfilled boundary and methodology.
+Supplement stylized synthetic monthly roll with GBM or jumps, 95% strike
+and Q vol grid, P drift scenarios, equal wealth.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>FF3D — US FF3 daily</strong> (Core). Expected file:
+<code>F-F_Research_Data_Factors_daily_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Link status from v13 inventory: Direct link observed in
+provider page; bytes not inspected. Use correct monthly/daily and
+value-weighted total return block; retain vintage.</li>
+<li><strong>SP500_TR — S&amp;P 500 gross total return index in
+USD</strong> (Conditional preferred exact comparator; French proxy
+alternative). Expected file:
+<code>Original authorized historical export</code>. <a
+href="https://www.spglobal.com/spdji/en/indices/equity/sp-500/">Download
+or provider route</a>; <a
+href="https://www.spglobal.com/spdji/en/indices/equity/sp-500/">provider
+page</a>. Link status from v13 inventory: Optional same-underlying
+comparator; no free full file verified. Do not purchase or request
+restricted redistribution; if unavailable use French broad market total
+return explicitly labeled proxy. FRED SP500 price index is not
+valid.</li>
+<li><strong>CBOE_PPUT — S&amp;P 500 5% Put Protection Index
+history</strong> (Core conditional; rights gate). Expected file:
+<code>Original historical download (filename to verify)</code>. <a
+href="https://www.cboe.com/us/indices/dashboard/PPUT/">Download or
+provider route</a>; <a
+href="https://www.cboe.com/us/indices/dashboard/PPUT/">provider
+page</a>. Link status from v13 inventory: Official dashboard verified;
+complete history, binary URL and rights unresolved. Require authorized
+total-return PPUT plus exact comparator or explicitly labeled French
+proxy. Obtain roll methodology and distinguish live/backfilled.
+Synthetic-only redesign needs approval.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Obtain authorized PPUT and SPX total-return comparator or labeled
+French proxy. Aggregate daily FF3 total returns/RF to complete months if
+proxy. Compare historical risk-matched portfolio and stress outcomes;
+add a transparent synthetic 95% put roll with Q premium/P payoff, not
+pretend synthetic marks reproduce PPUT.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>BLOCKED until authorized PPUT and comparator validated or explicitly
+approved redesign; synthetic illustration alone does not satisfy
+original title.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. If source fails, obtain explicitly
+approved redesign or defer.</p>
+<h4 id="stage-2b-student-local-acquisition-and-decision-gate-v47">Stage
+2B | Student-local acquisition and decision gate (v47)</h4>
+<p><strong>Current gate:</strong> blocked. No actual empirical file or
+permission has been validated. Do not redistribute raw files or change
+data source without authorization.</p>
+<h5 id="exact-requested-routes">Exact requested routes</h5>
+<ul>
+<li><strong>CBOE_PPUT — S&amp;P 500 5% Put Protection Index
+history</strong>: Original historical download (filename to verify).
+Route: https://www.cboe.com/us/indices/dashboard/PPUT/. Provider:
+https://www.cboe.com/us/indices/dashboard/PPUT/. Inherited dashboard
+route, no new direct binary or rights verification. Prior link status:
+Official dashboard verified; complete history, binary URL and rights
+unresolved.</li>
+<li><strong>FF3D — US FF3 daily</strong>:
+F-F_Research_Data_Factors_daily_CSV.zip. Route:
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip.
+Provider:
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html.
+Inherited inventory route; re-check provider, schema, vintage and
+permissions locally. Prior link status: Direct link observed in provider
+page; bytes not inspected.</li>
+</ul>
+<h5 id="acceptance-of-the-local-input-set">Acceptance of the local input
+set</h5>
+<p>Verify authorized PPUT and comparator, launch and roll rules; use
+common months and lagged weights, plus separate stylized payoff
+exercise. Explicitly approve a synthetic variant if data fail.</p>
+<p>Keep a local ledger with provider, original filename, release/version
+or commit, download date, SHA-256, terms/permission and permitted use;
+inspect actual headers/tabs, date range, missing/duplicate observations,
+units and calendar; retain raw files only as allowed. Provide code and a
+nonrestricted audit summary, not raw data unless rights permit. Preserve
+planned common-sample and timing rules. The supervisor decides whether
+the input gate passes.</p>
+<h5 id="if-the-gate-fails">If the gate fails</h5>
+<p>Retitle synthetic protective put insurance with equal initial wealth,
+roll costs and jump regimes if history unavailable. No PPUT evidence or
+claims of realized crash protection.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Define the pricing measure, path measure, position and loss signs,
+trading dates, initial funding and terminal liquidation. Freeze the
+provider vintage for empirical designs, retain common dates and
+distinguish price indices from total-return indices. A historical replay
+of synthetic option quotes is not a realized traded-option backtest.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

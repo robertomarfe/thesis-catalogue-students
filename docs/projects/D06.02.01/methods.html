@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Early Exercise Premium of American Options | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D06.02.01 · Derivatives · Numerical pricing &amp; exotics</p><h1>The Early Exercise Premium of American Options</h1><p class="lead">When is early exercise optimal and how much does the exercise right contribute to the value of American calls and puts?</p><p class="small">Synthetic core · Level 1/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="exercise-and-carry">Exercise and carry</h3>
+<p>Use CRR multipliers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><msup><mi>e</mi><mrow><mi>σ</mi><msqrt><mi>h</mi></msqrt></mrow></msup></mrow><annotation encoding="application/x-tex">u=e^{\sigma\sqrt h}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mn>1</mn><mi>/</mi><mi>u</mi></mrow><annotation encoding="application/x-tex">d=1/u</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>h</mi></mrow></msup><mo>−</mo><mi>d</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>−</mo><mi>d</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">p=(e^{(r-q)h}-d)/(u-d)</annotation></semantics></math>
+in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0,1]</annotation></semantics></math>.
+Discounted continuation is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>h</mi></mrow></msup><mrow><mo stretchy="true" form="prefix">[</mo><mi>p</mi><msub><mi>V</mi><mi>u</mi></msub><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>V</mi><mi>d</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">e^{-rh}[pV_u+(1-p)V_d]</annotation></semantics></math>.
+American value maximizes this and intrinsic payoff; European value only
+continues. Derive the recursion with identical terminal payoffs and
+discounting. The premium is the same-grid price difference, with
+European BSM error reported separately.</p>
+<h3 id="interpreting-boundaries">Interpreting boundaries</h3>
+<p>For a non-dividend-paying stock and nonnegative rates the standard
+American call has no positive early-exercise premium. Dividends may make
+exercise valuable; positive rates favor earlier receipt of a put strike.
+These are conditional arguments, not universal signs. Compare at matched
+time to expiry and positive intrinsic value. A pricing-measure exercise
+frequency is not a physical frequency.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Use adjacent lattice refinements, verify q=0 with nonnegative r and
+the maturity limit. Report boundary resolution separately from price
+precision. Discrete dividends require different cashflow treatment.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

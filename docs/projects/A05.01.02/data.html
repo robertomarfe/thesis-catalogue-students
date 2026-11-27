@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Can One-Factor Interest Rate Models Explain the Dynamics of the Yield Curve? | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A05.01.02 · Asset Pricing · Fixed income &amp; interest rates</p><h1>Can One-Factor Interest Rate Models Explain the Dynamics of the Yield Curve?</h1><p class="lead">How much variation across Treasury maturities can one affine factor explain, and which systematic curve movements remain unexplained?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a05.01.02">Data and model setup |
+A05.01.02</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>GSW nominal continuous zero yields,
+https://www.federalreserve.gov/data/nominal-yield-curve.htm, common
+1,2,3,5,7,10 years, end-of-month 1990-2025 target. Convert percent to
+decimals; train 1990-2004, evaluate 2005-2025, report yield error in bp.
+Compare rank-one affine loading, rank-one PCA, rank-two/three PCA, using
+training mean and loadings frozen in test. For reconstruction infer
+scores from observed same-date yields; a separate exercise uses only a
+2-year observed yield to predict remaining maturities.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>GSW — GSW nominal fitted yield curve</strong> (Core).
+Expected file: <code>feds200628.csv</code>. <a
+href="https://www.federalreserve.gov/data/yield-curve-tables/feds200628.csv">Download
+or provider route</a>; <a
+href="https://www.federalreserve.gov/data/nominal-yield-curve.htm">provider
+page</a>. Link status from v13 inventory: Direct link observed; file not
+inspected. Nominal off-the-run Treasury curve; SVENY zero yields in
+percent; not OIS.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Use common 1,2,3,5,7,10-year monthly yields. Fit mean and Vasicek
+loading B(a,T)/T with training-only a selection; compare rank-one and
+rank-two/three PCA. Freeze mean/loadings. Infer scores from all yields
+for reconstruction, separately infer a single score from 2Y only and
+evaluate other maturities. Compare matched errors in bp; rank-three
+cannot be inferred from one yield.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Actual GSW common sample and revisions open. Verify synthetic exact
+rank-one recovery; report nonidentification and conditioning of
+loadings, do not claim arbitrage-free PCA.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel inputs can be inspected with
+pandas/openpyxl locally (not needed for the introductory setup check).
+If source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Report unrestricted PCA as a rank-matched comparator. Separate
+same-date reconstruction from held-out maturity prediction; do not claim
+the fitted loading uniquely identifies physical or risk-neutral
+dynamics.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Specify nominal or real, continuous zero yield versus par yield,
+maturity in years, year fractions, rate units and the information
+available at each origin. Keep price versus yield changes and aged-bond
+returns distinct. State the probability measure and discounting
+convention. Freeze provider vintage; never infer real-time availability
+from observation dates alone.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

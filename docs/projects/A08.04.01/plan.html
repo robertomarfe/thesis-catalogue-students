@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Portfolio Choice under Expected Shortfall Constraints | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A08.04.01 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Portfolio Choice under Expected Shortfall Constraints</h1><p class="lead">Do expected-shortfall-constrained allocations improve held-out downside risk and economic performance relative to variance-constrained and equal-weight portfolios?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a08.04.01">Research plan | A08.04.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Verify empirical ES by order statistic and direct Rockafellar-Uryasev
+objective; compare two-asset LP to enumerated frontier. Record solver
+status/runtime, prespecified fallback and feasible risk budgets. Run
+rolling daily scenario fit with monthly trading, actual complete
+calendar and paired date-block ES intervals. Large grid remains student
+work.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Daily value-weighted 10 industries baseline, 30 robustness, five-year
+trailing window, monthly rebalance but daily drift and daily net
+returns. Loss=-w’r, alpha=.95 (90/97.5 robustness), fractional tail mass
+at boundary. Set ES budget from training EW or preregistered multiples;
+variance benchmark on comparable training EW variance budget, not
+equating ES and variance units. LP with unrestricted VaR threshold,
+nonnegative auxiliaries; report infeasibility and explicit equal-weight
+fallback. Normal and Student-t matched covariance (scale t shocks by
+sqrt((nu-2)/nu)). Evaluate realized net daily ES with paired date-block
+inference; monthly trades scale=1; report solver memory and timing
+(dense teaching LP; sparse extension before full large grid).</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Verify LP objective/constraint on small hand-computed losses and
+discrete ES definition.</p></li>
+<li><p>Simulate normal and heavy-tail data, compare feasible frontiers
+and weights.</p></li>
+<li><p>Estimate monthly ES and variance-constrained weights using
+past-only windows; record infeasible instances and predefined fallback
+to equal weight.</p></li>
+<li><p>Evaluate net daily ES, volatility, CE, return, turnover and
+drawdown out of sample with date-block bootstrap.</p></li>
+<li><p>Stress tail confidence, lookback and cost; compare equal-weight
+risk budget and stability under repeated sampling.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Optimization tests; ES/mean frontiers; out-of-sample risk and wealth
+table; constraint feasibility ledger and sensitivity.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Tail estimation error and changing dependence matter; compare same
+risk/capital convention. No guarantee that ex-ante ES budget holds
+realized. Do not select risk budget or confidence level using test
+outcomes.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Ten industries, historical-scenario LP, equal-weight and variance
+benchmark, rolling evaluation and realized ES uncertainty.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Add shrinkage or distributionally robust ES with separate validation;
+include turnover penalty inside optimization.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Convex optimization, portfolio theory, risk measures,
+Python/SciPy.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Risk measures;</p></li>
+<li><p>ES optimization;</p></li>
+<li><p>Simulation and data;</p></li>
+<li><p>Portfolio results;</p></li>
+<li><p>Robustness and limits.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: ES derivation and data; W4-6: LP and simulations; W7-9: rolling
+optimizer; W10-12: held-out evaluation; W13-16: write and reproduce.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

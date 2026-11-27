@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Nonlinear Latent Factors and Cross-Sectional Pricing Errors | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A10.03.01 · Asset Pricing · Predictability &amp; machine learning</p><h1>Nonlinear Latent Factors and Cross-Sectional Pricing Errors</h1><p class="lead">Can a characteristic-conditioned nonlinear exposure map reduce held-out portfolio pricing errors relative to PCA and a linear conditional factor model at the same latent dimension?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="mathematical-framework">Mathematical framework</h3>
+<p>Write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>r</mi><mrow><mi>i</mi><mo>,</mo><mi>t</mi><mo>+</mo><mn>1</mn></mrow><mi>e</mi></msubsup><mo>=</mo><mi>b</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>z</mi><mrow><mi>i</mi><mo>,</mo><mi>t</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>⊤</mi></msup><msub><mi>f</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mi>ϵ</mi><mrow><mi>i</mi><mo>,</mo><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">r^e_{i,t+1}=b(z_{i,t})^\top f_{t+1}+\epsilon_{i,t+1}</annotation></semantics></math>,
+with latent dimension
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+fixed across models. A linear map has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>B</mi><mi>z</mi></mrow><annotation encoding="application/x-tex">b(z)=Bz</annotation></semantics></math>;
+a shallow nonlinear map uses a shallow tanh network and a declared ridge
+penalty. For expected-return prediction use training-only factor mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>μ</mi><mo accent="true">̂</mo></mover><mi>f</mi></msub><annotation encoding="application/x-tex">\widehat\mu_f</annotation></semantics></math>
+and frozen loadings:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>m</mi><mo accent="true">̂</mo></mover><mrow><mi>i</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>=</mo><mover><mi>b</mi><mo accent="true">̂</mo></mover><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>z</mi><mrow><mi>i</mi><mo>,</mo><mi>t</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>⊤</mi></msup><msub><mover><mi>μ</mi><mo accent="true">̂</mo></mover><mi>f</mi></msub></mrow><annotation encoding="application/x-tex">\widehat m_{i,t}=\widehat b(z_{i,t})^\top\widehat\mu_f</annotation></semantics></math>.
+Pricing errors summarize average realized excess returns minus predicted
+means on held-out assets/dates. Contemporaneous reconstruction uses
+realized factors and is a different estimand. Fix normalization and
+sign/rotation convention using training data.</p>
+<h3 id="identification-and-implementation">Identification and
+implementation</h3>
+<p>PCA weights on the industry panel must be fit once on training data.
+Training normalization removes scale ambiguity but not arbitrary
+rotations without a convention; compare pricing errors on later dates
+and keep reconstruction RMSE distinct. Do not refit factor means or maps
+on test outcomes or claim full IPCA/autoencoder replication.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Check panel separation (including overlap in underlying portfolio
+constructions as limitation), training factor means and normalization;
+perturb held-out returns to test invariance of fitted maps. Use common
+error metric and dimensions; document identifiability up to
+rotation.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

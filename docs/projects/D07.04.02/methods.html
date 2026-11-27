@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>One-Factor versus Two-Factor Models for Interest Rate Hedging | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D07.04.02 · Derivatives · Fixed income &amp; interest rates</p><h1>One-Factor versus Two-Factor Models for Interest Rate Hedging</h1><p class="lead">How much additional interest rate risk can a two-factor hedge remove relative to a one-factor hedge, after controlling for estimation error and gross notional?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="key-rate-and-factor-exposure">Key-rate and factor exposure</h3>
+<p>For one unit face of a zero at maturity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>τ</mi><mi>j</mi></msub><annotation encoding="application/x-tex">\tau_j</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>j</mi></msub><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><msub><mi>τ</mi><mi>j</mi></msub><msub><mi>y</mi><mi>j</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">P_j=e^{-\tau_j y_j}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∂</mi><msub><mi>P</mi><mi>j</mi></msub><mi>/</mi><mi>∂</mi><msub><mi>y</mi><mi>j</mi></msub><mo>=</mo><mi>−</mi><msub><mi>τ</mi><mi>j</mi></msub><msub><mi>P</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\partial P_j/\partial y_j=-\tau_j P_j</annotation></semantics></math>.
+A key-rate vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>
+therefore has currency units per unit decimal yield. For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+maturities and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+retained PCA factors,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mi>k</mi></msub><mo>∈</mo><msup><mi>ℝ</mi><mrow><mi>m</mi><mo>×</mo><mi>k</mi></mrow></msup></mrow><annotation encoding="application/x-tex">L_k\in\mathbb R^{m\times k}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>∈</mo><msup><mi>ℝ</mi><mrow><mi>m</mi><mo>×</mo><mi>k</mi></mrow></msup></mrow><annotation encoding="application/x-tex">D\in\mathbb R^{m\times k}</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math>
+hedge instruments. Use matching yield units and loading normalization
+when solving the exposure equations.</p>
+<h3 id="feasible-hedges">Feasible hedges</h3>
+<p>Inspect rank and conditioning of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>L</mi><mi>k</mi><mi>⊤</mi></msubsup><mi>D</mi></mrow><annotation encoding="application/x-tex">L_k^\top D</annotation></semantics></math>,
+apply declared notional limits, and report infeasibility. Estimate only
+from data available before the evaluated shock. Reprice original
+quantities under the next curve at fixed maturities; no elapsed
+holding-period return. Compare residual P&amp;L, omitted-factor and
+convexity effects and sensitivity to loading estimation.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Do not treat physical PCA loadings as risk-neutral parameters. Unlike
+D07.01.02, compare statistical factor spanning with zero-bond hedges
+rather than single-curve swap DV01.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

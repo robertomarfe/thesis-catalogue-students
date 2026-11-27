@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Cash Flow News and Discount Rate News in Aggregate Stock Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A06.04.02 · Asset Pricing · Consumption &amp; equity valuation</p><h1>Cash Flow News and Discount Rate News in Aggregate Stock Returns</h1><p class="lead">How much of unexpected aggregate equity return variation is associated with discount-rate versus cash-flow news under alternative parsimonious VAR information sets?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a06.04.02">Data and model setup |
+A06.04.02</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Goyal annual Data2025 workbook
+https://sites.google.com/view/agoyal145/ with aggregate total returns,
+dividend-price and short-rate series; deflate nominal gross return with
+annual CPI from https://fred.stlouisfed.org/series/CPIAUCSL, consistent
+year-end CPI timing. Common 1948-2025 or first feasible year (CPIAUCSL
+starts in 1947); annual avoids using rolling annual dividends as monthly
+payouts. Use 3-variable VAR(1) and alternative with term spread; rho
+from mean P/D (report fixed 0.95 annual sensitivity); ensure stability
+and compare finite H=5,10,20 with infinite solution. Optional Shiller
+annual data and FF market return cross-check.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>GOYAL2025 — Combined GW/GWZ full-sample workbook through
+2025</strong> (Core). Expected file: <code>Data2025.xlsx</code>. <a
+href="https://docs.google.com/spreadsheets/d/17mw_IpaiLFDrGnrPRQ2o1ugV5nJsZuD1/edit?ouid=113571510202500088860&amp;rtpof=true&amp;sd=true&amp;usp=sharing">Download
+or provider route</a>; <a
+href="https://sites.google.com/view/agoyal145/">provider page</a>.
+Historical v13 inventory note (unverified in current release): Exact
+file page observed; download using Google Sheets File &gt; Download &gt;
+Excel. Freeze version, include definitions and verify timing;
+full-sample revised data.</li>
+<li><strong>FF3M — US FF3 monthly</strong> (Optional cross-check).
+Expected file: <code>F-F_Research_Data_Factors_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed in provider page; bytes not inspected. Use correct
+monthly/daily and value-weighted total return block; retain
+vintage.</li>
+<li><strong>CPIAUCSL — CPIAUCSL</strong> (Core). Expected file:
+<code>CPIAUCSL.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/CPIAUCSL">provider page</a>.
+Historical v13 inventory note (unverified in current release): Direct
+CSV endpoint constructed from exact series ID; not fetched. Monthly SA
+CPI; quarterly average; annualization match.</li>
+<li><strong>SHILLER — US stock market price, dividend, earnings,
+CPI</strong> (Optional cross-check). Expected file:
+<code>ie_data.xls</code>. <a
+href="https://img1.wsimg.com/blobby/go/e5e77e0b-59d1-44d9-ab25-4763ac982e53/downloads/249997aa-1eef-4237-93ec-2d319f7881ab/ie_data.xls?ver=1794837439406">Download
+or provider route</a>; <a href="https://shillerdata.com/">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Exact link displayed on new author website; click returned unsupported
+Excel content type, no binary validated. Use annual trailing dividend
+totals; check current file/link. Previous candidate
+https://www.econ.yale.edu/~shiller/data/ie_data.xls retained here for
+provenance; price monthly average, annualized dividend totals
+interpolated, CPI. Recheck link/version at acquisition.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Original VAR state first log real total return, then log D/P and
+short rate, alternative term spread. Deflate nominal gross returns by
+December CPI ratio, preserve year timing and avoid Shiller interpolated
+payout as annual exact. Center stationary VAR; return_news(A,rho,H) uses
+H future dates, excluding t, returns CF residual and DR. N_CF=u_r+N_DR;
+residual CF absorbs terminal and approximation/omitted news. Report
+Var(CF)+Var(DR)-2Cov and signed shares; bootstrap VAR and rho with joint
+innovations, retain invalid draw counts, compare finite and infinite
+horizons and two information sets. Optional direct dividend-news check
+requires actual g and alternative state order; not an independent
+identified shock.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Actual annual Goyal data, CPI rights/coverage and stationary VAR
+required; check algebra and finite/infinite sums. Synthetic accounting
+only.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel/parquet inputs require the relevant
+optional reader (openpyxl, xlrd, pyarrow); inspect raw schema and
+permissions first (not needed for the introductory setup check). If
+source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="frozen-research-design-original-catalogue">Frozen research
+design (original catalogue)</h4>
+<p>Goyal annual Data2025 workbook
+https://sites.google.com/view/agoyal145/ with aggregate total returns,
+dividend-price and short-rate series; deflate nominal gross return with
+annual CPI from https://fred.stlouisfed.org/series/CPIAUCSL, consistent
+year-end CPI timing. Common 1948-2025 or first feasible year (CPIAUCSL
+starts in 1947); annual avoids using rolling annual dividends as monthly
+payouts. Use 3-variable VAR(1) and alternative with term spread; rho
+from mean P/D (report fixed 0.95 annual sensitivity); ensure stability
+and compare finite H=5,10,20 with infinite solution. Optional Shiller
+annual data and FF market return cross-check.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Use return-first VAR, stable roots, same calendar and real gross
+convention; verify direct discounted sums and signed
+Var(CF)+Var(DR)-2Cov identity, report finite and infinite estimates,
+horizon and information-set sensitivity. Refit rho and VAR inside
+bootstrap, retain inadmissible draws and note weak stability near unit
+roots.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Record total, gross and excess return conventions, RF timing,
+sampling frequency, factor definitions and annualization. Freeze common
+date and asset sets, provider vintage and information availability.
+Separate model-implied curves from traded prices, real safe payoffs from
+ex post real returns, and conditional from unconditional moments.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

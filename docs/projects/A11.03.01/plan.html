@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Testing Euler Equations with Generalized Method of Moments | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A11.03.01 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>Testing Euler Equations with Generalized Method of Moments</h1><p class="lead">How sensitive are estimated CRRA preference parameters and Euler pricing errors to the selection of test assets, conditioning instruments and GMM weighting matrices? Do weakly informative moments explain instability?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a11.03.01">Research plan | A11.03.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Use quarterly parameters and same-quarter consumption/payoffs;
+preserve the original broad bounds and fixed moments. Report scaling,
+HAC bandwidth, effective rank and convergence. Validate independently on
+a designed simulation before empirical estimation; do not select moments
+after viewing rejection.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive moments and analytic Jacobian; validate on simulated data
+with known SDF and returns generated to satisfy moments, check optimizer
+recovery.</p></li>
+<li><p>Estimate base/expanded models by multistart identity and two-step
+HAC GMM, with moment scaling documented and common sample.</p></li>
+<li><p>Compare parameter profiles, moment residuals and sampling
+intervals; report rank, condition number, weight regularization and J
+test only when its assumptions credible.</p></li>
+<li><p>Add prespecified lagged instrument and alternative HAC bandwidth;
+compare conclusions using block bootstrap or simulation to illustrate
+weak-ID/finite-sample distortion. Separate model misspecification from
+estimation instability.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Moment and Jacobian diagnostics, objective profile/contours,
+estimates with conditional inference caveats, pricing errors by
+asset/instrument and weighting matrix comparison; J table where
+defensible. Reproducible code and real return alignment test.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Bill proxy is ex-post real return, not a known real risk-free rate.
+No division by beta-normalized scale without retaining identifying gross
+moment. Verify moment count, positive-semidefinite HAC covariance and
+Jacobian rank; pseudoinverse/regularization changes usual J reference
+distribution. Document revised consumption and quarterly timing, crisis
+sensitivity, and no selection of moments based on rejection.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Small overidentified CRRA GMM with verified data, two weight schemes
+and two fixed moment sets, simulation sanity check, profile/Jacobian and
+pricing-error diagnostics; valid conclusions possible even if standard
+asymptotics fail.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare a parsimonious linear-factor SDF under identical moment sets,
+or weak-identification-robust inference after core completion.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>CRRA utility and SDFs, nonlinear optimization, GMM/HAC, matrix
+algebra and Python SciPy/statsmodels.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Euler restrictions and consumption SDF;</p></li>
+<li><p>GMM and identification;</p></li>
+<li><p>Data and simulation check;</p></li>
+<li><p>Weight/moment sensitivity;</p></li>
+<li><p>Specification and inference limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive moments and data gate; W4-6: validate real returns and
+synthetic GMM; W7-10: estimate baseline and expanded moments; W11-13:
+profiles, inference and robustness; W14-16: write and reproduce.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Are Stocks and Bonds Effective Inflation Hedges? | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A04.02.02 · Asset Pricing · Macro-finance &amp; policy</p><h1>Are Stocks and Bonds Effective Inflation Hedges?</h1><p class="lead">How do equity and nominal Treasury holding returns covary with realized and unexpected inflation, and does their effectiveness as purchasing-power hedges vary across horizons?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a04.02.02">Research plan | A04.02.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Compute both bond prices for n and n-h using the same documented GSW
+Svensson convention; verify flat-curve log holding return h*y. Compound
+monthly gross legs and deflate with exact adjacent CPI; fit inflation AR
+only on available history, use overlapping-horizon HAC or nonoverlap
+sensitivity and paired date blocks. Label retrospective hedge exposure,
+not expected return.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>GSW fitted nominal log discount curves at actual month-end
+observation dates; interpolate log discounts at n-h without
+extrapolation (5y/10y baseline; n-h exact). Return from buying n-year
+zero at t and holding 1 or 12 months, not n-year rolling index over h.
+Equity compound actual total returns; use monthly-average CPI ratio as
+end-month proxy. Fit expanding AR(1) to released monthly log inflation,
+one-month lag: if last observed t-1, forecast h+1 steps, discard
+forecast for t, sum steps t+1..t+h; if actual lag differs use exact
+mapping. Use same realized and modeled-surprise inflation regressors for
+nominal and real log returns; coefficient difference exactly one for
+realized inflation with same sample/intercept. Use common periods,
+overlap HAC/block, fixed subperiods, 60/40 simple returns with fixed
+rebalancing convention.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Validate yield units, discount curve, date alignment and
+zero-bond holding return; compare with duration approximation as
+diagnostic only.</p></li>
+<li><p>Plot nominal and real returns, cumulative purchasing power and
+rolling inflation beta.</p></li>
+<li><p>Regress log nominal returns on realized and forecast-error
+inflation, report nominal and real slopes and HAC intervals.</p></li>
+<li><p>Compare one- and 12-month horizons and predeclared
+1971-1989/1990-2007/2008-2025 subperiods; overlapping horizons need HAC
+or block bootstrap.</p></li>
+<li><p>Assess covariance and variance reduction for a stock/bond mix
+with fixed ex ante weights; no hindsight optimization.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Construction checks, nominal/real return and inflation tables, beta
+intervals, horizon/regime plots and real portfolio risk comparison.</p>
+<h4 id="robustness">Robustness</h4>
+<p>GSW zero returns are synthetic government bond holdings, not
+bond-fund returns or OIS. CPI revisions and release timing constrain
+true real-time surprises; AR residuals are model-based, not structural
+shocks. Realized inflation is not observable at the investment date.
+Regressions are descriptive hedging associations, not causal
+effects.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Monthly and annual nominal/real returns of equity and one synthetic
+zero maturity; realized and modeled surprise inflation, robust intervals
+and fixed subperiod comparison. Distinct from A04.02.01 cross-sectional
+pricing.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Use SPF inflation expectations or real TIPS curve for a shorter
+sample; distinguish inflation compensation from expected inflation.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Fixed income, return compounding, time-series econometrics,
+Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Inflation and real returns;</p></li>
+<li><p>Equity and Treasury holding returns;</p></li>
+<li><p>Inflation measures;</p></li>
+<li><p>Horizon and regime evidence;</p></li>
+<li><p>Portfolio implications.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: Fisher relation and data; W4-6: return construction; W7-9:
+inflation regressions; W10-12: regimes and portfolio risk; W13-16: write
+and validate.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Financial Conditions and Time-Varying Expected Equity Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A02.02.02 · Asset Pricing · Predictability &amp; machine learning</p><h1>Financial Conditions and Time-Varying Expected Equity Returns</h1><p class="lead">Do financial-conditions indices provide incremental out-of-sample information about aggregate equity excess returns beyond standard valuation predictors?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="mathematical-framework">Mathematical framework</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mi>j</mi></msub><annotation encoding="application/x-tex">a_j</annotation></semantics></math>
+denote the release timestamp of observation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>.
+At origin
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mi>t</mi></msub><mo>=</mo><msub><mi>z</mi><mrow><msup><mi>j</mi><mo>*</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msub></mrow><annotation encoding="application/x-tex">z_t=z_{j^*(t)}</annotation></semantics></math>
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>j</mi><mo>*</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>max</mo><mo stretchy="false" form="prefix">{</mo><mi>j</mi><mo>:</mo><msub><mi>a</mi><mi>j</mi></msub><mo>≤</mo><mi>t</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">j^*(t)=\max\{j:a_j\le t\}</annotation></semantics></math>
+among observations actually available under the declared vintage.
+Estimate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>a</mi><mo>+</mo><mi>b</mi><mi>d</mi><msub><mi>p</mi><mi>t</mi></msub><mo>+</mo><mi>c</mi><msub><mi>z</mi><mi>t</mi></msub><mo>+</mo><msub><mi>e</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">y_{t+1}=a+b dp_t+c z_t+e_{t+1}</annotation></semantics></math>
+recursively and compare valuation-only and historical-mean forecasts on
+common dates. The coefficient
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>
+is a predictive association. A latest-vintage reconstruction with lagged
+observations is pseudo-OOS, not a historical real-time dataset.</p>
+<h3 id="identification-and-implementation">Identification and
+implementation</h3>
+<p>If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">E_t[m]&gt;0</annotation></semantics></math>,
+then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>r</mi><mi>e</mi></msup><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mi>−</mi><msub><mo>Cov</mo><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo>,</mo><msup><mi>r</mi><mi>e</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><msub><mi>E</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">E_t[r^e]=-\operatorname{Cov}_t(m,r^e)/E_t[m]</annotation></semantics></math>.
+This motivates financial-state predictors without identifying a causal
+channel. Track observation date, release timestamp and vintage
+separately. Compare NFCI-only, valuation-only and combined forecasts on
+the same sample.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Assert availability timestamp &lt;= origin for every observation.
+Perturb all post-origin NFCI observations and ensure features do not
+change. Check holidays, missing weeks, release lag and common sample.
+Flag revised values.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

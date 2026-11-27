@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Dividend Growth Expectations and the Valuation of the Stock Market | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A06.01.01 · Asset Pricing · Consumption &amp; equity valuation</p><h1>Dividend Growth Expectations and the Valuation of the Stock Market</h1><p class="lead">How sensitive are aggregate equity valuations to dividend growth and required returns, and which combinations are consistent with historical price-dividend ratios?</p><p class="small">Data verification pending · Level 1/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a06.01.01">Data and model setup |
+A06.01.01</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Shiller monthly aggregate price, annual dividend and CPI series
+https://www.econ.yale.edu/~shiller/data.htm. Baseline year-end rows
+1950-2025 if complete; dividends are trailing annual aggregates
+interpolated monthly, not monthly payouts. Convert P and D by same CPI
+for real P/D and derive annual real dividend growth from annual dividend
+series, not repeated monthly interpolations. Use observed 10th/50th/90th
+P/D percentiles and historical real growth estimates over prespecified
+sample and 20-year windows. Annual real k/g scenarios, no market
+expectation claim.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>SHILLER — US stock market price, dividend, earnings,
+CPI</strong> (Core / planned robustness). Expected file:
+<code>ie_data.xls</code>. <a
+href="https://img1.wsimg.com/blobby/go/e5e77e0b-59d1-44d9-ab25-4763ac982e53/downloads/249997aa-1eef-4237-93ec-2d319f7881ab/ie_data.xls?ver=1794837439406">Download
+or provider route</a>; <a href="https://shillerdata.com/">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Exact link displayed on new author website; click returned unsupported
+Excel content type, no binary validated. Use annual trailing dividend
+totals; check current file/link. Previous candidate
+https://www.econ.yale.edu/~shiller/data/ie_data.xls retained here for
+provenance; price monthly average, annualized dividend totals
+interpolated, CPI. Recheck link/version at acquisition.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Normalize Shiller workbook P,D,CPI using December rows; parse numeric
+YYYY.MM including .10 as October, maintain missing years. D annual
+trailing interpolated, P monthly average; use real D and same CPI for
+P/D. Historical growth scenarios are not survey expectations. DDM uses
+simple annual growth and required return, k&gt;g; two-stage terminal
+share and implied k=g+(1+g)/(P/D). Use rolling 20-year contiguous
+growth, alternative windows and annual payout caveats.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Actual Shiller workbook and rights, December coverage/definition must
+pass. Test date parser, constant-growth limit and terminal share.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel/parquet inputs require the relevant
+optional reader (openpyxl, xlrd, pyarrow); inspect raw schema and
+permissions first (not needed for the introductory setup check). If
+source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="frozen-research-design-original-catalogue">Frozen research
+design (original catalogue)</h4>
+<p>Shiller monthly aggregate price, annual dividend and CPI series
+https://www.econ.yale.edu/~shiller/data.htm. Baseline year-end rows
+1950-2025 if complete; dividends are trailing annual aggregates
+interpolated monthly, not monthly payouts. Convert P and D by same CPI
+for real P/D and derive annual real dividend growth from annual dividend
+series, not repeated monthly interpolations. Use observed 10th/50th/90th
+P/D percentiles and historical real growth estimates over prespecified
+sample and 20-year windows. Annual real k/g scenarios, no market
+expectation claim.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Manually verify December dates and units; report missing years and
+log-to-simple growth conversion, iso-P/D contours and
+required-return/growth pairs. Compare one- and two-stage prices with
+identical growth limit and terminal share; show sensitivity to horizon
+and a small joint parameter perturbation. Do not use historical growth
+as investor forecast without a model.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Record total, gross and excess return conventions, RF timing,
+sampling frequency, factor definitions and annualization. Freeze common
+date and asset sets, provider vintage and information availability.
+Separate model-implied curves from traded prices, real safe payoffs from
+ex post real returns, and conditional from unconditional moments.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

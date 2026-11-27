@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Equity Yield Slopes and the Sensitivity of Equity Portfolios to Interest Rates | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A06.03.01 · Asset Pricing · Consumption &amp; equity valuation</p><h1>Equity Yield Slopes and the Sensitivity of Equity Portfolios to Interest Rates</h1><p class="lead">Do portfolio-level model-implied equity yield slopes predict differential subsequent exposure to government yield changes, and does the association survive controls for investment style and market exposure?</p><p class="small">Conditional data access · Level 3/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> GKK archive and exact style-return matching (at least four styles).</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="mathematical-framework">Mathematical framework</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mrow><mi>i</mi><mo>,</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>e</mi><mrow><mi>i</mi><mo>,</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>10</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>e</mi><mrow><mi>i</mi><mo>,</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">s_{i,t-1}=e_{i,t-1}(10)-e_{i,t-1}(1)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>s</mi><mo accent="true">̃</mo></mover><mrow><mi>i</mi><mo>,</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">\widetilde s_{i,t-1}</annotation></semantics></math>
+be its within-date centered value.</p>
+<p>Use asset and date effects in the primary regression, a slope main
+effect, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>s</mi><mo accent="true">̃</mo></mover><mrow><mi>i</mi><mo>,</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mi>Δ</mi><msub><mi>b</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>10</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\widetilde s_{i,t-1}\Delta b_t(10)</annotation></semantics></math>
+as the differential rate-exposure regressor. Include relative portfolio
+market loadings; common market and rate main effects are collinear with
+date effects. Check design rank; the pooled asset-FE model without date
+effects is a secondary diagnostic. A coefficient times .01 gives the
+interaction sensitivity per 100bp times the slope difference in decimal
+units. Full-sample generated GKK yields prevent live forecasting
+claims.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Prespecify pooled asset-FE diagnostic separately from primary time-FE
+specification. In latter omit common dy and market main effects,
+interact market with portfolio indicators as appropriate, center lagged
+slopes within date and check rank; include slope main effect, joint
+month block inference and exact t-1 availability. Require &gt;=4 exactly
+mapped styles and scale effects per 100bp. Do not silently treat helper
+output as the primary panel test.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

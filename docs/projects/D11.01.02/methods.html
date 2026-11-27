@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Risk-Neutral Probabilities and Change of Numeraire | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D11.01.02 · Derivatives · Credit &amp; incomplete markets</p><h1>Risk-Neutral Probabilities and Change of Numeraire</h1><p class="lead">How can one verify that money-market and forward-measure valuation give identical prices even when interest rates are stochastic?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="change-of-measure">Change of measure</h3>
+<p>For a strictly positive self-financing traded numeraire
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>,
+the Radon–Nikodym density under the money-market measure is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mi>T</mi></msub><mo>=</mo><mfrac><mrow><msub><mi>N</mi><mi>T</mi></msub><mi>/</mi><msub><mi>B</mi><mi>T</mi></msub></mrow><mrow><msub><mi>N</mi><mn>0</mn></msub><mi>/</mi><msub><mi>B</mi><mn>0</mn></msub></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">L_T=\frac{N_T/B_T}{N_0/B_0}.</annotation></semantics></math>
+Since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mi>/</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">N/B</annotation></semantics></math>
+is a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℚ</mi><mi>B</mi></msup><annotation encoding="application/x-tex">\mathbb Q^B</annotation></semantics></math>
+martingale, for child
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>
+of node
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>
+the transition is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow><mi>N</mi></msubsup><mo>=</mo><msubsup><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow><mi>B</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>N</mi><mi>j</mi></msub><mi>/</mi><msub><mi>B</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>N</mi><mi>i</mi></msub><mi>/</mi><msub><mi>B</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">p^N_{ij}=p^B_{ij}(N_j/B_j)/(N_i/B_i)</annotation></semantics></math>.
+Verify positive probabilities summing to one nodewise. In the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>-bond
+measure
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>T</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">N_T=1</annotation></semantics></math>,
+so the payoff is measured in units of the bond and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>t</mi></msub><mo>=</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><msubsup><mi>𝔼</mi><mi>t</mi><msup><mi>ℚ</mi><mi>T</mi></msup></msubsup><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>H</mi><mi>T</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">V_t=P(t,T)\mathbb E_t^{\mathbb Q^T}[H_T]</annotation></semantics></math>.</p>
+<h3 id="replication-and-consistency">Replication and consistency</h3>
+<p>Use the node’s stock and locally riskless money-market investment to
+solve the two child payoff equations whenever the local payoff matrix is
+nonsingular. The portfolio cost must agree with each measure’s
+conditional valuation. A stock numeraire must be positive and tradable
+including reinvested cash flows; the design has no dividends. Do not
+discount by the initial constant rate when future short rates differ by
+node.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Check all three measure transformations at every node, local payoff
+rank, transition sums, price equality and replication residuals. Extend
+only after the two-period benchmark is independently reproduced.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

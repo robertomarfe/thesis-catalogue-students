@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Dynamic versus Static Stock-Bond Asset Allocation | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A08.04.02 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Dynamic versus Static Stock-Bond Asset Allocation</h1><p class="lead">Does a long-only dynamic stock-bond allocation driven by past covariance estimates improve net risk-adjusted performance relative to static 60/40 and expanding-risk benchmarks?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a08.04.02">Data and model setup |
+A08.04.02</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>French FF3M total market Mkt-RF+RF, GSW fitted nominal zero curve
+https://www.federalreserve.gov/data/nominal-yield-curve.htm. Construct
+synthetic monthly holding returns on 5Y zero from
+P_(t+1)(5-1/12)/P_t(5), using documented Svensson curve at both
+horizons; not actual bond fund returns. Proposed common sample
+1970-2025; use 120-month initial window, rolling 36/60 months and EWMA
+half-life selected on chronological validation only. All rules rebalance
+monthly; test final 15 years if enough dates. GSW publication
+availability lag may require one-month lag; revised data
+pseudo-real-time. Costs 0,10,25 bp per unit one-way turnover.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>GSW — GSW nominal fitted yield curve</strong> (Core).
+Expected file: <code>feds200628.csv</code>. <a
+href="https://www.federalreserve.gov/data/yield-curve-tables/feds200628.csv">Download
+or provider route</a>; <a
+href="https://www.federalreserve.gov/data/nominal-yield-curve.htm">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed; file not inspected. Nominal off-the-run Treasury
+curve; SVENY zero yields in percent; not OIS.</li>
+<li><strong>FF3M — US FF3 monthly</strong> (Core). Expected file:
+<code>F-F_Research_Data_Factors_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed in provider page; bytes not inspected. Use correct
+monthly/daily and value-weighted total return block; retain
+vintage.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Construct synthetic monthly 5-year zero holding returns from GSW
+Svensson yields at n and exact n-1/12 (annual continuous decimal),
+market total Mkt-RF+RF. Use actual end-month curve observations and lag
+GSW predictors when needed; pseudo-real-time caveat. Fixed 60/40,
+expanding GMV, rolling 36/60 or EWMA half-life selected in chronology
+after initial 120 months, freeze final 15 years if feasible. Original
+THEORY uses half-L1 turnover while DESIGN says per one-way turnover:
+explicitly use scale=.5 for baseline and report equivalent full-L1 cost
+(half rate) to avoid ambiguous cost comparison. No lookahead, no actual
+fund claim. Fixed comparator rebalanced, not buy-and-hold.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Actual GSW/FF3M and residual maturity, common dates and publication
+timing; analytic two-asset weight and drift ledger.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel/parquet inputs require the relevant
+optional reader (openpyxl, xlrd, pyarrow); inspect raw schema and
+permissions first (not needed for the introductory setup check). If
+source fails, obtain explicitly approved redesign or defer.</p>
+<p>Provider routes and historical source notes are inherited, not newly
+verified. Independently implement all algorithms described here; private
+helper names, if present, denote methodological steps rather than
+dependencies distributed with this workspace. The v61 source-evidence
+erratum supersedes historical fresh-verification labels.</p>
+<h4 id="frozen-research-design-original-catalogue">Frozen research
+design (original catalogue)</h4>
+<p>French FF3M total market Mkt-RF+RF, GSW fitted nominal zero curve
+https://www.federalreserve.gov/data/nominal-yield-curve.htm. Construct
+synthetic monthly holding returns on 5Y zero from
+P_(t+1)(5-1/12)/P_t(5), using documented Svensson curve at both
+horizons; not actual bond fund returns. Proposed common sample
+1970-2025; use 120-month initial window, rolling 36/60 months and EWMA
+half-life selected on chronological validation only. All rules rebalance
+monthly; test final 15 years if enough dates. GSW publication
+availability lag may require one-month lag; revised data
+pseudo-real-time. Costs 0,10,25 bp per unit one-way turnover.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Hand-check P_(t+1)(5-1/12)/P_t(5) and common monthly market total
+return. Verify EWMA versus direct weighted covariance, lag estimates and
+training-only tuning. Compare same capital/constraints/costs and
+out-of-sample periods, net performance with paired block inference.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Record total, gross and excess return conventions, RF timing,
+sampling frequency, factor definitions and annualization. Freeze common
+date and asset sets, provider vintage and information availability.
+Distinguish funded wealth from zero-investment spreads, gross from net
+performance, allocation-time moments from realized risk, and actual
+turnover from hypothetical trading costs.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

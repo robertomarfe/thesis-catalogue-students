@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Implied Volatility Surface Dynamics and Forecasting | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D02.04.02 · Derivatives · Option models &amp; surfaces</p><h1>Implied Volatility Surface Dynamics and Forecasting</h1><p class="lead">Do dynamic factors of constant-maturity implied total variance outperform persistence and simple autoregressions for out-of-sample surface forecasts?</p><p class="small">Data access warning · Level 3/3 · Research draft</p><p class="warning" data-warning="true"><strong>Data access warning: the required datasets may be difficult or costly to obtain. Verify availability, coverage and permitted use with your supervisor. This topic is not currently ready for assignment.</strong><br>Licensed option surface history of at least 3 years and 500 usable sessions.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-d02.04.02">Data and model setup |
+D02.04.02</h3>
+<p><strong>Current data gate: blocked.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Class C conditional. Preferred same permitted EOD option quote family
+as D02.02.02 (https://datashop.cboe.com/option-eod-summary);
+alternatively documented vendor surface product
+(https://datashop.cboe.com/volatility-surfaces), separately gated, not
+raw observed quotes. Target 3+ years daily, 500+ usable common dates
+minimum after cleaning; k=-.15,-.075,0,.075,.15, T=30,60,90 days,
+require bracketing expiries/strikes, no fill across future dates.
+Synchronous forwards, timestamps, expiry and bid/ask or documented
+vendor coordinate definition. Chronological 60/20/20 split with gap for
+5/20-day labels; freeze grids and factors; train scaling only. No data
+rights or coverage verified.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>OPTION_QUOTES_LICENSED — Timestamped EOD European index
+option quotes and synchronous underlying/forward inputs</strong>
+(Conditional core; license and scope gate). Expected file:
+<code>Provider quote package, codebook, underlying and rate/dividend/parity inputs</code>.
+<a href="https://datashop.cboe.com/option-eod-summary">Download or
+provider route</a>; <a
+href="https://datashop.cboe.com/option-eod-summary">provider page</a>.
+Link status from v13 inventory: Commercial product described; no
+entitlement or free archive established. Do NOT purchase or request
+restricted upload. Confirm access/redistribution, settlement, exact
+timestamps, bid/ask, strike, expiry, spot/forward and curve inputs.
+D02.02.02 cross sections, D02.04.02 longitudinal &gt;=500 dates; sample
+insufficient.</li>
+<li><strong>OPTION_SURFACE_LICENSED — Longitudinal documented
+interpolated implied volatility surfaces</strong> (Conditional
+alternative; not additional mandatory purchase). Expected file:
+<code>Provider surface package and methodology</code>. <a
+href="https://datashop.cboe.com/volatility-surfaces">Download or
+provider route</a>; <a
+href="https://datashop.cboe.com/volatility-surfaces">provider page</a>.
+Link status from v13 inventory: Commercial product described; no
+entitlement or free archive established. Alternative only; coordinate
+definitions, price/delta conventions, timestamp and coverage, license,
+no conflation with raw quotes.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Authorized daily same-family quotes, &gt;=3 years and &gt;=500 common
+dates; alternatively separately approved vendor surface with exact
+forward, coordinate and timing definitions. Normalize total variance on
+fixed 5×3 nodes and retain interpolation masks. Use actual
+exchange-session index, missing rows remain missing, do not compress
+gaps. Interpolate only within snapshot brackets; no future
+interpolation. Chronological 60/20/20 and purge h=5/20 labels at
+boundaries; training PCA and direct horizon AR, persistence, node AR on
+identical origin/target pairs. Prespecify a baseline rank of three if
+feasible; tune rank only on validation. Report negative/violating
+forecasts and optional separately declared projections, per-node loss,
+paired block uncertainty and actual coverage. No vendor file or actual
+surface validated.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>LICENSED HISTORY BLOCKED: rights, actual 3-year and 500-date
+coverage, common support, timestamps, forwards and session calendar
+required. No unconditional assignment.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel/parquet inputs require the relevant
+optional reader (openpyxl, xlrd, pyarrow); inspect raw schema and
+permissions first (not needed for the introductory setup check). If
+source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="stage-2b-student-local-acquisition-and-decision-gate-v47">Stage
+2B | Student-local acquisition and decision gate (v47)</h4>
+<p><strong>Current gate:</strong> blocked. No actual empirical file or
+permission has been validated. Do not redistribute raw files or change
+data source without authorization.</p>
+<h5 id="exact-requested-routes">Exact requested routes</h5>
+<ul>
+<li><strong>OPTION_QUOTES_LICENSED — Timestamped EOD European index
+option quotes and synchronous underlying/forward inputs</strong>:
+Provider quote package, codebook, underlying and rate/dividend/parity
+inputs. Route: https://datashop.cboe.com/option-eod-summary. Provider:
+https://datashop.cboe.com/option-eod-summary. Commercial product;
+product page reports Jan 2012 onward and NBBO at 15:45 ET and EOD. Index
+underlying quotes not supplied by default; obtain synchronous
+index/forward inputs independently. No entitlement established. Prior
+link status: Commercial product described; no entitlement or free
+archive established.</li>
+</ul>
+<h5 id="acceptance-of-the-local-input-set">Acceptance of the local input
+set</h5>
+<p>Confirm rights and 3 years/500 common sessions, full exchange
+calendar, bracketing k/T, missing rows retained, actual 5/20 sessions
+and purged blocks. Require feasible PCA dimension and assess predicted
+surface violations.</p>
+<p>Keep a local ledger with provider, original filename, release/version
+or commit, download date, SHA-256, terms/permission and permitted use;
+inspect actual headers/tabs, date range, missing/duplicate observations,
+units and calendar; retain raw files only as allowed. Provide code and a
+nonrestricted audit summary, not raw data unless rights permit. Preserve
+planned common-sample and timing rules. The supervisor decides whether
+the input gate passes.</p>
+<h5 id="if-the-gate-fails">If the gate fails</h5>
+<p>If history fails, consider a clearly labeled synthetic latent-surface
+forecasting exercise with common-node scoring and chronological holdout,
+not a market application. Compare distinct scope against D02.04.01.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

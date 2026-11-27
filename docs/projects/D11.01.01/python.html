@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>State Prices and the Fundamental Theorem of Asset Pricing | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D11.01.01 · Derivatives · Credit &amp; incomplete markets</p><h1>State Prices and the Fundamental Theorem of Asset Pricing</h1><p class="lead">How does changing the payoff span or asset prices affect existence and uniqueness of state prices, replication and the possibility of arbitrage?</p><p class="small">Synthetic core · Level 1/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html" aria-current="page">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Python lab</h2><div class="actions"><a href="files/student_start.ipynb" class="button secondary" download>Open student_start.ipynb</a><a href="files/requirements.txt" class="button secondary" download>Open requirements.txt</a></div><p class="notice">Unexecuted starter only. No solved thesis or external data supplied.</p><h3>Run locally</h3><p>Extract the workspace ZIP and open the notebook in an isolated Python environment. Install requirements.txt, read the data guide, and retain your own results.</p><h3>Run in Codespaces</h3><p><a href="https://codespaces.new/robertomarfe/thesis-catalogue-students/tree/main" class="button secondary">Open student Python environment</a></p><p>Check costs. Use Tasks: Run Task > Prepare my research draft, select D11.01.01, then File > Open File and open /workspaces/thesis-research/D11.01.01/student_start.ipynb. Select the isolated .venv interpreter. No forwarded port required. Do not commit raw data or results.</p><h3 id="d11.01.01-student-research-starter">D11.01.01 | Student research
+starter</h3>
+<p><strong>Current review draft; approval pending.</strong> Synthetic
+core; no mandatory external data.</p>
+<h4 id="goal">Goal</h4>
+<p>The fundamental theorem connects absence of arbitrage to a positive
+valuation functional, and completeness to its uniqueness. Finite-state
+economies allow the link between payoff span, redundancy and pricing
+consistency to be made explicit and checked by portfolios, not only by
+solver output.</p>
+<p><strong>Research question:</strong> How does changing the payoff span
+or asset prices affect existence and uniqueness of state prices,
+replication and the possibility of arbitrage?</p>
+<h4 id="setup-check">Setup check</h4>
+<p>Check state-by-asset orientation on an invented matrix. This
+artificial example does not validate the full research design or actual
+data.</p>
+<pre><code>import numpy as np
+X=np.array([[1,80],[1,100],[1,120]]); q=np.ones(3)/3; assert (X.T@q).shape==(2,)
+print(&#x27;Setup check passed.&#x27;)</code></pre><h4 id="student-owned-research">Student-owned research</h4>
+<p>Construct the required four cases and retain actual portfolio
+certificates, numerical rank and residuals. Vary collinearity and price
+perturbations. Keep this theorem-focused project distinct from the
+claim-specific bounds study.</p>
+<ol type="1">
+<li><p>Solve a complete three-state example by hand and match
+code.</p></li>
+<li><p>Compute rank, null spaces and state-price solutions in incomplete
+and redundant economies; verify sum and positivity.</p></li>
+<li><p>Price and replicate a spanning claim and test a nonspanning one
+via projection residual.</p></li>
+<li><p>Introduce inconsistent prices and construct a zero or negative
+cost portfolio with nonnegative payoff and a strict gain (including free
+initial proceeds). Verify feasibility directly.</p></li>
+<li><p>Vary payoff collinearity and price perturbations; report
+conditioning and numerical tolerance.</p></li>
+</ol>
+<p><strong>Minimum viable thesis:</strong> At least four hand-verifiable
+economies spanning complete, incomplete, redundant and arbitrage cases,
+with code certificates and a clear proof sketch of the finite-state
+theorem.</p>
+<p>Record assumptions, independent checks, uncertainty and limitations
+in a separate research notebook. No core solver or research output is
+supplied.</p>
+<p><a href="files/student_start.ipynb">Notebook source</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

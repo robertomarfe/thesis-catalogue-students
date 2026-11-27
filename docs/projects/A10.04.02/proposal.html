@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Backtest Overfitting and the Illusion of Predictability | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A10.04.02 · Asset Pricing · Predictability &amp; machine learning</p><h1>Backtest Overfitting and the Illusion of Predictability</h1><p class="lead">How does the number of candidate predictive models affect apparent OOS performance under a no-predictability null, and how much does nested temporal validation reduce the gap between reported and independent test performance?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Predictability and machine learning · Level
+3/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>The best-looking backtest from many candidates can appear profitable
+even under no predictability. The experiment separates legitimate model
+selection on past validation data from invalid repeated selection on
+final outcomes.</p>
+<h3 id="research-question">Research question</h3>
+<p>How does the number of candidate predictive models affect apparent
+OOS performance under a no-predictability null, and how much does nested
+temporal validation reduce the gap between reported and independent test
+performance?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>Even if conditional mean is constant, the maximum of many noisy
+development or test scores is upward biased relative to a fixed
+candidate.</p>
+<h3 id="research-design">Research design</h3>
+<p>Simulate T=600, 300/150/150 dates, 10/50/200 nested candidate sets,
+iid and conditional-variance constant-mean nulls, AR(1) predictors with
+phi .8, at least 300 paired replications. Real French lagged-factor
+illustration remains mandatory absent explicit redesign.</p>
+<p>Perturb immature/final targets and ensure development winner is
+unchanged. Check nested candidate membership, paired common draws,
+strict boundary purge and same benchmark dates. Oracle never used in
+deployable policy. Real illustration remains required under original
+scope.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Distribution of apparent versus fresh-test OOS R2 by M, selection gap
+and MC uncertainty plots, false-discovery proxy (positive reported score
+under null, not formal p-value), real example cumulative loss table,
+transparent split/seed and candidate registry.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>One iid and one conditional-variance null, at least three model
+search sizes, honest versus reused holdout with paired uncertainty, and
+one real-data illustration. Simulation is core; if real file
+unavailable, retain synthetic result and explicitly revise empirical
+scope.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Preserve predictor persistence and return volatility clustering under
+alternative null, no return-feature forward leakage. Avoid comparing
+selectors on different dates or model menus. Define selection on
+development versus nested training folds precisely; use equal test
+length and independent seeds. Report if honest selection still
+underperforms mean; inference about statistical false rejections
+requires explicit tests, not positive scores alone.</p>
+<p><strong>Prerequisites:</strong> Predictive regressions, Monte Carlo,
+time-series dependence, Python and basic multiple testing.</p>
+<p><strong>Optional extension:</strong> Add stationary bootstrap
+reality-check or multiple-testing adjustment on prespecified strategy
+returns; validate test size with simulations before use.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: selection-bias theory and preregister grid; W4-6: implement
+nulls and forecast unit tests; W7-10: run paired experiments and real
+example; W11-13: dependence and uncertainty; W14-16: write and archive
+reproducible registry.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

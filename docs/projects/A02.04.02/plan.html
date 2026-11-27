@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Predicting the Distribution Rather Than the Mean of Stock Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A02.04.02 · Asset Pricing · Predictability &amp; machine learning</p><h1>Predicting the Distribution Rather Than the Mean of Stock Returns</h1><p class="lead">Do valuation and implied-volatility indicators improve lower-tail monthly market excess-return forecasts relative to unconditional historical and rolling location-scale benchmarks?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a02.04.02">Research plan | A02.04.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Hand-check pinball loss for positive and negative residuals and
+empirical quantile convention. Check VIX availability and no future
+data. Test crossing detection, report event counts, no post-test choice
+of quantile or rearrangement.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>At least q=.10,.50,.90 (freeze probabilities before test). Quantile
+regression with identical past features dp and end-month available VIX.
+Compare expanding empirical quantile and rolling 60-month Gaussian
+location-scale. Use pinball and coverage, note crossing, predeclare
+noncrossing rearrangement as sensitivity rather than hiding failures. No
+future volatility in features.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Construct predictor/target timing ledger and units.</p></li>
+<li><p>Fit unconditional and location-scale benchmarks.</p></li>
+<li><p>Estimate quantile regressions using lagged valuation and log VIX,
+freeze model form.</p></li>
+<li><p>Compare quantile scores, interval coverage and paired block
+bootstrap.</p></li>
+<li><p>Evaluate crossing, tail event counts, crisis sensitivity and risk
+decision under fixed exceedance tolerance.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Quantile fan, calibration and loss table, event counts, crossing
+diagnostic and origin ledger.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Limited tail events; no claim that risk forecasts generate trading
+gains. Same sample and quantiles across methods; no test tuning. Revised
+macro/valuation data not real-time vintages.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Three quantiles including .10, two benchmarks, expanding test, proper
+scores and calibration.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Fit Student-t location-scale distribution and compare CRPS on
+identical origins.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Quantile regression, forecasting, Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Distribution forecasts;</p></li>
+<li><p>Quantile methods;</p></li>
+<li><p>Timing and data;</p></li>
+<li><p>Scores and calibration;</p></li>
+<li><p>Limits.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: predictors and scoring; W4-6: benchmarks; W7-9: quantile fits;
+W10-12: evaluation; W13-16: writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

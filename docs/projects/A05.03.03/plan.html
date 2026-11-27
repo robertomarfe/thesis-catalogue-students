@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Macroeconomic Expectations and the Predictability of Bond Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A05.03.03 · Asset Pricing · Fixed income &amp; interest rates</p><h1>Macroeconomic Expectations and the Predictability of Bond Returns</h1><p class="lead">Do real GDP growth and inflation expectations from the Survey of Professional Forecasters improve pseudo-out-of-sample forecasts of future Treasury excess returns beyond forward-rate factors?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a05.03.03">Research plan | A05.03.03</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Require release and horizon metadata before estimation. If necessary
+use the original minimum of one released horizon and two maturities; do
+not substitute dispersion for expected growth. Label the result
+pseudo-OOS unless vintages are truly reconstructible.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Audit forecasts, release dates, growth conventions and GSW return
+construction.</p></li>
+<li><p>Construct yield-only features and SPF features, same sample;
+verify label timing.</p></li>
+<li><p>Estimate nested predictive models with train-only standardization
+and mature outcomes.</p></li>
+<li><p>Compare held-out MSPE, OOS R2 against common historical mean,
+paired errors and overlapping-horizon HAC/block inference.</p></li>
+<li><p>Study incremental growth vs inflation, 3/12-month horizons,
+crisis exclusion and vintage limitations.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Forecast calendar and sample table, coefficient paths, OOS forecast
+performance by maturity, incremental predictive-loss intervals.</p>
+<h4 id="robustness">Robustness</h4>
+<p>SPF levels may mix units or definitions across vintages; use
+same-vintage ratios and document horizon. Retrospective fitted yields
+and revisions make exercise pseudo-real-time unless verified. No claim
+of causal forecasting mechanism or trading profitability.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One released SPF horizon, two maturities, historical
+mean/yield-only/augmented forecasts, overlap-aware held-out scoring.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Add dispersion measured separately from expected growth, after
+validating SPF D2 horizon and release conventions.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Fixed income, predictive regressions, forecast evaluation, macro
+data.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Bond risk premia and survey information;</p></li>
+<li><p>Forward returns and forecasts;</p></li>
+<li><p>Data timing;</p></li>
+<li><p>Predictive comparisons;</p></li>
+<li><p>Interpretation.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: literature and SPF calendar; W4-6: features and labels; W7-9:
+rolling estimation; W10-12: held-out and uncertainty; W13-16:
+writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

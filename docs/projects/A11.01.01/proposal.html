@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Stochastic Discount Factor and the Geometry of Risk Premia | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A11.01.01 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>The Stochastic Discount Factor and the Geometry of Risk Premia</h1><p class="lead">How do the payoff span and market incompleteness determine the minimum-norm SDF, the attainable Sharpe ratio and the set of admissible positive pricing kernels?</p><p class="small">Synthetic core · Level 1/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Finite-state economies · 16 weeks · Level
+1/3</strong><br />
+<strong>Data:</strong> synthetic; optional public-factor illustration.
+<strong>Status:</strong> current draft; not approved for assignment.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Asset prices identify the component of the stochastic discount factor
+(SDF) that lies in the span of traded payoffs, but they generally do not
+identify the entire SDF in incomplete markets. This distinction is
+economically important: a pricing kernel that exactly matches traded
+prices need not be unique or even nonnegative. The project uses
+finite-state economies to connect this identification problem to
+portfolio efficiency, the Sharpe ratio and no-arbitrage restrictions.
+Its main contribution is to establish these relationships exactly,
+rather than to estimate a structural consumption model.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do the payoff span and market incompleteness determine the
+minimum-norm SDF, the attainable Sharpe ratio and the set of admissible
+positive pricing kernels?</p>
+<h3 id="theoretical-and-methodological-framework">Theoretical and
+methodological framework</h3>
+<p>Consider
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>J</mi><annotation encoding="application/x-tex">J</annotation></semantics></math>
+states with probabilities
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mi>j</mi></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\pi_j&gt;0</annotation></semantics></math>
+that sum to one. Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∈</mo><msup><mi>ℝ</mi><mrow><mi>J</mi><mo>×</mo><mi>N</mi></mrow></msup></mrow><annotation encoding="application/x-tex">X\in\mathbb R^{J\times N}</annotation></semantics></math>
+contain the payoffs of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+traded assets (one row per state), let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>N</mi></msup></mrow><annotation encoding="application/x-tex">q\in\mathbb R^N</annotation></semantics></math>
+be their price vector and define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Π</mi><mo>=</mo><mo>diag</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>π</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>π</mi><mi>J</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Pi=\operatorname{diag}(\pi_1,\ldots,\pi_J)</annotation></semantics></math>.
+An SDF
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>∈</mo><msup><mi>ℝ</mi><mi>J</mi></msup></mrow><annotation encoding="application/x-tex">m\in\mathbb R^J</annotation></semantics></math>
+prices the assets if</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>X</mi><mi>⊤</mi></msup><mi>Π</mi><mi>m</mi><mo>=</mo><mi>q</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">X^\top\Pi m=q.</annotation></semantics></math></p>
+<p>Under full column rank, the minimum probability-weighted norm
+solution is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mo>*</mo></msub><mo>=</mo><mi>X</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>X</mi><mi>⊤</mi></msup><mi>Π</mi><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>−</mi><mn>1</mn></mrow></msup><mi>q</mi><mo>,</mo><mspace width="2.0em"></mspace><mo stretchy="false" form="postfix">∥</mo><mi>m</mi><msubsup><mo stretchy="false" form="postfix">∥</mo><mi>π</mi><mn>2</mn></msubsup><mo>=</mo><msup><mi>m</mi><mi>⊤</mi></msup><mi>Π</mi><mi>m</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">m_*=X(X^\top\Pi X)^{-1}q,\qquad \|m\|_\pi^2=m^\top\Pi m.</annotation></semantics></math></p>
+<p>For redundant payoffs, use a rank-aware pseudoinverse after testing
+price consistency. Every other solution takes the form
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mo>*</mo></msub><mo>+</mo><mi>h</mi></mrow><annotation encoding="application/x-tex">m_*+h</annotation></semantics></math>,
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>X</mi><mi>⊤</mi></msup><mi>Π</mi><mi>h</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">X^\top\Pi h=0</annotation></semantics></math>.
+Adding traded payoffs restricts this set. A riskless unit payoff with
+price
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>f</mi></msub><mo>=</mo><mn>1</mn><mi>/</mi><msub><mi>R</mi><mi>f</mi></msub></mrow><annotation encoding="application/x-tex">q_f=1/R_f</annotation></semantics></math>
+fixes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msub><mi>q</mi><mi>f</mi></msub></mrow><annotation encoding="application/x-tex">\mathbb E[m]=q_f</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mi>f</mi></msub><annotation encoding="application/x-tex">R_f</annotation></semantics></math>
+is its gross return. For a zero-cost excess payoff
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+with positive variance,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mo stretchy="true" form="prefix">|</mo><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>x</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">|</mo></mrow><mrow><mo>SD</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mo>≤</mo><mfrac><mrow><mo>SD</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">\frac{|\mathbb E[x]|}{\operatorname{SD}(x)}\leq\frac{\operatorname{SD}(m)}{\mathbb E[m]}.</annotation></semantics></math></p>
+<p>The project derives the bound and its equality condition, and
+distinguishes the unrestricted minimum-norm kernel, the minimum-norm
+kernel subject to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">m\geq0</annotation></semantics></math>,
+and strict positive feasibility. These are different mathematical and
+economic objects.</p>
+<h3 id="experimental-design">Experimental design</h3>
+<p>Construct synthetic economies with 4, 8 and 20 states, using both
+equal and unequal probabilities. Start with a strictly positive
+reference kernel and price a riskless payoff and one to six risky
+payoffs consistently. Add payoffs to build nested spans; include a
+separate complete-market benchmark, redundant assets and nearly
+collinear payoffs. Set random seeds and record numerical tolerances.
+Compare weighted least squares, a nonnegative quadratic program and a
+linear program that tests strict positive feasibility. No external data
+are required for the core exercise.</p>
+<h3 id="required-analysis-and-exhibits">Required analysis and
+exhibits</h3>
+<ol type="1">
+<li><strong>Projection.</strong> Derive the pricing and orthogonality
+restrictions. Report a payoff/price table, rank and residuals for the
+numerical solution.</li>
+<li><strong>Market incompleteness.</strong> Construct incomplete and
+complete economies; identify null-space directions and show that
+alternative kernels price the same traded assets.</li>
+<li><strong>Portfolio efficiency.</strong> Add assets sequentially.
+Compare SDF dispersion with the maximum attainable Sharpe ratio and
+state the conditions for equality.</li>
+<li><strong>Positivity.</strong> Construct a strictly positive reference
+kernel whose unrestricted projection is negative in at least one state.
+Compare the unrestricted and nonnegative solutions and report the
+maximum feasible positivity margin.</li>
+<li><strong>Conditioning.</strong> Perturb prices and payoffs, introduce
+redundant assets and test invariance to changes of basis and payoff
+scaling. Record inconsistent cases rather than silently dropping
+them.</li>
+</ol>
+<p>The main exhibits are a pricing and rank table, a nested-span
+SDF/Sharpe frontier, state-by-state kernels and a conditioning
+diagnostic. Use the probability-weighted inner product throughout.
+Equality of the Sharpe bound assumes the relevant unrestricted traded
+excess-payoff span, not arbitrary portfolio constraints. A minimum-norm
+kernel is not identified structural marginal utility. A11.02.01 studies
+an empirical Hansen–Jagannathan bound; A11.01.02 studies beta
+representations. Neither is the core exercise here.</p>
+<h3 id="minimum-viable-thesis-and-acceptance-criteria">Minimum viable
+thesis and acceptance criteria</h3>
+<p>Two nested finite-state economies, exact pricing and projection,
+null-space alternatives, positivity and Sharpe geometry with numerical
+verification.</p>
+<p>Before assignment, verify the matrix orientation, payoff-price
+consistency, weighted residuals, null-space orthogonality, feasibility
+margin and rank tolerances. The supplied notebook checks only payoff
+orientation and probability units. The student’s research must construct
+and compare the economies, document numerical failures and produce
+independent results.</p>
+<p>An optional extension compares the constrained SDF with an
+entropy-minimizing kernel or illustrates the projection with public
+portfolio moments. In the latter case, account for estimation error and
+clear the applicable input gate.</p>
+<h3 id="work-plan-and-reading">Work plan and reading</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Weeks</th>
+<th style="text-align: left;">Milestone</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1–3</td>
+<td style="text-align: left;">Derive the pricing restrictions and
+projection result.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4–6</td>
+<td style="text-align: left;">Implement and verify the finite-state
+solver.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7–9</td>
+<td style="text-align: left;">Compare nested spans and the Sharpe
+frontier.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10–12</td>
+<td style="text-align: left;">Study positivity and numerical
+conditioning.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13–16</td>
+<td style="text-align: left;">Complete reproducible code, exhibits and
+thesis.</td>
+</tr>
+</tbody>
+</table>
+<p>Suggested thesis structure: pricing kernels and payoff space;
+projection geometry; synthetic economies; risk-premium and positivity
+results; implications.</p>
+<p>Prerequisites: linear algebra, probability, asset pricing and convex
+optimization in Python. Read the focused methods note and the core
+sources below.</p>
+<p><strong>Core reading</strong> (inherited citations; full
+bibliographic verification remains pending):</p>
+<ul>
+<li>Hansen, L. P., and Jagannathan, R. (1991). Implications of Security
+Market Data for Models of Dynamic Economies. <em>Journal of Political
+Economy</em>, 99, 225–262.</li>
+<li>Cochrane, J. H. (2005). <em>Asset Pricing</em>. Princeton University
+Press.</li>
+<li>Hansen, L. P., and Richard, S. F. (1987). The Role of Conditioning
+Information in Deducing Testable Restrictions Implied by Dynamic Asset
+Pricing Models. <em>Econometrica</em>, 55, 587–613.</li>
+</ul>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

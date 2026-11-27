@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Combining Equity Premium Forecasts | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A02.03.01 · Asset Pricing · Predictability &amp; machine learning</p><h1>Combining Equity Premium Forecasts</h1><p class="lead">Can simple forecast combinations outperform individual predictive regressions and the historical mean in a genuinely recursive evaluation?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="mathematical-framework">Mathematical framework</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+fixed component forecasts
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mrow><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">f_{k,t}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>f</mi><mi>t</mi><mrow><mi>e</mi><mi>q</mi></mrow></msubsup><mo>=</mo><msup><mi>K</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msub><mo>∑</mo><mi>k</mi></msub><msub><mi>f</mi><mrow><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f^{eq}_t=K^{-1}\sum_k f_{k,t}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>f</mi><mi>t</mi><mrow><mi>a</mi><mi>d</mi></mrow></msubsup><mo>=</mo><msub><mo>∑</mo><mi>k</mi></msub><msub><mi>w</mi><mrow><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><msub><mi>f</mi><mrow><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f^{ad}_t=\sum_k w_{k,t}f_{k,t}</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mrow><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">w_{k,t}\ge0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mi>k</mi></msub><msub><mi>w</mi><mrow><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\sum_k w_{k,t}=1</annotation></semantics></math>.
+A candidate adaptive rule uses inverse mean squared error on the last at
+most 120 matured common forecasts, with a declared positive floor and
+fixed warm-up:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mrow><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>∝</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>ϵ</mi><mo>+</mo><msub><mover><mi>L</mi><mo accent="true">¯</mo></mover><mrow><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>−</mi><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">w_{k,t}\propto(\epsilon+\overline L_{k,t})^{-1}</annotation></semantics></math>.
+Fix the numerical floor and minimum history in advance; use equal
+weights until that minimum is met. Record each forecast origin, target
+maturity and realization. A component’s past loss becomes usable only
+after its target has matured.</p>
+<h3 id="identification-and-implementation">Identification and
+implementation</h3>
+<p>For unbiased errors with positive definite covariance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Σ</mi><mi>e</mi></msub><annotation encoding="application/x-tex">\Sigma_e</annotation></semantics></math>,
+the unconstrained minimum-variance unit-sum weights are proportional to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>Σ</mi><mi>e</mi><mrow><mi>−</mi><mn>1</mn></mrow></msubsup><mn>𝟏</mn></mrow><annotation encoding="application/x-tex">\Sigma_e^{-1}\mathbf{1}</annotation></semantics></math>.
+Explain why estimating the covariance can erase theoretical gains.
+Equal, median and inverse past-MSE rules are the baseline, not the ex
+post optimum. Fix warm-up and tie/zero-loss rules before test.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Toy equal weights sum to one; no immature loss in the adaptive
+window; perturb future targets and verify earlier weights unchanged;
+audit common component availability and fixed predictor membership.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

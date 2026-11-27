@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Jump Risk and the Pricing of Equity Options | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D01.03.01 · Derivatives · Option models &amp; surfaces</p><h1>Jump Risk and the Pricing of Equity Options</h1><p class="lead">How do jump intensity, mean jump size and jump dispersion affect equity option prices and implied-volatility skew at a fixed total instantaneous log-return variance?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="compensated-jump-dynamics">Compensated jump dynamics</h3>
+<p>Under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℚ</mi><annotation encoding="application/x-tex">\mathbb Q</annotation></semantics></math>,
+write log jump
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>∼</mo><mi>N</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo>,</mo><msubsup><mi>s</mi><mi>J</mi><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">Y\sim N(m,s_J^2)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>e</mi><mi>Y</mi></msup><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msup><mi>e</mi><mrow><mi>m</mi><mo>+</mo><msubsup><mi>s</mi><mi>J</mi><mn>2</mn></msubsup><mi>/</mi><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">a=\mathbb E[e^Y]=e^{m+s_J^2/2}</annotation></semantics></math>,
+and Poisson intensity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>.
+The compensated stock dynamics are
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>S</mi><mi>t</mi></msub><mi>/</mi><msub><mi>S</mi><mrow><mi>t</mi><mo>−</mo></mrow></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mi>r</mi><mo>−</mo><mi>q</mi><mo>−</mo><mi>λ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mi>d</mi><mi>t</mi><mo>+</mo><mi>σ</mi><mi>d</mi><msub><mi>W</mi><mi>t</mi></msub><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>e</mi><mi>Y</mi></msup><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><msub><mi>N</mi><mi>t</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">dS_t/S_{t-}=[r-q-\lambda(a-1)]dt+\sigma dW_t+(e^Y-1)dN_t.</annotation></semantics></math>
+Conditional on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>T</mi></msub><mo>=</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">N_T=n</annotation></semantics></math>,
+the log spot is Gaussian with mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><msub><mi>S</mi><mn>0</mn></msub><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><mi>q</mi><mo>−</mo><mi>λ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi><mo>+</mo><mi>n</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">\log S_0+(r-q-\lambda(a-1)-\sigma^2/2)T+nm</annotation></semantics></math>
+and variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><mi>T</mi><mo>+</mo><mi>n</mi><msubsup><mi>s</mi><mi>J</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">\sigma^2T+ns_J^2</annotation></semantics></math>.
+Derive the mixture price as a Poisson-weighted sum of conditional
+lognormal call values. The forward is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi></mrow></msup></mrow><annotation encoding="application/x-tex">S_0 e^{(r-q)T}</annotation></semantics></math>.
+When truncating, bound the omitted stock leg, whose Poisson weights are
+tilted by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>a</mi><mi>n</mi></msup><annotation encoding="application/x-tex">a^n</annotation></semantics></math>.</p>
+<h3 id="controlled-variance">Controlled variance</h3>
+<p>Independence gives annual log variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>+</mo><mi>λ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>m</mi><mn>2</mn></msup><mo>+</mo><msubsup><mi>s</mi><mi>J</mi><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">v=\sigma^2+\lambda(m^2+s_J^2)</annotation></semantics></math>;
+preserve
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>
+when changing the jump distribution, rejecting infeasible negative
+residual diffusion variance. This differs from matching terminal
+arithmetic stock-price variance. Compare to a Gaussian benchmark with
+volatility
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mi>v</mi></msqrt><annotation encoding="application/x-tex">\sqrt v</annotation></semantics></math>,
+using identical forward moneyness
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mi>/</mi><mi>F</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">k=\log(K/F)</annotation></semantics></math>.
+Verify the zero-intensity limit, put–call parity and independent exact
+terminal simulation. Short-maturity wings may be economically
+informative, but extremely small time values can make implied-volatility
+inversion unstable. Do not interpret the chosen pricing intensity as a
+physical crash probability.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Build admissible variance-matched configurations before calculating
+prices. Hold forward fixed and compare several maturities; report
+ordinary and stock-weighted truncation diagnostics. Keep jump-size and
+intensity perturbations distinct.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Forward Premium Puzzle and Currency Carry | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A09.02.01 · Asset Pricing · International, FX &amp; commodities</p><h1>The Forward Premium Puzzle and Currency Carry</h1><p class="lead">Does the observed forward premium forecast subsequent spot appreciation as UIP implies, and how does this bilateral evidence relate to published currency carry returns?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> Observed BoE forward series and matching G10 carry workbook; coverage and rights.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a09.02.01">Research plan | A09.02.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Before estimation verify outright versus points, quote orientation,
+fixing and outcome dates; audit rights and actual coverage. Do not
+splice observed and synthetic forwards or infer G10 carry from a
+bilateral regression.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Verify units/quote direction, settlement dates, series
+discontinuation and matched month-end data; compute forward premium and
+log proxy.</p></li>
+<li><p>Estimate Fama regression with HAC intervals for b=1 and a=0;
+compare random-walk spot forecast with forward and regression forecast
+in a fixed chronological split (train first 60%, evaluate last
+40%).</p></li>
+<li><p>Check algebra of excess-return slope; report changes across
+predeclared 1990-2007 and 2008-2021 windows and finite-sample
+persistent-regressor uncertainty.</p></li>
+<li><p>For G10 published carry baskets, compute high-minus-low returns
+with provider’s return convention, annualized mean/volatility, crash
+episodes and gross/net comparison.</p></li>
+<li><p>Explain why bilateral UIP results do not identify cross-sectional
+carry premia; compare on common dates and report turnover/cost
+limitations.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Quote/timing audit, Fama regression and forecast tables,
+forward-premium and spot plots, carry summary and downside
+diagnostics.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Do not extend actual-forward sample using synthetic forwards
+silently. Historical BoE midquotes are not executable returns, exact
+value dates may differ from month-end. Published baskets do not disclose
+underlying individual quotes; do not reconstruct them from portfolio
+returns. Log approximations and Jensen terms matter, inference low power
+for persistent premia.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One actual spot-forward pair with verified common history and UIP
+regression; published G10 carry gross panel or explicitly conditional
+fallback. If core source fails, redesign title/application with
+supervisor. Distinct from D10.03.01 synthetic CIP pricing.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Acquire additional historical BoE currency forward pairs if present,
+or approved academic panel with individual forward quotes; estimate
+pooled UIP and cross-sectional decompositions.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>International finance, exchange-rate conventions, predictive
+regression and Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>CIP, UIP and currency payoffs;</p></li>
+<li><p>Observed quotes and portfolio data;</p></li>
+<li><p>Bilateral regression;</p></li>
+<li><p>Carry evidence and comparison;</p></li>
+<li><p>Limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: verify quotes, rights and theory; W4-6: align bilateral and
+carry data; W7-9: UIP and forecast; W10-12: carry analysis and
+robustness; W13-16: interpretation and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

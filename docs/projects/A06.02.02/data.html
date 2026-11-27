@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Equity Yield Curves across Investment Styles | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A06.02.02 · Asset Pricing · Consumption &amp; equity valuation</p><h1>Equity Yield Curves across Investment Styles</h1><p class="lead">How do the level, slope and cyclicality of model-implied equity yields differ between high and low characteristic portfolios, especially value and growth?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> GKK archive with verified style labels, matched curves and rights.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a06.02.02">Data and model setup |
+A06.02.02</h3>
+<p><strong>Current data gate: conditional.</strong> No actual external
+input bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Giglio-Kelly-Kozak public model-implied curves from
+https://stefanogiglio.org/ and article
+https://doi.org/10.1111/jofi.13394; 102 characteristic-sorted
+portfolios, monthly or provided frequency, original model estimates
+through 2020. Select value/growth high/low, then size and profitability
+if labels verified. Use common years and maturities 1,2,5,10,15 if
+available; optional USREC, GSW nominal yields only after checking
+units/price convention. Gate archive contents, mapping and rights.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>USREC — USREC</strong> (Regime analysis). Expected file:
+<code>USREC.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=USREC">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/USREC">provider page</a>.
+Historical v13 inventory note (unverified in current release): Direct
+CSV endpoint constructed from exact series ID; not fetched. Monthly
+recession indicator; retrospective.</li>
+<li><strong>GKK — Equity yields synthetic strips</strong> (Core
+conditional). Expected file:
+<code>EqTS_synthetic_strip_yields-JF-2024-03-02.zip</code>. <a
+href="https://drive.google.com/file/d/1eycuEuxPbR5qeOwcbjisjy1B-kVZH9VL/view?usp=sharing">Download
+or provider route</a>; <a href="https://stefanogiglio.org/">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Exact file page observed; click Download. Keep ZIP intact and read
+codebook; model-implied yields.</li>
+<li><strong>GSW — GSW nominal fitted yield curve</strong> (Optional
+illustration). Expected file: <code>feds200628.csv</code>. <a
+href="https://www.federalreserve.gov/data/yield-curve-tables/feds200628.csv">Download
+or provider route</a>; <a
+href="https://www.federalreserve.gov/data/nominal-yield-curve.htm">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed; file not inspected. Nominal off-the-run Treasury
+curve; SVENY zero yields in percent; not OIS.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>GKK 102 portfolios: choose exact high/low value characteristic labels
+from codebook, validate sign and weighting, do not equate anomaly
+long/short with asset-level dividend yield or French labels. Use exact
+paired same date/maturity 1/5/10 core, optional 2/15 and other styles
+only verified. Report difference high minus low and slope difference,
+block sample common across assets and maturities; GDP/recession labels
+descriptive only. No cash-flow versus discount-rate interpretation
+without decomposition inputs.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>CONDITIONAL: GKK archive/rights/labels and exact style pair required.
+Synthetic paired curve difference only; no claim actual value-growth
+ranking.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel/parquet inputs require the relevant
+optional reader (openpyxl, xlrd, pyarrow); inspect raw schema and
+permissions first (not needed for the introductory setup check). If
+source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="stage-2b-student-local-acquisition-and-decision-gate-v47">Stage
+2B | Student-local acquisition and decision gate (v47)</h4>
+<p><strong>Current gate:</strong> conditional. No actual empirical file
+or permission has been validated. Do not redistribute raw files or
+change data source without authorization.</p>
+<h5 id="exact-requested-routes">Exact requested routes</h5>
+<ul>
+<li><strong>GKK — Equity yields synthetic strips</strong>:
+EqTS_synthetic_strip_yields-JF-2024-03-02.zip. Route:
+https://drive.google.com/file/d/1eycuEuxPbR5qeOwcbjisjy1B-kVZH9VL/view?usp=sharing.
+Provider: https://stefanogiglio.org/. Inherited inventory route;
+re-check provider, schema, vintage and permissions locally. Historical
+link note, not fresh verification: Exact file page observed; click
+Download.</li>
+</ul>
+<h5 id="acceptance-of-the-local-input-set">Acceptance of the local input
+set</h5>
+<p>Require positive-dividend portfolio IDs and validated exact high/low
+style crosswalk with common 1/5/10y dates; report both individual curves
+and paired differences/slope, joint calendar-block intervals and
+sensitivity across regimes. Keep matched weighting, units and vintage.
+If exact pair not verified, stop rather than substitute FF labels.</p>
+<p>Keep a local ledger with provider, original filename, release/version
+or commit, download date, SHA-256, terms/permission and permitted use;
+inspect actual headers/tabs, date range, missing/duplicate observations,
+units and calendar; retain raw files only as allowed. Provide code and a
+nonrestricted audit summary, not raw data unless rights permit. Preserve
+planned common-sample and timing rules. The supervisor decides whether
+the input gate passes.</p>
+<h5 id="if-the-gate-fails">If the gate fails</h5>
+<p>If exact value-growth style pair not verified, stop; alternate pair
+or synthetic duration exercise requires approval. Do not infer labels
+from similar French portfolios.</p>
+<h4 id="frozen-research-design-original-catalogue">Frozen research
+design (original catalogue)</h4>
+<p>Giglio-Kelly-Kozak public model-implied curves from
+https://stefanogiglio.org/ and article
+https://doi.org/10.1111/jofi.13394; 102 characteristic-sorted
+portfolios, monthly or provided frequency, original model estimates
+through 2020. Select value/growth high/low, then size and profitability
+if labels verified. Use common years and maturities 1,2,5,10,15 if
+available; optional USREC, GSW nominal yields only after checking
+units/price convention. Gate archive contents, mapping and rights.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Require positive-dividend portfolio IDs and validated exact high/low
+style crosswalk with common 1/5/10y dates; report both individual curves
+and paired differences/slope, joint calendar-block intervals and
+sensitivity across regimes. Keep matched weighting, units and vintage.
+If exact pair not verified, stop rather than substitute FF labels.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Record total, gross and excess return conventions, RF timing,
+sampling frequency, factor definitions and annualization. Freeze common
+date and asset sets, provider vintage and information availability.
+Separate model-implied curves from traded prices, real safe payoffs from
+ex post real returns, and conditional from unconditional moments.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

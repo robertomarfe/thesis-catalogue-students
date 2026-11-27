@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Commodity Price Risk and the Minimum-Variance Hedge Ratio | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D10.02.01 · Derivatives · International, FX &amp; commodities</p><h1>Commodity Price Risk and the Minimum-Variance Hedge Ratio</h1><p class="lead">How much does a Brent spot-proxy hedge reduce WTI price risk, and how stable is the estimated minimum-variance hedge ratio across horizons and market regimes?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d10.02.01">Research plan | D10.02.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Verify common observed endpoints, barrel units, no forward fill and
+past-only estimation at both horizons. Report basis changes, held-out
+risk reduction and negative results.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Align prices, inspect nonpositive quotes and gaps, plot WTI-Brent
+basis and correlation.</p></li>
+<li><p>Derive the hedge ratio in dollars per barrel and test zero and
+unit-ratio benchmarks.</p></li>
+<li><p>Estimate rolling covariance ratios from past observations only;
+compare unrestricted and clipped [0,2] ratios.</p></li>
+<li><p>Evaluate OOS mean, SD, variance reduction, downside quantiles and
+hedge-ratio turnover at each horizon.</p></li>
+<li><p>Assess crisis sensitivity, including 2020, with paired block
+bootstrap and no deletion of unfavorable observations from the
+baseline.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Aligned price panel, basis and hedge ratio plots, in-sample versus
+OOS variance reduction, regime and horizon tables, discussion of
+physical basis and implementation gaps.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Never treat Brent spot as a traded WTI futures contract; no roll
+return, margin or funding claim. Use price changes, not logs, as primary
+specification; handle date matching and endpoint holiday gaps
+explicitly. Report negative OOS hedge effectiveness if found.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Two spot series, two horizons, rolling minimum-variance and unit
+hedge benchmarks, honest held-out variance reduction and basis
+diagnostics.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>If actual contract-level futures settlements become available,
+specify expiry, roll timing, contract size and collateral before a
+separate hedge evaluation.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Derivatives fundamentals, covariance and regression, basic time
+series and Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Commodity price and basis risk;</p></li>
+<li><p>Minimum-variance hedging;</p></li>
+<li><p>Spot data and proxy design;</p></li>
+<li><p>Hedge-ratio dynamics and effectiveness;</p></li>
+<li><p>Limitations and futures extension.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: hedge theory and units; W4-6: align oil prices and construct
+changes; W7-9: fit rolling hedges; W10-12: holdout and regime tests;
+W13-16: inference, interpretation and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

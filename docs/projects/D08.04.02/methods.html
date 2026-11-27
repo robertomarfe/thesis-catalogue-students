@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Designing Cost-Constrained Tail Risk Hedges | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D08.04.02 · Derivatives · Hedging &amp; volatility derivatives</p><h1>Designing Cost-Constrained Tail Risk Hedges</h1><p class="lead">For a fixed annual initial premium budget, how do a protective put, a put spread and a collar differ in expected shortfall, expected return and extreme-loss protection? Which rankings survive changes in the tail distribution and the volatility risk premium?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="feasibility-and-payoff">Feasibility and payoff</h3>
+<p>Use one stock plus financed net premium; an unspent budget is not a
+cost. Protective put overlay is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>K</mi><mi>p</mi></msub><mo>−</mo><msub><mi>S</mi><mi>T</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">a(K_p-S_T)^+</annotation></semantics></math>;
+a put spread subtracts
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>K</mi><mi>l</mi></msub><mo>−</mo><msub><mi>S</mi><mi>T</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">a(K_l-S_T)^+</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>l</mi></msub><mo>&lt;</mo><msub><mi>K</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">K_l&lt;K_p</annotation></semantics></math>;
+a covered collar subtracts a call with quantity no greater than stock
+held. The net premium may be negative; record it rather than forcing the
+budget to bind.</p>
+<h3 id="loss-and-evaluation">Loss and evaluation</h3>
+<p>Price legs under a coherent Q law and evaluate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mn>1</mn><mo>−</mo><msub><mi>W</mi><mi>T</mi></msub><mi>/</mi><msub><mi>S</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">L=1-W_T/S_0</annotation></semantics></math>
+under P. ES at 95 percent is the average upper five-percent loss mass,
+with correct boundary weights. Higher Q volatility is an insurance-cost
+scenario, not by itself an identified variance premium. Specify the P
+jump drift consistently with the declared mean.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Separate single-horizon synthetic choice from historical rolling
+strategies. Verify equal net wealth, budget and extreme-spot payoff
+limits; report cost, expected return, tail protection, upside and paired
+uncertainty.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

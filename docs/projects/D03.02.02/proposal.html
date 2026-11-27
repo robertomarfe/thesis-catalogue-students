@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Volatility Persistence and Long Memory in Financial Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.02.02 · Derivatives · Volatility &amp; tail risk</p><h1>Volatility Persistence and Long Memory in Financial Returns</h1><p class="lead">Does a fractional-memory model improve variance forecasts over HAR and conventional persistent volatility models, and can regime shifts mimic its apparent long memory?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Volatility forecasting and tail risk · Level
+3/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Slowly decaying dependence in volatility may reflect a fractional
+process, but persistent regime shifts can produce similar sample
+patterns. The project combines a controlled identification experiment
+with out-of-sample comparison to assess whether apparent long memory is
+useful for forecasting.</p>
+<h3 id="research-question">Research question</h3>
+<p>Does a fractional-memory model improve variance forecasts over HAR
+and conventional persistent volatility models, and can regime shifts
+mimic its apparent long memory?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>A stationary fractional model satisfies
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>L</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>z</mi><mi>t</mi></msub><mo>−</mo><mi>μ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>e</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">(1-L)^d(z_t-\mu)=e_t</annotation></semantics></math>,
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>d</mi><mo>&lt;</mo><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">0\le d&lt;1/2</annotation></semantics></math>
+and an inverse filter whose coefficients decay at a power rate rather
+than exponentially.</p>
+<h3 id="research-design">Research design</h3>
+<p>Form nonoverlapping weekly variance proxies, compare AR, ARFIMA, HAR
+and daily GARCH forecasts at one and four weeks, and simulate a
+break-driven short-memory process with the same length and variance as
+the fractional benchmark. Select bandwidth and filter length before the
+final test.</p>
+<p>The break exercise is a diagnostic for observational equivalence, not
+a test that a particular historical break generated the sample. Retain
+the prescribed chronological periods and include four-week overlap in
+inference.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>ACF, simulated d distributions, parameter table, loss and forecast
+comparison, sensitivity to breaks and sample.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Weekly variance proxy, AR(1), ARFIMA and HAR forecasts, controlled
+break experiment and chronological test at both horizons. Distinct from
+D03.02.01’s horizon forecasting by explicit memory-identification
+exercise.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Daily returns give noisy realized variance, not intraday realized
+variance. Avoid choosing break dates using future forecasts or selecting
+d from the final sample. Truncated fractional filter requires burn-in
+and convergence. Log transformation changes the loss target.</p>
+<p><strong>Prerequisites:</strong> Time-series econometrics, likelihood,
+fractional filters, statistical programming.</p>
+<p><strong>Optional extension:</strong> Compare FIGARCH or
+regime-switching volatility under a common out-of-sample protocol.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: fractional integration and DGP; W4-6: build proxies and
+validate filter; W7-9: estimate and simulate breaks; W10-12: rolling
+forecasts and inference; W13-16: robustness and writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

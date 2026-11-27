@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Multi-Horizon Volatility Forecasting with HAR Models | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.02.01 · Derivatives · Volatility &amp; tail risk</p><h1>Multi-Horizon Volatility Forecasting with HAR Models</h1><p class="lead">Do multi-scale variance components improve out-of-sample forecasts of average daily squared market returns at one-, five- and twenty-two-day horizons relative to GARCH and historical averages?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Volatility forecasting and tail risk · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Market variance evolves on multiple time scales. Daily, weekly and
+monthly histories may summarize persistent volatility without imposing a
+fully specified latent process. This thesis asks whether that parsimony
+improves genuine forecasts, not whether a richer regression fits the
+past.</p>
+<h3 id="research-question">Research question</h3>
+<p>Do multi-scale variance components improve out-of-sample forecasts of
+average daily squared market returns at one-, five- and twenty-two-day
+horizons relative to GARCH and historical averages?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For daily squared innovations
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>t</mi></msub><mo>=</mo><msubsup><mi>u</mi><mi>t</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">v_t=u_t^2</annotation></semantics></math>,
+the direct HAR target at horizon
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mrow><mi>t</mi><mo>,</mo><mi>H</mi></mrow></msub><mo>=</mo><msup><mi>H</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>H</mi></msubsup><msub><mi>v</mi><mrow><mi>t</mi><mo>+</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">Y_{t,H}=H^{-1}\sum_{j=1}^{H}v_{t+j}</annotation></semantics></math>;
+predictors are trailing means at 1, 5 and 22 trading days.</p>
+<h3 id="research-design">Research design</h3>
+<p>Estimate a separate HAR regression for each horizon and compare a
+trailing mean and GARCH on the identical daily panel. Enforce a
+mature-label cutoff at every monthly refit and compare losses across the
+predeclared horizons, not across different units.</p>
+<p>Record the origin, last training label end and target end for each
+forecast. An average and a sum differ by the horizon; compare only
+matching units. Report all horizons and null rankings.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Forecast alignment tests, coefficient tables, OOS loss and interval
+tables by horizon, forecast and cumulative loss plots, floor and
+stability diagnostics.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Common daily panel, HAR-h, GARCH and historical benchmark for all
+three horizons, chronological evaluation with QLIKE/MSE and
+horizon-aware uncertainty.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Do not equate daily-based variance with intraday realized variance.
+Avoid overlapping-label leakage and future realized variance as
+predictor. GARCH forecast of conditional second moment must be
+compatible with return demeaning. No claim of universally superior
+forecasts from one holdout.</p>
+<p><strong>Prerequisites:</strong> Time-series regression, GARCH,
+forecasting and Python (arch or equivalent).</p>
+<p><strong>Optional extension:</strong> If public intraday realized
+measures with documented market coverage become available, compare an
+original HAR-RV specification on a matched sample.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: volatility theory and loss functions; W4-6: data/target
+construction; W7-9: forecast models; W10-12: holdout and inference;
+W13-16: stability and writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

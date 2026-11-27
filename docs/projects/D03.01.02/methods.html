@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Asymmetric Volatility and the Leverage Effect | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.01.02 · Derivatives · Volatility &amp; tail risk</p><h1>Asymmetric Volatility and the Leverage Effect</h1><p class="lead">Do GJR-GARCH and EGARCH improve next-day and multi-day variance forecasts relative to symmetric GARCH, especially after negative market innovations?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="news-impact-and-admissibility">News impact and
+admissibility</h3>
+<p>Write the demeaned daily log return as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mi>t</mi></msub><mo>=</mo><msqrt><msub><mi>h</mi><mi>t</mi></msub></msqrt><msub><mi>z</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">u_t=\sqrt{h_t}z_t</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mi>t</mi></msub><mo>=</mo><msub><mi>h</mi><mrow><mi>t</mi><mo stretchy="false" form="prefix">|</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">h_t=h_{t|t-1}</annotation></semantics></math>
+and the standardized shock has mean zero and variance one. For GJR
+require
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ω</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\omega&gt;0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\alpha\ge0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>+</mo><mi>γ</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\alpha+\gamma\ge0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\beta\ge0</annotation></semantics></math>.
+With symmetric shocks, finite unconditional variance requires
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>+</mo><mi>β</mi><mo>+</mo><mi>γ</mi><mi>/</mi><mn>2</mn><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\alpha+\beta+\gamma/2&lt;1</annotation></semantics></math>.
+EGARCH instead specifies
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><msub><mi>h</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>ω</mi><mo>+</mo><mi>β</mi><mo>log</mo><msub><mi>h</mi><mi>t</mi></msub><mo>+</mo><mi>α</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>z</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">|</mo></mrow><mo>−</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>z</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">|</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>γ</mi><msub><mi>z</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">\log h_{t+1}=\omega+\beta\log h_t+\alpha(|z_t|-E|z_t|)+\gamma z_t</annotation></semantics></math>.
+Here negative
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>
+amplifies negative news. Persistence of log variance does not by itself
+guarantee a finite unconditional variance of returns.</p>
+<h3 id="forecast-and-loss">Forecast and loss</h3>
+<p>Use the same mean convention and innovation distribution across
+models. Sum expected conditional second moments for a five-day variance
+target; use conditional simulation for nonlinear EGARCH rather than
+exponentiating expected log variance. For positive prediction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+and nonnegative outcome
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>,
+use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>ℓ</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo>,</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>log</mo><mi>f</mi><mo>+</mo><mi>y</mi><mi>/</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">\ell(y,f)=\log f+y/f</annotation></semantics></math>
+and MSE on identical horizons. Condition loss comparisons on the sign
+known at formation, not the subsequent realization.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Plot news-impact curves at a common prior variance. Report
+optimization failures and standardized residual checks. Sign-specific
+forecast improvement is predictive evidence, not proof of financial
+leverage as a causal mechanism. Use paired time blocks or HAC for
+overlapping outcomes.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

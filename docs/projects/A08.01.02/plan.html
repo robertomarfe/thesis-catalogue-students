@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Covariance Shrinkage and Portfolio Performance | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A08.01.02 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Covariance Shrinkage and Portfolio Performance</h1><p class="lead">Does Ledoit-Wolf covariance shrinkage improve out-of-sample global minimum-variance portfolio risk and turnover relative to sample covariance and equal weighting, and how does performance depend on estimation-window length?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a08.01.02">Research plan | A08.01.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Document shrinkage target, intensity and denominator; compare
+eigenvalues, condition numbers, KKT, weights and predicted risk on
+common origins. Same costs and drift, equal weight and sample GMV;
+report singular windows and predefined fallback, compare paired net OOS
+variance/turnover and block intervals.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Use value-weighted 30 industries, fixed complete asset universe
+justified ex ante, common first test date after 120 months. Compare
+sample covariance (ddof=1) and sklearn LedoitWolf (ML scaling, identity
+shrinkage target), note scaling difference does not affect unpenalized
+GMV weights. Verify positive definiteness; if sample covariance singular
+report and apply declared ridge sensitivity, not silent pseudoinverse.
+Use monthly 60/120 lookbacks, identical EW, GMV constraints, ledger
+scale=1; report covariance eigenvalues, condition numbers, concentration
+and paired realized squared-return/variance differences; full re-fit
+bootstrap sensitivity.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Validate sample covariance, LW shrinkage and QP solution on
+synthetic examples; check symmetry, PSD and weights.</p></li>
+<li><p>Compute rolling GMV for sample and shrunk estimates and 1/N under
+identical constraints; store forecasts, weights and subsequent realized
+return separately.</p></li>
+<li><p>Compute net returns with drift-adjusted turnover, annualized
+volatility, mean, Sharpe (consistent RF), drawdown and effective number
+of assets 1/sum(w_i^2). Compare realized variance via paired block
+bootstrap and report condition numbers and concentration.</p></li>
+<li><p>Relate performance to N/T and cost assumptions, compare lookbacks
+and predeclared stress subperiods; evaluate whether lower estimated risk
+transfers to lower realized risk.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Rolling condition numbers and shrinkage intensity;
+weight-concentration chart; cumulative net wealth, drawdown and
+volatility plots; risk/turnover/Sharpe table with bootstrap differences;
+cost and lookback sensitivity. Explain why equal weighting is a
+demanding benchmark and not a straw man.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Do not invert singular covariance silently: solve constrained QP,
+document numerical ridge only as separate benchmark. Keep identical
+asset universe, constraints and OOS sample; include initial allocation
+costs consistently or state exclusion. Do not use future returns in
+covariance estimates or choose cost rate by performance. Industry
+portfolios are published research portfolios, not directly tradable
+funds; backtest ignores implementation frictions beyond stylized
+costs.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Long-only GMV using sample and Ledoit-Wolf covariance plus equal
+weight, chronological backtest, two lookbacks, risk and turnover
+metrics, and a cost sensitivity table. Weak shrinkage gains remain a
+valid result.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare alternative shrinkage targets or exponentially weighted
+covariance, or use a small verified ETF universe with explicit data
+availability; no need to estimate expected returns.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Matrix algebra, covariance estimation, optimization, portfolio return
+arithmetic, Python/SciPy/scikit-learn. No stock-level histories
+needed.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Portfolio choice and estimation error;</p></li>
+<li><p>GMV and shrinkage theory;</p></li>
+<li><p>Data, constraints and backtesting design;</p></li>
+<li><p>Risk, weights and performance;</p></li>
+<li><p>Sensitivity and practical limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive GMV and shrinkage, download industries; W4-6: validate
+data and QP/backtest accounting; W7-10: run rolling comparison with
+frozen choices; W11-13: bootstrap risk, costs and concentration; W14-16:
+write and reproduce.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

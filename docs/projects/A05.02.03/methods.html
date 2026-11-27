@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Forecasting the Yield Curve: Econometric Models versus Machine Learning | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A05.02.03 · Asset Pricing · Fixed income &amp; interest rates</p><h1>Forecasting the Yield Curve: Econometric Models versus Machine Learning</h1><p class="lead">Does machine learning improve multi-horizon US yield-curve forecasts relative to random walk, autoregressive factors and dynamic Nelson-Siegel, after honest temporal validation?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="temporal-indexing">Temporal indexing</h3>
+<p>Predict
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mrow><mi>t</mi><mo>+</mo><mi>h</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">y_{t+h}(\tau)</annotation></semantics></math>,
+not the yield of a bond whose remaining maturity is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>−</mo><mi>h</mi></mrow><annotation encoding="application/x-tex">\tau-h</annotation></semantics></math>.
+For a forecast formed at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
+a training example originating at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>
+is eligible only if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>+</mo><mi>h</mi><mo>≤</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">s+h\le t</annotation></semantics></math>
+and its target is available. Scale features using training data; fit
+decay, lag choices and tuning only in training/validation. Use expanding
+refits with a predetermined schedule.</p>
+<h3 id="comparable-losses">Comparable losses</h3>
+<p>Compute maturity-level errors in bp and aggregate with declared
+weights. For each horizon and model, report the same forecast origins,
+paired loss differences and serial-dependence-aware uncertainty. A
+negative
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>R</mi><mrow><mi mathvariant="normal">O</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">S</mi></mrow><mn>2</mn></msubsup><annotation encoding="application/x-tex">R^2_{\mathrm{OOS}}</annotation></semantics></math>
+is possible. Prediction of a constant-maturity yield does not itself
+measure a tradable excess return.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Implement a strong DNS baseline independently before ML. Lock
+temporal validation and data features, log all tuning choices and
+missing outcomes, and never select the final model using the final test
+loss.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Autocallable Notes: Pricing and Embedded Risk | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D06.03.02 · Derivatives · Numerical pricing &amp; exotics</p><h1>Autocallable Notes: Pricing and Embedded Risk</h1><p class="lead">How do autocall and downside barriers change fair coupon, expected life and tail loss, and how sensitive are valuations to volatility, dividends and issuer credit?</p><p class="small">Synthetic core · Level 3/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Numerical pricing and exotics · Level
+3/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>An autocallable note couples coupon and repayment timing to the path
+of observed equity prices. The coupon cannot be interpreted
+independently of expected life and downside exposure. The project uses
+one precise contract to study these trade-offs, rather than treating all
+notes as the same payoff.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do autocall and downside barriers change fair coupon, expected
+life and tail loss, and how sensitive are valuations to volatility,
+dividends and issuer credit?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For fixed redemption rules write the discounted payoff as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>+</mo><mi>c</mi><msub><mi>B</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">A+cB_c</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+is principal PV and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mi>c</mi></msub><annotation encoding="application/x-tex">B_c</annotation></semantics></math>
+is coupon loading. Par pricing imposes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝔼</mi><mi>ℚ</mi></msup><mi>A</mi><mo>+</mo><mi>c</mi><msup><mi>𝔼</mi><mi>ℚ</mi></msup><msub><mi>B</mi><mi>c</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\mathbb E^{\mathbb Q}A+c\mathbb E^{\mathbb Q}B_c=1</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use the specified three-year quarterly note, exact observation-date
+GBM and a cashflow truth table. Study fair coupon, redemption-time
+distribution, bump sensitivities and physical loss, with the coupon
+frozen in stress tests.</p>
+<p>Validate first-call, no-call, equality and maturity paths by hand.
+Freeze coupon before physical stress. Report ratio uncertainty and
+infeasibility; do not confuse a stylized price with an issue quote.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Cashflow specification and tests; fair coupon map; redemption-time
+and principal-loss distribution; Greek and stress table.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>One fully specified note, exact observation simulation, fair coupon
+and sensitivity grid, Q/P distinction and tested cashflow engine.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Discontinuous payoff makes naive pathwise Greeks unreliable; test
+bump sizes and sampling error. Coupon and barrier conventions must be
+explicit. Price is not an observed issue quote; independent issuer
+hazard is illustrative and excludes wrong-way risk.</p>
+<p><strong>Prerequisites:</strong> Risk-neutral pricing, Monte Carlo,
+derivative Greeks and Python.</p>
+<p><strong>Optional extension:</strong> Worst-of two-asset note with
+correlated GBMs; separate correlation sensitivity from single-name
+volatility.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: contract and pricing; W4-6: cashflow engine; W7-9: fair coupon
+and tests; W10-12: risk/stress; W13-16: documentation and thesis.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

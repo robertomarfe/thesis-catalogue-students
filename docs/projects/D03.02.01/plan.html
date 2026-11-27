@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Multi-Horizon Volatility Forecasting with HAR Models | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.02.01 · Derivatives · Volatility &amp; tail risk</p><h1>Multi-Horizon Volatility Forecasting with HAR Models</h1><p class="lead">Do multi-scale variance components improve out-of-sample forecasts of average daily squared market returns at one-, five- and twenty-two-day horizons relative to GARCH and historical averages?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d03.02.01">Research plan | D03.02.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Record the origin, last training label end and target end for each
+forecast. An average and a sum differ by the horizon; compare only
+matching units. Report all horizons and null rankings.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Construct daily, 5-day and 22-day variance proxies and forward
+targets; verify alignment on a hand example.</p></li>
+<li><p>Fit direct HAR and GARCH; use a fixed small positive floor
+learned from training only and report frequency of clipping.</p></li>
+<li><p>Evaluate MAE, MSE and QLIKE=log(forecast)+realization/forecast on
+identical observations.</p></li>
+<li><p>Use HAC or paired block bootstrap for loss differences and
+compare nonoverlapping evaluation dates.</p></li>
+<li><p>Inspect coefficients, crisis versus calm loss differences and
+changes from adding weekly/monthly components.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Forecast alignment tests, coefficient tables, OOS loss and interval
+tables by horizon, forecast and cumulative loss plots, floor and
+stability diagnostics.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Do not equate daily-based variance with intraday realized variance.
+Avoid overlapping-label leakage and future realized variance as
+predictor. GARCH forecast of conditional second moment must be
+compatible with return demeaning. No claim of universally superior
+forecasts from one holdout.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Common daily panel, HAR-h, GARCH and historical benchmark for all
+three horizons, chronological evaluation with QLIKE/MSE and
+horizon-aware uncertainty.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>If public intraday realized measures with documented market coverage
+become available, compare an original HAR-RV specification on a matched
+sample.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Time-series regression, GARCH, forecasting and Python (arch or
+equivalent).</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Volatility persistence;</p></li>
+<li><p>HAR and GARCH forecasts;</p></li>
+<li><p>Daily-return data and timing;</p></li>
+<li><p>Multi-horizon forecast evaluation;</p></li>
+<li><p>Economic and measurement limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: volatility theory and loss functions; W4-6: data/target
+construction; W7-9: forecast models; W10-12: holdout and inference;
+W13-16: stability and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

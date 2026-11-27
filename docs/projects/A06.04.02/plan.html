@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Cash Flow News and Discount Rate News in Aggregate Stock Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A06.04.02 · Asset Pricing · Consumption &amp; equity valuation</p><h1>Cash Flow News and Discount Rate News in Aggregate Stock Returns</h1><p class="lead">How much of unexpected aggregate equity return variation is associated with discount-rate versus cash-flow news under alternative parsimonious VAR information sets?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a06.04.02">Research plan | A06.04.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Use return-first VAR, stable roots, same calendar and real gross
+convention; verify direct discounted sums and signed
+Var(CF)+Var(DR)-2Cov identity, report finite and infinite estimates,
+horizon and information-set sensitivity. Refit rho and VAR inside
+bootstrap, retain inadmissible draws and note weak stability near unit
+roots.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Original VAR state first log real total return, then log D/P and
+short rate, alternative term spread. Deflate nominal gross returns by
+December CPI ratio, preserve year timing and avoid Shiller interpolated
+payout as annual exact. Center stationary VAR; return_news(A,rho,H) uses
+H future dates, excluding t, returns CF residual and DR. N_CF=u_r+N_DR;
+residual CF absorbs terminal and approximation/omitted news. Report
+Var(CF)+Var(DR)-2Cov and signed shares; bootstrap VAR and rho with joint
+innovations, retain invalid draw counts, compare finite and infinite
+horizons and two information sets. Optional direct dividend-news check
+requires actual g and alternative state order; not an independent
+identified shock.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive Campbell-Shiller return-news identity, state selector and
+sign; audit returns and D/P timing.</p></li>
+<li><p>Estimate stationary VAR; report eigenvalues, residual covariance
+and forecast diagnostic.</p></li>
+<li><p>Compute N_DR and residual N_CF; verify accounting identity
+observation by observation and variance/covariance shares.</p></li>
+<li><p>Re-estimate all parameters within residual or moving-block
+bootstrap (common innovations); report unstable draws and finite-horizon
+results without silently deleting them.</p></li>
+<li><p>Compare alternative information sets, rho, rolling/subperiod
+estimates and optional realized dividend-growth forecast revisions as
+diagnostic.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>VAR estimates and eigenvalues, time series of both news components,
+variance decomposition including covariance term, intervals and
+finite-horizon robustness.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Infinite sum requires spectral radius of rho*A below one;
+near-unit-root results fragile. Residual N_CF not a structural cash-flow
+shock and absorbs omitted news and approximation error; no causal
+attribution. Annual sample modest; avoid many predictors and do not
+impose nonnegative variance shares. Distinct from A06.01.02
+forecast-level decomposition of valuation ratios.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One stable annual VAR, exact algebra checks, news series,
+variance/covariance table, finite versus infinite horizon and two
+information sets with uncertainty.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Use a richer monthly VAR with explicit cash-flow proxy and compare
+with a direct dividend-growth forecast system or GKK equity
+duration.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Asset valuation, VAR, matrix algebra, bootstrap and Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Log-linear return identity;</p></li>
+<li><p>VAR information set and timing;</p></li>
+<li><p>News construction;</p></li>
+<li><p>Decomposition and uncertainty;</p></li>
+<li><p>Economic interpretation.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive news formulas; W4-6: construct annual data; W7-9: VAR
+and decomposition; W10-12: bootstrap and robustness; W13-16: interpret
+and write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

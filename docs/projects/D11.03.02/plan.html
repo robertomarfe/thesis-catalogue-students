@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Robust Option Pricing under Uncertain Volatility | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D11.03.02 · Derivatives · Credit &amp; incomplete markets</p><h1>Robust Option Pricing under Uncertain Volatility</h1><p class="lead">How wide are robust upper and lower option values under bounded volatility, and why do non-convex payoffs differ from simple calls?</p><p class="small">Synthetic core · Level 3/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d11.03.02">Research plan | D11.03.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Use the degenerate band and convex call limits to check sign and
+units; record instability and boundary effects. Distinguish the
+worst-case dynamic control from a search over constant volatilities.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive HJB and convex endpoints; prove lower&lt;=upper by
+control-set nesting.</p></li>
+<li><p>Implement stable solver and verify degenerate band/convex call
+against BSM.</p></li>
+<li><p>Refine space/time and boundaries for butterfly; compare with
+constant-vol grid and report bound gaps.</p></li>
+<li><p>Plot optimal volatility region and gamma, avoiding unreliable
+boundary derivatives.</p></li>
+<li><p>Replay delta hedge on simulated admissible switching-vol paths;
+distinguish continuous-time superhedge property from discretization
+residuals and quantify violations.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Convergence table; robust price intervals and constant-vol
+comparison; gamma/control map; discrete hedge shortfall analysis.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Non-convex bounds need dynamic controls, not extrema of constant vol
+prices. Check stability, boundary sensitivity and discrete comparison
+principle. Finite sampled paths do not prove superhedging. No empirical
+volatility-band estimate required.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Monotone solver, BSM and convex benchmark, butterfly price bounds and
+convergence/constant-vol comparison. Hedge replay secondary if time
+permits.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Include discrete quoted vanilla constraints or alternative
+uncertain-drift/transaction-cost models, keeping assumptions
+separate.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>PDEs, stochastic control, BSM and numerical analysis; Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Model uncertainty;</p></li>
+<li><p>HJB and bounds;</p></li>
+<li><p>Monotone numerical methods;</p></li>
+<li><p>Convex and non-convex examples;</p></li>
+<li><p>Robustness and hedging.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: theory; W4-6: solver; W7-9: benchmark/refine; W10-12: nonconvex
+and hedge checks; W13-16: writing and code.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Covered Interest Parity and Synthetic FX Forward Rates | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D10.03.01 · Derivatives · International, FX &amp; commodities</p><h1>Covered Interest Parity and Synthetic FX Forward Rates</h1><p class="lead">How do the level and differential of short-term USD and EUR interest rates shape synthetic EUR/USD forward prices, and how sensitive is the result to rate conventions and proxy choice?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d10.03.01">Research plan | D10.03.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Verify quote orientation, rate units, positive accrual, zero initial
+PV and reciprocal identity. Record availability and exact overlap. No
+observed basis or executable trade claim.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive cash-and-carry with both quote orientations; demonstrate
+sign change when inverting rates/quote correctly.</p></li>
+<li><p>Build date-aligned rates and synthetic forwards, verify units,
+spot/forward points and parity on flat/zero differential tests.</p></li>
+<li><p>Decompose variation of log forward into log spot and log accrual
+ratio; report regime comparisons including negative-rate
+period.</p></li>
+<li><p>For representative contracts compute signed value after spot/rate
+shocks and sensitivity to day count and hypothetical cross-currency
+basis, using fixed contractual K. Distinguish remaining maturity from
+original tenor.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Spot and synthetic forward curves/time series, forward points versus
+rate differential, decomposition and shock table in USD per EUR and USD
+notionals; precise metadata and timestamp convention. Explicitly state
+all forward prices are hypothetical rather than observed.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Check no negative accrual factors, reciprocal quote conversion and
+zero initial PV. Test actual calendar accrual versus 0.25 and stale
+versus contemporaneous monthly averages; non-synchronous observations
+and proxy funding differences are limitations, not arbitrage. No claim
+of executable CIP trades or post-crisis deviations.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Verified spot and rate sources, correct parity and valuation
+identities, one tenor with historical synthetic points and
+stress/sensitivity analysis. Fallback to transparent synthetic scenarios
+if no overlapping rate series; empirical title/claim must then be
+reviewed.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Use verified daily OIS/term curves or actual traded forward quotes if
+institutional access is available; then separately measure basis with
+consistent collateral, timestamps and bid-ask.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Fixed income discounting, FX conventions, elementary calculus and
+Python data manipulation.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Currency forwards and covered interest parity;</p></li>
+<li><p>Discounting and quote conventions;</p></li>
+<li><p>Public rate and spot proxies;</p></li>
+<li><p>Synthetic forward and valuation results;</p></li>
+<li><p>Market frictions and limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive parity and confirm sources; W4-6: construct aligned
+proxies and validate identities; W7-10: historical decomposition and
+stress analysis; W11-13: timing/proxy robustness; W14-16: document and
+write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Testing Euler Equations with Generalized Method of Moments | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A11.03.01 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>Testing Euler Equations with Generalized Method of Moments</h1><p class="lead">How sensitive are estimated CRRA preference parameters and Euler pricing errors to the selection of test assets, conditioning instruments and GMM weighting matrices? Do weakly informative moments explain instability?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Cross-sectional pricing and SDF · Level
+3/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Consumption Euler equations can be weakly informative about
+preference parameters even when a numerical optimizer converges. Moment
+selection, weighting and identification are therefore part of the
+economic question, rather than nuisance implementation details.</p>
+<h3 id="research-question">Research question</h3>
+<p>How sensitive are estimated CRRA preference parameters and Euler
+pricing errors to the selection of test assets, conditioning instruments
+and GMM weighting matrices? Do weakly informative moments explain
+instability?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mi>β</mi><msubsup><mi>g</mi><mi>c</mi><mrow><mi>−</mi><mi>γ</mi></mrow></msubsup></mrow><annotation encoding="application/x-tex">m=\beta g_c^{-\gamma}</annotation></semantics></math>,
+define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>z</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>m</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><msub><mi>R</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">g(\theta)=E[z_t(m_{t+1}R_{t+1}-1)]</annotation></semantics></math>
+for gross unit-price assets, with zero price for excess payoffs.</p>
+<h3 id="research-design">Research design</h3>
+<p>Align quarterly consumption and real gross returns; retain the
+original bill, market and fixed-industry moment sets, lagged market
+instrument and preference bounds. Compare identity and two-step HAC
+weighting, multistart convergence, profiles and Jacobian rank.</p>
+<p>Use quarterly parameters and same-quarter consumption/payoffs;
+preserve the original broad bounds and fixed moments. Report scaling,
+HAC bandwidth, effective rank and convergence. Validate independently on
+a designed simulation before empirical estimation; do not select moments
+after viewing rejection.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Moment and Jacobian diagnostics, objective profile/contours,
+estimates with conditional inference caveats, pricing errors by
+asset/instrument and weighting matrix comparison; J table where
+defensible. Reproducible code and real return alignment test.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Small overidentified CRRA GMM with verified data, two weight schemes
+and two fixed moment sets, simulation sanity check, profile/Jacobian and
+pricing-error diagnostics; valid conclusions possible even if standard
+asymptotics fail.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Bill proxy is ex-post real return, not a known real risk-free rate.
+No division by beta-normalized scale without retaining identifying gross
+moment. Verify moment count, positive-semidefinite HAC covariance and
+Jacobian rank; pseudoinverse/regularization changes usual J reference
+distribution. Document revised consumption and quarterly timing, crisis
+sensitivity, and no selection of moments based on rejection.</p>
+<p><strong>Prerequisites:</strong> CRRA utility and SDFs, nonlinear
+optimization, GMM/HAC, matrix algebra and Python SciPy/statsmodels.</p>
+<p><strong>Optional extension:</strong> Compare a parsimonious
+linear-factor SDF under identical moment sets, or
+weak-identification-robust inference after core completion.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: derive moments and data gate; W4-6: validate real returns and
+synthetic GMM; W7-10: estimate baseline and expanded moments; W11-13:
+profiles, inference and robustness; W14-16: write and reproduce.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Modeling Commodity Spot Prices with Mean-Reverting Processes | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D10.01.01 · Derivatives · International, FX &amp; commodities</p><h1>Modeling Commodity Spot Prices with Mean-Reverting Processes</h1><p class="lead">Does a mean-reverting log-spot model improve out-of-sample WTI monthly price forecasts relative to a random walk, and is any gain robust to horizon, regime and estimation window?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-d10.01.01">Data and model setup |
+D10.01.01</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>EIA monthly WTI Cushing spot average in USD/barrel MCOILWTICO
+https://fred.stlouisfed.org/series/MCOILWTICO ; daily DCOILWTICO
+optional for exceptional observations. Proposed 1986-2025, verify
+coverage, positivity and missing months before log transform; preserve
+monthly average definition, distinguish negative daily 2020 observations
+from monthly averages. At end of month t assume last published average
+t-1 (verify release calendar); forecast month t+h using h+1 transitions
+from t-1, for both OU and random walk. Compare a zero-lag descriptive
+case separately. Initial training 1986-2005, test 2006 onward; expanding
+and 120-month rolling estimates; horizons 1,3,12 months.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>MCOILWTICO — MCOILWTICO</strong> (Core / planned
+robustness). Expected file: <code>MCOILWTICO.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=MCOILWTICO">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/MCOILWTICO">provider page</a>.
+Historical v13 inventory note (unverified in current release): Direct
+CSV endpoint constructed from exact series ID; not fetched. Monthly
+USD/barrel.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Use MCOILWTICO USD/barrel monthly average, inspect positivity and
+missing months. Fit unconstrained AR(1) to log levels; report finite
+kappa/half-life only for 0&lt;b&lt;1; estimate constrained alternative
+separately. End-month origin t uses last published t-1 (or conservative
+verified lag), forecast t+h via h+lag transitions. Compare RW on same
+information. Initial through 2005, 2006+ holdout; expanding and rolling
+120; 2008/2020 prespecified.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Validate actual monthly calendar and release timing; revised-vintage
+forecast only unless archival vintages available. Synthetic timing
+perturbation and AR coefficient tests passed.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel inputs can be inspected with
+pandas/openpyxl locally (not needed for the introductory setup check).
+If source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Audit positivity, complete monthly dates, release lag and actual
+targets. Verify OU transition and random-walk limit on artificial data,
+report inadmissible fits and paired loss comparisons.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Fix currency quote orientation, base currency, return units,
+settlement dates, funding convention, measure and annualization. For
+empirical panels freeze provider vintage and distinguish observation
+date, availability and outcome maturity. For simulations distinguish
+expiry from delivery and quote rate from payoff currency.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>One-Factor versus Two-Factor Models for Interest Rate Hedging | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D07.04.02 · Derivatives · Fixed income &amp; interest rates</p><h1>One-Factor versus Two-Factor Models for Interest Rate Hedging</h1><p class="lead">How much additional interest rate risk can a two-factor hedge remove relative to a one-factor hedge, after controlling for estimation error and gross notional?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-d07.04.02">Data and model setup |
+D07.04.02</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>GSW nominal Treasury zero yields SVENY01-10 and SVENY15,20 where
+available: https://www.federalreserve.gov/data/nominal-yield-curve.htm.
+Month-end observations 1990-2025 target; use 1,2,3,5,7,10 years common
+across baseline. Target a fixed 7/10-year zero portfolio of equal market
+values, hedged with 2-year alone or 2- and 5-year zeros. Train PCA in
+rolling 120-month windows; hedge shocks from 2005 onward with identical
+timestamps. Instantaneous repricing at fixed maturities, not
+holding-period returns. Scale to $1m initial target value; report hedge
+notional limits as sensitivity.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>GSW — GSW nominal fitted yield curve</strong> (Core).
+Expected file: <code>feds200628.csv</code>. <a
+href="https://www.federalreserve.gov/data/yield-curve-tables/feds200628.csv">Download
+or provider route</a>; <a
+href="https://www.federalreserve.gov/data/nominal-yield-curve.htm">provider
+page</a>. Link status from v13 inventory: Direct link observed; file not
+inspected. Nominal off-the-run Treasury curve; SVENY zero yields in
+percent; not OIS.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Use common monthly 1,2,3,5,7,10Y GSW changes, rolling 120 calendar
+months before each shock. Price 7/10Y zero portfolio at $1m market
+value, hedge with 2Y alone or 2/5Y. Compute factor exposure via
+yield-key sensitivity dotted with frozen loadings, solve signed
+quantities; compare gross notional, condition numbers and exact
+fixed-maturity shock repricing. Use same shock dates; no aging-return
+claim.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Actual GSW common sample, chronology and rights open. Verify
+artificial two-factor exposures exactly neutralized when full rank,
+report ill-conditioning and notional caps rather than silently
+clipping.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel inputs can be inspected with
+pandas/openpyxl locally (not needed for the introductory setup check).
+If source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Do not treat physical PCA loadings as risk-neutral parameters. Unlike
+D07.01.02, compare statistical factor spanning with zero-bond hedges
+rather than single-curve swap DV01.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Specify nominal or real, continuous zero yield versus par yield,
+maturity in years, year fractions, rate units and the information
+available at each origin. Keep price versus yield changes and aged-bond
+returns distinct. State the probability measure and discounting
+convention. Freeze provider vintage; never infer real-time availability
+from observation dates alone.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

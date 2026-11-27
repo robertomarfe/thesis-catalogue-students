@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Asian Option Pricing and the Value of Averaging | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D06.01.01 · Derivatives · Numerical pricing &amp; exotics</p><h1>Asian Option Pricing and the Value of Averaging</h1><p class="lead">How do the averaging window, monitoring frequency and volatility affect arithmetic and geometric Asian call prices and their hedge sensitivities relative to a European option?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html" aria-current="page">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Python lab</h2><div class="actions"><a href="files/student_start.ipynb" class="button secondary" download>Open student_start.ipynb</a><a href="files/requirements.txt" class="button secondary" download>Open requirements.txt</a></div><p class="notice">Unexecuted starter only. No solved thesis or external data supplied.</p><h3>Run locally</h3><p>Extract the workspace ZIP and open the notebook in an isolated Python environment. Install requirements.txt, read the data guide, and retain your own results.</p><h3>Run in Codespaces</h3><p><a href="https://codespaces.new/robertomarfe/thesis-catalogue-students/tree/main" class="button secondary">Open student Python environment</a></p><p>Check costs. Use Tasks: Run Task > Prepare my research draft, select D06.01.01, then File > Open File and open /workspaces/thesis-research/D06.01.01/student_start.ipynb. Select the isolated .venv interpreter. No forwarded port required. Do not commit raw data or results.</p><h3 id="d06.01.01-student-research-starter">D06.01.01 | Student research
+starter</h3>
+<p><strong>Current review draft; approval pending.</strong> Synthetic
+core; no mandatory external data.</p>
+<h4 id="goal">Goal</h4>
+<p>Averaging reduces exposure to any single observation, but moving the
+averaging dates also changes expected levels when carry is nonzero. This
+project separates monitoring frequency from averaging window and asks
+how both price and hedge sensitivities differ from terminal
+exposure.</p>
+<p><strong>Research question:</strong> How do the averaging window,
+monitoring frequency and volatility affect arithmetic and geometric
+Asian call prices and their hedge sensitivities relative to a European
+option?</p>
+<h4 id="setup-check">Setup check</h4>
+<p>Check a fixing schedule and arithmetic/geometric ordering on toy
+values. This artificial example does not validate the full research
+design or actual data.</p>
+<pre><code>import numpy as np
+t=np.linspace(.75,1.,5)[1:]
+assert len(t)==4 and t[0]&gt;.75 and t[-1]==1
+s=np.array([95.,100.,110.,105.])
+assert s.mean()&gt;=np.exp(np.log(s).mean())
+print(&#x27;Setup check passed.&#x27;)</code></pre><h4 id="student-owned-research">Student-owned research</h4>
+<p>Change frequency and window separately. Use union-grid draws where
+practical because grids are not nested. Preserve payment time; do not
+call a finite fixing grid a continuous average.</p>
+<ol type="1">
+<li><p>Derive geometric Asian closed form from joint lognormal moments;
+verify single fixing reduces to a European claim when fixing at
+T.</p></li>
+<li><p>Price arithmetic and geometric Asians; validate ordering, Monte
+Carlo confidence intervals and variance reduction.</p></li>
+<li><p>Separate monitoring frequency from averaging window, comparing
+each while holding the other constant.</p></li>
+<li><p>Estimate delta and vega with common-random-number central
+differences and step-size checks; keep all fixings future at
+valuation.</p></li>
+<li><p>Map price and Greek differences from European benchmark across
+strikes and volatilities; explain results through variance and expected
+average levels.</p></li>
+</ol>
+<p><strong>Minimum viable thesis:</strong> Validated geometric and
+arithmetic pricing, two windows and at least three fixing frequencies,
+delta and vega analysis, interpretation of averaging versus terminal
+exposure.</p>
+<p>Record assumptions, independent checks, uncertainty and limitations
+in a separate research notebook. No core solver or research output is
+supplied.</p>
+<p><a href="files/student_start.ipynb">Notebook source</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

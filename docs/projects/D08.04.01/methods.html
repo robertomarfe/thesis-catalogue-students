@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Protective Puts and the Cost of Crash Insurance | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D08.04.01 · Derivatives · Hedging &amp; volatility derivatives</p><h1>Protective Puts and the Cost of Crash Insurance</h1><p class="lead">How much downside protection does a systematic protective-put strategy provide relative to buy-and-hold and risk-matched stock-cash allocations, and at what realized return cost?</p><p class="small">Data access warning · Level 2/3 · Research draft</p><p class="warning" data-warning="true"><strong>Data access warning: the required datasets may be difficult or costly to obtain. Verify availability, coverage and permitted use with your supervisor. This topic is not currently ready for assignment.</strong><br>Authorized PPUT index history and comparable benchmark.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="premium-financing">Premium financing</h3>
+<p>Holding one stock and borrowing the put premium gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mi>T</mi></msub><mo>=</mo><msub><mi>S</mi><mi>T</mi></msub><mo>+</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo>−</mo><msub><mi>S</mi><mi>T</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup><mo>−</mo><msub><mi>P</mi><mn>0</mn></msub><msup><mi>e</mi><mrow><mi>r</mi><mi>T</mi></mrow></msup></mrow><annotation encoding="application/x-tex">W_T=S_T+(K-S_T)^+-P_0e^{rT}</annotation></semantics></math>
+from net initial wealth
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>0</mn></msub><annotation encoding="application/x-tex">S_0</annotation></semantics></math>.
+This is not the repeated PPUT return. Index history depends on roll
+timing, strike, premium and methodology; it does not reveal individual
+option premiums.</p>
+<h3 id="insurance-value">Insurance value</h3>
+<p>Compare realized returns and tail loss on common months versus a
+lagged risk-matched stock-cash allocation. Drawdown depends on the
+wealth path; expected shortfall depends on return horizon. In the
+synthetic supplement price under Q and simulate under P, not as a
+replacement for missing index data.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Unlike D08.04.02, this is historical rolling insurance evaluation.
+Gate remains blocked. Report achieved risk and uncertainty;
+simulation-only redesign needs explicit approval.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

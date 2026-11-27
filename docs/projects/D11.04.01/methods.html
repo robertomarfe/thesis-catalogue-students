@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Quadratic Hedging in Incomplete Markets | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D11.04.01 · Derivatives · Credit &amp; incomplete markets</p><h1>Quadratic Hedging in Incomplete Markets</h1><p class="lead">How does an unspanned shock alter minimum mean-square hedging error relative to an independence or delta benchmark, and which part of the loss cannot be hedged?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="one-period-projection">One-period projection</h3>
+<p>For a discounted payoff
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+and traded gain
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>G</mi><annotation encoding="application/x-tex">G</annotation></semantics></math>
+with positive variance and zero mean,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>H</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">a=\mathbb E[H]</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>=</mo><mo>Cov</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>H</mi><mo>,</mo><mi>G</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mo>Var</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">b=\operatorname{Cov}(H,G)/\operatorname{Var}(G)</annotation></semantics></math>.
+The residual has zero mean and is orthogonal to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>G</mi><annotation encoding="application/x-tex">G</annotation></semantics></math>.
+Use one common probability law and discounting convention. This
+least-squares intercept is not in general a unique arbitrage-free
+price.</p>
+<h3 id="dynamic-projection">Dynamic projection</h3>
+<p>With discounted traded martingale
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>S</mi><mo accent="true">̃</mo></mover><annotation encoding="application/x-tex">\widetilde S</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>i</mi></msub><mo>=</mo><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>H</mi><mo>∣</mo><msub><mi>ℱ</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">M_i=\mathbb E[H\mid\mathcal F_i]</annotation></semantics></math>,
+the predictable optimal increment hedge is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>i</mi></msub><mo>=</mo><mfrac><mrow><msub><mi>𝔼</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>M</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>M</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mover><mi>S</mi><mo accent="true">̃</mo></mover><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mover><mi>S</mi><mo accent="true">̃</mo></mover><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><mrow><msub><mi>𝔼</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mover><mi>S</mi><mo accent="true">̃</mo></mover><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mover><mi>S</mi><mo accent="true">̃</mo></mover><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">]</mo></mrow></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">b_i=\frac{\mathbb E_i[(M_{i+1}-M_i)(\widetilde S_{i+1}-\widetilde S_i)]}{\mathbb E_i[(\widetilde S_{i+1}-\widetilde S_i)^2]}.</annotation></semantics></math>
+Use separate training and test paths, identical initial capital and
+payoff, and only current state features. The proxy delta is feasible but
+not the exact discrete optimum. Even perfect instantaneous correlation
+does not ensure exact finite-rebalancing replication. A nonmartingale
+physical stock requires a different global mean-variance
+formulation.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Check one-period orthogonality, out-of-sample error and residual
+variance for zero, static, dynamic and proxy-delta hedges. Report the
+full-span continuous limit separately from finite-grid errors.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

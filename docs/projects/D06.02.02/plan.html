@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Least-Squares Monte Carlo for Bermudan Options | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D06.02.02 · Derivatives · Numerical pricing &amp; exotics</p><h1>Least-Squares Monte Carlo for Bermudan Options</h1><p class="lead">How do regression basis, training size and exercise frequency affect the value and quality of a least-squares Monte Carlo stopping policy?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d06.02.02">Research plan | D06.02.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Do not use realized future cashflows in test decisions. Compare three
+basis settings and three training sizes after one validated case.
+Distinguish regression conditioning from stopping-policy
+performance.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive Snell envelope and implement exercise-aligned tree; verify
+European floor and maturity-only equality.</p></li>
+<li><p>Train LSM backward, record regression sample counts and stopping
+fractions by date; avoid exercising out of money.</p></li>
+<li><p>Freeze policy and evaluate on independent paths; report MC error
+conditional on policy plus between-training variability.</p></li>
+<li><p>Compare basis degree and training size using a fixed validation
+set; evaluate chosen policy once on held-out paths.</p></li>
+<li><p>Analyze exercise boundary versus tree, early exercise frequency
+and gap across maturity/volatility/moneyness.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Tree convergence, price and policy gap table, independent evaluation
+intervals, exercise-boundary figures, regression conditioning and
+computation time.</p>
+<h4 id="robustness">Robustness</h4>
+<p>A better in-sample fit need not improve stopping policy. Use only
+information at exercise time, no future cash-flow leakage in evaluation;
+ensure correct discount times and distinguish policy gap from
+reference/MC noise. No exact optimality claim for LSM.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One-dimensional Bermudan put, three basis settings, three training
+sizes, independent test paths, tree reference and uncertainty. Distinct
+from early-exercise economics (D06.02.01).</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Bermudan max/average option on two correlated assets; compare with a
+dual upper bound only after validating the martingale construction.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Conditional expectation, Monte Carlo, least squares and Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Optimal stopping and Snell envelope;</p></li>
+<li><p>LSM regression algorithm;</p></li>
+<li><p>Tree reference and train/test design;</p></li>
+<li><p>Policy sensitivity;</p></li>
+<li><p>Limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: stopping and tree; W4-6: implement LSM; W7-9: policy validation
+and independent value; W10-12: basis, sample and exercise sensitivity;
+W13-16: code and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

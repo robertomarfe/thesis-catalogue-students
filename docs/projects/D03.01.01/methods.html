@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Forecasting Equity Market Volatility: GARCH versus Historical Volatility | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.01.01 · Derivatives · Volatility &amp; tail risk</p><h1>Forecasting Equity Market Volatility: GARCH versus Historical Volatility</h1><p class="lead">Does GARCH(1,1) improve genuinely out-of-sample forecasts of daily and 21-trading-day market variance relative to rolling historical variance? Is the ranking stable in high- and low-volatility periods?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Empirical design · Daily log returns · Variance in decimal
+squared units</strong></p>
+<h3 id="forecast-objects-and-recursion">1. Forecast objects and
+recursion</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ℱ</mi><mi>t</mi></msub><annotation encoding="application/x-tex">\mathcal F_t</annotation></semantics></math>
+contain observations through trading day
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>.
+The return innovation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>u</mi><mi>t</mi></msub><annotation encoding="application/x-tex">u_t</annotation></semantics></math>
+is the log return minus the predetermined mean. For GARCH(1,1), write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>h</mi><mrow><mi>t</mi><mo stretchy="false" form="prefix">|</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">h_{t|t-1}</annotation></semantics></math>
+for the one-step conditional variance used when evaluating
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>u</mi><mi>t</mi></msub><annotation encoding="application/x-tex">u_t</annotation></semantics></math>.
+Gaussian QML minimizes the mean of
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>ℓ</mo><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>ω</mi><mo>,</mo><mi>α</mi><mo>,</mo><mi>β</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac displaystyle="false"><mn>1</mn><mn>2</mn></mfrac><mrow><mo stretchy="true" form="prefix">[</mo><mo>log</mo><msub><mi>h</mi><mrow><mi>t</mi><mo stretchy="false" form="prefix">|</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><msubsup><mi>u</mi><mi>t</mi><mn>2</mn></msubsup><mi>/</mi><msub><mi>h</mi><mrow><mi>t</mi><mo stretchy="false" form="prefix">|</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\ell_t(\omega,\alpha,\beta)=\tfrac12\left[\log h_{t|t-1}+u_t^2/h_{t|t-1}\right]</annotation></semantics></math>
+over the current training window. Reinitialize the filter at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>h</mi><mo accent="true">‾</mo></mover><mo>=</mo><mi>ω</mi><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo>−</mo><mi>β</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\bar h=\omega/(1-\alpha-\beta)</annotation></semantics></math>
+under the stated initialization convention and disclose the
+initialization. Require positive variance, nonnegative coefficients and
+persistence strictly below one. The fitted parameters are held fixed
+between declared refit dates, but the conditional variance incorporates
+each newly observed innovation.</p>
+<p>At origin
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+the first forecast is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="prefix">|</mo><mi>t</mi></mrow></msub><mo>=</mo><mi>ω</mi><mo>+</mo><mi>α</mi><msubsup><mi>u</mi><mi>t</mi><mn>2</mn></msubsup><mo>+</mo><mi>β</mi><msub><mi>h</mi><mrow><mi>t</mi><mo stretchy="false" form="prefix">|</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">h_{t+1|t}=\omega+\alpha u_t^2+\beta h_{t|t-1}</annotation></semantics></math>.
+Define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mi>α</mi><mo>+</mo><mi>β</mi></mrow><annotation encoding="application/x-tex">p=\alpha+\beta</annotation></semantics></math>.
+The
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>-step
+forecast and aggregate forecast are
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mrow><mi>t</mi><mo>+</mo><mi>j</mi><mo stretchy="false" form="prefix">|</mo><mi>t</mi></mrow></msub><mo>=</mo><mover><mi>h</mi><mo accent="true">‾</mo></mover><mo>+</mo><msup><mi>p</mi><mrow><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>h</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="prefix">|</mo><mi>t</mi></mrow></msub><mo>−</mo><mover><mi>h</mi><mo accent="true">‾</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">h_{t+j|t}=\bar h+p^{j-1}(h_{t+1|t}-\bar h),</annotation></semantics></math>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>t</mi><mo>,</mo><mi>H</mi></mrow></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>H</mi></munderover><msub><mi>h</mi><mrow><mi>t</mi><mo>+</mo><mi>j</mi><mo stretchy="false" form="prefix">|</mo><mi>t</mi></mrow></msub><mo>=</mo><mi>H</mi><mover><mi>h</mi><mo accent="true">‾</mo></mover><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>h</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="prefix">|</mo><mi>t</mi></mrow></msub><mo>−</mo><mover><mi>h</mi><mo accent="true">‾</mo></mover><mo stretchy="true" form="postfix">)</mo></mrow><mfrac><mrow><mn>1</mn><mo>−</mo><msup><mi>p</mi><mi>H</mi></msup></mrow><mrow><mn>1</mn><mo>−</mo><mi>p</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">f_{t,H}=\sum_{j=1}^H h_{t+j|t}=H\bar h+(h_{t+1|t}-\bar h)\frac{1-p^H}{1-p}.</annotation></semantics></math>
+For a rolling historical window of length
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math>,
+use
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>f</mi><mrow><mi>t</mi><mo>,</mo><mi>H</mi></mrow><mrow><mi mathvariant="normal">h</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi></mrow></msubsup><mo>=</mo><mfrac><mi>H</mi><mi>w</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>w</mi><mo>−</mo><mn>1</mn></mrow></munderover><msubsup><mi>u</mi><mrow><mi>t</mi><mo>−</mo><mi>i</mi></mrow><mn>2</mn></msubsup><mi>.</mi></mrow><annotation encoding="application/x-tex">f^{\mathrm{hist}}_{t,H}=\frac{H}{w}\sum_{i=0}^{w-1}u_{t-i}^2.</annotation></semantics></math>
+Both are forecasts of a sum in <strong>daily variance units</strong>. Do
+not compare a daily forecast with annualized volatility, or 21 trading
+days with exactly 30 calendar days. A constant-variance benchmark can
+use a fixed training estimate.</p>
+<h3 id="information-and-target-maturation">2. Information and target
+maturation</h3>
+<p>For each origin
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+record the training end date, refit identifier, horizon
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>,
+prediction and target end date
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>+</mo><mi>H</mi></mrow><annotation encoding="application/x-tex">t+H</annotation></semantics></math>.
+The evaluation proxy is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mrow><mi>t</mi><mo>,</mo><mi>H</mi></mrow></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>H</mi></msubsup><msubsup><mi>u</mi><mrow><mi>t</mi><mo>+</mo><mi>j</mi></mrow><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">Y_{t,H}=\sum_{j=1}^H u_{t+j}^2</annotation></semantics></math>;
+it is unavailable until
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>+</mo><mi>H</mi></mrow><annotation encoding="application/x-tex">t+H</annotation></semantics></math>.
+Retain only common, mature outcomes for all compared forecasts. To set
+regimes or tune parameters, use information already available at the
+forecast origin, never the realized future proxy. Nonoverlapping 21-day
+origins address a separate dependence issue; they do not remove all
+serial dependence.</p>
+<h3 id="forecast-comparison">3. Forecast comparison</h3>
+<p>For positive forecast
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+and nonnegative proxy
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>,
+define
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mrow><mi>Q</mi><mi>L</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>,</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>log</mo><mi>f</mi><mo>+</mo><mi>Y</mi><mi>/</mi><mi>f</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>L</mi><mrow><mi>M</mi><mi>S</mi><mi>E</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>,</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>−</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">L_{QL}(Y,f)=\log f+Y/f,\qquad L_{MSE}(Y,f)=(Y-f)^2.</annotation></semantics></math>
+QLIKE may be negative because of the log term. Smaller loss is better.
+Compare on identical origins within each horizon; the level of QLIKE is
+not comparable across differently scaled targets. The validity of
+relative loss comparisons with imperfect proxies requires suitable
+conditional unbiasedness assumptions. For loss difference
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>t</mi></msub><mo>=</mo><msub><mi>L</mi><mrow><mi>Q</mi><mi>L</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Y</mi><mi>t</mi></msub><mo>,</mo><msubsup><mi>f</mi><mi>t</mi><mi>G</mi></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>L</mi><mrow><mi>Q</mi><mi>L</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Y</mi><mi>t</mi></msub><mo>,</mo><msubsup><mi>f</mi><mi>t</mi><mi>H</mi></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">d_t=L_{QL}(Y_t,f_t^G)-L_{QL}(Y_t,f_t^H)</annotation></semantics></math>,
+negative mean favors GARCH. Use HAC or a block bootstrap to account for
+serial dependence (especially overlapping 21-day targets); declare
+bandwidth or block size and report uncertainty. The pilot’s small
+artificial sample is not an inferential demonstration.</p>
+<h3 id="file-acceptance-and-implementation">4. File acceptance and
+implementation</h3>
+<p>Download <code>F-F_Research_Data_Factors_daily_CSV.zip</code> from
+the <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip">provider’s
+exact file link</a>. Provider metadata was checked in the prior source
+audit; this release has not downloaded or inspected the raw file. Keep a
+local copy and record its hash and vintage. Run the original workspace’s
+<code>src/local_preflight.py</code> and inspect the source recipe.
+Required columns are date (<code>YYYYMMDD</code>), <code>Mkt-RF</code>,
+<code>SMB</code>, <code>HML</code>, and <code>RF</code>, with factor
+returns in percent per day. Flag sentinel values and duplicate dates;
+check actual common sample, chronological ordering and positive gross
+returns before taking logs. Do not redistribute data without
+authorization.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Object</th>
+<th style="text-align: left;">Code convention</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>u</mi><mi>t</mi></msub><annotation encoding="application/x-tex">u_t</annotation></semantics></math></td>
+<td style="text-align: left;"><code>u</code> (daily decimal
+innovation)</td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>h</mi><mrow><mi>t</mi><mo stretchy="false" form="prefix">|</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">h_{t|t-1}</annotation></semantics></math></td>
+<td style="text-align: left;"><code>filter_variance(u, p)[t]</code></td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>h</mi><mrow><mi>t</mi><mo>+</mo><mi>j</mi><mo stretchy="false" form="prefix">|</mo><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">h_{t+j|t}</annotation></semantics></math></td>
+<td
+style="text-align: left;"><code>variance_path(history, p, H)[j-1]</code></td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mrow><mi>t</mi><mo>,</mo><mi>H</mi></mrow></msub><annotation encoding="application/x-tex">f_{t,H}</annotation></semantics></math></td>
+<td style="text-align: left;">sum of forecast path or
+<code>historical</code></td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Y</mi><mrow><mi>t</mi><mo>,</mo><mi>H</mi></mrow></msub><annotation encoding="application/x-tex">Y_{t,H}</annotation></semantics></math></td>
+<td style="text-align: left;"><code>labels(u, H)[t]</code></td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>L</mi><mrow><mi>Q</mi><mi>L</mi></mrow></msub><annotation encoding="application/x-tex">L_{QL}</annotation></semantics></math></td>
+<td style="text-align: left;"><code>qlike</code> (declared positive
+forecast floor)</td>
+</tr>
+</tbody>
+</table>
+<p>The empirical thesis retains the 1990–2025 design, five-year rolling
+fit and monthly refits. The student must validate real input, specify
+mean treatment, handle actual calendar and sample issues, and conduct
+uncertainty-aware empirical comparisons.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

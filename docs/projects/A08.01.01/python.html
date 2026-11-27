@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Mean-Variance Optimization and the Cost of Estimation Error | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A08.01.01 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Mean-Variance Optimization and the Cost of Estimation Error</h1><p class="lead">How much does estimation error in expected returns and covariance reduce out-of-sample mean-variance portfolio performance relative to equal weights and minimum variance?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html" aria-current="page">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Python lab</h2><div class="actions"><a href="files/student_start.ipynb" class="button secondary" download>Open student_start.ipynb</a><a href="files/requirements.txt" class="button secondary" download>Open requirements.txt</a></div><p class="notice">Unexecuted starter only. No solved thesis or external data supplied.</p><h3>Run locally</h3><p>Extract the workspace ZIP and open the notebook in an isolated Python environment. Install requirements.txt, read the data guide, and retain your own results.</p><h3>Run in Codespaces</h3><p><a href="https://codespaces.new/robertomarfe/thesis-catalogue-students/tree/main" class="button secondary">Open student Python environment</a></p><p>Check costs. Use Tasks: Run Task > Prepare my research draft, select A08.01.01, then File > Open File and open /workspaces/thesis-research/A08.01.01/student_start.ipynb. Select the isolated .venv interpreter. No forwarded port required. Do not commit raw data or results.</p><h3 id="a08.01.01-student-research-starter">A08.01.01 | Student research
+starter</h3>
+<p><strong>Current review draft; approval pending.</strong> Empirical
+core; actual rights, coverage and input validation pending.</p>
+<h4 id="goal">Goal</h4>
+<p>Optimization amplifies estimation error into unstable allocations. A
+known-moment experiment separates the effects of mean and covariance
+estimation before historical evaluation.</p>
+<p><strong>Research question:</strong> How much does estimation error in
+expected returns and covariance reduce out-of-sample mean-variance
+portfolio performance relative to equal weights and minimum
+variance?</p>
+<h4 id="setup-check">Setup check</h4>
+<p>Check units and feasible weights. This artificial example does not
+validate the full research design or actual data.</p>
+<pre><code>import numpy as np
+w=np.array([.6,.4]); S=np.diag([.04,.01])
+assert np.isclose(w.sum(),1) and np.isclose(w@S@w,.016)
+print(&#x27;Setup check passed.&#x27;)</code></pre><h4 id="student-owned-research">Student-owned research</h4>
+<p>Run paired known-moment cells: true/estimated mean crossed with
+true/estimated covariance, same random draws and out-of-sample returns,
+verify oracle objective and feasibility. For actual data record
+long-only weights, exact OOS dates, drifted trades, net wealth and CE
+units; date blocks and estimation uncertainty; report failed cells.</p>
+<ol type="1">
+<li><p>Derive unconstrained solution and implement constrained
+optimizer; check weight sum, feasibility and KKT/objective against
+reference.</p></li>
+<li><p>Simulate samples with known moments; estimate oracle loss
+separately for mean-only, covariance-only and joint errors.</p></li>
+<li><p>Run historical rolling backtest using data through t only to set
+weights for t+1; compute drifted pretrade weights and turnover.</p></li>
+<li><p>Compare annualized CE, volatility, Sharpe using matched RF,
+drawdown, turnover and cost scenarios (e.g. 0/10/25 bp per dollar
+traded).</p></li>
+<li><p>Assess paired uncertainty by block resampling and sensitivity to
+rolling window, gamma and separate industry or size/value
+panel.</p></li>
+</ol>
+<p><strong>Minimum viable thesis:</strong> Known-moment simulation
+isolating mean/covariance error, matched rolling 1/N, GMV and
+mean-variance backtest, weight stability and CE comparison with
+uncertainty.</p>
+<p>Record assumptions, independent checks, uncertainty and limitations
+in a separate research notebook. No core solver or research output is
+supplied.</p>
+<p><a href="files/student_start.ipynb">Notebook source</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

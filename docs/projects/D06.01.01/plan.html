@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Asian Option Pricing and the Value of Averaging | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D06.01.01 · Derivatives · Numerical pricing &amp; exotics</p><h1>Asian Option Pricing and the Value of Averaging</h1><p class="lead">How do the averaging window, monitoring frequency and volatility affect arithmetic and geometric Asian call prices and their hedge sensitivities relative to a European option?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d06.01.01">Research plan | D06.01.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Change frequency and window separately. Use union-grid draws where
+practical because grids are not nested. Preserve payment time; do not
+call a finite fixing grid a continuous average.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive geometric Asian closed form from joint lognormal moments;
+verify single fixing reduces to a European claim when fixing at
+T.</p></li>
+<li><p>Price arithmetic and geometric Asians; validate ordering, Monte
+Carlo confidence intervals and variance reduction.</p></li>
+<li><p>Separate monitoring frequency from averaging window, comparing
+each while holding the other constant.</p></li>
+<li><p>Estimate delta and vega with common-random-number central
+differences and step-size checks; keep all fixings future at
+valuation.</p></li>
+<li><p>Map price and Greek differences from European benchmark across
+strikes and volatilities; explain results through variance and expected
+average levels.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Analytical derivation, verification and confidence interval table,
+price/Greek panels and averaging-window comparison, documented payoff
+and fixing schedules.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Use exact time conventions, same maturity and payoff units; note that
+changing averaging dates changes expected level at nonzero carry.
+Distinguish price sensitivity at initiation from after some fixings are
+observed. Avoid calling discrete results continuous-limit values without
+a convergence test.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Validated geometric and arithmetic pricing, two windows and at least
+three fixing frequencies, delta and vega analysis, interpretation of
+averaging versus terminal exposure.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Analyze pricing after partial fixing or introduce a floating strike;
+do not duplicate D05.01.02’s algorithm ranking.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Lognormal distributions, BSM, Monte Carlo and Python. No external
+data required.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Average-price contingent claims;</p></li>
+<li><p>Geometric and arithmetic valuation;</p></li>
+<li><p>Fixing conventions and simulation;</p></li>
+<li><p>Economic sensitivities;</p></li>
+<li><p>Limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive geometric price; W4-6: code and validate MC; W7-10:
+monitoring and window experiments; W11-13: Greek analysis; W14-16:
+robustness and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Stochastic Volatility and the Economic Determinants of the Implied Volatility Smile | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D01.02.02 · Derivatives · Option models &amp; surfaces</p><h1>Stochastic Volatility and the Economic Determinants of the Implied Volatility Smile</h1><p class="lead">Which Heston parameters control distinct smile features, and when do their effects become difficult to distinguish?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d01.02.02">Research plan | D01.02.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>First change one parameter at a time at a common forward and grid,
+then explore jointly varying correlation and vol-of-vol. Report actual
+expected variance for every scenario, flag price bounds, and assess
+slope sensitivity to the strike window.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Reproduce BSM limit with xi-&gt;0 and deterministic integrated
+variance, check strike convexity.</p></li>
+<li><p>Construct level, slope and curvature versus maturity; report
+finite-difference step sensitivity.</p></li>
+<li><p>Vary v0,theta,kappa,xi,rho one at a time; plot signed
+sensitivities.</p></li>
+<li><p>Use standardized local Jacobian and singular values to find
+near-collinear parameter effects; compare short-only versus full surface
+grids.</p></li>
+<li><p>Add modest quote noise and show whether similar smile features
+can arise from different parameter vectors.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Smile and term structure panels, sensitivity heatmaps, feature
+Jacobian, singular-value table, matched-scenario plots.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Parameter changes affect multiple smile features jointly. Do not
+claim unique parameter identification from a few summaries or physical
+leverage estimates from Q rho. Very small option time values destabilize
+IV inversion; report excluded cells and use price checks.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Validated pricing and IV inversion, five parameter comparisons and
+one conditioning exercise. Distinct from D01.02.01’s calibration
+objective and D02.02.01’s parametric surface fitting.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Study local identification when maturities and strikes are unevenly
+sampled or add jump risk as a competing mechanism.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Stochastic calculus, option pricing, numerical integration and linear
+algebra.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Implied volatility and Heston;</p></li>
+<li><p>Features and numerical validation;</p></li>
+<li><p>Comparative statics;</p></li>
+<li><p>Identification and noise;</p></li>
+<li><p>Interpretation.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: theory and feature definitions; W4-6: pricer/IV tests; W7-9:
+parameter grids; W10-12: Jacobian and robustness; W13-16: figures and
+writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Variance Risk Premium and the Predictability of Stock Market Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A07.01.01 · Asset Pricing · Volatility &amp; tail risk</p><h1>The Variance Risk Premium and the Predictability of Stock Market Returns</h1><p class="lead">Does an ex ante 30-day variance risk premium proxy help forecast US equity excess returns over 1 and 3 months relative to a historical mean, and how sensitive is the result to the physical variance forecast and sample coverage?</p><p class="small">Data access warning · Level 2/3 · Research draft</p><p class="warning" data-warning="true"><strong>Data access warning: the required datasets may be difficult or costly to obtain. Verify availability, coverage and permitted use with your supervisor. This topic is not currently ready for assignment.</strong><br>An authorized SP500 price source with adequate history, or an explicitly approved redesign.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html" aria-current="page">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Python lab</h2><div class="actions"><a href="files/student_start.ipynb" class="button secondary" download>Open student_start.ipynb</a><a href="files/requirements.txt" class="button secondary" download>Open requirements.txt</a></div><p class="notice">Unexecuted starter only. No solved thesis or external data supplied.</p><h3>Run locally</h3><p>Extract the workspace ZIP and open the notebook in an isolated Python environment. Install requirements.txt, read the data guide, and retain your own results.</p><h3>Run in Codespaces</h3><p><a href="https://codespaces.new/robertomarfe/thesis-catalogue-students/tree/main" class="button secondary">Open student Python environment</a></p><p>Check costs. Use Tasks: Run Task > Prepare my research draft, select A07.01.01, then File > Open File and open /workspaces/thesis-research/A07.01.01/student_start.ipynb. Select the isolated .venv interpreter. No forwarded port required. Do not commit raw data or results.</p><h3 id="a07.01.01-student-research-starter">A07.01.01 | Student research
+starter</h3>
+<p><strong>Current review draft; approval pending.</strong> Empirical
+design blocked pending authorized access and coverage; not assignable on
+this design.</p>
+<h4 id="goal">Goal</h4>
+<p>An option-implied variance measure combines expected variation and
+compensation for variance risk. The difference between risk-neutral and
+physical forecasts may contain information about expected equity
+returns. The study must distinguish genuine ex ante variation from a
+difference constructed using future realized variance.</p>
+<p><strong>Research question:</strong> Does an ex ante 30-day variance
+risk premium proxy help forecast US equity excess returns over 1 and 3
+months relative to a historical mean, and how sensitive is the result to
+the physical variance forecast and sample coverage?</p>
+<h4 id="setup-check">Setup check</h4>
+<p>Check the calendar-day scale of a toy annual variance without
+constructing a VRP or return forecast. This artificial example does not
+validate the full research design or actual data.</p>
+<pre><code>import numpy as np
+annual_variance=.04; days=30; horizon=annual_variance*days/365
+assert np.isclose(horizon*365/days,annual_variance)
+print(&#x27;Setup check passed.&#x27;)</code></pre><h4 id="student-owned-research">Student-owned research</h4>
+<p>The matched SPX source remains blocked until rights and actual
+coverage are confirmed. Short samples may support descriptive results
+only; long-proxy OOS analysis requires explicit supervisor agreement. No
+silent source substitution or claim of an intraday replication.</p>
+<ol type="1">
+<li><p>Clean closes and calendar; compute trailing 252/21-day historical
+daily variance and forecast 30-calendar-day sum using only data known at
+t. Compare a fixed EWMA (lambda=0.94 daily) or GARCH as alternative; use
+a scheduled calendar and state missing-data rule.</p></li>
+<li><p>Construct horizon-matched VRP in decimal variance units; report
+descriptive statistics and verify annualization.</p></li>
+<li><p>Regress next 1- and 3-month compounded market-minus-bill returns
+on lagged VRP, with HAC for overlap; report effect of a one-SD predictor
+move and incremental R2.</p></li>
+<li><p>Build expanding-window forecasts against historical mean using
+identical dates; compare OOS R2 and error-difference uncertainty. Repeat
+long proxy sample separately, and never use realized future variation to
+construct predictors.</p></li>
+</ol>
+<p><strong>Minimum viable thesis:</strong> Reproducible ex ante VRP
+construction, explicit units/underlying distinction, 1- and 3-month
+predictive regressions and at least one chronological OOS comparison
+where sample permits. Null or unstable results are acceptable; no
+intraday or option-chain subscription required.</p>
+<p>Record assumptions, independent checks, uncertainty and limitations
+in a separate research notebook. No core solver or research output is
+supplied.</p>
+<p><a href="files/student_start.ipynb">Notebook source</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

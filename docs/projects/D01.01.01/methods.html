@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Black-Scholes Model and the Economic Implications of Its Assumptions | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D01.01.01 · Derivatives · Option models &amp; surfaces</p><h1>The Black-Scholes Model and the Economic Implications of Its Assumptions</h1><p class="lead">How do volatility, interest rates, dividends and time to maturity change European option prices and Greeks? How large are the pricing differences when the lognormal assumption is relaxed while matching forward and terminal variance?</p><p class="small">Synthetic core · Level 1/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="replication-and-local-risk">Replication and local risk</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+be valuation time,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+expiry, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mi>T</mi><mo>−</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">\tau=T-t</annotation></semantics></math>.
+Write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>τ</mi></mrow></msup></mrow><annotation encoding="application/x-tex">D=e^{-r\tau}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>=</mo><msub><mi>S</mi><mi>t</mi></msub><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>τ</mi></mrow></msup></mrow><annotation encoding="application/x-tex">F=S_te^{(r-q)\tau}</annotation></semantics></math>,
+with continuously compounded rate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>,
+proportional dividend yield
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>,
+and volatility
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>.
+For a continuously traded stock with dividends, a self-financing
+replicating portfolio holds
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>C</mi><mi>S</mi></msub><annotation encoding="application/x-tex">C_S</annotation></semantics></math>
+shares and invests the remainder in the money market. Equating the drift
+of the derivative and portfolio gives
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mi>t</mi></msub><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>S</mi><msub><mi>C</mi><mi>S</mi></msub><mo>+</mo><mfrac displaystyle="false"><mn>1</mn><mn>2</mn></mfrac><msup><mi>σ</mi><mn>2</mn></msup><msup><mi>S</mi><mn>2</mn></msup><msub><mi>C</mi><mrow><mi>S</mi><mi>S</mi></mrow></msub><mo>−</mo><mi>r</mi><mi>C</mi><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">C_t+(r-q)S C_S+\tfrac12\sigma^2 S^2C_{SS}-rC=0.</annotation></semantics></math>
+The terminal payoff is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mi>T</mi></msub><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup><annotation encoding="application/x-tex">(S_T-K)^+</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+is strike. With
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>τ</mi></mrow><annotation encoding="application/x-tex">w=\sigma^2\tau</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mrow><mn>1</mn><mo>,</mo><mn>2</mn></mrow></msub><mo>=</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>F</mi><mi>/</mi><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><msqrt><mi>w</mi></msqrt><mo>±</mo><msqrt><mi>w</mi></msqrt><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">d_{1,2}=\log(F/K)/\sqrt w\pm\sqrt w/2</annotation></semantics></math>,
+the call price is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>F</mi><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>K</mi><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">D[F\Phi(d_1)-K\Phi(d_2)]</annotation></semantics></math>.
+Here
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+is the standard normal cdf and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math>
+its density. Put–call parity is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>−</mo><mi>P</mi><mo>=</mo><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>F</mi><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">C-P=D(F-K)</annotation></semantics></math>.</p>
+<h3 id="moment-matching-and-sensitivity-units">Moment matching and
+sensitivity units</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>,</mo><mi>τ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sigma,\tau&gt;0</annotation></semantics></math>,
+delta is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>−</mi><mi>q</mi><mi>τ</mi></mrow></msup><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">e^{-q\tau}\Phi(d_1)</annotation></semantics></math>
+and gamma is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>−</mi><mi>q</mi><mi>τ</mi></mrow></msup><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>S</mi><mi>σ</mi><msqrt><mi>τ</mi></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">e^{-q\tau}\phi(d_1)/(S\sigma\sqrt\tau)</annotation></semantics></math>.
+Vega is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>q</mi><mi>τ</mi></mrow></msup><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><msqrt><mi>τ</mi></msqrt></mrow><annotation encoding="application/x-tex">Se^{-q\tau}\phi(d_1)\sqrt\tau</annotation></semantics></math>
+per unit decimal volatility; multiply by 0.01 for one volatility point.
+Rho is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∂</mi><mi>C</mi><mi>/</mi><mi>∂</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">\partial C/\partial r</annotation></semantics></math>,
+and calendar-time theta is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∂</mi><mi>C</mi><mi>/</mi><mi>∂</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">\partial C/\partial t</annotation></semantics></math>
+at fixed expiry. Derive these remaining Greeks and check signs and units
+against your own finite differences.</p>
+<p>A two-component lognormal mixture with probabilities
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>,</mo><mn>1</mn><mo>−</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">p,1-p</annotation></semantics></math>,
+conditional means both
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>,
+and log variances
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>,</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a,b</annotation></semantics></math>
+has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝔼</mi><mi>ℚ</mi></msup><mrow><mo stretchy="true" form="prefix">[</mo><msubsup><mi>S</mi><mi>T</mi><mn>2</mn></msubsup><mo stretchy="true" form="postfix">]</mo></mrow><mi>/</mi><msup><mi>F</mi><mn>2</mn></msup><mo>=</mo><mi>p</mi><msup><mi>e</mi><mi>a</mi></msup><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>e</mi><mi>b</mi></msup></mrow><annotation encoding="application/x-tex">\mathbb E^{\mathbb Q}[S_T^2]/F^2=pe^a+(1-p)e^b</annotation></semantics></math>.
+Match this to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mi>w</mi></msup><annotation encoding="application/x-tex">e^w</annotation></semantics></math>
+by solving for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>;
+reject an inadmissible variance. This is <strong>not</strong> matching
+log-return variance. Compare with independent payoff integration; do not
+interpret the mixture as a dynamic replication model.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Separate each input perturbation from a change in the terminal law.
+Hold other inputs fixed for Greeks; for the mixture preserve the forward
+and arithmetic second moment at every maturity. Report units and
+distinguish small perturbations from scenario repricing.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

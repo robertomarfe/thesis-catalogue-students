@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Swaption Pricing and the Impact of Yield Curve Volatility | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D07.03.02 · Derivatives · Fixed income &amp; interest rates</p><h1>Swaption Pricing and the Impact of Yield Curve Volatility</h1><p class="lead">How do volatility level and mean reversion affect European payer swaption prices and hedge sensitivities across expiry and tenor in a one-factor Hull–White model fitted to consistent initial yield curves?</p><p class="small">Synthetic core · Level 3/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>D07.03.02 · Single-curve, one-factor model · Unit
+notional</strong></p>
+<h3 id="initial-curve-and-gaussian-factor">1. Initial curve and Gaussian
+factor</h3>
+<p>Define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mi>a</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>a</mi><mi>s</mi></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">B_a(s)=(1-e^{-as})/a</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>0</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>−</mi><msub><mi>∂</mi><mi>t</mi></msub><mo>log</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f_0(t)=-\partial_t\log P(0,t)</annotation></semantics></math>.
+The short rate is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>t</mi></msub><mo>=</mo><msub><mi>x</mi><mi>t</mi></msub><mo>+</mo><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">r_t=x_t+\varphi(t)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>x</mi><mi>t</mi></msub><mo>=</mo><mi>−</mi><mi>a</mi><msub><mi>x</mi><mi>t</mi></msub><mi>d</mi><mi>t</mi><mo>+</mo><mi>σ</mi><mi>d</mi><msubsup><mi>W</mi><mi>t</mi><mi>ℚ</mi></msubsup></mrow><annotation encoding="application/x-tex">dx_t=-a x_tdt+\sigma dW_t^{\mathbb Q}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x_0=0</annotation></semantics></math>,
+with</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>f</mi><mn>0</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mfrac><msup><mi>σ</mi><mn>2</mn></msup><mn>2</mn></mfrac><msub><mi>B</mi><mi>a</mi></msub><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">\varphi(t)=f_0(t)+\frac{\sigma^2}{2}B_a(t)^2.</annotation></semantics></math></p>
+<p>For exercise
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math>,
+let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>u</mi></msub><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>u</mi></msubsup><msub><mi>x</mi><mi>s</mi></msub><mi>d</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">I_u=\int_0^u x_sds</annotation></semantics></math>.
+The pair
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>u</mi></msub><mo>,</mo><msub><mi>I</mi><mi>u</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x_u,I_u)</annotation></semantics></math>
+is centered Gaussian with</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>x</mi></msub><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><msub><mi>B</mi><mrow><mn>2</mn><mi>a</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>c</mi><mrow><mi>x</mi><mi>I</mi></mrow></msub><mo>=</mo><mfrac><msup><mi>σ</mi><mn>2</mn></msup><mi>a</mi></mfrac><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>B</mi><mi>a</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>B</mi><mrow><mn>2</mn><mi>a</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">v_x=\sigma^2B_{2a}(u),\quad c_{xI}=\frac{\sigma^2}{a}[B_a(u)-B_{2a}(u)],</annotation></semantics></math>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mi>I</mi></msub><mo>=</mo><mfrac><msup><mi>σ</mi><mn>2</mn></msup><msup><mi>a</mi><mn>2</mn></msup></mfrac><mrow><mo stretchy="true" form="prefix">[</mo><mi>u</mi><mo>−</mo><mn>2</mn><msub><mi>B</mi><mi>a</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msub><mi>B</mi><mrow><mn>2</mn><mi>a</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">v_I=\frac{\sigma^2}{a^2}[u-2B_a(u)+B_{2a}(u)].</annotation></semantics></math></p>
+<p>Consequently
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>u</mi></msub><mo>=</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><msubsup><mo>∫</mo><mn>0</mn><mi>u</mi></msubsup><msub><mi>r</mi><mi>s</mi></msub><mi>d</mi><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><msub><mi>I</mi><mi>u</mi></msub><mo>−</mo><msub><mi>v</mi><mi>I</mi></msub><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">D_u=\exp(-\int_0^u r_s ds)=P(0,u)\exp(-I_u-v_I/2)</annotation></semantics></math>.
+This gives a direct money-market-measure simulation without a short-rate
+Euler scheme. Under the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math>-forward
+measure,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>u</mi></msub><annotation encoding="application/x-tex">x_u</annotation></semantics></math>
+is normal with mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><msub><mi>c</mi><mrow><mi>x</mi><mi>I</mi></mrow></msub></mrow><annotation encoding="application/x-tex">-c_{xI}</annotation></semantics></math>
+and variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>v</mi><mi>x</mi></msub><annotation encoding="application/x-tex">v_x</annotation></semantics></math>.</p>
+<p>A convenient conditional bond formula is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mo>exp</mo><mo stretchy="false" form="prefix">{</mo><mi>−</mi><msub><mi>B</mi><mi>a</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>T</mi><mo>−</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>u</mi></msub><mo>+</mo><msub><mi>c</mi><mrow><mi>x</mi><mi>I</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mfrac displaystyle="false"><mn>1</mn><mn>2</mn></mfrac><msub><mi>B</mi><mi>a</mi></msub><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>T</mi><mo>−</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><msub><mi>v</mi><mi>x</mi></msub><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">P(u,T)=\frac{P(0,T)}{P(0,u)}\exp\{-B_a(T-u)(x_u+c_{xI})-\tfrac12 B_a(T-u)^2v_x\}.</annotation></semantics></math></p>
+<p>In particular
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">P(0,T)</annotation></semantics></math>
+is recovered exactly. The one-factor Gaussian structure admits negative
+short rates even when the initial curve is positive.</p>
+<h3 id="swap-and-payer-option">2. Swap and payer option</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>u</mi></msub><mo>=</mo><msub><mo>∑</mo><mi>i</mi></msub><msub><mi>α</mi><mi>i</mi></msub><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>,</mo><msub><mi>T</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">A_u=\sum_i\alpha_iP(u,T_i)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>u</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>,</mo><msub><mi>T</mi><mi>m</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><msub><mi>A</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">S_u=(1-P(u,T_m))/A_u</annotation></semantics></math>.
+With physically settled payoff and contractual strike
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>,
+set
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub><mo>=</mo><mi>K</mi><msub><mi>α</mi><mi>i</mi></msub><mo>+</mo><msub><mn>𝟏</mn><mrow><mi>i</mi><mo>=</mo><mi>m</mi></mrow></msub></mrow><annotation encoding="application/x-tex">c_i=K\alpha_i+\mathbf 1_{i=m}</annotation></semantics></math>.
+The payer exercise value is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mo>∑</mo><mi>i</mi></msub><msub><mi>c</mi><mi>i</mi></msub><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>,</mo><msub><mi>T</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup><annotation encoding="application/x-tex">(1-\sum_i c_iP(u,T_i))^+</annotation></semantics></math>.
+For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">K\ge0</annotation></semantics></math>,
+the coupon-bond value is strictly decreasing in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>u</mi></msub><annotation encoding="application/x-tex">x_u</annotation></semantics></math>
+and the exercise root
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>*</mo></msup><annotation encoding="application/x-tex">x^*</annotation></semantics></math>
+solves
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mi>i</mi></msub><msub><mi>c</mi><mi>i</mi></msub><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>,</mo><msub><mi>T</mi><mi>i</mi></msub><mo>;</mo><msup><mi>x</mi><mo>*</mo></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\sum_i c_iP(u,T_i;x^*)=1</annotation></semantics></math>.</p>
+<h3 id="jamshidian-decomposition-and-independent-check">3. Jamshidian
+decomposition and independent check</h3>
+<p>Set
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>k</mi><mi>i</mi></msub><mo>=</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>,</mo><msub><mi>T</mi><mi>i</mi></msub><mo>;</mo><msup><mi>x</mi><mo>*</mo></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">k_i=P(u,T_i;x^*)</annotation></semantics></math>.
+Since all bond prices fall together with the factor,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>c</mi><mi>i</mi></msub><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>,</mo><msub><mi>T</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup><mo>=</mo><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>c</mi><mi>i</mi></msub><msup><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>k</mi><mi>i</mi></msub><mo>−</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>,</mo><msub><mi>T</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mo>+</mo></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">(1-\sum_i c_iP(u,T_i))^+=\sum_i c_i[k_i-P(u,T_i)]^+.</annotation></semantics></math></p>
+<p>Each term is a bond put. Under the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math>-forward
+measure its lognormal standard deviation is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mi>a</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>T</mi><mi>i</mi></msub><mo>−</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><msqrt><msub><mi>v</mi><mi>x</mi></msub></msqrt></mrow><annotation encoding="application/x-tex">B_a(T_i-u)\sqrt{v_x}</annotation></semantics></math>;
+discount by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">P(0,u)</annotation></semantics></math>.
+The <code>swaption_hw</code> routine uses this decomposition.
+Independently simulate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>u</mi></msub><mo>,</mo><msub><mi>I</mi><mi>u</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x_u,I_u)</annotation></semantics></math>
+under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℚ</mi><annotation encoding="application/x-tex">\mathbb Q</annotation></semantics></math>
+and average
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>u</mi></msub><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mo>∑</mo><mi>i</mi></msub><msub><mi>c</mi><mi>i</mi></msub><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>,</mo><msub><mi>T</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">D_u(1-\sum_i c_iP(u,T_i))^+</annotation></semantics></math>.
+For quadrature under the forward measure, split at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>x</mi><mo>*</mo></msup><annotation encoding="application/x-tex">x^*</annotation></semantics></math>;
+crossing the payoff kink can distort numerical integration.</p>
+<p>The payer minus receiver price equals
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><msub><mi>T</mi><mi>m</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>K</mi><msub><mi>A</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">P(0,u)-P(0,T_m)-KA_0</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mn>0</mn></msub><mo>=</mo><msub><mo>∑</mo><mi>i</mi></msub><msub><mi>α</mi><mi>i</mi></msub><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><msub><mi>T</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">A_0=\sum_i\alpha_iP(0,T_i)</annotation></semantics></math>.
+At zero volatility the payer price is the positive part of that
+quantity. The normal implied volatility is defined by matching the price
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mn>0</mn></msub><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>F</mi><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>d</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msub><mi>σ</mi><mi>N</mi></msub><msqrt><mi>u</mi></msqrt><mspace width="0.167em"></mspace><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>d</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">A_0[(F-K)\Phi(d)+\sigma_N\sqrt u\,\phi(d)]</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><msub><mi>T</mi><mi>m</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mi>/</mi><msub><mi>A</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">F=[P(0,u)-P(0,T_m)]/A_0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>F</mi><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>σ</mi><mi>N</mi></msub><msqrt><mi>u</mi></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">d=(F-K)/(\sigma_N\sqrt u)</annotation></semantics></math>.
+At intrinsic value use the zero-volatility limit.</p>
+<h3 id="sensitivities-and-units">4. Sensitivities and units</h3>
+<p>For a volatility bump
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ϵ</mi><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math>,
+the centered sensitivity is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mi>V</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>σ</mi><mo>+</mo><mi>ϵ</mi><mo>,</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>V</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>σ</mi><mo>−</mo><mi>ϵ</mi><mo>,</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mi>ϵ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">[V(\sigma+\epsilon,K)-V(\sigma-\epsilon,K)]/(2\epsilon)</annotation></semantics></math>.
+Keep
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+fixed. A parallel curve bump
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>
+replaces
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">P(0,T)</annotation></semantics></math>
+by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>e</mi><mrow><mi>−</mi><mi>b</mi><mi>T</mi></mrow></msup></mrow><annotation encoding="application/x-tex">P(0,T)e^{-bT}</annotation></semantics></math>
+and refits
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>φ</mi><annotation encoding="application/x-tex">\varphi</annotation></semantics></math>
+while keeping
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>,</mo><mi>σ</mi><mo>,</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">a,\sigma,K</annotation></semantics></math>
+fixed. Do not recompute ATM strike after either bump. Price basis points
+are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mn>4</mn></msup><mi>V</mi></mrow><annotation encoding="application/x-tex">10^4 V</annotation></semantics></math>
+per unit notional; rate basis points are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mn>4</mn></msup><annotation encoding="application/x-tex">10^4</annotation></semantics></math>
+times a decimal rate. State units for every table.</p>
+<h3 id="notation-and-code-crosswalk">5. Notation and code crosswalk</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>,</mo><msub><mi>T</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">u,T_i</annotation></semantics></math></td>
+<td>Exercise and payments, years</td>
+<td><code>expiry</code>, <code>dates</code></td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">P(0,T)</annotation></semantics></math></td>
+<td>Discount factor</td>
+<td><code>p0</code></td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>,</mo><mi>σ</mi></mrow><annotation encoding="application/x-tex">a,\sigma</annotation></semantics></math></td>
+<td>Mean reversion and rate vol</td>
+<td><code>a</code>, <code>sigma</code></td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math></td>
+<td>Contractual fixed rate</td>
+<td><code>strike</code></td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>u</mi></msub><mo>,</mo><msub><mi>I</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">x_u,I_u</annotation></semantics></math></td>
+<td>Joint Gaussian state and integral</td>
+<td><code>x</code>, <code>integral</code></td>
+</tr>
+</tbody>
+</table>
+<p>Implement fixed-strike risks, two curves, full expiry–tenor and
+strike grids, independent replications and identification yourself.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

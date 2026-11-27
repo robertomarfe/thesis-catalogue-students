@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Carry as a Cross-Asset Investment Factor | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A09.03.02 · Asset Pricing · International, FX &amp; commodities</p><h1>Carry as a Cross-Asset Investment Factor</h1><p class="lead">How much common risk is present in published cross-asset carry returns, and does combining the asset-class sleeves reduce downside risk during stress?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> Original carry strategy workbook, sleeve definitions, permissions and common sample.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="carry-versus-returns">Carry versus returns</h3>
+<p>A carry signal is a conditional return component under specified
+unchanged-price or curve assumptions, not a realized total payoff. Use
+only the published realized strategy-return sleeves and their
+definitions of risk scaling, financing, roll and currency. Do not pool
+the aggregate with its own constituents. Treat original and updated
+workbooks as separate vintages.</p>
+<h3 id="composite-construction">Composite construction</h3>
+<p>With
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>J</mi><annotation encoding="application/x-tex">J</annotation></semantics></math>
+sleeves, the equal-weight payoff uses
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>j</mi></msub><mo>=</mo><mn>1</mn><mi>/</mi><mi>J</mi></mrow><annotation encoding="application/x-tex">w_j=1/J</annotation></semantics></math>.
+For a risk-scaled sensitivity, estimate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>σ</mi><mo accent="true">̂</mo></mover><mrow><mi>j</mi><mo>,</mo><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\widehat\sigma_{j,t}</annotation></semantics></math>
+on a trailing window ending at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
+and prespecify a floor and cap before normalizing inverse-volatility
+weights. Test on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">t+1</annotation></semantics></math>;
+keep all methods on the same dates. The covariance identity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>Var</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>w</mi><mi>⊤</mi></msup><mi>c</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>w</mi><mi>⊤</mi></msup><mi>Σ</mi><mi>w</mi></mrow><annotation encoding="application/x-tex">\operatorname{Var}(w^\top c)=w^\top\Sigma w</annotation></semantics></math>
+explains fixed-weight contributions, but dynamic weights require
+realized paired evaluation. Report gross notional, leverage convention
+and state-conditional intervals. Contemporaneous stress is descriptive,
+not a trading signal. Do not infer investable wealth from unfunded
+factors without a capital convention.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Confirm original workbook, documented units, at least three distinct
+sleeves, no composites or silent splicing. If the core is unavailable,
+defer. Record stress proxy timing, notional and common dates.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

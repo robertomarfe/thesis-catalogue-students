@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Skewness Risk and the Cross-Section of Equity Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A07.03.01 · Asset Pricing · Volatility &amp; tail risk</p><h1>Skewness Risk and the Cross-Section of Equity Returns</h1><p class="lead">Do lagged market coskewness exposures have incremental explanatory power for subsequent portfolio returns beyond standard market beta and factors?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a07.03.01">Research plan | A07.03.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Do not remove extreme days based on their effect on significance.
+Verify that the daily and monthly portfolio labels match, that the
+market is excess return, and that generated-regressor uncertainty is
+recognized.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Verify daily and monthly portfolio definitions and return
+conventions; plot exposure distributions and estimation
+precision.</p></li>
+<li><p>Estimate rolling market beta and coskewness; compare with own
+skewness and downside beta to clarify concepts.</p></li>
+<li><p>Run monthly cross-sectional regressions on predetermined
+exposures, average slope and HAC uncertainty; beta-only benchmark and FF
+factor exposures as controls.</p></li>
+<li><p>Sort fixed test portfolios into coskewness terciles each month
+and compare next-month returns and FF3/FF5 alpha as descriptive
+evidence.</p></li>
+<li><p>Joint-date block bootstrap rerunning exposure estimation, windows
+2/5 years and alternate industry panel; check sensitivity to crisis
+observations without selective deletion.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Exposure distributions and correlations, Fama-MacBeth slopes, sorted
+portfolio returns, alpha and uncertainty tables, common-date
+robustness.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Portfolio-level cross-section is small and overlapping stocks create
+dependence; no individual-stock pricing claim. Daily third moments noisy
+and driven by outliers; winsorization, if used, based on past data and
+clearly changes the estimand. Cross-sectional significance not proof of
+a structural SDF. Distinct from downside beta and option-implied skew
+theses.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One daily/monthly test-asset panel, lagged beta/coskewness
+estimation, monthly cross-sectional prices and beta-only comparison with
+robust inference.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Use open-source characteristic portfolios for a different
+cross-section or evaluate polynomial SDF distance on held-out
+assets.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Factor pricing, regression, higher moments, bootstrap and Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Higher-moment asset pricing;</p></li>
+<li><p>Coskewness measures;</p></li>
+<li><p>Portfolio data and exposure estimation;</p></li>
+<li><p>Pricing and sorts;</p></li>
+<li><p>Robustness and limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive quadratic SDF; W4-6: prepare panels and exposures; W7-9:
+cross-sectional tests; W10-12: bootstrap and alternative panels; W13-16:
+write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

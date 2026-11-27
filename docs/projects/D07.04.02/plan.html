@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>One-Factor versus Two-Factor Models for Interest Rate Hedging | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D07.04.02 · Derivatives · Fixed income &amp; interest rates</p><h1>One-Factor versus Two-Factor Models for Interest Rate Hedging</h1><p class="lead">How much additional interest rate risk can a two-factor hedge remove relative to a one-factor hedge, after controlling for estimation error and gross notional?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d07.04.02">Research plan | D07.04.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Do not treat physical PCA loadings as risk-neutral parameters. Unlike
+D07.01.02, compare statistical factor spanning with zero-bond hedges
+rather than single-curve swap DV01.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Estimate one/two/three PCA factors on training windows and align
+signs; document loadings and out-of-sample scores.</p></li>
+<li><p>Solve exposure-matching hedges; compare unhedged, parallel DV01
+and first-factor alternatives.</p></li>
+<li><p>Reprice each portfolio under next observed curve shock at fixed
+maturities; report residual SD, tail loss and variance
+reduction.</p></li>
+<li><p>Diagnose hedge matrix condition numbers, gross notionals and
+periods of hedge instability; compare bounded least-squares
+hedge.</p></li>
+<li><p>Repeat using alternate hedge tenors fixed before evaluation and
+separate slope stress scenarios.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Factor loading plots, hedge notional and conditioning diagnostics,
+residual P&amp;L and variance reduction table, parallel/twist shock
+scenarios.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Yield curves are fitted and revised; basis and liquidity excluded. No
+swap, carry, roll, margin or tradable performance claim. Compare
+identical target and shock samples. A second factor need not improve
+held-out risk when estimated.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>GSW panel, rolling PCA, one- and two-factor zero-bond hedges,
+held-out shock repricing and notional/condition diagnostics. Distinct
+from D07.01.02, which focuses on swap DV01.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Use coupon-bond cash flows or a two-factor Gaussian model with
+separately specified Q parameters; repeat with ECB curves.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Fixed income, linear algebra, PCA, Python and regression.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Curve risk and hedge design;</p></li>
+<li><p>Factor estimation and sensitivities;</p></li>
+<li><p>Data and fixed-maturity shocks;</p></li>
+<li><p>Hedge effectiveness;</p></li>
+<li><p>Conditioning and limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: PCA and duration; W4-6: curve acquisition and repricing; W7-9:
+hedge optimization; W10-12: held-out and stress tests; W13-16:
+interpretation and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

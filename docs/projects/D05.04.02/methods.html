@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Estimating Option Greeks with Monte Carlo Methods | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D05.04.02 · Derivatives · Numerical pricing &amp; exotics</p><h1>Estimating Option Greeks with Monte Carlo Methods</h1><p class="lead">Which of bump-and-revalue, pathwise and likelihood-ratio estimators delivers the best accuracy-cost trade-off for delta and vega of European calls, digitals and Asian options?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Synthetic experiment · Decimal volatility · Prices per
+contract</strong></p>
+<h3 id="european-reference-sensitivities">1. European reference
+sensitivities</h3>
+<p>Write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>T</mi></mrow></msup></mrow><annotation encoding="application/x-tex">D=e^{-rT}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><msub><mi>W</mi><mi>T</mi></msub><mi>/</mi><msqrt><mi>T</mi></msqrt><mo>∼</mo><mi>N</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">Z=W_T/\sqrt T\sim N(0,1)</annotation></semantics></math>,
+and let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math>
+denote the standard normal CDF and density. Set
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mn>1</mn></msub><mo>=</mo><mfrac><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mn>0</mn></msub><mi>/</mi><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><mi>q</mi><mo>+</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi></mrow><mrow><mi>σ</mi><msqrt><mi>T</mi></msqrt></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>d</mi><mn>2</mn></msub><mo>=</mo><msub><mi>d</mi><mn>1</mn></msub><mo>−</mo><mi>σ</mi><msqrt><mi>T</mi></msqrt><mi>.</mi></mrow><annotation encoding="application/x-tex">d_1=\frac{\log(S_0/K)+(r-q+\sigma^2/2)T}{\sigma\sqrt T},\qquad d_2=d_1-\sigma\sqrt T.</annotation></semantics></math>
+A call has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Δ</mi><mi>C</mi></msub><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>q</mi><mi>T</mi></mrow></msup><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Delta_C=e^{-qT}\Phi(d_1)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝒱</mi><mi>C</mi></msub><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><msup><mi>e</mi><mrow><mi>−</mi><mi>q</mi><mi>T</mi></mrow></msup><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><msqrt><mi>T</mi></msqrt></mrow><annotation encoding="application/x-tex">\mathcal V_C=S_0e^{-qT}\phi(d_1)\sqrt T</annotation></semantics></math>.
+A cash-or-nothing digital has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>D</mi></msub><mo>=</mo><mi>D</mi><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">V_D=D\Phi(d_2)</annotation></semantics></math>,
+so that
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Δ</mi><mi>D</mi></msub><mo>=</mo><mfrac><mrow><mi>D</mi><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><msub><mi>S</mi><mn>0</mn></msub><mi>σ</mi><msqrt><mi>T</mi></msqrt></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>𝒱</mi><mi>D</mi></msub><mo>=</mo><mi>−</mi><mfrac><mrow><mi>D</mi><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>d</mi><mn>1</mn></msub></mrow><mi>σ</mi></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">\Delta_D=\frac{D\phi(d_2)}{S_0\sigma\sqrt T},\qquad \mathcal V_D=-\frac{D\phi(d_2)d_1}{\sigma}.</annotation></semantics></math>
+These formulas provide independent reference values for the European
+experiment.</p>
+<h3 id="bump-pathwise-and-likelihood-ratio">2. Bump, pathwise and
+likelihood ratio</h3>
+<p>For parameter
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>S</mi><mn>0</mn></msub><mo>,</mo><mi>σ</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">a\in\{S_0,\sigma\}</annotation></semantics></math>
+and relative bump
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">b&gt;0</annotation></semantics></math>,
+use
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>G</mi><mo accent="true">̂</mo></mover><mi>b</mi></msub><mo>=</mo><mfrac><mrow><mi>D</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>H</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>H</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><mrow><mn>2</mn><mi>a</mi><mi>b</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">\widehat G_b=\frac{D[H(a(1+b),Z)-H(a(1-b),Z)]}{2ab}.</annotation></semantics></math>
+Average across independent draws. The same
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>
+in both terms reduces variance; this does not remove finite-difference
+bias. The call’s pathwise sample contributions are
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>G</mi><mi>Δ</mi><mrow><mi>P</mi><mi>W</mi></mrow></msubsup><mo>=</mo><mi>D</mi><msub><mn>𝟏</mn><mrow><mo stretchy="false" form="prefix">{</mo><msub><mi>S</mi><mi>T</mi></msub><mo>&gt;</mo><mi>K</mi><mo stretchy="false" form="postfix">}</mo></mrow></msub><msub><mi>S</mi><mi>T</mi></msub><mi>/</mi><msub><mi>S</mi><mn>0</mn></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">G_{\Delta}^{PW}=D\mathbf1_{\{S_T&gt;K\}}S_T/S_0,</annotation></semantics></math>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>G</mi><mi>𝒱</mi><mrow><mi>P</mi><mi>W</mi></mrow></msubsup><mo>=</mo><mi>D</mi><msub><mn>𝟏</mn><mrow><mo stretchy="false" form="prefix">{</mo><msub><mi>S</mi><mi>T</mi></msub><mo>&gt;</mo><mi>K</mi><mo stretchy="false" form="postfix">}</mo></mrow></msub><msub><mi>S</mi><mi>T</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mi>σ</mi><mi>T</mi><mo>+</mo><msqrt><mi>T</mi></msqrt><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">G_{\mathcal V}^{PW}=D\mathbf1_{\{S_T&gt;K\}}S_T(-\sigma T+\sqrt T Z).</annotation></semantics></math>
+Differentiation under the expectation is justified for the continuous
+call under these assumptions. The digital’s individual derivative is
+zero almost everywhere, although its price derivative need not vanish.
+It is not a valid estimator here.</p>
+<p>For likelihood-ratio estimation, differentiate the lognormal density
+of the <strong>observed price</strong> holding it fixed. The scores are
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><msub><mi>S</mi><mn>0</mn></msub></msub><mo>=</mo><mfrac><mi>Z</mi><mrow><msub><mi>S</mi><mn>0</mn></msub><mi>σ</mi><msqrt><mi>T</mi></msqrt></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>s</mi><mi>σ</mi></msub><mo>=</mo><mfrac><mrow><msup><mi>Z</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn></mrow><mi>σ</mi></mfrac><mo>−</mo><mi>Z</mi><msqrt><mi>T</mi></msqrt><mi>.</mi></mrow><annotation encoding="application/x-tex">s_{S_0}=\frac{Z}{S_0\sigma\sqrt T},\qquad s_\sigma=\frac{Z^2-1}{\sigma}-Z\sqrt T.</annotation></semantics></math>
+Multiply each score by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mi>H</mi></mrow><annotation encoding="application/x-tex">DH</annotation></semantics></math>
+and take its sample mean. Both digital and call payoffs are admissible.
+A likelihood-ratio estimator may be noisy even if unbiased.</p>
+<h3 id="arithmetic-asian-sensitivities">3. Arithmetic Asian
+sensitivities</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>=</mo><msub><mi>t</mi><mn>0</mn></msub><mo>&lt;</mo><msub><mi>t</mi><mn>1</mn></msub><mo>&lt;</mo><mi>⋯</mi><mo>&lt;</mo><msub><mi>t</mi><mi>m</mi></msub><mo>=</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">0=t_0&lt;t_1&lt;\cdots&lt;t_m=T</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><msub><mi>t</mi><mi>j</mi></msub><mo>=</mo><msub><mi>t</mi><mi>j</mi></msub><mo>−</mo><msub><mi>t</mi><mrow><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\delta t_j=t_j-t_{j-1}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Z</mi><mi>j</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>W</mi><msub><mi>t</mi><mi>j</mi></msub></msub><mo>−</mo><msub><mi>W</mi><msub><mi>t</mi><mrow><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><msqrt><mrow><mi>δ</mi><msub><mi>t</mi><mi>j</mi></msub></mrow></msqrt></mrow><annotation encoding="application/x-tex">Z_j=(W_{t_j}-W_{t_{j-1}})/\sqrt{\delta t_j}</annotation></semantics></math>.
+The joint density factors into lognormal conditional transition
+densities. Holding all fixing levels fixed, only the first transition
+depends directly on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>0</mn></msub><annotation encoding="application/x-tex">S_0</annotation></semantics></math>;
+every transition contributes to the volatility score:
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><msub><mi>S</mi><mn>0</mn></msub></msub><mo>=</mo><mfrac><msub><mi>Z</mi><mn>1</mn></msub><mrow><msub><mi>S</mi><mn>0</mn></msub><mi>σ</mi><msqrt><msub><mi>t</mi><mn>1</mn></msub></msqrt></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>s</mi><mi>σ</mi></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></munderover><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mrow><msubsup><mi>Z</mi><mi>j</mi><mn>2</mn></msubsup><mo>−</mo><mn>1</mn></mrow><mi>σ</mi></mfrac><mo>−</mo><msub><mi>Z</mi><mi>j</mi></msub><msqrt><mrow><mi>δ</mi><msub><mi>t</mi><mi>j</mi></msub></mrow></msqrt><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">s_{S_0}=\frac{Z_1}{S_0\sigma\sqrt{t_1}},\qquad s_\sigma=\sum_{j=1}^m\left[\frac{Z_j^2-1}{\sigma}-Z_j\sqrt{\delta t_j}\right].</annotation></semantics></math>
+For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><msup><mi>m</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msub><mo>∑</mo><mi>j</mi></msub><msub><mi>S</mi><msub><mi>t</mi><mi>j</mi></msub></msub></mrow><annotation encoding="application/x-tex">A=m^{-1}\sum_j S_{t_j}</annotation></semantics></math>,
+the pathwise samples are
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>G</mi><mi>Δ</mi><mrow><mi>P</mi><mi>W</mi></mrow></msubsup><mo>=</mo><mi>D</mi><msub><mn>𝟏</mn><mrow><mo stretchy="false" form="prefix">{</mo><mi>A</mi><mo>&gt;</mo><mi>K</mi><mo stretchy="false" form="postfix">}</mo></mrow></msub><mi>A</mi><mi>/</mi><msub><mi>S</mi><mn>0</mn></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">G_{\Delta}^{PW}=D\mathbf1_{\{A&gt;K\}}A/S_0,</annotation></semantics></math>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>G</mi><mi>𝒱</mi><mrow><mi>P</mi><mi>W</mi></mrow></msubsup><mo>=</mo><mfrac><mrow><mi>D</mi><msub><mn>𝟏</mn><mrow><mo stretchy="false" form="prefix">{</mo><mi>A</mi><mo>&gt;</mo><mi>K</mi><mo stretchy="false" form="postfix">}</mo></mrow></msub></mrow><mi>m</mi></mfrac><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></munderover><msub><mi>S</mi><msub><mi>t</mi><mi>j</mi></msub></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>W</mi><msub><mi>t</mi><mi>j</mi></msub></msub><mo>−</mo><mi>σ</mi><msub><mi>t</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">G_{\mathcal V}^{PW}=\frac{D\mathbf1_{\{A&gt;K\}}}{m}\sum_{j=1}^m S_{t_j}(W_{t_j}-\sigma t_j).</annotation></semantics></math>
+The arithmetic payoff kink matters: on a fixed sample, a bump can move
+paths across the strike. Refine the bump and count crossings; equality
+with the pathwise derivative for sufficiently small bumps is a
+diagnostic, not a proof of small population bias. The geometric average
+admits an analytic lognormal price and may be used as a control.</p>
+<h3 id="error-uncertainty-and-cost">4. Error, uncertainty and cost</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math>
+independent replications
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>G</mi><mo accent="true">̂</mo></mover><mo>ℓ</mo></msub><annotation encoding="application/x-tex">\widehat G_\ell</annotation></semantics></math>
+and reference
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>G</mi><mo>*</mo></msup><annotation encoding="application/x-tex">G^*</annotation></semantics></math>,
+report mean error and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">M</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">E</mi></mrow><mo>=</mo><msqrt><mrow><msup><mi>L</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msub><mo>∑</mo><mo>ℓ</mo></msub><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mover><mi>G</mi><mo accent="true">̂</mo></mover><mo>ℓ</mo></msub><mo>−</mo><msup><mi>G</mi><mo>*</mo></msup><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">\mathrm{RMSE}=\sqrt{L^{-1}\sum_\ell(\widehat G_\ell-G^*)^2}</annotation></semantics></math>.
+For an Asian numerical reference, report its own uncertainty separately;
+differences smaller than this uncertainty cannot establish a ranking.
+Time independent replications with the same hardware and exclude
+unrelated setup. Record both RMSE and elapsed time. Confidence intervals
+must reflect independent draws or replications, not treat paired
+antithetic samples as independent.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Symbol</th>
+<th style="text-align: left;">Code convention</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub><mo>,</mo><mi>K</mi><mo>,</mo><mi>T</mi><mo>,</mo><mi>r</mi><mo>,</mo><mi>q</mi><mo>,</mo><mi>σ</mi></mrow><annotation encoding="application/x-tex">S_0,K,T,r,q,\sigma</annotation></semantics></math></td>
+<td style="text-align: left;"><code>S, K, T, r, q, sigma</code></td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Z</mi><annotation encoding="application/x-tex">Z</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Z</mi><mi>j</mi></msub><annotation encoding="application/x-tex">Z_j</annotation></semantics></math></td>
+<td style="text-align: left;"><code>z</code> (one terminal draw or
+increment array)</td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math></td>
+<td style="text-align: left;"><code>bump</code> (relative)</td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mi>Δ</mi></msub><mo>,</mo><msub><mi>G</mi><mi>𝒱</mi></msub></mrow><annotation encoding="application/x-tex">G_\Delta,G_{\mathcal V}</annotation></semantics></math></td>
+<td style="text-align: left;"><code>*_delta</code>,
+<code>*_vega</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">fixing grid</td>
+<td style="text-align: left;"><code>times</code> in years; excludes time
+zero</td>
+</tr>
+</tbody>
+</table>
+<p>Derive and validate the Asian reference, refine path budgets and bump
+sizes, and complete the original research design independently.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

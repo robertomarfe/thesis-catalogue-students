@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Investor Confidence and Expected Stock Market Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A12.02.01 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Investor Confidence and Expected Stock Market Returns</h1><p class="lead">Do lagged changes in individual and institutional one-year confidence predict subsequent market excess returns beyond valuation ratios?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> Authorized Yale monthly confidence series and original release dates.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html" aria-current="page">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Python lab</h2><div class="actions"><a href="files/student_start.ipynb" class="button secondary" download>Open student_start.ipynb</a><a href="files/requirements.txt" class="button secondary" download>Open requirements.txt</a></div><p class="notice">Unexecuted starter only. No solved thesis or external data supplied.</p><h3>Run locally</h3><p>Extract the workspace ZIP and open the notebook in an isolated Python environment. Install requirements.txt, read the data guide, and retain your own results.</p><h3>Run in Codespaces</h3><p><a href="https://codespaces.new/robertomarfe/thesis-catalogue-students/tree/main" class="button secondary">Open student Python environment</a></p><p>Check costs. Use Tasks: Run Task > Prepare my research draft, select A12.02.01, then File > Open File and open /workspaces/thesis-research/A12.02.01/student_start.ipynb. Select the isolated .venv interpreter. No forwarded port required. Do not commit raw data or results.</p><h3 id="a12.02.01-student-research-starter">A12.02.01 | Student research
+starter</h3>
+<p><strong>Current review draft; approval pending.</strong> Empirical
+design conditional on actual access and coverage.</p>
+<h4 id="goal">Goal</h4>
+<p>Survey confidence may add predictive information beyond valuation
+ratios. Confidence changes are not structural innovations and raw and
+smoothed series cannot be interchanged.</p>
+<p><strong>Research question:</strong> Do lagged changes in individual
+and institutional one-year confidence predict subsequent market excess
+returns beyond valuation ratios?</p>
+<h4 id="setup-check">Setup check</h4>
+<p>Check percentage-point units. This artificial example does not
+validate the full research design or actual data.</p>
+<pre><code>import math
+C0,C1=60.,63.
+assert C1-C0==3 and math.isclose((C1-C0)/100,.03)
+print(&#x27;Setup check passed.&#x27;)</code></pre><h4 id="student-owned-research">Student-owned research</h4>
+<p>Obtain permission and exact monthly series/population/horizon; verify
+calendar and dates, predeclare lag and extra-lag sensitivity. One
+authorized series suffices for MVT; compare dp baseline and past-only
+historical mean on same origins, with paired blocks; defer if access or
+sample insufficient.</p>
+<ol type="1">
+<li><p>Confirm free index definitions, frequency, sample and permitted
+use; graph raw and trailing-six-month means separately.</p></li>
+<li><p>Align survey dates and return windows; examine
+individual/institutional correlation and measurement precision.</p></li>
+<li><p>Estimate 1/12-month predictive regressions in levels/changes with
+dp control, HAC and block bootstrap.</p></li>
+<li><p>Evaluate expanding mean and dp-only vs confidence models with
+initial 120 months, matured labels and same dates.</p></li>
+<li><p>Repeat lag 2/3 months and compare respondent groups; treat
+findings as associations.</p></li>
+</ol>
+<p><strong>Minimum viable thesis:</strong> One authorized one-year
+confidence series, market return and valuation control, lagged forecast
+test with explicit timing uncertainty. Defer if data or rights
+unavailable; alternative sentiment proxy needs approval.</p>
+<p>Record assumptions, independent checks, uncertainty and limitations
+in a separate research notebook. No core solver or research output is
+supplied.</p>
+<p><a href="files/student_start.ipynb">Notebook source</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

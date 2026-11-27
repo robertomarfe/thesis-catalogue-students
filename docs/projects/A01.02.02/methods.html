@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Momentum and the Limits of Fundamental Factor Models | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A01.02.02 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>Momentum and the Limits of Fundamental Factor Models</h1><p class="lead">Does a traded momentum factor improve the pricing of momentum portfolios and independent industry portfolios relative to FF3 and FF5, and how stable is the improvement?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="incremental-pricing">Incremental pricing</h3>
+<p>In each pair estimate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mrow><mi>i</mi><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>α</mi><mi>i</mi></msub><mo>+</mo><msubsup><mi>β</mi><mi>i</mi><mi>⊤</mi></msubsup><msub><mi>f</mi><mi>t</mi></msub><mo>+</mo><msub><mi>ϵ</mi><mrow><mi>i</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">x_{it}=\alpha_i+\beta_i^\top f_t+\epsilon_{it}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mrow><mi>i</mi><mi>t</mi></mrow></msub><mo>=</mo><msubsup><mi>α</mi><mi>i</mi><mo>+</mo></msubsup><mo>+</mo><msubsup><mi>β</mi><mi>i</mi><mrow><mi>+</mi><mi>⊤</mi></mrow></msubsup><msub><mi>f</mi><mi>t</mi></msub><mo>+</mo><msub><mi>c</mi><mi>i</mi></msub><mi>M</mi><mi>o</mi><msub><mi>m</mi><mi>t</mi></msub><mo>+</mo><msubsup><mi>ϵ</mi><mrow><mi>i</mi><mi>t</mi></mrow><mo>+</mo></msubsup></mrow><annotation encoding="application/x-tex">x_{it}=\alpha_i^++\beta_i^{+\top}f_t+c_iMom_t+\epsilon_{it}^+</annotation></semantics></math>.
+Addition of a regressor cannot lower the in-sample unadjusted
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>R</mi><mn>2</mn></msup><annotation encoding="application/x-tex">R^2</annotation></semantics></math>;
+it need not reduce the joint vector of pricing errors. Compare
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">M</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">E</mi></mrow><mi>α</mi></msub><annotation encoding="application/x-tex">\mathrm{RMSE}_\alpha</annotation></semantics></math>
+and paired individual alphas. A GRS rejection tests all alphas jointly
+under its maintained assumptions.</p>
+<h3 id="factor-spanning">Factor spanning</h3>
+<p>Regress the traded momentum spread on the same base factors. The
+intercept measures the mean of its residual payoff after a linear factor
+hedge. The spanning restriction is not equivalent to pricing the two
+panels. Moment estimates and residual covariances share dates, so
+re-estimate both nested models and the spanning regression on common
+resampled time blocks. The published Mom series is already a long-short
+payoff.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Use the same base SMB within each nested pair and same RF for
+long-only test assets. Report two separate panels and paired
+uncertainty; distinguish momentum-formation sorts from evidence outside
+those sorts, without calling industries statistically independent.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

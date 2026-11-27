@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Calibrating Equity Option Surfaces with Real Market Quotes | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D02.02.02 · Derivatives · Option models &amp; surfaces</p><h1>Calibrating Equity Option Surfaces with Real Market Quotes</h1><p class="lead">How sensitive are SVI and Heston calibration and interpolation to quote cleaning, error weighting and held-out market prices on the same underlying?</p><p class="small">Data access warning · Level 3/3 · Research draft</p><p class="warning" data-warning="true"><strong>Data access warning: the required datasets may be difficult or costly to obtain. Verify availability, coverage and permitted use with your supervisor. This topic is not currently ready for assignment.</strong><br>Licensed option quotes with at least 10 dates, settlement and synchronized forwards.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-d02.02.02">Data and model setup |
+D02.02.02</h3>
+<p><strong>Current data gate: blocked.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Class C, conditional on permission and actual acquisition. Candidate
+paid provider Cboe DataShop
+https://datashop.cboe.com/option-eod-summary; a sample file is not
+sufficient for a full thesis. Target one European cash-settled index
+option family, e.g. SPX with consistent settlement style, 20 preselected
+nonconsecutive dates over one year, at least 3 expiries and 15 usable
+strikes per expiry. Need timestamp, option type, strike, exact
+expiry/settlement, NBBO bid/ask, synchronous index/forward, curve and
+dividends or parity; record units, multipliers and exercise type. Use
+OTM quotes, no crossed/negative spreads, stale and bound failures
+logged; splits fixed before fitting. No raw quotes yet; use synthetic
+sanity check only while gate pending.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>OPTION_QUOTES_LICENSED — Timestamped EOD European index
+option quotes and synchronous underlying/forward inputs</strong>
+(Conditional core; license and scope gate). Expected file:
+<code>Provider quote package, codebook, underlying and rate/dividend/parity inputs</code>.
+<a href="https://datashop.cboe.com/option-eod-summary">Download or
+provider route</a>; <a
+href="https://datashop.cboe.com/option-eod-summary">provider page</a>.
+Link status from v13 inventory: Commercial product described; no
+entitlement or free archive established. Do NOT purchase or request
+restricted upload. Confirm access/redistribution, settlement, exact
+timestamps, bid/ask, strike, expiry, spot/forward and curve inputs.
+D02.02.02 cross sections, D02.04.02 longitudinal &gt;=500 dates; sample
+insufficient.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Only after license, normalized one-family one-settlement quotes with
+timezone-aware snapshot and expiry, exact forward/discount, bid/ask and
+explicit stale flag. Freeze 20 dates, require 10+ accepted dates, 3+
+expiries and 15+ usable strikes each. Report rejected rows; OTM parity
+conversion, no clipping. Split strikes by rank before fitting; fixed
+training/validation/test. Compare flat Black, SVI and Heston on held-out
+common strikes, sensitivity to raw and spread-normalized objective,
+quote uncertainty, parameter stability and finite-grid arbitrage.
+Entire-maturity holdout needs a specified interpolation for every model.
+Any synthetic sanity check uses artificial prices, not observed quotes
+or evidence of market fit. Heston negative-rho bounds and SVI positive a
+are fixture choices, broaden or justify before real work.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>LICENSED DATA BLOCKED: actual quote rights, schema, 10+ dates and
+maturity/strike support, synchronous forwards, discount and settlement
+must be verified. Synthetic cleaning/calibration only. Not assignable on
+original design without authorized data.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel/parquet inputs require the relevant
+optional reader (openpyxl, xlrd, pyarrow); inspect raw schema and
+permissions first (not needed for the introductory setup check). If
+source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="stage-2b-student-local-acquisition-and-decision-gate-v47">Stage
+2B | Student-local acquisition and decision gate (v47)</h4>
+<p><strong>Current gate:</strong> blocked. No actual empirical file or
+permission has been validated. Do not redistribute raw files or change
+data source without authorization.</p>
+<h5 id="exact-requested-routes">Exact requested routes</h5>
+<ul>
+<li><strong>OPTION_QUOTES_LICENSED — Timestamped EOD European index
+option quotes and synchronous underlying/forward inputs</strong>:
+Provider quote package, codebook, underlying and rate/dividend/parity
+inputs. Route: https://datashop.cboe.com/option-eod-summary. Provider:
+https://datashop.cboe.com/option-eod-summary. Commercial product;
+product page reports Jan 2012 onward and NBBO at 15:45 ET and EOD. Index
+underlying quotes not supplied by default; obtain synchronous
+index/forward inputs independently. No entitlement established. Prior
+link status: Commercial product described; no entitlement or free
+archive established.</li>
+</ul>
+<h5 id="acceptance-of-the-local-input-set">Acceptance of the local input
+set</h5>
+<p>Before assignment verify rights, at least 10 usable dates from 20
+prespecified dates, 3 expiries/15 strikes each, timestamps, settlement,
+forwards. Implement input checks and an independent held-out fit;
+synthetic accuracy is not market evidence.</p>
+<p>Keep a local ledger with provider, original filename, release/version
+or commit, download date, SHA-256, terms/permission and permitted use;
+inspect actual headers/tabs, date range, missing/duplicate observations,
+units and calendar; retain raw files only as allowed. Provide code and a
+nonrestricted audit summary, not raw data unless rights permit. Preserve
+planned common-sample and timing rules. The supervisor decides whether
+the input gate passes.</p>
+<h5 id="if-the-gate-fails">If the gate fails</h5>
+<p>If no licensed quotes, defer. A retitled synthetic noisy-surface
+calibration study would overlap D01.02.01/D01.04.03; require a distinct
+cleaning/arbitrage/held-out-design contribution before approving.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

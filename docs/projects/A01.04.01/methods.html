@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Factor Spanning and the Economic Value of Additional Factors | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A01.04.01 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>Factor Spanning and the Economic Value of Additional Factors</h1><p class="lead">Which additional traded factors improve the mean-variance opportunity set beyond FF3, and do gains survive out-of-sample estimation?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="orthogonal-residual-portfolios">Orthogonal residual
+portfolios</h3>
+<p>Write the vector regression
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>2</mn></msub><mo>=</mo><mi>a</mi><mo>+</mo><mi>B</mi><msub><mi>f</mi><mn>1</mn></msub><mo>+</mo><mi>e</mi></mrow><annotation encoding="application/x-tex">f_2=a+Bf_1+e</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>e</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">E[e]=0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>Cov</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>e</mi><mo>,</mo><msub><mi>f</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\operatorname{Cov}(e,f_1)=0</annotation></semantics></math>.
+The traded residual payoff
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mn>2</mn></msub><mo>−</mo><mi>B</mi><msub><mi>f</mi><mn>1</mn></msub><mo>=</mo><mi>a</mi><mo>+</mo><mi>e</mi></mrow><annotation encoding="application/x-tex">f_2-Bf_1=a+e</annotation></semantics></math>
+has mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+and covariance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Ω</mi><annotation encoding="application/x-tex">\Omega</annotation></semantics></math>.
+In these transformed coordinates the covariance is block diagonal, so
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msubsup><mi>R</mi><mrow><mn>1</mn><mo>,</mo><mn>2</mn></mrow><mn>2</mn></msubsup><mo>=</mo><mi>S</mi><msubsup><mi>R</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><msup><mi>a</mi><mi>⊤</mi></msup><msup><mi>Ω</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mi>a</mi><mo>,</mo></mrow><annotation encoding="application/x-tex">SR^2_{1,2}=SR^2_1+a^\top\Omega^{-1}a,</annotation></semantics></math>
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><msup><mi>R</mi><mn>2</mn></msup><mo>=</mo><msup><mi>μ</mi><mi>⊤</mi></msup><msup><mi>Σ</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mi>μ</mi></mrow><annotation encoding="application/x-tex">SR^2=\mu^\top\Sigma^{-1}\mu</annotation></semantics></math>
+for nonsingular covariance and unrestricted portfolios. Derive the
+identity using the block inverse or orthogonalized span. Zero residual
+mean implies no gain under these assumptions, not that arbitrary assets
+are priced. Classical joint intercept inference has the GRS
+assumptions.</p>
+<p>The population identity is not an out-of-sample performance
+guarantee. Fix training means/covariances and portfolio normalization;
+evaluate the same weights on later common dates, reporting leverage and
+realized risk.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Distinguish literal FF5 from the nested union, do not re-subtract RF
+from spreads, report covariance condition and separate regularization
+and leverage constraints from the unrestricted identity. Refit in paired
+time blocks across train/test segments.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

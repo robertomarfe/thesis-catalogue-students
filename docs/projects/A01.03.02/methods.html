@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Stability of Anomaly Returns after Publication | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A01.03.02 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>The Stability of Anomaly Returns after Publication</h1><p class="lead">How do anomaly returns and factor-adjusted alphas change across original-sample, post-sample pre-publication and post-publication windows in a fixed set of documented predictors?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> Matching OSAP release and documented publication dates for at least 20 signals.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="event-time-and-identifying-variation">Event time and identifying
+variation</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mi>i</mi></msub><annotation encoding="application/x-tex">s_i</annotation></semantics></math>
+denote the last original-sample month and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mi>i</mi></msub><annotation encoding="application/x-tex">p_i</annotation></semantics></math>
+the verified first post-publication month. Require
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub><mo>&lt;</mo><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">s_i&lt;p_i</annotation></semantics></math>
+and define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>I</mi><mrow><mi>i</mi><mi>t</mi></mrow><mi>s</mi></msubsup><mo>=</mo><mn>1</mn><mo stretchy="false" form="prefix">{</mo><mi>t</mi><mo>&gt;</mo><msub><mi>s</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">I^s_{it}=1\{t&gt;s_i\}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>I</mi><mrow><mi>i</mi><mi>t</mi></mrow><mi>p</mi></msubsup><mo>=</mo><mn>1</mn><mo stretchy="false" form="prefix">{</mo><mi>t</mi><mo>≥</mo><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">I^p_{it}=1\{t\ge p_i\}</annotation></semantics></math>.
+The middle window has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>I</mi><mi>s</mi></msup><mo>,</mo><msup><mi>I</mi><mi>p</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">(I^s,I^p)=(1,0)</annotation></semantics></math>,
+the final window
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1,1)</annotation></semantics></math>.
+If only a publication year is verified, use January of the following
+year as specified. Do not impute uncertain dates.</p>
+<p>With signal fixed effects,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>s</mi></msub><annotation encoding="application/x-tex">b_s</annotation></semantics></math>
+is the post-sample change and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>p</mi></msub><annotation encoding="application/x-tex">b_p</annotation></semantics></math>
+the incremental post-publication change; the total contrast is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>s</mi></msub><mo>+</mo><msub><mi>b</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">b_s+b_p</annotation></semantics></math>.
+Adding calendar fixed effects absorbs common shocks and requires
+residual timing variation. Inspect design rank and overlap. For
+factor-adjusted outcomes document how exposures are estimated and
+propagate their uncertainty. Date blocks must preserve common shocks and
+labels. Selection and dissemination timing prevent a causal
+interpretation.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Retain the minimum 20 dated predictors and original minimum coverage;
+distinguish a permitted two-window subset from a three-window design.
+Log every date source and exclusion; do not equate journal publication
+with first dissemination or the OSAP migration with verified access.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Financial Conditions and Time-Varying Expected Equity Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A02.02.02 · Asset Pricing · Predictability &amp; machine learning</p><h1>Financial Conditions and Time-Varying Expected Equity Returns</h1><p class="lead">Do financial-conditions indices provide incremental out-of-sample information about aggregate equity excess returns beyond standard valuation predictors?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Predictability and machine learning · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Financial-conditions indices aggregate many signals and may describe
+risk-bearing capacity. But revisions and asynchronous release dates can
+manufacture apparent predictive content. The empirical contribution is a
+transparent availability-aware comparison, not a causal claim about
+monetary policy.</p>
+<h3 id="research-question">Research question</h3>
+<p>Do financial-conditions indices provide incremental out-of-sample
+information about aggregate equity excess returns beyond standard
+valuation predictors?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>The Euler restriction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>m</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><msubsup><mi>r</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow><mi>e</mi></msubsup><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">E_t[m_{t+1}r^e_{t+1}]=0</annotation></semantics></math>
+permits time-varying expected excess returns through conditional
+covariance with the SDF.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use Goyal and weekly NFCI, train through 1999, validate 2000–2009 and
+test 2010–2025. Keep actual releases at each origin or lag prior-month
+latest revised NFCI with no forward fill beyond one month. ANFCI only
+robustness; FF3 optional cross-check.</p>
+<p>Assert availability timestamp &lt;= origin for every observation.
+Perturb all post-origin NFCI observations and ensure features do not
+change. Check holidays, missing weeks, release lag and common sample.
+Flag revised values.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Timing diagram, predictor correlations, coefficient and forecast
+tables, cumulative squared-error difference plot and stability
+analysis.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>NFCI and valuation predictors, historical mean benchmark, one
+chronological forecast test, timing audit, coefficient uncertainty and
+sensitivity to lags. Null results acceptable.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Current revised NFCI histories are pseudo-real-time, not authentic
+vintages; seek ALFRED vintages for extension. Do not use future index
+revisions or test-set selection to claim tradability. Limit multiple
+predictors and distinguish aggregate forecasting from BAB funding
+mechanism.</p>
+<p><strong>Prerequisites:</strong> Asset pricing, predictive
+regressions, HAC, Python.</p>
+<p><strong>Optional extension:</strong> Use historical vintages and
+compare NFCI with GZ excess bond premium under a precommitted model
+set.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: theory and vintage audit; W4-6: construct monthly data; W7-9:
+regressions; W10-12: forecasts and uncertainty; W13-16: robustness and
+writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

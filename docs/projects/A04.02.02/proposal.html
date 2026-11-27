@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Are Stocks and Bonds Effective Inflation Hedges? | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A04.02.02 · Asset Pricing · Macro-finance &amp; policy</p><h1>Are Stocks and Bonds Effective Inflation Hedges?</h1><p class="lead">How do equity and nominal Treasury holding returns covary with realized and unexpected inflation, and does their effectiveness as purchasing-power hedges vary across horizons?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Macro-finance and policy risk · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>An asset protects purchasing power only to the extent that holding
+returns respond favorably to inflation. A yield change is not a bond
+return, and hedge performance depends on how maturities age.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do equity and nominal Treasury holding returns covary with
+realized and unexpected inflation, and does their effectiveness as
+purchasing-power hedges vary across horizons?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For log discount price
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>−</mi><mi>n</mi><msub><mi>y</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">p_t(n)=-n y_t(n)</annotation></semantics></math>,
+the log return of an
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>-year
+zero held for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+months is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>r</mi><mrow><mi>t</mi><mo>,</mo><mi>t</mi><mo>+</mo><mi>H</mi></mrow><mi>B</mi></msubsup><mo>=</mo><msub><mi>p</mi><mrow><mi>t</mi><mo>+</mo><mi>H</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo>−</mo><mi>H</mi><mi>/</mi><mn>12</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>p</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">r^B_{t,t+H}=p_{t+H}(n-H/12)-p_t(n)</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>GSW nominal curve, exact monthly and annual aging of 5/10-year
+synthetic zeros; equity total return, CPI, expanding release-safe AR
+forecast, fixed subperiods and 60/40 robustness.</p>
+<p>Compute both bond prices for n and n-h using the same documented GSW
+Svensson convention; verify flat-curve log holding return h*y. Compound
+monthly gross legs and deflate with exact adjacent CPI; fit inflation AR
+only on available history, use overlapping-horizon HAC or nonoverlap
+sensitivity and paired date blocks. Label retrospective hedge exposure,
+not expected return.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Construction checks, nominal/real return and inflation tables, beta
+intervals, horizon/regime plots and real portfolio risk comparison.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Monthly and annual nominal/real returns of equity and one synthetic
+zero maturity; realized and modeled surprise inflation, robust intervals
+and fixed subperiod comparison. Distinct from A04.02.01 cross-sectional
+pricing.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>GSW zero returns are synthetic government bond holdings, not
+bond-fund returns or OIS. CPI revisions and release timing constrain
+true real-time surprises; AR residuals are model-based, not structural
+shocks. Realized inflation is not observable at the investment date.
+Regressions are descriptive hedging associations, not causal
+effects.</p>
+<p><strong>Prerequisites:</strong> Fixed income, return compounding,
+time-series econometrics, Python.</p>
+<p><strong>Optional extension:</strong> Use SPF inflation expectations
+or real TIPS curve for a shorter sample; distinguish inflation
+compensation from expected inflation.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: Fisher relation and data; W4-6: return construction; W7-9:
+inflation regressions; W10-12: regimes and portfolio risk; W13-16: write
+and validate.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

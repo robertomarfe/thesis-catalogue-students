@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Growth versus Value: Cash Flow Timing and Discount Rate Risk | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A06.03.02 · Asset Pricing · Consumption &amp; equity valuation</p><h1>Growth versus Value: Cash Flow Timing and Discount Rate Risk</h1><p class="lead">How much greater is discount-rate sensitivity for stylized growth than value claims, and is that prediction consistent with descriptive portfolio evidence?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a06.03.02">Research plan | A06.03.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Normalize two positive cash-flow profiles to identical PV, confirm
+weights sum to one and analytic duration/convexity via central
+differences at multiple step sizes. Compare parallel/nonparallel shifts
+and explicit changed cash-flow scenario; test 50/100y truncation.
+Historical evidence is optional; no claim about observed growth/value
+beta without matched data.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Use c_j profiles exactly as proposal and continuous discount
+convention y=.08; scale to same initial PV, report duration=sum j<em>w_j
+and convexity=sum j^2</em>w_j. 50/100-year truncation, finite changes,
+nonparallel shifts, reprice growth revisions explicitly; no infinite
+terminal unless g&lt;discount convention. FF25M/FF3/GSW optional
+illustration requires actual data. Separate theoretical rate derivative
+at fixed cash flow from descriptive return-rate beta.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive duration and convexity; verify finite differences and
+cash-flow weights sum to one.</p></li>
+<li><p>Compare price sensitivity at matched baseline P, vary transition
+horizon and terminal growth with finite price restrictions.</p></li>
+<li><p>Decompose sensitivity across cash-flow maturity buckets and
+nonparallel curve shocks.</p></li>
+<li><p>If files acquired, estimate descriptive growth/value return betas
+on yield changes, HAC and rolling stability; keep market-control results
+separate from raw exposure.</p></li>
+<li><p>Introduce illustrative growth revisions offsetting a rate rise;
+demonstrate nonidentification of cash-flow duration from observed return
+beta.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Cash-flow and PV profiles, duration/convexity table, rate-shock
+plots, optional portfolio exposure estimates and interpretation.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Stylized DDM is not estimated firm cash flow or equity strip data.
+Treasury yield changes are not pure discount-rate shocks; growth news
+and risk premia may co-move. High/low BM portfolios are proxies for
+investment styles. Avoid treating rate beta as structural duration.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Two matched-price cash-flow profiles, analytic/numerical sensitivity
+and offsetting-news experiment. Historical evidence is optional S-class
+extension, explicitly distinguished from theory. Distinct from A06.01.01
+valuation ratios and A06.02.01 strip data.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Use GKK model-implied style equity curves to compare cash-flow timing
+under additional assumptions.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Discounted cash flow, duration, numerical derivatives, regression for
+optional evidence.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Equity cash-flow timing;</p></li>
+<li><p>Duration and DDM;</p></li>
+<li><p>Controlled profiles;</p></li>
+<li><p>Sensitivity and optional evidence;</p></li>
+<li><p>Identification limits.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive sensitivity; W4-6: build and validate profiles; W7-9:
+parallel/nonparallel shocks; W10-12: news scenario and optional data;
+W13-16: write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

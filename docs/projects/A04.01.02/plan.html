@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Macroeconomic Forecast Disagreement and Equity Market Risk | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A04.01.02 · Asset Pricing · Macro-finance &amp; policy</p><h1>Macroeconomic Forecast Disagreement and Equity Market Risk</h1><p class="lead">Does forecast disagreement about next-quarter real output growth add predictive information about subsequent equity volatility beyond past volatility and mean expected growth?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> SPF forecast dispersion and mean growth at the same horizon, with release dates.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a04.01.02">Research plan | A04.01.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Match D2 and mean RGDP at the same vintage and q+1 horizon. Audit
+exchange calendar independently; mark a missing daily return as missing
+quarterly RV. Show an 80-quarter warmup and only matured next-quarter
+RV; use training-only log smearing, matched QLIKE and log-MSE with
+paired blocks; GDP-only robustness.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Use SPF D2 RGDP for q+1 in annualized pp, not D1 or D3; mean forecast
+from same vintage/horizon ratio of levels. Pre-1992 RGNP not RGDP:
+document and separate full-history GNP/GDP splice as original design;
+GDP-only robustness. Actual survey release determines next complete
+calendar quarter; if delayed outside vintage q stop and resolve.
+Construct total daily market log returns, sum squares on full
+independently audited US session calendar (a coverage check only tests
+the supplied calendar), lag previous completed quarter RV. Compare log
+OLS with training-only smearing or Gamma log-link; fit D2/EG incremental
+coefficients on same sample, strict label maturation at origin.
+80-quarter initial sample, HAC and joint block inference. Optional VIX
+control on common authorized shorter sample; USREC ex post.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Inspect D2 workbook, RGDP horizon labels and release dates;
+construct EG from growth forecasts or same-vintage levels.</p></li>
+<li><p>Plot dispersion and lagged/future RV, document missing and
+revision conventions.</p></li>
+<li><p>Estimate nested predictive models with EG and D2, HAC
+inference.</p></li>
+<li><p>Compare expanding forecasts using positive bias-adjusted log
+forecasts or multiplicative model; evaluate QLIKE and loss
+uncertainty.</p></li>
+<li><p>Examine recession sensitivity, post-1992 GDP-only sample,
+alternate horizon and VIX control on common shorter sample.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Survey and market date ledger; descriptive plots; coefficient and
+forecasting tables; sensitivity to horizons and sample.</p>
+<h4 id="robustness">Robustness</h4>
+<p>SPF dispersion D2 is IQR, not realized EG volatility, and survey
+horizon must be constant. Avoid current-quarter returns preceding
+release and using GDP levels across incompatible vintages. Revised data
+are pseudo-real-time; no causal claim.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One D2 RGDP series, EG and daily market RV, release-aligned quarterly
+regression and expanding evaluation.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Use individual forecast responses to separate within-forecaster
+revisions and cross-sectional dispersion, if authorized and
+documented.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Financial econometrics, macro data, forecasting, Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Beliefs and uncertainty;</p></li>
+<li><p>Forecasting framework;</p></li>
+<li><p>Survey timing and market data;</p></li>
+<li><p>Empirical results;</p></li>
+<li><p>Limits.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: survey conventions and readings; W4-6: merge and variables;
+W7-9: regressions; W10-12: OOS/robustness; W13-16: write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

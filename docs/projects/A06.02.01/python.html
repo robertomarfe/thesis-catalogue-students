@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Term Structure of Equity Yields: Evidence from Synthetic Dividend Strips | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A06.02.01 · Asset Pricing · Consumption &amp; equity valuation</p><h1>The Term Structure of Equity Yields: Evidence from Synthetic Dividend Strips</h1><p class="lead">What are the main level, slope and curvature patterns of US aggregate equity yields, and how do they differ in recessions versus expansions? Does subtracting nominal bond yields change the economic interpretation of the slope?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> GKK synthetic strip-yield archive, conventions, rights and common sample.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html" aria-current="page">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Python lab</h2><div class="actions"><a href="files/student_start.ipynb" class="button secondary" download>Open student_start.ipynb</a><a href="files/requirements.txt" class="button secondary" download>Open requirements.txt</a></div><p class="notice">Unexecuted starter only. No solved thesis or external data supplied.</p><h3>Run locally</h3><p>Extract the workspace ZIP and open the notebook in an isolated Python environment. Install requirements.txt, read the data guide, and retain your own results.</p><h3>Run in Codespaces</h3><p><a href="https://codespaces.new/robertomarfe/thesis-catalogue-students/tree/main" class="button secondary">Open student Python environment</a></p><p>Check costs. Use Tasks: Run Task > Prepare my research draft, select A06.02.01, then File > Open File and open /workspaces/thesis-research/A06.02.01/student_start.ipynb. Select the isolated .venv interpreter. No forwarded port required. Do not commit raw data or results.</p><h3 id="a06.02.01-student-research-starter">A06.02.01 | Student research
+starter</h3>
+<p><strong>Current review draft; approval pending.</strong> Empirical
+design conditional on actual access and coverage.</p>
+<h4 id="goal">Goal</h4>
+<p>The maturity profile of equity valuation reveals whether short and
+distant dividends are discounted differently. Synthetic strip estimates
+extend the horizon coverage, but their common estimation model
+constrains interpretation.</p>
+<p><strong>Research question:</strong> What are the main level, slope
+and curvature patterns of US aggregate equity yields, and how do they
+differ in recessions versus expansions? Does subtracting nominal bond
+yields change the economic interpretation of the slope?</p>
+<h4 id="setup-check">Setup check</h4>
+<p>Check a complete artificial 1–15 year maturity grid. This artificial
+example does not validate the full research design or actual data.</p>
+<pre><code>n=list(range(1,16))
+assert len(n)==15 and len(set(n))==15
+print(&#x27;Setup check passed.&#x27;)</code></pre><h4 id="student-owned-research">Student-owned research</h4>
+<p>Verify archive/version and Eq.32/33, complete 1-15 annual maturity
+grid, positive dividend normalization and decimals, exact common
+month-end GSW SVENY, not par yields. Report common sample, model-implied
+caveat, slope and fixed curvature definition, centered PCA with sign
+convention and recession episode counts. Inference conditional on
+estimated curves; no independent validation of the underlying GKK
+estimator.</p>
+<ol type="1">
+<li><p>Plot monthly equity yield curves on selected dates and compute
+maturity-by-maturity mean, SD and serial correlation.</p></li>
+<li><p>Define slope e(15)-e(1) and curvature 2*e(5)-e(1)-e(15) as
+descriptive summaries; run PCA on demeaned yields in common units,
+report explained variance and loadings.</p></li>
+<li><p>Construct matched forward equity yields and their slopes; compare
+means, volatility and equity-bond slope correlation.</p></li>
+<li><p>Compare recession and expansion average curves and slope
+differences; use block bootstrap or HAC for serial dependence, and
+recession-episode sensitivity (few independent cycles). Do not treat
+recession labels as real-time predictors.</p></li>
+</ol>
+<p><strong>Minimum viable thesis:</strong> Verified GKK aggregate file,
+maturity profiles, slope/PCA analysis and matched bond and recession
+comparison; no replication of GKK estimation required. If unavailable,
+pause or redesign as an explicitly synthetic model exercise, not as
+observed-market evidence.</p>
+<p>Record assumptions, independent checks, uncertainty and limitations
+in a separate research notebook. No core solver or research output is
+supplied.</p>
+<p><a href="files/student_start.ipynb">Notebook source</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Expected Economic Growth and the Dynamics of Equity Risk Premia | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A04.01.01 · Asset Pricing · Macro-finance &amp; policy</p><h1>Expected Economic Growth and the Dynamics of Equity Risk Premia</h1><p class="lead">Do published US real GDP growth forecasts predict future equity excess returns beyond valuation ratios, and does incremental predictive performance survive chronological evaluation?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a04.01.01">Data and model setup |
+A04.01.01</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Philadelphia Fed SPF mean real GDP level/growth forecasts and release
+dates
+https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/mean-forecasts;
+French monthly market/RF and Goyal dividend-price
+https://sites.google.com/view/agoyal145/. Use real GDP only, proposed
+1992Q1-2025Q4; verify consistent level definitions and compute
+annualized expected growth from same-vintage current-quarter and
+next-quarter mean levels (ratio of mean forecasts, not mean individual
+growth). At survey release, use end-of-release-month origin, lag
+valuation ratio by one additional month as availability buffer; target
+following 3 months, h=12 secondary. Initial 1992-2007 training,
+2008-2025 expanding test.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>FF3M — US FF3 monthly</strong> (Core / planned robustness).
+Expected file: <code>F-F_Research_Data_Factors_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed in provider page; bytes not inspected. Use correct
+monthly/daily and value-weighted total return block; retain
+vintage.</li>
+<li><strong>GOYAL2025 — Combined GW/GWZ full-sample workbook through
+2025</strong> (Core / planned robustness). Expected file:
+<code>Data2025.xlsx</code>. <a
+href="https://docs.google.com/spreadsheets/d/17mw_IpaiLFDrGnrPRQ2o1ugV5nJsZuD1/edit?ouid=113571510202500088860&amp;rtpof=true&amp;sd=true&amp;usp=sharing">Download
+or provider route</a>; <a
+href="https://sites.google.com/view/agoyal145/">provider page</a>.
+Historical v13 inventory note (unverified in current release): Exact
+file page observed; download using Google Sheets File &gt; Download &gt;
+Excel. Freeze version, include definitions and verify timing;
+full-sample revised data.</li>
+<li><strong>SPFLEVEL — SPF mean forecast levels</strong> (Core / planned
+robustness). Expected file: <code>meanLevel.xlsx</code>. <a
+href="https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/survey-of-professional-forecasters/historical-data/meanLevel.xlsx?hash=A51C49A6FCF80FE18F2CE81D903F4970&amp;sc_lang=en">Download
+or provider route</a>; <a
+href="https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/mean-forecasts">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed; file not inspected. RGDP level forecasts;
+same-vintage ratios; preserve documentation.</li>
+<li><strong>SPFDATES — SPF release dates</strong> (Core / planned
+robustness). Expected file: <code>spf-release-dates.txt</code>. <a
+href="https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/survey-of-professional-forecasters/spf-release-dates.txt">Download
+or provider route</a>; <a
+href="https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/mean-forecasts">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Exact link listed in provider documentation; file not inspected. Verify
+actual coverage and date conventions; do not guess release days.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Use 1992 onward real GDP mean levels for vintage q, q+1; derive
+annualized ratio of means. Actual release day determines month-end
+origin; dp from preceding month only and verify availability, otherwise
+pseudo-real-time. Monthly log excess = log(1+RF+Mkt-RF)-log(1+RF), not
+log(1+Mkt-RF). Exact subsequent 3 months, optional 12; labels ending
+before new origin only. Use historical mean, EG-only, dp-only and joint
+OLS on common rows. Implement chronological forecasting and a strict
+target-maturity mask independently, HAC for overlap and paired block
+bootstrap with model refits. Do not treat the EG coefficient as causal.
+Use predeclared 1992-2007 training, 2008-2025 test, report actual usable
+dates and pre-1992 exclusion.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Verify SPF level horizons, release-date coverage, French units and
+Goyal dp definition/vintage. Require exact 3-month labels and
+common-sample benchmark; actual files/rights unverified.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel/parquet inputs require the relevant
+optional reader (openpyxl, xlrd, pyarrow); inspect raw schema and
+permissions first (not needed for the introductory setup check). If
+source fails, obtain explicitly approved redesign or defer.</p>
+<p>Provider routes and historical source notes are inherited, not newly
+verified. Independently implement all algorithms described here; private
+helper names, if present, denote methodological steps rather than
+dependencies distributed with this workspace. The v61 source-evidence
+erratum supersedes historical fresh-verification labels.</p>
+<h4 id="frozen-research-design-original-catalogue">Frozen research
+design (original catalogue)</h4>
+<p>Philadelphia Fed SPF mean real GDP level/growth forecasts and release
+dates
+https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/mean-forecasts;
+French monthly market/RF and Goyal dividend-price
+https://sites.google.com/view/agoyal145/. Use real GDP only, proposed
+1992Q1-2025Q4; verify consistent level definitions and compute
+annualized expected growth from same-vintage current-quarter and
+next-quarter mean levels (ratio of mean forecasts, not mean individual
+growth). At survey release, use end-of-release-month origin, lag
+valuation ratio by one additional month as availability buffer; target
+following 3 months, h=12 secondary. Initial 1992-2007 training,
+2008-2025 expanding test.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Create an origin/release/target-end ledger; reconstruct first three
+forecasts from the actual workbook, and verify mature training targets
+at each decision. Compare EG, dp and both on identical origins with a
+mature historical mean; report effective sample, overlapping h=12
+sensitivity, paired loss intervals and pseudo-real-time limitation.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Record total, gross and excess return conventions, RF timing,
+sampling frequency, factor definitions and annualization. Freeze common
+date and asset sets, provider vintage and information availability.
+Distinguish observation and release dates, gross and log returns,
+physical variance and implied variance, yield changes and holding
+returns, and nominal-real matching on identical dates.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

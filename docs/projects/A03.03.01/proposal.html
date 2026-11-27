@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Epstein-Zin Preferences and the Separation of Risk Aversion from Intertemporal Substitution | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A03.03.01 · Asset Pricing · Consumption &amp; equity valuation</p><h1>Epstein-Zin Preferences and the Separation of Risk Aversion from Intertemporal Substitution</h1><p class="lead">How do risk aversion and the elasticity of intertemporal substitution independently affect equilibrium prices, and what changes when consumption growth becomes predictable?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>A03.03.01 / Asset pricing / Synthetic / Difficulty 2/3 / 16
+weeks / No mandatory external data</strong></p>
+<p>Current research proposal. Not approved for assignment.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Time-additive power utility links relative risk aversion to the
+willingness to substitute consumption over time. Recursive utility
+breaks this restriction, yet its pricing implications depend on the
+distribution of consumption growth and on continuation wealth. The
+project isolates preference effects in an iid economy before introducing
+a predictable growth state, rather than treating a richer calibration as
+evidence of a particular economic mechanism.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do risk aversion and the elasticity of intertemporal substitution
+independently affect equilibrium prices, and what changes when
+consumption growth becomes predictable?</p>
+<h3 id="model-and-economic-intuition">Model and economic intuition</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>C</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mi>/</mi><msub><mi>C</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">G_{t+1}=C_{t+1}/C_t</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>
+be the discount factor,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>
+risk aversion and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ψ</mi><annotation encoding="application/x-tex">\psi</annotation></semantics></math>
+the elasticity of intertemporal substitution. Define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>γ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mn>1</mn><mi>/</mi><mi>ψ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\theta=(1-\gamma)/(1-1/\psi)</annotation></semantics></math>
+away from singular preference limits. With ex-dividend consumption
+wealth
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>i</mi></msub><mo>=</mo><msub><mi>W</mi><mi>t</mi></msub><mi>/</mi><msub><mi>C</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">w_i=W_t/C_t</annotation></semantics></math>
+in state
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>,
+the gross wealth return and stochastic discount factor are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>R</mi><mrow><mi>i</mi><mi>j</mi></mrow><mi>w</mi></msubsup><mo>=</mo><msub><mi>G</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mfrac><mrow><mn>1</mn><mo>+</mo><msub><mi>w</mi><mi>j</mi></msub></mrow><msub><mi>w</mi><mi>i</mi></msub></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>M</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><msup><mi>β</mi><mi>θ</mi></msup><msubsup><mi>G</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow><mrow><mi>−</mi><mi>θ</mi><mi>/</mi><mi>ψ</mi></mrow></msubsup><msup><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>R</mi><mrow><mi>i</mi><mi>j</mi></mrow><mi>w</mi></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>θ</mi><mo>−</mo><mn>1</mn></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">R^w_{ij}=G_{t+1}\frac{1+w_j}{w_i},\qquad M_{ij}=\beta^\theta G_{t+1}^{-\theta/\psi}(R^w_{ij})^{\theta-1}.</annotation></semantics></math></p>
+<p>The Euler condition
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>M</mi><msup><mi>R</mi><mi>w</mi></msup><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\mathbb E_i[M R^w]=1</annotation></semantics></math>
+identifies the nonlinear wealth equation. In the iid case a constant
+wealth ratio admits a closed form; in a Markov economy the continuation
+value introduces an additional state-dependent risk channel.</p>
+<h3 id="data-and-research-design">Data and research design</h3>
+<p>Use annual log growth with mean 2% and SD 2% in the iid economy; beta
+0.96, 0.98, 0.99; gamma 2, 5, 10; psi 0.5, 1.5, 2.5. For two states use
+growth means 0.005 and 0.035, stay probability 0.9 and matched
+conditional SD; disclose the change in unconditional variance, then
+match it as a sensitivity. Reject nonfinite wealth and dividend values
+explicitly.</p>
+<h3 id="applied-research-programme">Applied research programme</h3>
+<ol type="1">
+<li>Derive the iid formulas and distinguish log and arithmetic expected
+excess returns.</li>
+<li>Compute preference grids, including admissibility and the CRRA
+restriction.</li>
+<li>Solve the two-state wealth equation using two independent numerical
+methods.</li>
+<li>Price bills and, optionally, a leveraged dividend claim; report
+Euler residuals and spectral margins.</li>
+<li>Interpret the independent preference effects and compare a
+matched-variance iid economy.</li>
+</ol>
+<h3 id="deliverables-and-acceptance">Deliverables and acceptance</h3>
+<p>Derivation, preference grids, state-dependent prices, equilibrium
+residuals and admissibility diagnostics. Wealth is a claim to
+consumption, not automatically an observed stock-market portfolio.
+Optional: public consumption moments or a persistent Gaussian
+expected-growth state.</p>
+<p><strong>Minimum viable thesis.</strong> Iid closed form and two-state
+solution with CRRA check, preference grids and equilibrium verification;
+leveraged claim optional. Distinct from A03.03.02’s long-run risk
+calibration.</p>
+<h3 id="work-plan">Work plan</h3>
+<p>Weeks 1–3: theory and source review; 4–6: data or numerical setup;
+7–10: core implementation; 11–13: robustness; 14–16: writing and
+replication. Preserve the more detailed canonical milestones.</p>
+<h3 id="core-reading">Core reading</h3>
+<p>Epstein and Zin (1989); Weil (1989); Bansal and Yaron (2004). Verify
+full citations against the inherited reading guide and the versions
+read.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

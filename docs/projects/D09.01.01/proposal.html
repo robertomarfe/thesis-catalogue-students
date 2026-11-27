@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Merton Model and the Economics of Corporate Default | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D09.01.01 · Derivatives · Credit &amp; incomplete markets</p><h1>The Merton Model and the Economics of Corporate Default</h1><p class="lead">How do leverage, asset volatility and debt maturity jointly determine physical default probabilities, risk-neutral debt values and equity leverage? When do default probability and credit spread move differently?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Credit risk and incomplete markets · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Leverage gives creditors a nonlinear claim on firm assets. The same
+probability of default need not imply the same borrowing cost, because
+severity and the price of risk enter debt valuation. Study these
+distinctions in a transparent terminal-default economy before
+introducing contractual complexity.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do leverage, asset volatility and debt maturity jointly determine
+physical default probabilities, risk-neutral debt values and equity
+leverage? When do default probability and credit spread move
+differently?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>Equity and debt pay
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>T</mi></msub><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mi>T</mi></msub><mo>−</mo><mi>F</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">E_T=(V_T-F)^+</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mi>T</mi></msub><mo>=</mo><mo>min</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mi>T</mi></msub><mo>,</mo><mi>F</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">B_T=\min(V_T,F)</annotation></semantics></math>,
+respectively;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mi>−</mi><msup><mi>T</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>B</mi><mn>0</mn></msub><mi>/</mi><mi>F</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>r</mi></mrow><annotation encoding="application/x-tex">s=-T^{-1}\log(B_0/F)-r</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use the prescribed leverage, volatility and maturity grid with
+separate physical and pricing drifts. Compare analytical equity and debt
+values to independent simulations, and construct approximately equal
+physical-PD cases before comparing spreads.</p>
+<p>Verify asset-value conservation, the upper bound on debt and
+probability intervals. Report simulation uncertainty in rare-default
+cases and physical-drift sensitivity separately from risk-neutral
+pricing. Keep all other parameters fixed in each comparative static.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Credit spread and default-probability heatmaps; term structure plots
+by leverage; equity volatility table; analytical versus simulation check
+with confidence intervals; matched-PD comparison. Interpret deviations
+between risk-neutral and physical measures.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Correct structural formulas and independent verification, comparative
+statics on leverage and volatility at several maturities, distinction
+between P and Q, and quantitative implications. No empirical validation
+claim is necessary.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Check equity plus debt equals firm assets and debt price &lt;=
+risk-free promised payoff, default probability in [0,1], monotonicities
+for fixed remaining parameters. Vary physical drift separately from
+pricing inputs; it should change PD_P but not Q debt price in the
+specified model. Do not calibrate historical PDs from spreads without
+assumptions on risk premia.</p>
+<p><strong>Prerequisites:</strong> BSM option pricing, probability
+measures, comparative statics, Python. Elementary corporate finance and
+credit spread interpretation.</p>
+<p><strong>Optional extension:</strong> Compare first-passage default or
+introduce a small illustrative set of public firm filings, only after
+checking debt maturity, market capitalization and data consistency.
+Treat calibration of V and sigma_V from equity as optional and
+model-dependent.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: derive contingent-claim valuation; W4-6: implement analytic
+functions and MC validation; W7-10: grid, matched-PD and maturity
+analyses; W11-13: limiting cases and robustness; W14-16: write and
+reproduce.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Historical Stress Paths and the Performance of Model-Based Option Hedges | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D04.02.02 · Derivatives · Hedging &amp; volatility derivatives</p><h1>Historical Stress Paths and the Performance of Model-Based Option Hedges</h1><p class="lead">How do BSM delta-hedging errors on observed index paths differ from errors on simulated GBM paths under the same synthetic pricing and rebalancing rules?</p><p class="small">Data access warning · Level 2/3 · Research draft</p><p class="warning" data-warning="true"><strong>Data access warning: the required datasets may be difficult or costly to obtain. Verify availability, coverage and permitted use with your supervisor. This topic is not currently ready for assignment.</strong><br>Historical SP500 price paths with permission and complete stress windows (hybrid simulation/replay).</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d04.02.02">Research plan | D04.02.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Check actual permissions, warmup and complete sessions before
+assignment. Report eligible windows and separate historical sampling
+uncertainty from simulation error. If access fails, defer or approve a
+retitled simulated stress study; no silent substitution.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Validate one-path cash ledger and GBM convergence, same initial
+premium for each strategy comparison.</p></li>
+<li><p>Replay all windows with daily and weekly hedge updates; use
+trading-day time convention.</p></li>
+<li><p>Compare residual distributions with matched GBM, condition on ex
+post drawdown categories and realized variance surprises.</p></li>
+<li><p>Analyze two fixed illustrative cost rates and no-cost benchmark;
+separate model error from cost.</p></li>
+<li><p>Show pathwise cumulative hedging residuals and sensitivity to
+volatility window, strike and stress definition.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Historical-window audit, representative paths and hedge ledgers,
+residual quantiles, stress versus GBM comparison and robustness
+table.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Price index is not a directly traded asset, dividends, financing and
+option prices are assumed, and no actual historical option P&amp;L is
+measured. Stress classification is retrospective, not a trading signal.
+Small nonoverlapping sample limits tail inference; overlapping windows
+only as sensitivity with block resampling.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Observed stock-price replay plus GBM reference and two hedge rules;
+no historical options needed. S-class denotes synthetic option pricing,
+but SP500 input is required for this title. Distinct from D04.02.01’s
+two-asset volatility hedge.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Add a self-contained dividend-yield scenario or lawful historical
+option snapshots for separate empirical validation.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>BSM and Greeks, simulation, time-series cleaning, portfolio
+accounting.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Replication and model error;</p></li>
+<li><p>Historical path construction;</p></li>
+<li><p>Synthetic hedge experiment;</p></li>
+<li><p>Stress comparison;</p></li>
+<li><p>External validity.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive cash ledger and validate source; W4-6: GBM checks and
+windows; W7-9: replay and comparison; W10-12: stress/cost robustness;
+W13-16: write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

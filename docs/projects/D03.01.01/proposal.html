@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Forecasting Equity Market Volatility: GARCH versus Historical Volatility | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.01.01 · Derivatives · Volatility &amp; tail risk</p><h1>Forecasting Equity Market Volatility: GARCH versus Historical Volatility</h1><p class="lead">Does GARCH(1,1) improve genuinely out-of-sample forecasts of daily and 21-trading-day market variance relative to rolling historical variance? Is the ranking stable in high- and low-volatility periods?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Volatility forecasting · 16 weeks · Level
+2/3</strong><br />
+<strong>Data:</strong> US daily market returns; input validation
+pending. <strong>Status:</strong> current draft; not approved for
+assignment.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Volatility clusters in equity markets: large price movements tend to
+be followed by large movements, regardless of their sign. A conditional
+volatility model is useful only if it forecasts future risk more
+accurately than a simple historical benchmark. This question matters for
+risk limits, margin and derivative applications. The object here is
+physical-measure return variance, not the risk-neutral volatility
+embedded in option prices.</p>
+<h3 id="research-question">Research question</h3>
+<p>Does GARCH(1,1) improve genuinely out-of-sample forecasts of daily
+and 21-trading-day market variance relative to rolling historical
+variance? Is the ranking stable in high- and low-volatility periods?</p>
+<h3 id="model-and-economic-mechanism">Model and economic mechanism</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>u</mi><mi>t</mi></msub><annotation encoding="application/x-tex">u_t</annotation></semantics></math>
+be the daily log-return innovation under a predetermined mean convention
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="prefix">|</mo><mi>t</mi></mrow></msub><mo>=</mo><mo>Var</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>u</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>∣</mo><msub><mi>ℱ</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">h_{t+1|t}=\operatorname{Var}(u_{t+1}\mid\mathcal F_t)</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ℱ</mi><mi>t</mi></msub><annotation encoding="application/x-tex">\mathcal F_t</annotation></semantics></math>
+is information available after day
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>.
+The GARCH recursion is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="prefix">|</mo><mi>t</mi></mrow></msub><mo>=</mo><mi>ω</mi><mo>+</mo><mi>α</mi><msubsup><mi>u</mi><mi>t</mi><mn>2</mn></msubsup><mo>+</mo><mi>β</mi><msub><mi>h</mi><mrow><mi>t</mi><mo stretchy="false" form="prefix">|</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">h_{t+1|t}=\omega+\alpha u_t^2+\beta h_{t|t-1}.</annotation></semantics></math>
+Require
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ω</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\omega&gt;0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>,</mo><mi>β</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\alpha,\beta\ge0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>+</mo><mi>β</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\alpha+\beta&lt;1</annotation></semantics></math>.
+The unconditional variance is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>h</mi><mo accent="true">‾</mo></mover><mo>=</mo><mi>ω</mi><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo>−</mo><mi>β</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\bar h=\omega/(1-\alpha-\beta)</annotation></semantics></math>.
+Conditional forecasts revert to this level at rate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>+</mo><mi>β</mi></mrow><annotation encoding="application/x-tex">\alpha+\beta</annotation></semantics></math>.
+Under conditionally uncorrelated innovations, cumulative expected
+variance over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+future trading days is the sum of the individual forecasts. Evaluate it
+against
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mrow><mi>t</mi><mo>,</mo><mi>H</mi></mrow></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>H</mi></msubsup><msubsup><mi>u</mi><mrow><mi>t</mi><mo>+</mo><mi>j</mi></mrow><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">Y_{t,H}=\sum_{j=1}^H u_{t+j}^2</annotation></semantics></math>.
+This proxy is noisy; it is not intraday realized variance.</p>
+<h3 id="data-and-chronological-design">Data and chronological
+design</h3>
+<p>Use the US daily Fama/French three-factor file. Construct the total
+market simple return from <code>Mkt-RF</code> plus <code>RF</code>,
+converting percentages to decimals exactly once; take
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><msub><mi>R</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\log(1+R_t)</annotation></semantics></math>
+where defined. Preserve the downloaded vintage, remove missing sentinel
+observations only according to a documented rule and never insert zero
+returns on missing dates. Target 1990–2025, subject to file inspection.
+Use 1990–2004 as initial estimation and 2005–2025 for sequential
+evaluation. Compare 21- and 252-day rolling historical variance with
+Gaussian QML GARCH estimated over a five-year rolling window, refitted
+monthly and filtered daily. Fix the forecast origin and use only
+outcomes available at that time.</p>
+<h3 id="research-tasks-and-deliverables">Research tasks and
+deliverables</h3>
+<ol type="1">
+<li>Acquire and validate the daily file. Plot returns, squared returns
+and their autocorrelations; examine ARCH diagnostics and declare the
+mean and trading-calendar conventions.</li>
+<li>Fit the model on past observations only; record optimizer failures,
+stationarity and persistence. Include constant and rolling-variance
+benchmarks.</li>
+<li>Construct forecasts at horizons 1 and 21, matching the sum of future
+squared innovations on a common evaluation sample. Score each model by
+QLIKE, MSE and forecast bias, declaring any variance floor.</li>
+<li>Compare losses using HAC inference or a block bootstrap. Report
+nonoverlapping 21-day dates as a robustness check and use lagged
+information to define volatility regimes. Vary window and refit
+frequency, investigate 2008 and 2020 without selecting samples by
+outcomes, and report the economic magnitude of improvement.</li>
+</ol>
+<p>Deliverables: data-quality and autocorrelation summaries, parameter
+and persistence table, dated forecast/proxy plots, loss and uncertainty
+comparisons by horizon and regime, convergence and failure report. No
+model is required to win.</p>
+<h3 id="minimum-viable-thesis-and-acceptance-criteria">Minimum viable
+thesis and acceptance criteria</h3>
+<p>One clean daily series; rolling historical and GARCH forecasts at
+both horizons on a common evaluation sample; QLIKE and MSE,
+uncertainty-aware loss comparisons, and honest treatment of noisy
+targets. No requirement that GARCH wins.</p>
+<h3 id="research-plan-and-scope">Research plan and scope</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Weeks</th>
+<th style="text-align: left;">Deliverable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1–3</td>
+<td style="text-align: left;">Acquire file, review GARCH and
+scoring</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4–6</td>
+<td style="text-align: left;">Validate targets and historical
+benchmarks</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7–10</td>
+<td style="text-align: left;">Estimate, refit and forecast
+chronologically</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11–13</td>
+<td style="text-align: left;">Loss comparisons, uncertainty and
+regimes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">14–16</td>
+<td style="text-align: left;">Reproducibility, interpretation and
+writing</td>
+</tr>
+</tbody>
+</table>
+<p>Prerequisites: time-series econometrics, maximum likelihood, Python
+and data handling. Optional extension: EWMA, GJR-GARCH or Student-t
+innovations; VIX is a distinct risk-neutral predictor requiring horizon
+matching. No empirical results are supplied; evaluate the model
+comparisons on authorized data.</p>
+<h3 id="core-reading-and-source">Core reading and source</h3>
+<p>Bollerslev (1986), <em>Journal of Econometrics</em>, 31,
+307–327.<br />
+Andersen and Bollerslev (1998), <em>International Economic Review</em>,
+39, 885–905.<br />
+Patton (2011), <em>Journal of Econometrics</em>, 160, 246–256.<br />
+<a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">French
+Data Library</a>. Use the supplied FF3D source recipe; inspect rights,
+dates and columns before assignment. Full-text literature review remains
+pending.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

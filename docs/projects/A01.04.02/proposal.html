@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Principal Components versus Observable Asset Pricing Factors | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A01.04.02 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>Principal Components versus Observable Asset Pricing Factors</h1><p class="lead">At equal factor dimension, do principal-component factors estimated on training assets produce smaller held-out pricing errors than observable FF factors?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Cross-sectional pricing and SDF · Level
+3/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Principal components extract directions of high return variance,
+whereas an asset-pricing model must explain mean returns. An
+equal-dimensional, frozen comparison on later dates and distinct
+portfolio constructions separates covariance reconstruction from
+pricing.</p>
+<h3 id="research-question">Research question</h3>
+<p>At equal factor dimension, do principal-component factors estimated
+on training assets produce smaller held-out pricing errors than
+observable FF factors?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>With training covariance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>Σ</mi><mo accent="true">̂</mo></mover><mo>=</mo><mi>V</mi><mi>Λ</mi><msup><mi>V</mi><mi>⊤</mi></msup></mrow><annotation encoding="application/x-tex">\widehat\Sigma=V\Lambda V^\top</annotation></semantics></math>,
+fixed portfolio weights
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mi>k</mi></msub><annotation encoding="application/x-tex">V_k</annotation></semantics></math>
+produce traded excess factors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>t</mi></msub><mo>=</mo><msubsup><mi>V</mi><mi>k</mi><mi>⊤</mi></msubsup><msub><mi>x</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">f_t=V_k^\top x_t</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use industry training portfolios and French factors with the original
+1970–1999 fit, 2000–2009 validation and 2010–2025 test. Compare PC3 and
+FF3, with equal-dimensional PC5/FF5 sensitivity, frozen dates and
+held-out size/value assets.</p>
+<p>Freeze factor dimensions, weights, means and model selection before
+the test. Audit date and asset holdouts separately, report factor return
+scaling and rank, and retain common pricing moments. Optional OSAP
+alternative requires its own access verification.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Eigenvalue plot, factor correlations, held-out pricing RMSE/alpha
+table, split audit and stability.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>PC3 and FF3 on French panels, one frozen date/asset holdout and
+pricing versus covariance comparison.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>PC weights do not identify economic shocks; common underlying
+equities prevent independent-security interpretation. FF3 versus FF5 are
+not automatically nested. Same test dates/assets and dimensions, no
+future data leakage.</p>
+<p><strong>Prerequisites:</strong> Linear algebra, factor models,
+regression, Python.</p>
+<p><strong>Optional extension:</strong> OSAP training universe and
+sparse statistical factors; preserve independent validation dates and
+candidate selection.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: PCA and data; W4-6: factor construction; W7-9: pricing fit;
+W10-12: evaluation; W13-16: writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

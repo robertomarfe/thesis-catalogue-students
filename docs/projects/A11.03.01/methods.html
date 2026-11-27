@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Testing Euler Equations with Generalized Method of Moments | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A11.03.01 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>Testing Euler Equations with Generalized Method of Moments</h1><p class="lead">How sensitive are estimated CRRA preference parameters and Euler pricing errors to the selection of test assets, conditioning instruments and GMM weighting matrices? Do weakly informative moments explain instability?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="moments-and-derivatives">Moments and derivatives</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>β</mi><mo>,</mo><mi>γ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\theta=(\beta,\gamma)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mi>β</mi><msubsup><mi>g</mi><mi>c</mi><mrow><mi>−</mi><mi>γ</mi></mrow></msubsup></mrow><annotation encoding="application/x-tex">m=\beta g_c^{-\gamma}</annotation></semantics></math>.
+For a payoff
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
+with price
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+(gross bill
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">p=1</annotation></semantics></math>,
+excess payoff
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">p=0</annotation></semantics></math>),
+define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><msub><mi>z</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mi>Y</mi><mo>−</mo><mi>p</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">u=z_t(mY-p)</annotation></semantics></math>.
+Derivatives of the scalar kernel are
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>∂</mi><mi>β</mi></msub><mi>m</mi><mo>=</mo><msubsup><mi>g</mi><mi>c</mi><mrow><mi>−</mi><mi>γ</mi></mrow></msubsup><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>∂</mi><mi>γ</mi></msub><mi>m</mi><mo>=</mo><mi>−</mi><mi>m</mi><mo>log</mo><msub><mi>g</mi><mi>c</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">\partial_\beta m=g_c^{-\gamma},\qquad \partial_\gamma m=-m\log g_c.</annotation></semantics></math>
+The sample Jacobian is the average of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mi>t</mi></msub><mi>Y</mi><msub><mi>∂</mi><mi>θ</mi></msub><mi>m</mi></mrow><annotation encoding="application/x-tex">z_tY\partial_\theta m</annotation></semantics></math>.
+Retain the gross bill equation to identify the kernel scale; excess
+moments alone are homogeneous in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>.
+The ex post real bill is not conditionally riskless in real units.</p>
+<h3 id="gmm-and-identification">GMM and identification</h3>
+<p>Minimize
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>u</mi><mo accent="true">‾</mo></mover><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>⊤</mi></msup><mi>W</mi><mover><mi>u</mi><mo accent="true">‾</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\bar u(\theta)^\top W\bar u(\theta)</annotation></semantics></math>
+using documented scales. Estimate long-run covariance with Bartlett HAC
+for the second step. Under correct specification, interior full-rank
+identification and efficient weighting,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><msup><mover><mi>u</mi><mo accent="true">‾</mo></mover><mi>⊤</mi></msup><mi>W</mi><mover><mi>u</mi><mo accent="true">‾</mo></mover></mrow><annotation encoding="application/x-tex">T\bar u^\top W\bar u</annotation></semantics></math>
+has asymptotic
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>χ</mi><mrow><mi>q</mi><mo>−</mo><mi>p</mi></mrow><mn>2</mn></msubsup><annotation encoding="application/x-tex">\chi^2_{q-p}</annotation></semantics></math>
+law, with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>
+moment count and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math>
+parameter count. Weak rank, active bounds or regularization can
+invalidate this reference. Report profiles and failed starts.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Use quarterly parameters and same-quarter consumption/payoffs;
+preserve the original broad bounds and fixed moments. Report scaling,
+HAC bandwidth, effective rank and convergence. Validate independently on
+a designed simulation before empirical estimation; do not select moments
+after viewing rejection.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

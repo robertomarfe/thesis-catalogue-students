@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Deep Hedging with Transaction Costs | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D04.04.01 · Derivatives · Hedging &amp; volatility derivatives</p><h1>Deep Hedging with Transaction Costs</h1><p class="lead">Can a small neural hedging policy improve the net loss distribution of a short option relative to delta hedging and tuned no-trade bands at the same cost and risk objective?</p><p class="small">Synthetic core · Level 3/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Hedging and volatility derivatives · Level
+3/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>With frictions, a feasible hedge can depend on time, moneyness and
+the existing position. A flexible neural policy may exploit this state
+dependence, but apparent gains can result from overfitting or unequal
+constraints. The project tests economic value against strong tuned
+benchmarks.</p>
+<h3 id="research-question">Research question</h3>
+<p>Can a small neural hedging policy improve the net loss distribution
+of a short option relative to delta hedging and tuned no-trade bands at
+the same cost and risk objective?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For discounted loss
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\eta&gt;0</annotation></semantics></math>,
+the entropic risk criterion is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>η</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>L</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>η</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo>log</mo><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>e</mi><mrow><mi>η</mi><mi>L</mi></mrow></msup><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\rho_\eta(L)=\eta^{-1}\log\mathbb E[e^{\eta L}]</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Train the prescribed small shared policy on GBM paths; use validation
+paths for tuning policy and comparator bands. Evaluate frozen policies
+on identical independent test paths, recording optimization seeds and
+runtime.</p>
+<p>The student develops the network, objective, ledger and complete
+comparison. Report tail loss, turnover, risk objective and stability;
+in-sample improvement alone is insufficient.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Policy slices versus moneyness/position; held-out loss and turnover
+tables; learning curves; seed sensitivity and stress results.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>One ATM call, GBM, two cost levels, neural vs delta and band,
+independent test and ledger checks.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>No future price input; shared information and initial premium; avoid
+optimizing on test paths. Include liquidation costs, separate model risk
+and sampling uncertainty. No claim of global optimality or empirical
+trading performance.</p>
+<p><strong>Prerequisites:</strong> Options, numerical simulation,
+optimization, basic neural networks and Python.</p>
+<p><strong>Optional extension:</strong> Heston with observable variance
+or a noisy past-return volatility proxy; separate information advantage
+from policy advantage.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: ledger and risk; W4-6: benchmarks; W7-9: training; W10-12:
+held-out stress; W13-16: reproducible code and write.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

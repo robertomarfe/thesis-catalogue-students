@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Currency Hedging of US Equity Investments for Euro-Area Investors | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D10.03.02 · Derivatives · International, FX &amp; commodities</p><h1>Currency Hedging of US Equity Investments for Euro-Area Investors</h1><p class="lead">When does a quarterly synthetic currency hedge improve the risk-return profile of a euro investor holding US equities? How do hedge ratio, equity-FX covariance and financing carry affect the result?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-d10.03.02">Data and model setup |
+D10.03.02</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Use French monthly US market Mkt-RF+RF (total return, percent) and
+compound into nonoverlapping calendar quarters;
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html
+. End-quarter spot DEXUSEU and lagged OECD 3m interbank proxies
+IR3TIB01USM156N, IR3TIB01EZM156N from FRED. Use most recent published
+prior-month averages at start (two-month lag if availability cannot be
+verified), no assumed simultaneous executable quotes. Target 1999-2025
+common complete quarters, training through 2010 then expanding hedge
+ratio (minimum 40 quarters); test h=0,0.5,1 and rolling estimate.
+Rate/spot definitions as in D10.03.01, tau=0.25 baseline.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>FF3M — US FF3 monthly</strong> (Core / planned robustness).
+Expected file: <code>F-F_Research_Data_Factors_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed in provider page; bytes not inspected. Use correct
+monthly/daily and value-weighted total return block; retain
+vintage.</li>
+<li><strong>DEXUSEU — DEXUSEU</strong> (Core / planned robustness).
+Expected file: <code>DEXUSEU.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=DEXUSEU">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/DEXUSEU">provider page</a>.
+Historical v13 inventory note (unverified in current release): Direct
+CSV endpoint constructed from exact series ID; not fetched. USD per
+EUR.</li>
+<li><strong>IR3TIB01USM156N — IR3TIB01USM156N</strong> (Core / planned
+robustness). Expected file: <code>IR3TIB01USM156N.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=IR3TIB01USM156N">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/IR3TIB01USM156N">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct CSV endpoint constructed from exact series ID; not fetched.
+Monthly annual percentage rate proxy.</li>
+<li><strong>IR3TIB01EZM156N — IR3TIB01EZM156N</strong> (Core / planned
+robustness). Expected file: <code>IR3TIB01EZM156N.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=IR3TIB01EZM156N">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/IR3TIB01EZM156N">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct CSV endpoint constructed from exact series ID; not fetched. EA19
+monthly annual rate proxy; verify coverage.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Compound 3 complete monthly total US market returns (Mkt-RF+RF).
+End-quarter spot USD/EUR start/end, prior-month rates lagged 2 months if
+release unknown; F via simple CIP tau=.25. EUR net return U+hG with
+U=(1+R_US)S0/S1-1 and G=S0(1/F-1/S1). Past-only 40-quarter minimum
+variance fit, clipped [0,1]; fixed 0,.5,1; proportional cost on notional
+and hypothetical basis shifts, compare common 2011+ test.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>At least 60 aligned quarters if available, rate permissions and
+calendar checked; full principal hedge identity and no look-ahead test
+passed. If sample too short descriptive fixed ratios only with
+approval.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel inputs can be inspected with
+pandas/openpyxl locally (not needed for the introductory setup check).
+If source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Audit USD/EUR sign, full-principal identity, common dates, lagged
+rates and no look-ahead. Retain 60 aligned-quarter target; if
+unavailable agree a descriptive fixed-ratio scope. No ex-post optimized
+benchmark.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Fix currency quote orientation, base currency, return units,
+settlement dates, funding convention, measure and annualization. For
+empirical panels freeze provider vintage and distinguish observation
+date, availability and outcome maturity. For simulations distinguish
+expiry from delivery and quote rate from payoff currency.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

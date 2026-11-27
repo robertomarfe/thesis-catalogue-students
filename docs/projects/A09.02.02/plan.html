@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Currency Carry Returns and Global Risk States | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A09.02.02 · Asset Pricing · International, FX &amp; commodities</p><h1>Currency Carry Returns and Global Risk States</h1><p class="lead">Are currency carry returns lower and market exposures larger in risk-off states, and can lagged global risk measures forecast carry returns?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> G10 carry workbook, VIX and NFCI with authorized use and aligned dates.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a09.02.02">Research plan | A09.02.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Audit the G10 gross definition and dates before use. Report state
+counts, training thresholds, information lags and common forecast
+origins. Do not substitute other carry factors or claim causal
+effects.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Document published portfolio construction, funding and gross/net
+conventions.</p></li>
+<li><p>Compare average return, volatility, skewness, drawdown and losses
+by contemporaneous market/VIX state.</p></li>
+<li><p>Estimate carry on market and market*stress interaction, with HAC
+and stress-count reporting.</p></li>
+<li><p>Forecast next-month carry using lagged VIX/NFCI against expanding
+mean; initial 120 months, no full-sample thresholds.</p></li>
+<li><p>Compare gross vs net, fixed subperiods and paired block-bootstrap
+uncertainty.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Carry wealth and drawdown plot; state means/exposures; predictive OOS
+R2 and loss intervals; gross/net comparison.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Published carry is not bilateral UIP or newly implementable strategy.
+Check long-short return leverage/normalization. VIX contemporaneous
+conditioning is descriptive; NFCI revised vintage is pseudo-real-time.
+Rare states have limited power.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One documented G10 gross carry series, common monthly market/VIX
+data, state-dependent returns and lagged forecasting; net optional if
+accessible. Distinct from A09.02.01 bilateral forward premium
+puzzle.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare G10 and broader currency universe if same provider
+definitions; tail regressions.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>FX returns, conditional regressions, portfolio factors, time-series
+inference.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Carry economics;</p></li>
+<li><p>Global risk states;</p></li>
+<li><p>Data and timing;</p></li>
+<li><p>Conditional and predictive results;</p></li>
+<li><p>Limits.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: theory and data gate; W4-6: common sample; W7-9: state
+exposures; W10-12: forecasts and robustness; W13-16: write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

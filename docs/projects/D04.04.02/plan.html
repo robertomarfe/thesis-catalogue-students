@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Hedging with Model-Free Regression Policies | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D04.04.02 · Derivatives · Hedging &amp; volatility derivatives</p><h1>Hedging with Model-Free Regression Policies</h1><p class="lead">Can transparent regression hedges improve on BSM delta when the underlying follows a stochastic-volatility or jump process and the policy is trained without access to true model parameters?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d04.04.02">Research plan | D04.04.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Distinguish quadratic regression hedges from neural entropic-risk
+optimization. Test future-input perturbation, rank and conditioning,
+validation-only penalty choice, paired test squared loss and tails.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Verify cash ledger and frictionless GBM convergence.</p></li>
+<li><p>Fit basis regression without look-ahead; select ridge on
+validation.</p></li>
+<li><p>Freeze and evaluate on independent paths, compare RMSE, ES95 and
+turnover.</p></li>
+<li><p>Test added lagged volatility features and independent stress DGP
+with common premium within each comparison.</p></li>
+<li><p>Report sensitivity to training size, basis degree and
+seed.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Held-out hedging error table, policy slices, basis/penalty
+diagnostics, learning curve and distribution-shift results.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Model-free describes policy inputs, not data generation. No observed
+market performance; no claim of global optimality or cost-optimal
+policy. Shared discounted ledger and identical constraints; separate
+latent oracle from feasible inputs.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>GBM and one misspecified DGP, linear and enriched basis, independent
+test and BSM benchmark.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Train cost-aware policy with backward regression or compare neural
+policies on identical paths.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>BSM, regression, Monte Carlo, Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Hedging as projection;</p></li>
+<li><p>Regression policy;</p></li>
+<li><p>Synthetic design;</p></li>
+<li><p>Test results;</p></li>
+<li><p>Robustness.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: ledger and theory; W4-6: simulations; W7-9: policy fitting;
+W10-12: independent tests; W13-16: writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Financial Stress and the Stock-Bond Correlation | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A04.04.02 · Asset Pricing · Macro-finance &amp; policy</p><h1>Financial Stress and the Stock-Bond Correlation</h1><p class="lead">Does the stock-bond return correlation vary with prior financial stress, and does that variation change the diversification benefit of a fixed stock-bond portfolio?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="mathematical-framework">Mathematical framework</h3>
+<p>For simple holding returns and fixed stock weight
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math>,
+portfolio variance is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>w</mi><mn>2</mn></msup><msubsup><mi>σ</mi><mi>S</mi><mn>2</mn></msubsup><mo>+</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>w</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><msubsup><mi>σ</mi><mi>B</mi><mn>2</mn></msubsup><mo>+</mo><mn>2</mn><mi>w</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>w</mi><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>c</mi><mrow><mi>S</mi><mi>B</mi></mrow></msub></mrow><annotation encoding="application/x-tex">w^2\sigma_S^2+(1-w)^2\sigma_B^2+2w(1-w)c_{SB}</annotation></semantics></math>,
+with conditional covariance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>c</mi><mrow><mi>S</mi><mi>B</mi></mrow></msub><annotation encoding="application/x-tex">c_{SB}</annotation></semantics></math>.</p>
+<p>Estimate covariance and correlation on the same regime dates.
+Relative to within-regime independence, the last term is the signed
+covariance contribution, not the entire diversification benefit. The
+monthly net zero return is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>exp</mo><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>p</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mi>/</mi><mn>12</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>p</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\exp[p_{t+1}(n-1/12)-p_t(n)]-1</annotation></semantics></math>.
+Construct stress from the latest eligible released weekly observation
+from the preceding month or earlier; observation and publication dates
+differ. Use fixed threshold zero or a quantile fitted only in training.
+Report counts, marginal risks, covariance and regime contributions with
+common-date blocks. Distinguish conditional description from
+implementable forecasts; revised stress histories imply
+pseudo-real-time.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Use a release ledger or explicitly pseudo-real-time extra lag; set
+threshold from fixed rule or past data. Compute exact aging bond return
+and nominal equity total return; report regime counts, marginal
+variances, covariance and 2<em>w_s</em>w_b*cov contribution with
+date-block inference and fixed-weight risk decomposition.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Comparing Local and Stochastic Volatility Models: Pricing and Hedging Performance | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D01.02.03 · Derivatives · Option models &amp; surfaces</p><h1>Comparing Local and Stochastic Volatility Models: Pricing and Hedging Performance</h1><p class="lead">When a local-volatility model reproduces a Heston-generated vanilla surface, how different are barrier prices and delta hedges in the Heston data-generating market?</p><p class="small">Synthetic core · Level 3/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html" aria-current="page">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Python lab</h2><div class="actions"><a href="files/student_start.ipynb" class="button secondary" download>Open student_start.ipynb</a><a href="files/requirements.txt" class="button secondary" download>Open requirements.txt</a></div><p class="notice">Unexecuted starter only. No solved thesis or external data supplied.</p><h3>Run locally</h3><p>Extract the workspace ZIP and open the notebook in an isolated Python environment. Install requirements.txt, read the data guide, and retain your own results.</p><h3>Run in Codespaces</h3><p><a href="https://codespaces.new/robertomarfe/thesis-catalogue-students/tree/main" class="button secondary">Open student Python environment</a></p><p>Check costs. Use Tasks: Run Task > Prepare my research draft, select D01.02.03, then File > Open File and open /workspaces/thesis-research/D01.02.03/student_start.ipynb. Select the isolated .venv interpreter. No forwarded port required. Do not commit raw data or results.</p><h3 id="d01.02.03-student-research-starter">D01.02.03 | Student research
+starter</h3>
+<p><strong>Current review draft; approval pending.</strong> Synthetic
+core; no mandatory external data.</p>
+<h4 id="goal">Goal</h4>
+<p>Two models can reproduce the same vanilla option surface yet disagree
+on the law of the underlying path. Local volatility encodes the
+one-dimensional risk-neutral marginals; stochastic volatility retains a
+latent variance state. Barrier options and hedging provide a way to
+assess the economic relevance of this distinction while controlling the
+quality of the vanilla fit.</p>
+<p><strong>Research question:</strong> When a local-volatility model
+reproduces a Heston-generated vanilla surface, how different are barrier
+prices and delta hedges in the Heston data-generating market?</p>
+<h4 id="setup-check">Setup check</h4>
+<p>Check monitoring times and a manually specified barrier indicator; no
+barrier price or hedge. This artificial example does not validate the
+full research design or actual data.</p>
+<pre><code>import numpy as np
+t=np.array([0.,.25,.5]); s=np.array([100.,90.,95.])
+assert np.all(np.diff(t)&gt;0) and np.all(s&gt;80.)
+print(&#x27;Setup check passed.&#x27;)</code></pre><h4 id="student-owned-research">Student-owned research</h4>
+<p>Check derivative stability and held-out vanillas before comparing
+barriers. Hold monitoring and strike fixed. Treat barrier state, cash
+funding and initial capital explicitly; record the interpolation domain
+and the handling of out-of-domain simulations.</p>
+<ol type="1">
+<li><p>Implement Heston vanilla reference and local variance extraction,
+map regularization/extrapolation.</p></li>
+<li><p>Validate local model vanillas at withheld strikes/maturities;
+refine time/spot grid and reject unstable surface.</p></li>
+<li><p>Compare discretely monitored barrier prices with independent MC
+error bars; common monitoring only.</p></li>
+<li><p>On shared Heston P paths compare local and Heston delta-only
+self-financing hedges, stopping at knock-out.</p></li>
+<li><p>Stress leverage, vol-of-vol, barrier proximity and time-step;
+separate surface fit error from genuine dynamics differences.</p></li>
+</ol>
+<p><strong>Minimum viable thesis:</strong> One validated synthetic
+surface, withheld vanilla tests, one barrier family and one independent
+hedge experiment. Distinct from Heston calibration and surface fitting
+projects.</p>
+<p>Record assumptions, independent checks, uncertainty and limitations
+in a separate research notebook. No core solver or research output is
+supplied.</p>
+<p><a href="files/student_start.ipynb">Notebook source</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

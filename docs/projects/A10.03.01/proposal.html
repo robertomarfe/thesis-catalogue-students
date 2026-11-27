@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Nonlinear Latent Factors and Cross-Sectional Pricing Errors | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A10.03.01 · Asset Pricing · Predictability &amp; machine learning</p><h1>Nonlinear Latent Factors and Cross-Sectional Pricing Errors</h1><p class="lead">Can a characteristic-conditioned nonlinear exposure map reduce held-out portfolio pricing errors relative to PCA and a linear conditional factor model at the same latent dimension?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Predictability and machine learning · Level
+3/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Explaining return variance is not equivalent to pricing average
+returns. A characteristic-dependent factor loading can improve
+cross-sectional generalization, but flexible maps may fit noise or
+exploit test assets when constructing factors.</p>
+<h3 id="research-question">Research question</h3>
+<p>Can a characteristic-conditioned nonlinear exposure map reduce
+held-out portfolio pricing errors relative to PCA and a linear
+conditional factor model at the same latent dimension?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>r</mi><mrow><mi>i</mi><mi>t</mi></mrow><mi>e</mi></msubsup><mo>=</mo><mi>b</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>z</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>⊤</mi></msup><msub><mi>f</mi><mi>t</mi></msub><mo>+</mo><msub><mi>ϵ</mi><mrow><mi>i</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">r^e_{it}=b(z_i)^\top f_t+\epsilon_{it}</annotation></semantics></math>
+separates factor payoffs from characteristic-conditioned exposures.</p>
+<h3 id="research-design">Research design</h3>
+<p>Extract factors from separate 30-industry panel; fixed portfolio rank
+labels for 25 size/BM and 25 size/momentum. Compare constant, linear and
+shallow tanh loading maps at equal latent dimension. Train through 1999,
+tune 2000–2009 and hold out 2010–2025. OSAP optional only.</p>
+<p>Check panel separation (including overlap in underlying portfolio
+constructions as limitation), training factor means and normalization;
+perturb held-out returns to test invariance of fitted maps. Use common
+error metric and dimensions; document identifiability up to
+rotation.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Factor/exposure design and split audit; pricing and reconstruction
+errors; predicted versus realized mean plots; complexity and seed
+stability.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Separate French factor/test panels, PCA and linear versus shallow
+nonlinear exposure map, chronological evaluation and distinction between
+pricing and reconstruction. Class B retained; core public French data,
+OSAP optional.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>No factor construction from held-out target returns. Fixed
+characteristic ranks are coarse and do not reproduce firm-level
+conditional autoencoders. Low holdout sample makes average return
+estimates noisy; do not infer causality or genuine expected-return gains
+from reconstruction.</p>
+<p><strong>Prerequisites:</strong> Factor pricing, PCA, regression,
+basic neural networks, Python/PyTorch or sklearn.</p>
+<p><strong>Optional extension:</strong> Joint factor encoder with
+independent factor-construction assets, or real lagged portfolio
+characteristics if accessible and authorized.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: model/data design; W4-6: PCA and linear baseline; W7-9:
+nonlinear tuning; W10-12: locked evaluation; W13-16:
+write/reproduce.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

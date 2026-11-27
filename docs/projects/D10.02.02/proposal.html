@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Pricing Commodity Options under Mean Reversion | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D10.02.02 · Derivatives · International, FX &amp; commodities</p><h1>Pricing Commodity Options under Mean Reversion</h1><p class="lead">How does mean reversion affect the maturity pattern of option prices on commodity forwards, holding the initial forward curve fixed?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · International finance, FX and commodities ·
+Level 2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Mean reversion dampens the effect of current shocks on distant
+delivery prices. Commodity options therefore depend on both option
+expiry and underlying delivery, even when the initial forward curve is
+held fixed. This experiment isolates that mechanism from curve
+fitting.</p>
+<h3 id="research-question">Research question</h3>
+<p>How does mean reversion affect the maturity pattern of option prices
+on commodity forwards, holding the initial forward curve fixed?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>With
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>F</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mi>F</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>σ</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>κ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>d</mi><msubsup><mi>W</mi><mi>t</mi><mi>ℚ</mi></msubsup></mrow><annotation encoding="application/x-tex">dF(t,T)/F(t,T)=\sigma e^{-\kappa(T-t)}dW_t^{\mathbb Q}</annotation></semantics></math>,
+the expiry variance is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mi>u</mi></msubsup><msup><mi>σ</mi><mn>2</mn></msup><msup><mi>e</mi><mrow><mi>−</mi><mn>2</mn><mi>κ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>d</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">\int_0^u\sigma^2e^{-2\kappa(T-t)}dt</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use the specified flat initial forward, volatility, maturity and
+delivery grid. Compare matched spot diffusion volatility and matched
+one-year forward variance. Price European options on F(u,T) analytically
+and by exact Gaussian simulation, preserving expiry versus delivery and
+deterministic rates.</p>
+<p>Check the constant-volatility limit, separate expiry from delivery
+and hold forward/discount fixed. Use independent seeds, report sampling
+error and keep both matching designs distinct.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Formula checks, option price/error table, expiry-delivery heatmaps,
+volatility term structures, matched-variance comparison.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>One-factor derivation, two matching designs, analytic/Monte Carlo
+agreement and economic interpretation of delivery lag; two-factor
+extension optional. Distinct from D10.01.02, which studies the forward
+curve itself.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Use deterministic rates and European payoff on F(u,T), not S_u unless
+u=T. Ensure Q drift and initial curve are consistent; forward and
+futures equality needs deterministic rates. Gaussian model is an
+illustrative positive-price model, not calibrated oil data.</p>
+<p><strong>Prerequisites:</strong> Gaussian processes, risk-neutral
+pricing, Black formula, Monte Carlo.</p>
+<p><strong>Optional extension:</strong> With lawful historical options
+and futures quotes, estimate volatility term structure and test
+one-factor restrictions.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: derive dynamics and pricing; W4-6: implement analytic benchmark
+and simulation; W7-9: maturity grids and matched comparisons; W10-12:
+robustness and optional second factor; W13-16: write and reproduce.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Economics of Discrete-Time Delta Hedging | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D04.01.01 · Derivatives · Hedging &amp; volatility derivatives</p><h1>The Economics of Discrete-Time Delta Hedging</h1><p class="lead">How rapidly does terminal replication error decline as delta rebalancing becomes more frequent, and which strikes, maturities and volatility states remain difficult to hedge?</p><p class="small">Synthetic core · Level 1/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>D04.01.01 · Derivatives · Synthetic data · Difficulty 1/3 ·
+16 weeks</strong></p>
+<p>Current research proposal. Supervisor approval and applicable data
+clearance remain pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>In the Black–Scholes economy, continuous trading eliminates
+replication risk. A trader who can rebalance only at discrete dates must
+instead bear the residual price risk accumulated between trades. More
+frequent trading reduces this exposure, but the trading volume needed to
+achieve a given precision can be substantial even when transaction costs
+are excluded. This project studies the economic magnitude and
+distribution of the residual risk, rather than simply reproducing the
+continuous-time formula.</p>
+<h3 id="research-question">Research question</h3>
+<p>How rapidly does terminal replication error decline as delta
+rebalancing becomes more frequent, and which strikes, maturities and
+volatility states remain difficult to hedge?</p>
+<h3 id="model-and-intuition">Model and intuition</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mi>t</mi></msub><annotation encoding="application/x-tex">S_t</annotation></semantics></math>
+denote a non-dividend-paying stock,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>
+the constant short rate and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>
+annual volatility. Under the physical measure
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℙ</mi><annotation encoding="application/x-tex">\mathbb P</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>S</mi><mi>t</mi></msub><mi>/</mi><msub><mi>S</mi><mi>t</mi></msub><mo>=</mo><mi>μ</mi><mspace width="0.167em"></mspace><mi>d</mi><mi>t</mi><mo>+</mo><mi>σ</mi><mspace width="0.167em"></mspace><mi>d</mi><msubsup><mi>W</mi><mi>t</mi><mi>ℙ</mi></msubsup></mrow><annotation encoding="application/x-tex">dS_t/S_t=\mu\,dt+\sigma\,dW_t^{\mathbb P}</annotation></semantics></math>.
+Under the pricing measure
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℚ</mi><annotation encoding="application/x-tex">\mathbb Q</annotation></semantics></math>,
+the drift is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>.
+Write
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><msub><mi>S</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">C(t,S_t)</annotation></semantics></math>
+for the Black–Scholes call price with fixed strike
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+and maturity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>.
+The stock holding is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Δ</mi><mi>t</mi></msub><mo>=</mo><mi>∂</mi><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><msub><mi>S</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mi>∂</mi><msub><mi>S</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">\Delta_t=\partial C(t,S_t)/\partial S_t</annotation></semantics></math>.
+Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>B</mi><mi>j</mi></msub><annotation encoding="application/x-tex">B_j</annotation></semantics></math>
+be the cash balance immediately after trading at date
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mi>j</mi></msub><annotation encoding="application/x-tex">t_j</annotation></semantics></math>.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mn>0</mn></msub><mo>=</mo><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><msub><mi>S</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>Δ</mi><mn>0</mn></msub><msub><mi>S</mi><mn>0</mn></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>B</mi><mi>j</mi></msub><mo>=</mo><msub><mi>B</mi><mrow><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub><msup><mi>e</mi><mrow><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>t</mi><mi>j</mi></msub><mo>−</mo><msub><mi>t</mi><mrow><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Δ</mi><mi>j</mi></msub><mo>−</mo><msub><mi>Δ</mi><mrow><mi>j</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>S</mi><msub><mi>t</mi><mi>j</mi></msub></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">B_0=C(0,S_0)-\Delta_0S_0,\qquad B_j=B_{j-1}e^{r(t_j-t_{j-1})}-(\Delta_j-\Delta_{j-1})S_{t_j}.</annotation></semantics></math></p>
+<p>At maturity, liquidate the stock and pay the short call. The
+discounted seller’s error is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>T</mi></mrow></msup><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>B</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><msup><mi>e</mi><mrow><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>T</mi><mo>−</mo><msub><mi>t</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo>+</mo><msub><mi>Δ</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><msub><mi>S</mi><mi>T</mi></msub><mo>−</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mi>T</mi></msub><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">E=e^{-rT}[B_{n-1}e^{r(T-t_{n-1})}+\Delta_{n-1}S_T-(S_T-K)^+]</annotation></semantics></math>.
+Positive
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>
+is a gain; negative
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math>
+is a loss. The local error is approximately minus one half of gamma
+times the unexpected squared price increment. This approximation helps
+explain why high-gamma states are difficult to hedge.</p>
+<h3 id="experimental-design">Experimental design</h3>
+<p>Set
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">S_0=100</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>2</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">r=2\%</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>6</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">\mu=6\%</annotation></semantics></math>
+(and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mi>r</mi></mrow><annotation encoding="application/x-tex">\mu=r</annotation></semantics></math>
+for robustness),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>15</mn><mi>%</mi><mo>,</mo><mn>30</mn><mi>%</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\sigma\in\{15\%,30\%\}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>90</mn><mo>,</mo><mn>100</mn><mo>,</mo><mn>110</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">K\in\{90,100,110\}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>0.25</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">T\in\{0.25,1\}</annotation></semantics></math>
+years. Simulate exact GBM on a 256-step grid and subsample the same
+paths at 4, 16, 64 and 256 hedge intervals. Use at least 20,000 paths
+per scenario and independent replication. The primary exercise is
+frictionless; report gross turnover without fees.</p>
+<h3 id="applied-research-programme">Applied research programme</h3>
+<ol type="1">
+<li><strong>Validate the hedge ledger.</strong> Derive the delta and
+cash-account updates; check a deterministic path by hand. Reconcile the
+discounted cash recursion and gains representation.</li>
+<li><strong>Measure replication error.</strong> Estimate mean, standard
+deviation, RMSE and tail quantiles at each frequency. Retain common
+paths across frequencies and report uncertainty from independent
+replications or paired resampling.</li>
+<li><strong>Study convergence.</strong> Plot RMSE against the number of
+intervals on log–log axes. Compare with the usual square-root-order
+benchmark under regularity; do not impose an exact finite-grid
+exponent.</li>
+<li><strong>Explain heterogeneity.</strong> Compare strikes, maturities,
+volatility and gamma. Terminal-moneyness classifications describe
+realized errors and must not be treated as information available to the
+trader.</li>
+<li><strong>Quantify trading intensity.</strong> Include opening,
+intermediate and terminal liquidation in turnover. Do not infer actual
+transaction costs from this frictionless design.</li>
+</ol>
+<h3 id="deliverables-and-acceptance">Deliverables and acceptance</h3>
+<p>Provide a tested ledger, distribution and convergence figures, tail
+loss and turnover tables and a gamma-based interpretation. Express
+errors in currency per option and relative to spot; premium
+normalization is sensitive to small option values. Change drift and
+volatility and repeat with independent seeds. No empirical claim is
+required.</p>
+<p><strong>Minimum viable thesis.</strong> Exact GBM, verified
+self-financing hedge, four frequencies and three strikes, quantitative
+convergence and distribution analysis with Monte Carlo precision.</p>
+<p>Optional extension: deliberately misspecify the pricing volatility
+while retaining the model-consistent frictionless experiment as the
+baseline. Frequency optimization with actual fees belongs to the
+separate project D04.03.01.</p>
+<h3 id="work-plan-and-prerequisites">Work plan and prerequisites</h3>
+<p>Weeks 1–3: replication and error expansion; 4–6: ledger; 7–9:
+simulations; 10–12: gamma and tail diagnostics; 13–16: robustness and
+writing. Prerequisites: stochastic calculus, Black–Scholes, simulation,
+Python arrays and basic inference.</p>
+<h3 id="core-reading">Core reading</h3>
+<p>Black and Scholes (1973), <em>Journal of Political Economy</em> 81,
+637–654. Boyle and Emanuel (1980), <em>Journal of Financial
+Economics</em> 8, 259–282. Glasserman (2004), <em>Monte Carlo Methods in
+Financial Engineering</em>, Springer. Consult the original reading guide
+for the source metadata and reading sequence. No new full-text
+verification is claimed here.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

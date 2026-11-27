@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Epstein-Zin Preferences and the Separation of Risk Aversion from Intertemporal Substitution | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A03.03.01 · Asset Pricing · Consumption &amp; equity valuation</p><h1>Epstein-Zin Preferences and the Separation of Risk Aversion from Intertemporal Substitution</h1><p class="lead">How do risk aversion and the elasticity of intertemporal substitution independently affect equilibrium prices, and what changes when consumption growth becomes predictable?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Focused methods / A03.03.01</strong></p>
+<h3 id="consumption-wealth-and-the-euler-equation">1. Consumption wealth
+and the Euler equation</h3>
+<p>Define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mn>1</mn><mo>−</mo><mn>1</mn><mi>/</mi><mi>ψ</mi></mrow><annotation encoding="application/x-tex">a=1-1/\psi</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>γ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">\theta=(1-\gamma)/a</annotation></semantics></math>.
+With the notation in the proposal,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>w</mi><mi>i</mi><mi>θ</mi></msubsup><mo>=</mo><msup><mi>β</mi><mi>θ</mi></msup><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><msub><mi>𝔼</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>G</mi><mrow><mn>1</mn><mo>−</mo><mi>γ</mi></mrow></msup><mo>∣</mo><mi>j</mi><mo stretchy="true" form="postfix">]</mo></mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><msub><mi>w</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>θ</mi></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">w_i^\theta=\beta^\theta\sum_j p_{ij}\mathbb E_i[G^{1-\gamma}\mid j](1+w_j)^\theta.</annotation></semantics></math></p>
+<p>This follows directly from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝔼</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>M</mi><msup><mi>R</mi><mi>w</mi></msup><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\mathbb E_i[M R^w]=1</annotation></semantics></math>;
+the exponent on continuation wealth is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>,
+not
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mi>γ</mi></mrow><annotation encoding="application/x-tex">1-\gamma</annotation></semantics></math>.
+For positive wealth and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\theta\ne0</annotation></semantics></math>,
+take logs and solve the resulting fixed point. The implementation below
+is restricted to non-singular preferences; derive limits separately
+rather than dividing by zero.</p>
+<p>In the iid lognormal economy with log growth mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>
+and variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>s</mi><mn>2</mn></msup><annotation encoding="application/x-tex">s^2</annotation></semantics></math>,
+let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mi>w</mi><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>w</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q=w/(1+w)</annotation></semantics></math>.
+Then</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mi>q</mi><mo>=</mo><mo>log</mo><mi>β</mi><mo>+</mo><mi>a</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>μ</mi><mo>+</mo><mfrac displaystyle="false"><mn>1</mn><mn>2</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>γ</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>s</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>w</mi><mo>=</mo><mfrac><mi>q</mi><mrow><mn>1</mn><mo>−</mo><mi>q</mi></mrow></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">\log q=\log\beta+a[\mu+\tfrac12(1-\gamma)s^2],\qquad w=\frac{q}{1-q},</annotation></semantics></math></p>
+<p>provided
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>q</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0&lt;q&lt;1</annotation></semantics></math>.
+The real gross safe return satisfies</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><msub><mi>R</mi><mi>f</mi></msub><mo>=</mo><mi>−</mi><mo>log</mo><mi>β</mi><mo>+</mo><mfrac><mi>μ</mi><mi>ψ</mi></mfrac><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mi>γ</mi><mo>+</mo><mfrac><mrow><mi>γ</mi><mo>−</mo><mn>1</mn></mrow><mi>ψ</mi></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>s</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">\log R_f=-\log\beta+\frac{\mu}{\psi}-\frac12\left(\gamma+\frac{\gamma-1}{\psi}\right)s^2.</annotation></semantics></math></p>
+<p>When
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ψ</mi><mo>=</mo><mn>1</mn><mi>/</mi><mi>γ</mi></mrow><annotation encoding="application/x-tex">\psi=1/\gamma</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\theta=1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mi>β</mi><msup><mi>G</mi><mrow><mi>−</mi><mi>γ</mi></mrow></msup></mrow><annotation encoding="application/x-tex">M=\beta G^{-\gamma}</annotation></semantics></math>.</p>
+<h3 id="markov-pricing-and-checks">2. Markov pricing and checks</h3>
+<p>For a dividend claim with growth
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>G</mi><mi>d</mi></msup><annotation encoding="application/x-tex">G^d</annotation></semantics></math>,
+define pricing matrices</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>K</mi><mrow><mi>i</mi><mi>j</mi></mrow><mi>d</mi></msubsup><mo>=</mo><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><msub><mi>𝔼</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>M</mi><msup><mi>G</mi><mi>d</mi></msup><mo>∣</mo><mi>j</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msubsup><mi>K</mi><mrow><mi>i</mi><mi>j</mi></mrow><mn>0</mn></msubsup><mo>=</mo><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><msub><mi>𝔼</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>M</mi><mo>∣</mo><mi>j</mi><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">K^d_{ij}=p_{ij}\mathbb E_i[M G^d\mid j],\qquad K^0_{ij}=p_{ij}\mathbb E_i[M\mid j].</annotation></semantics></math></p>
+<p>A finite positive price-dividend vector solves
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><msup><mi>K</mi><mi>d</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>𝟏</mn><mo>+</mo><mi>d</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">d=K^d(\mathbf1+d)</annotation></semantics></math>
+when the spectral radius of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>K</mi><mi>d</mi></msup><annotation encoding="application/x-tex">K^d</annotation></semantics></math>
+is below one. Safe rates are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mi>f</mi><mo>,</mo><mi>i</mi></mrow></msub><mo>=</mo><mn>1</mn><mi>/</mi><msub><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>K</mi><mn>0</mn></msup><mn>𝟏</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">R_{f,i}=1/(K^0\mathbf1)_i</annotation></semantics></math>.
+Confirm the consumption wealth Euler equation separately, and
+distinguish conditional return means from stationary averages. Report
+both within- and between-state variation.</p>
+<h3 id="notation-and-numerical-contract">3. Notation and numerical
+contract</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Symbol</th>
+<th style="text-align: left;">Implementation</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>,</mo><mi>γ</mi><mo>,</mo><mi>ψ</mi></mrow><annotation encoding="application/x-tex">\beta,\gamma,\psi</annotation></semantics></math></td>
+<td style="text-align: left;"><code>beta, gamma, psi</code></td>
+<td style="text-align: left;">preferences</td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><annotation encoding="application/x-tex">p_{ij}</annotation></semantics></math></td>
+<td style="text-align: left;"><code>P[i,j]</code></td>
+<td style="text-align: left;">transition probability</td>
+</tr>
+<tr class="odd">
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>i</mi></msub><mo>,</mo><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">w_i,d_i</annotation></semantics></math></td>
+<td style="text-align: left;"><code>w[i], d[i]</code></td>
+<td style="text-align: left;">ex-dividend ratios</td>
+</tr>
+<tr class="even">
+<td
+style="text-align: left;"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>K</mi><mi>d</mi></msup><mo>,</mo><msup><mi>K</mi><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">K^d,K^0</annotation></semantics></math></td>
+<td style="text-align: left;"><code>Kd, K0</code></td>
+<td style="text-align: left;">price kernels</td>
+</tr>
+</tbody>
+</table>
+<p>Check positivity, root residuals, uniqueness within tested starts and
+the iid/CRRA benchmarks. A small residual alone is not a global
+existence proof. The student derives and implements the full grids and
+Markov solver. No solved preference grid is supplied.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

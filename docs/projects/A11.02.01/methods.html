@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Hansen-Jagannathan Bound and the Volatility of the Pricing Kernel | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A11.02.01 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>The Hansen-Jagannathan Bound and the Volatility of the Pricing Kernel</h1><p class="lead">How does the minimum SDF volatility implied by US portfolio returns increase as test assets are added, and can a calibrated consumption-based SDF plausibly satisfy the resulting restrictions?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="bound-from-traded-payoffs">Bound from traded payoffs</h3>
+<p>For any vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>w</mi><mi>⊤</mi></msup><mi>x</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mi>−</mi><mo>Cov</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo>,</mo><msup><mi>w</mi><mi>⊤</mi></msup><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">E[m]E[w^\top x]=-\operatorname{Cov}(m,w^\top x)</annotation></semantics></math>.
+Cauchy–Schwarz bounds the payoff Sharpe ratio by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>sd</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\operatorname{sd}(m)/E[m]</annotation></semantics></math>.
+Maximizing over unrestricted weights gives the displayed bound. A
+singular covariance requires checking whether the mean is in its range;
+a nonzero mean in a zero-variance direction implies no finite bound.
+Adding assets on an identical population cannot weaken the unrestricted
+bound. Positive-kernel restrictions are stronger.</p>
+<h3 id="real-units-and-consumption-benchmark">Real units and consumption
+benchmark</h3>
+<p>Compound monthly nominal gross total and bill returns separately into
+each complete quarter and divide both by the same inflation factor.
+Define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><msubsup><mi>R</mi><mi>i</mi><mrow><mi>r</mi><mi>e</mi><mi>a</mi><mi>l</mi></mrow></msubsup><mo>−</mo><msubsup><mi>R</mi><mi>b</mi><mrow><mi>r</mi><mi>e</mi><mi>a</mi><mi>l</mi></mrow></msubsup></mrow><annotation encoding="application/x-tex">x=R_i^{real}-R_b^{real}</annotation></semantics></math>;
+the ex post real bill is not a known constant real risk-free asset. For
+quarterly consumption growth
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>g</mi><mi>c</mi></msub><annotation encoding="application/x-tex">g_c</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mi>β</mi><msubsup><mi>g</mi><mi>c</mi><mrow><mi>−</mi><mi>γ</mi></mrow></msubsup></mrow><annotation encoding="application/x-tex">m=\beta g_c^{-\gamma}</annotation></semantics></math>;
+the dispersion ratio cancels positive
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>.
+Check actual
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><mi>x</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">E[mx]</annotation></semantics></math>
+in addition to the bound: meeting the necessary bound is not sufficient
+for pricing.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Use identical complete quarters for all nested sets. Report raw
+covariance spectrum, rank policy, bootstrap and labeled shrinkage
+sensitivity; never claim an observed constant real bill or infer
+rejection solely from a sample bound gap.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

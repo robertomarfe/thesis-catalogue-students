@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Interest Rate Swaps and the Management of Duration Risk | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D07.01.02 · Derivatives · Fixed income &amp; interest rates</p><h1>Interest Rate Swaps and the Management of Duration Risk</h1><p class="lead">How much interest rate risk can a stylized payer swap eliminate from a government bond portfolio, and when do key-rate hedges outperform a single DV01 hedge?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d07.01.02">Research plan | D07.01.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Report initial zero PV for swaps, matched shocks and risk reduction
+net of exposure sign mistakes. Distinct from D07.04.02: swap
+DV01/key-rate hedging rather than PCA zero-bond spanning.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Implement discount factors, par coupons, swap annuity and sign
+conventions; verify par instruments and cash-flow valuation.</p></li>
+<li><p>Construct a fixed-face bond mix; calculate parallel DV01,
+convexity and key-rate exposure.</p></li>
+<li><p>Solve a one-swap hedge and a two-swap least-squares key-rate
+hedge with predeclared notional caps; freeze notionals before next curve
+shock.</p></li>
+<li><p>Reprice exactly under observed changes and compare unhedged and
+hedged shock P&amp;L in dollars, SD, tail quantiles and residual
+exposures.</p></li>
+<li><p>Compare linear DV01 approximation versus exact P&amp;L across
+parallel, steepening and flattening scenarios.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Curve data audit, hedge ratios, P&amp;L distributions, risk reduction
+by regime and shock type, sensitivity and notional tables, validated
+pricer.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Use common dates; no rolling live-position claim, carry or funding
+P&amp;L. Government zero curve is not OIS or term forward curve. Label
+hedge as a historical shock replay using synthetic contracts. Repeat
+with smaller bump sizes, maturity grid and stress dates. No execution
+costs, collateral or basis included.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Validated par valuation, signed DV01 hedge, exact shock repricing on
+a verified daily GSW sample and comparison of one- and two-instrument
+residual risk.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Implement genuine rolling coupon/reset schedule with carry and aging,
+or compare euro government proxy curves; verify separate curves before
+claiming swap-market evidence.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Fixed-income pricing, linear algebra, Python and basic portfolio risk
+analysis.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Bond and swap valuation;</p></li>
+<li><p>Duration and key-rate hedging;</p></li>
+<li><p>Historical curve shock design;</p></li>
+<li><p>Hedging results and residual risks;</p></li>
+<li><p>Practical limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: study curve/swap conventions; W4-6: acquire GSW and validate
+pricer; W7-10: compute hedge ratios and shock P&amp;L; W11-13: stress
+and sensitivity; W14-16: write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

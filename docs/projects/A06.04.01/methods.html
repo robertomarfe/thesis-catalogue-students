@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Equity and Bond Yield Slopes over the Business Cycle | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A06.04.01 · Asset Pricing · Consumption &amp; equity valuation</p><h1>Equity and Bond Yield Slopes over the Business Cycle</h1><p class="lead">How do matched-maturity equity and nominal Treasury yield slopes covary across the US business cycle, and is the relation stable across alternative measures of economic conditions?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> GKK archive and matching bond/macro time series.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="mathematical-framework">Mathematical framework</h3>
+<p>Use matched maturities
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>s</mi><mi>t</mi><mi>E</mi></msubsup><mo>=</mo><msub><mi>e</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>10</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>e</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">s^E_t=e_t(10)-e_t(2)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>s</mi><mi>t</mi><mi>B</mi></msubsup><mo>=</mo><msub><mi>b</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>10</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>b</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">s^B_t=b_t(10)-b_t(2)</annotation></semantics></math>.</p>
+<p>With retrospective recession indicator
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mi>t</mi></msub><annotation encoding="application/x-tex">I_t</annotation></semantics></math>,
+estimate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>s</mi><mi>t</mi><mi>E</mi></msubsup><mo>=</mo><mi>a</mi><mo>+</mo><mi>b</mi><msubsup><mi>s</mi><mi>t</mi><mi>B</mi></msubsup><mo>+</mo><mi>c</mi><msub><mi>I</mi><mi>t</mi></msub><mo>+</mo><mi>d</mi><msubsup><mi>s</mi><mi>t</mi><mi>B</mi></msubsup><msub><mi>I</mi><mi>t</mi></msub><mo>+</mo><msub><mi>u</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">s^E_t=a+b s^B_t+c I_t+d s^B_t I_t+u_t</annotation></semantics></math>.
+Expansion association is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>,
+recession association
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>+</mo><mi>d</mi></mrow><annotation encoding="application/x-tex">b+d</annotation></semantics></math>;
+report the latter with its joint covariance. Distinguish regression on
+levels from changes; preserve persistence in joint calendar blocks and
+count recession episodes. Use alternative maturity pairs and lagged
+industrial production growth as prespecified; retrospective labels are
+not signals available to investors. Nominal-real mismatch cannot isolate
+inflation risk.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Verify exact GKK/GSW grid 2/10y with dates and units, distinguish
+level regression from change regression, compare interaction coefficient
+with prespecified alternative maturity pairs and lagged IP growth.
+Resample joint date blocks, report recession episode counts and
+leave-one-episode sensitivity; no causal identification or real-time
+prediction.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

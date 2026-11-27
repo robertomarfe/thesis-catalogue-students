@@ -6,7 +6,7 @@
   const $ = id => document.getElementById(id);
   const projects = data.projects, byId = new Map(projects.map(p => [p.id, p]));
   const gates = {"not_required":"Synthetic core","pending":"Data verification pending","conditional":"Conditional data access","blocked":"Data access warning"};
-  const states = {"description":"Proposal · assignment subject to confirmation"};
+  const states = {"draft_workspace":"Complete research draft · assignment subject to confirmation"};
   const storageKey = "thesis-library-v90:" + "discovery" + ":" + location.pathname.replace(/explorer\.html$/,"");
   const normalize = s => String(s || "").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
   const unique = a => [...new Set(a)].sort((a,b)=>String(a).localeCompare(String(b)));
@@ -48,7 +48,7 @@
     const tags=el("div",null,"tags");for(const t of (p.tags||[]).slice(0,4))tags.append(el("span",t,"tag"));c.append(tags);
     const actions=el("div",null,"actions");
     const save=action(saved.has(p.id)?"Saved":"Save",()=>{saved.has(p.id)?saved.delete(p.id):saved.add(p.id);persist();render();},saved.has(p.id));save.dataset.cardAction="save";
-    actions.append(link(p,"Read proposal →"),save);
+    actions.append(link(p,"Open workspace →"),save);
     const cmp=action(compared.has(p.id)?"Selected":"Compare",()=>{if(compared.has(p.id))compared.delete(p.id);else if(compared.size<3)compared.add(p.id);render();},compared.has(p.id));
     cmp.disabled=!compared.has(p.id)&&compared.size>=3;cmp.dataset.cardAction="compare";actions.append(cmp);c.append(actions);return c;
   }

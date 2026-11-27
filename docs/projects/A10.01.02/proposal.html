@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Predicting Factor Returns with Machine Learning | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A10.01.02 · Asset Pricing · Predictability &amp; machine learning</p><h1>Predicting Factor Returns with Machine Learning</h1><p class="lead">Do ridge and LASSO forecasts of monthly SMB, HML and momentum improve over factor-specific historical means and fixed OLS models in a genuinely held-out period?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Predictability and machine learning · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Factor premia may vary with macro-financial state and their own
+lagged performance. The question is whether regularized forecasts
+generalize across distinct factor payoffs, not whether a selected
+winning factor is predictable.</p>
+<h3 id="research-question">Research question</h3>
+<p>Do ridge and LASSO forecasts of monthly SMB, HML and momentum improve
+over factor-specific historical means and fixed OLS models in a
+genuinely held-out period?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>Each long-short factor payoff has its own conditional mean and
+forecast loss; pooling three winners after test invalidates joint
+inference.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use monthly French SMB/HML/Mom plus Goyal dp/tms/dfy/tbl and own
+lagged return. Training 1965–1994, validation 1995–2009 and test
+2010–2025. Compare factor-specific mean, OLS, ridge and LASSO on
+identical dates.</p>
+<p>Check factor signs, dates, percent scaling, source vintage and lags.
+Keep all three factor loss gains together in resampling. Freeze OLS
+specification; negative R2 and weak gains allowed; no selected winner
+p-value.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Chronological split ledger, tuning curves, OOS forecast and loss
+files, factor-specific performance table, coefficient paths and
+multiple-testing diagnostics.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Three factors, four benchmarks/models, nested chronological
+validation, untouched holdout and joint uncertainty assessment; negative
+R2 acceptable.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Do not apply random cross-validation or standardize on full sample.
+Keep target menu fixed; revised macro predictors are pseudo-real-time
+unless vintages are recovered. Do not call long-short factor timing
+net-investment returns without a funding convention. Distinct from
+A10.01.01 aggregate equity premium forecasts.</p>
+<p><strong>Prerequisites:</strong> Factor models, regression,
+regularization, time-series validation and Python (scikit-learn).</p>
+<p><strong>Optional extension:</strong> Compare a multitask ridge or
+group-penalized specification, with separate validation and fixed
+out-of-sample evaluation.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: factor and ML literature; W4-6: data and chronological splits;
+W7-9: models and nested tuning; W10-12: holdout and joint tests; W13-16:
+robustness and writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

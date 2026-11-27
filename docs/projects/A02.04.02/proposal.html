@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Predicting the Distribution Rather Than the Mean of Stock Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A02.04.02 · Asset Pricing · Predictability &amp; machine learning</p><h1>Predicting the Distribution Rather Than the Mean of Stock Returns</h1><p class="lead">Do valuation and implied-volatility indicators improve lower-tail monthly market excess-return forecasts relative to unconditional historical and rolling location-scale benchmarks?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Predictability and machine learning · Level
+3/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Expected returns alone do not describe downside exposure. Conditional
+quantiles target tail outcomes without assuming a full parametric
+distribution, but lower-tail samples are sparse and quantile crossing
+complicates interpretation.</p>
+<h3 id="research-question">Research question</h3>
+<p>Do valuation and implied-volatility indicators improve lower-tail
+monthly market excess-return forecasts relative to unconditional
+historical and rolling location-scale benchmarks?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>The conditional quantile
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Q</mi><mi>τ</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">Q_\tau(x)</annotation></semantics></math>
+minimizes conditional expected pinball loss for probability
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use Goyal valuation, French market/bill and VIXCLS, proposed
+1990–2025, train 1990–2004 then expanding test. At least .10/.50/.90
+quantiles (optional .25/.75), expanding empirical quantiles and rolling
+60-month Gaussian benchmark.</p>
+<p>Hand-check pinball loss for positive and negative residuals and
+empirical quantile convention. Check VIX availability and no future
+data. Test crossing detection, report event counts, no post-test choice
+of quantile or rearrangement.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Quantile fan, calibration and loss table, event counts, crossing
+diagnostic and origin ledger.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Three quantiles including .10, two benchmarks, expanding test, proper
+scores and calibration.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Limited tail events; no claim that risk forecasts generate trading
+gains. Same sample and quantiles across methods; no test tuning. Revised
+macro/valuation data not real-time vintages.</p>
+<p><strong>Prerequisites:</strong> Quantile regression, forecasting,
+Python.</p>
+<p><strong>Optional extension:</strong> Fit Student-t location-scale
+distribution and compare CRPS on identical origins.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: predictors and scoring; W4-6: benchmarks; W7-9: quantile fits;
+W10-12: evaluation; W13-16: writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

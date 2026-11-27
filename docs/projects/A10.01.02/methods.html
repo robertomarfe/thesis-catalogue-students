@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Predicting Factor Returns with Machine Learning | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A10.01.02 · Asset Pricing · Predictability &amp; machine learning</p><h1>Predicting Factor Returns with Machine Learning</h1><p class="lead">Do ridge and LASSO forecasts of monthly SMB, HML and momentum improve over factor-specific historical means and fixed OLS models in a genuinely held-out period?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="mathematical-framework">Mathematical framework</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mi>S</mi><mi>M</mi><mi>B</mi><mo>,</mo><mi>H</mi><mi>M</mi><mi>L</mi><mo>,</mo><mi>M</mi><mi>O</mi><mi>M</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">k\in\{SMB,HML,MOM\}</annotation></semantics></math>,
+predict
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mrow><mi>k</mi><mo>,</mo><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">f_{k,t+1}</annotation></semantics></math>
+with an individual training-only ridge or LASSO fit. Define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mrow><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>L</mi><mrow><mi>m</mi><mi>e</mi><mi>a</mi><mi>n</mi><mo>,</mo><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>−</mo><msub><mi>L</mi><mrow><mi>m</mi><mi>o</mi><mi>d</mi><mi>e</mi><mi>l</mi><mo>,</mo><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">d_{k,t}=L_{mean,k,t}-L_{model,k,t}</annotation></semantics></math>,
+keeping the vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mi>t</mi></msub><annotation encoding="application/x-tex">d_t</annotation></semantics></math>
+intact in date-block resampling to preserve cross-factor dependence.
+Factor-specific historical means use matured factor returns only. Factor
+returns are long-short payoffs, not automatically funded excess-return
+investment strategies; collateral and financing require a separate
+convention.</p>
+<h3 id="identification-and-implementation">Identification and
+implementation</h3>
+<p>For model
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>
+define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>R</mi><mrow><mi>O</mi><mi>S</mi><mo>,</mo><mi>k</mi><mo>,</mo><mi>j</mi></mrow><mn>2</mn></msubsup><mo>=</mo><mn>1</mn><mo>−</mo><msub><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">E</mi></mrow><mrow><mi>k</mi><mo>,</mo><mi>j</mi></mrow></msub><mi>/</mi><msub><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">E</mi></mrow><mrow><mi>k</mi><mo>,</mo><mn>0</mn></mrow></msub></mrow><annotation encoding="application/x-tex">R^2_{OS,k,j}=1-\mathrm{SSE}_{k,j}/\mathrm{SSE}_{k,0}</annotation></semantics></math>.
+Joint date blocks retain correlation of the three loss differences. A
+simultaneous confidence region or prespecified multiplicity adjustment
+distinguishes individual from family-wide evidence. Do not subtract RF
+from zero-cost factor payoffs.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Check factor signs, dates, percent scaling, source vintage and lags.
+Keep all three factor loss gains together in resampling. Freeze OLS
+specification; negative R2 and weak gains allowed; no selected winner
+p-value.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

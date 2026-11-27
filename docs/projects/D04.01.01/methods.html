@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Economics of Discrete-Time Delta Hedging | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D04.01.01 · Derivatives · Hedging &amp; volatility derivatives</p><h1>The Economics of Discrete-Time Delta Hedging</h1><p class="lead">How rapidly does terminal replication error decline as delta rebalancing becomes more frequent, and which strikes, maturities and volatility states remain difficult to hedge?</p><p class="small">Synthetic core · Level 1/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>D04.01.01 · Synthetic diagnostic · Companion to the research
+proposal</strong></p>
+<h3 id="pricing-and-simulation-are-different-operations">1. Pricing and
+simulation are different operations</h3>
+<p>Under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℙ</mi><annotation encoding="application/x-tex">\mathbb P</annotation></semantics></math>,
+the exact stock transition over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>δ</mi><msub><mi>t</mi><mi>j</mi></msub><mo>=</mo><msub><mi>t</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>t</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\delta t_j=t_{j+1}-t_j</annotation></semantics></math>
+is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><msub><mi>t</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></msub><mo>=</mo><msub><mi>S</mi><msub><mi>t</mi><mi>j</mi></msub></msub><mo>exp</mo><mo stretchy="false" form="prefix">{</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>μ</mi><mo>−</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>δ</mi><msub><mi>t</mi><mi>j</mi></msub><mo>+</mo><mi>σ</mi><msqrt><mrow><mi>δ</mi><msub><mi>t</mi><mi>j</mi></msub></mrow></msqrt><msub><mi>Z</mi><mi>j</mi></msub><mo stretchy="false" form="postfix">}</mo><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>Z</mi><mi>j</mi></msub><mo>∼</mo><mi>N</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">S_{t_{j+1}}=S_{t_j}\exp\{(\mu-\sigma^2/2)\delta t_j+\sigma\sqrt{\delta t_j}Z_j\},\quad Z_j\sim N(0,1).</annotation></semantics></math></p>
+<p>Pricing uses
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℚ</mi><annotation encoding="application/x-tex">\mathbb Q</annotation></semantics></math>
+with drift
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>.
+For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\tau=T-t&gt;0</annotation></semantics></math>,
+set
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mn>1</mn></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>S</mi><mi>/</mi><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>+</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>τ</mi><mo stretchy="true" form="postfix">]</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>σ</mi><msqrt><mi>τ</mi></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">d_1=[\log(S/K)+(r+\sigma^2/2)\tau]/(\sigma\sqrt\tau)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mn>2</mn></msub><mo>=</mo><msub><mi>d</mi><mn>1</mn></msub><mo>−</mo><mi>σ</mi><msqrt><mi>τ</mi></msqrt></mrow><annotation encoding="application/x-tex">d_2=d_1-\sigma\sqrt\tau</annotation></semantics></math>.
+Then</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mi>S</mi><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>K</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>τ</mi></mrow></msup><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>Δ</mi><mo>=</mo><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>Γ</mi><mo>=</mo><mfrac><mrow><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>S</mi><mi>σ</mi><msqrt><mi>τ</mi></msqrt></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">C=S\Phi(d_1)-Ke^{-r\tau}\Phi(d_2),\qquad \Delta=\Phi(d_1),\qquad \Gamma=\frac{\phi(d_1)}{S\sigma\sqrt\tau}.</annotation></semantics></math></p>
+<p>Here
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math>
+denote the standard normal cdf and density. Avoid computing delta or
+gamma at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\tau=0</annotation></semantics></math>.
+Terminal liquidation is not a new hedge decision.</p>
+<h3 id="two-equivalent-cash-ledgers">2. Two equivalent cash ledgers</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>S</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><msub><mi>t</mi><mi>j</mi></msub></mrow></msup><msub><mi>S</mi><msub><mi>t</mi><mi>j</mi></msub></msub></mrow><annotation encoding="application/x-tex">\widetilde S_j=e^{-rt_j}S_{t_j}</annotation></semantics></math>,
+and let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>h</mi><mi>j</mi><mi>S</mi></msubsup><annotation encoding="application/x-tex">h_j^{S}</annotation></semantics></math>
+be the shares held from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mi>j</mi></msub><annotation encoding="application/x-tex">t_j</annotation></semantics></math>
+to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">t_{j+1}</annotation></semantics></math>.
+In a frictionless market, discounted terminal seller’s error equals</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><msub><mi>S</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></munderover><msubsup><mi>h</mi><mi>j</mi><mi>S</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mover><mi>S</mi><mo accent="true">̃</mo></mover><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mover><mi>S</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>T</mi></mrow></msup><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mi>T</mi></msub><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">E=C(0,S_0)+\sum_{j=0}^{n-1}h_j^{S}(\widetilde S_{j+1}-\widetilde S_j)-e^{-rT}(S_T-K)^+.</annotation></semantics></math></p>
+<p>This telescoping gains representation and the cash-account recursion
+in the proposal must agree path by path. Verify the identity using a
+separate implementation before interpreting simulations. Implement both
+representations separately.</p>
+<p>The discounted traded notional, with liquidation, is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>U</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">|</mo><msubsup><mi>h</mi><mn>0</mn><mi>S</mi></msubsup><mo stretchy="true" form="postfix">|</mo></mrow><msub><mi>S</mi><mn>0</mn></msub><mo>+</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></munderover><mrow><mo stretchy="true" form="prefix">|</mo><msubsup><mi>h</mi><mi>j</mi><mi>S</mi></msubsup><mo>−</mo><msubsup><mi>h</mi><mrow><mi>j</mi><mo>−</mo><mn>1</mn></mrow><mi>S</mi></msubsup><mo stretchy="true" form="postfix">|</mo></mrow><msub><mover><mi>S</mi><mo accent="true">̃</mo></mover><mi>j</mi></msub><mo>+</mo><mrow><mo stretchy="true" form="prefix">|</mo><msubsup><mi>h</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mi>S</mi></msubsup><mo stretchy="true" form="postfix">|</mo></mrow><msub><mover><mi>S</mi><mo accent="true">̃</mo></mover><mi>n</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">U=|h_0^{S}|S_0+\sum_{j=1}^{n-1}|h_j^{S}-h_{j-1}^{S}|\widetilde S_j+|h_{n-1}^{S}|\widetilde S_n.</annotation></semantics></math></p>
+<p>It is not a cost unless multiplied by a specified fee. Keep fee
+optimization out of this thesis’s baseline.</p>
+<h3 id="local-gamma-error-and-convergence">3. Local gamma error and
+convergence</h3>
+<p>Use the Black–Scholes PDE
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mi>t</mi></msub><mo>+</mo><mi>r</mi><mi>S</mi><msub><mi>C</mi><mi>S</mi></msub><mo>+</mo><mfrac displaystyle="false"><mn>1</mn><mn>2</mn></mfrac><msup><mi>σ</mi><mn>2</mn></msup><msup><mi>S</mi><mn>2</mn></msup><msub><mi>C</mi><mrow><mi>S</mi><mi>S</mi></mrow></msub><mo>=</mo><mi>r</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">C_t+rSC_S+\tfrac12\sigma^2S^2C_{SS}=rC</annotation></semantics></math>
+and a second-order Taylor expansion. Over one hedge interval, the change
+in option value minus the change in the delta-and-cash portfolio is
+approximately
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac displaystyle="false"><mn>1</mn><mn>2</mn></mfrac><msub><mi>Γ</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>S</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>−</mo><msup><mi>σ</mi><mn>2</mn></msup><msubsup><mi>S</mi><mi>j</mi><mn>2</mn></msubsup><mi>δ</mi><msub><mi>t</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\tfrac12\Gamma_j[(S_{j+1}-S_j)^2-\sigma^2 S_j^2 \delta t_j]</annotation></semantics></math>.
+Thus the leading seller’s terminal error is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>Γ</mi></msub><mo>=</mo><mi>−</mi><mfrac><mn>1</mn><mn>2</mn></mfrac><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></munderover><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><msub><mi>t</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow></msup><msub><mi>Γ</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>S</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>−</mo><msup><mi>σ</mi><mn>2</mn></msup><msubsup><mi>S</mi><mi>j</mi><mn>2</mn></msubsup><mi>δ</mi><msub><mi>t</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">E_\Gamma=-\frac12\sum_{j=0}^{n-1}e^{-rt_{j+1}}\Gamma_j[(S_{j+1}-S_j)^2-\sigma^2S_j^2\delta t_j].</annotation></semantics></math></p>
+<p>The approximation omits higher-order terms and is not an exact
+replication identity. High gamma near expiry can make finite-grid
+behavior depart from the asymptotic picture. Test the approximation
+against the exact ledger, not against another Taylor expansion.</p>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+paths, report
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">M</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">E</mi></mrow><mo accent="true">̂</mo></mover><mo>=</mo><msqrt><mrow><msup><mi>M</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>M</mi></msubsup><msubsup><mi>E</mi><mi>i</mi><mn>2</mn></msubsup></mrow></msqrt></mrow><annotation encoding="application/x-tex">\widehat{\mathrm{RMSE}}=\sqrt{M^{-1}\sum_{i=1}^{M} E_i^2}</annotation></semantics></math>.
+The convergence reference
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mrow><mi>−</mi><mn>1</mn><mi>/</mi><mn>2</mn></mrow></msup><annotation encoding="application/x-tex">n^{-1/2}</annotation></semantics></math>
+is illustrative under regularity, not a fitted restriction. Replicate
+the entire experiment on independent path samples to assess uncertainty
+in slopes and tail statistics. Nested grids enable paired comparisons:
+frequencies must not use unrelated paths.</p>
+<h3 id="notation-and-code-crosswalk">4. Notation and code crosswalk</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mi>j</mi></msub><annotation encoding="application/x-tex">t_j</annotation></semantics></math></td>
+<td>Time grid, years</td>
+<td><code>times</code></td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><msub><mi>t</mi><mi>j</mi></msub></msub><annotation encoding="application/x-tex">S_{t_j}</annotation></semantics></math></td>
+<td>Stock price, currency</td>
+<td><code>spots</code></td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>h</mi><mi>j</mi><mi>S</mi></msubsup><annotation encoding="application/x-tex">h_j^S</annotation></semantics></math></td>
+<td>Shares held over next interval</td>
+<td><code>holdings</code></td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math></td>
+<td>Discounted gain to short-call seller</td>
+<td><code>error</code></td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>U</mi><annotation encoding="application/x-tex">U</annotation></semantics></math></td>
+<td>Discounted stock traded notional</td>
+<td><code>stock_turnover</code></td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math></td>
+<td>Number of hedge intervals</td>
+<td><code>n</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="starter-boundary">5. Starter boundary</h3>
+<p>Implement the prescribed scenario grid, independent replications,
+distribution and gamma diagnostics; do not choose the sample solely
+because the slope looks favorable. All inputs are simulated and no
+external market dataset is needed.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

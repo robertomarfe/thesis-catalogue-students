@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Volatility Persistence and Long Memory in Financial Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.02.02 · Derivatives · Volatility &amp; tail risk</p><h1>Volatility Persistence and Long Memory in Financial Returns</h1><p class="lead">Does a fractional-memory model improve variance forecasts over HAR and conventional persistent volatility models, and can regime shifts mimic its apparent long memory?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d03.02.02">Research plan | D03.02.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>The break exercise is a diagnostic for observational equivalence, not
+a test that a particular historical break generated the sample. Retain
+the prescribed chronological periods and include four-week overlap in
+inference.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Plot ACF and periodogram; estimate d with bandwidth sensitivity
+and document finite-sample constraints.</p></li>
+<li><p>Simulate fractional Gaussian/ARFIMA and a piecewise short-memory
+variance DGP with equal variance and sample length, seed 2027, 500
+repetitions; compare estimated d.</p></li>
+<li><p>Estimate fixed model set and evaluate rolling or expanding
+forecasts; compare QLIKE and MSE of variance, not logs alone.</p></li>
+<li><p>Use common-date block-bootstrap differences in scores (overlap at
+four weeks); assess subperiods and training-window length.</p></li>
+<li><p>Repeat using daily HAR proxy and crisis-exclusion diagnostic;
+distinguish structural-break evidence from proof of memory.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>ACF, simulated d distributions, parameter table, loss and forecast
+comparison, sensitivity to breaks and sample.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Daily returns give noisy realized variance, not intraday realized
+variance. Avoid choosing break dates using future forecasts or selecting
+d from the final sample. Truncated fractional filter requires burn-in
+and convergence. Log transformation changes the loss target.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Weekly variance proxy, AR(1), ARFIMA and HAR forecasts, controlled
+break experiment and chronological test at both horizons. Distinct from
+D03.02.01’s horizon forecasting by explicit memory-identification
+exercise.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare FIGARCH or regime-switching volatility under a common
+out-of-sample protocol.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Time-series econometrics, likelihood, fractional filters, statistical
+programming.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Short and long memory;</p></li>
+<li><p>Proxy and fractional estimation;</p></li>
+<li><p>Controlled DGP experiments;</p></li>
+<li><p>Historical forecast evaluation;</p></li>
+<li><p>Identification limits.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: fractional integration and DGP; W4-6: build proxies and
+validate filter; W7-9: estimate and simulate breaks; W10-12: rolling
+forecasts and inference; W13-16: robustness and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

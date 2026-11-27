@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Option Pricing under Model Misspecification: Implications for Prices and Hedging | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D01.01.02 · Derivatives · Option models &amp; surfaces</p><h1>Option Pricing under Model Misspecification: Implications for Prices and Hedging</h1><p class="lead">How does fitting Black-Scholes to an at-the-money jump-diffusion price affect held-out option pricing and delta hedging across strikes and jump intensities?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Vanilla pricing and surfaces · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>A model can match one liquid quote while assigning different risks to
+other strikes. In a jump-diffusion market, a stock position hedges
+infinitesimal price changes but cannot generally offset a finite jump.
+This study asks whether an ATM-calibrated diffusion gives useful prices
+and hedge positions away from its calibration contract, and isolates the
+role of discrete rebalancing from residual jump exposure.</p>
+<h3 id="research-question">Research question</h3>
+<p>How does fitting Black-Scholes to an at-the-money jump-diffusion
+price affect held-out option pricing and delta hedging across strikes
+and jump intensities?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Δ</mi><annotation encoding="application/x-tex">\Delta</annotation></semantics></math>
+denote model delta and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>J</mi><annotation encoding="application/x-tex">J</annotation></semantics></math>
+a jump multiplier. A finite jump gives the residual
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>S</mi><mi>J</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>S</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>Δ</mi><mi>S</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>J</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">C(SJ)-C(S)-\Delta S(J-1)</annotation></semantics></math>,
+which is not generally zero even with continuous rebalancing between
+jumps.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use compensated Merton jump-diffusion prices at two expiries and five
+strikes, varying intensity from zero to 1.5 per year. Calibrate a
+Black–Scholes volatility to one ATM quote per maturity; test all other
+strikes. Simulate common physical paths at daily and weekly rebalancing
+frequencies, including an alternative physical jump intensity.</p>
+<p>Freeze the ATM definition and calibration date. Record held-out
+prices separately from matched-path hedge losses. Build the cash ledger
+before changing physical jump intensity; do not equate a smaller time
+step with complete jump-risk replication.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>IV and pricing-error panels, calibration diagnostics, hedge P&amp;L
+RMSE/tails, jump-conditioned figures and Monte Carlo uncertainty.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Verified jump pricer and BSM limit, two intensities, two maturities,
+held-out strikes, matched-path P&amp;L for both hedges and two
+grids.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Model delta is not necessarily the variance-minimizing
+incomplete-market hedge. No claims of empirical accuracy or exact
+jump-risk replication. Distinguish initial valuation bias from hedge
+performance; if using differing initial prices report separately. Keep
+D01.01.01 terminal sensitivities and D04.01.01 diffusion convergence
+separate.</p>
+<p><strong>Prerequisites:</strong> Risk-neutral valuation, BSM, Poisson
+processes, stochastic calculus and Python simulation.</p>
+<p><strong>Optional extension:</strong> Compare the minimum-variance
+local hedge or a second traded option as a jump-risk hedge under a
+documented Q/P specification.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: Merton model and conditional pricing; W4-6: pricer and
+inversion tests; W7-9: cross-strike calibration; W10-12: P-path hedge
+experiments; W13-16: sensitivity and writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

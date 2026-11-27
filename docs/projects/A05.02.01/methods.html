@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Modeling and Forecasting the Yield Curve with the Dynamic Nelson-Siegel Model | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A05.02.01 · Asset Pricing · Fixed income &amp; interest rates</p><h1>Modeling and Forecasting the Yield Curve with the Dynamic Nelson-Siegel Model</h1><p class="lead">Does dynamic Nelson-Siegel improve monthly nominal zero-yield forecasts at 1, 3 and 12 months relative to a no-change forecast, and at which maturities and horizons does it help?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="factor-interpretation">Factor interpretation</h3>
+<p>As
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>→</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">\tau\to\infty</annotation></semantics></math>,
+the yield tends to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>L</mi><mi>t</mi></msub><annotation encoding="application/x-tex">L_t</annotation></semantics></math>;
+as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>→</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\tau\to0</annotation></semantics></math>,
+it tends to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mi>t</mi></msub><mo>+</mo><msub><mi>S</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">L_t+S_t</annotation></semantics></math>.
+Thus
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mi>t</mi></msub><annotation encoding="application/x-tex">S_t</annotation></semantics></math>
+is a short-minus-long limiting slope, not the usual long-minus-short
+spread. Curvature loading vanishes at both limits. Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><mn>0.7308</mn></mrow><annotation encoding="application/x-tex">\lambda=0.7308</annotation></semantics></math>
+per year when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>
+is in years, not the monthly coefficient.</p>
+<h3 id="forecast-protocol">Forecast protocol</h3>
+<p>For factor vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mi>t</mi></msub><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>L</mi><mi>t</mi></msub><mo>,</mo><msub><mi>S</mi><mi>t</mi></msub><mo>,</mo><msub><mi>C</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>⊤</mi></msup></mrow><annotation encoding="application/x-tex">\beta_t=(L_t,S_t,C_t)^\top</annotation></semantics></math>,
+a training AR/VAR implies a conditional forecast
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>β</mi><mo accent="true">̂</mo></mover><mrow><mi>t</mi><mo>+</mo><mi>h</mi><mo stretchy="false" form="prefix">|</mo><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">\widehat\beta_{t+h|t}</annotation></semantics></math>.
+Apply the same loadings to forecast the fixed-maturity yield. The
+no-change forecast is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">y_t(\tau)</annotation></semantics></math>.
+Score paired errors in bp on common target dates, account for overlap,
+and report fit separately from forecast loss. GSW inputs are already
+fitted curves; evidence on their shape is not a fit to raw bond
+quotes.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Freeze decay or select it only on training data. A negative OOS
+result is informative. Do not describe a fitted DNS model as
+automatically arbitrage-free or an implementable trading rule.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

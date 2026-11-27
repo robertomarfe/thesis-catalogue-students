@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Nonlinear Latent Factors and Cross-Sectional Pricing Errors | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A10.03.01 · Asset Pricing · Predictability &amp; machine learning</p><h1>Nonlinear Latent Factors and Cross-Sectional Pricing Errors</h1><p class="lead">Can a characteristic-conditioned nonlinear exposure map reduce held-out portfolio pricing errors relative to PCA and a linear conditional factor model at the same latent dimension?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a10.03.01">Research plan | A10.03.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Check panel separation (including overlap in underlying portfolio
+constructions as limitation), training factor means and normalization;
+perturb held-out returns to test invariance of fitted maps. Use common
+error metric and dimensions; document identifiability up to
+rotation.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Use separate 30 industry panel for PCA raw factor payoffs (frozen
+training weights), train loading maps on 25 size/BM and size/momentum
+portfolios with documented ranks. Compare constant and linear rank maps
+versus shallow tanh at same k; normalize factor columns using training,
+freeze weights and training means. Ex-post reconstruction uses
+contemporaneous f; expected return prediction uses training factor
+means. Record no test-date fitting. Optional OSAP not core.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Validate panel, rank labels, factor excess returns and common
+sample.</p></li>
+<li><p>Fit PCA k=1,3,5 on training industry panel; estimate
+unconstrained constant loadings and characteristic-linear loading map on
+training test portfolios.</p></li>
+<li><p>Fit shallow b(z) with one hidden layer, regularization and locked
+validation; same PCA factors first to isolate nonlinearity, joint
+encoder optional.</p></li>
+<li><p>Evaluate holdout reconstruction RMSE, mean residuals and pricing
+RMSE using training factor means; separately report ex-post factor
+realizations and true expected-return prediction.</p></li>
+<li><p>Joint date block bootstrap and sensitivity to k, seeds, training
+period and architecture; compare FF factor alphas on same
+assets.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Factor/exposure design and split audit; pricing and reconstruction
+errors; predicted versus realized mean plots; complexity and seed
+stability.</p>
+<h4 id="robustness">Robustness</h4>
+<p>No factor construction from held-out target returns. Fixed
+characteristic ranks are coarse and do not reproduce firm-level
+conditional autoencoders. Low holdout sample makes average return
+estimates noisy; do not infer causality or genuine expected-return gains
+from reconstruction.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Separate French factor/test panels, PCA and linear versus shallow
+nonlinear exposure map, chronological evaluation and distinction between
+pricing and reconstruction. Class B retained; core public French data,
+OSAP optional.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Joint factor encoder with independent factor-construction assets, or
+real lagged portfolio characteristics if accessible and authorized.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Factor pricing, PCA, regression, basic neural networks,
+Python/PyTorch or sklearn.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Latent factor pricing;</p></li>
+<li><p>Linear/nonlinear exposure maps;</p></li>
+<li><p>Panels and validation;</p></li>
+<li><p>Pricing versus fit;</p></li>
+<li><p>Limits.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: model/data design; W4-6: PCA and linear baseline; W7-9:
+nonlinear tuning; W10-12: locked evaluation; W13-16:
+write/reproduce.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

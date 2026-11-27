@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Equity Premium Puzzle: Theory and Quantitative Evidence | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A03.01.01 · Asset Pricing · Consumption &amp; equity valuation</p><h1>The Equity Premium Puzzle: Theory and Quantitative Evidence</h1><p class="lead">Can a CRRA stochastic discount factor with plausible risk aversion and discounting simultaneously explain the US market excess return and the average risk-free rate? How sensitive is the answer to consumption measurement and time aggregation?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Consumption-based asset pricing and equity
+term structures · Level 2/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>The equity premium and the low safe rate impose different
+restrictions on the same marginal utility process. A joint exercise is
+more informative than choosing a risk aversion coefficient that matches
+only one return.</p>
+<h3 id="research-question">Research question</h3>
+<p>Can a CRRA stochastic discount factor with plausible risk aversion
+and discounting simultaneously explain the US market excess return and
+the average risk-free rate? How sensitive is the answer to consumption
+measurement and time aggregation?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>With gross consumption growth
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>G</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">G_{t+1}</annotation></semantics></math>,
+power utility implies
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>β</mi><msubsup><mi>G</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow><mrow><mi>−</mi><mi>γ</mi></mrow></msubsup></mrow><annotation encoding="application/x-tex">m_{t+1}=\beta G_{t+1}^{-\gamma}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><msub><mi>R</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">E[m R_i]=1</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Quarterly FRED consumption and PCE inflation plus French monthly
+market/bill; joint Euler grid and bill-implied beta frontier on complete
+common quarters.</p>
+<p>On a common quarterly calendar report both Euler residuals and beta
+pricing the bill, then the market residual and covariance identity;
+resample contiguous joint date blocks. Check compounded nominal gross
+legs divided by the same inflation ratio and compare beta annualized by
+beta_q**4. Distinguish arithmetic premium from compound annual growth.
+Report parameter grid including infeasible beta.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Moment and covariance table; beta/gamma heatmap of Euler residuals;
+implied safe-rate and premium plots with empirical comparison; bootstrap
+intervals; explicit table of real bill proxy caveats. Explain the extent
+of joint fit, not just the gamma matching one target.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Correct SDF and Euler derivation, publicly sourced consumption/market
+data, grid-based joint moment exercise, risk-free proxy distinction and
+uncertainty. The puzzle is assessed even if a chosen sample weakens
+it.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Distinguish quarterly from annual beta and units. Check sensitivity
+to 2020 and long sample choices with prespecified alternatives; use
+revised data for unconditional analysis and note measurement error. If
+real bill Euler condition fails, do not infer exact real risk-free-rate
+error without modeling inflation. Avoid treating estimated high gamma as
+a structural identification result.</p>
+<p><strong>Prerequisites:</strong> Expected utility, stochastic discount
+factors, covariance/lognormal algebra, empirical return construction,
+Python. No structural estimation package required.</p>
+<p><strong>Optional extension:</strong> Introduce a simple habit or
+Epstein-Zin illustration after core CRRA diagnostics; compare mechanisms
+analytically before attempting a high-dimensional calibration.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: derive Euler/lognormal restrictions; W4-6: align consumption,
+inflation and returns; W7-10: compute residuals and parameter grids;
+W11-13: bootstrap and measurement sensitivities; W14-16: write and
+validate.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

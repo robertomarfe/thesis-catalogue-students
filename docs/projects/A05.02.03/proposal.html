@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Forecasting the Yield Curve: Econometric Models versus Machine Learning | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A05.02.03 · Asset Pricing · Fixed income &amp; interest rates</p><h1>Forecasting the Yield Curve: Econometric Models versus Machine Learning</h1><p class="lead">Does machine learning improve multi-horizon US yield-curve forecasts relative to random walk, autoregressive factors and dynamic Nelson-Siegel, after honest temporal validation?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Fixed income and interest rates · Level
+3/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Flexible forecasting methods may learn nonlinear relations across the
+yield curve, but their apparent advantage can arise from extra
+information or leakage. Evaluate incremental predictive value relative
+to strong econometric benchmarks at the same origins, maturities and
+horizons.</p>
+<h3 id="research-question">Research question</h3>
+<p>Does machine learning improve multi-horizon US yield-curve forecasts
+relative to random walk, autoregressive factors and dynamic
+Nelson-Siegel, after honest temporal validation?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For a common held-out loss,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>R</mi><mrow><mi mathvariant="normal">O</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">S</mi></mrow><mn>2</mn></msubsup><mo>=</mo><mn>1</mn><mo>−</mo><mo>∑</mo><msubsup><mi>e</mi><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi></mrow><mn>2</mn></msubsup><mi>/</mi><mo>∑</mo><msubsup><mi>e</mi><mrow><mi mathvariant="normal">R</mi><mi mathvariant="normal">W</mi></mrow><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">R^2_{\mathrm{OOS}}=1-\sum e_{\mathrm{model}}^2/\sum e_{\mathrm{RW}}^2</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use the prescribed six GSW maturities, fixed training, temporal
+tuning and final evaluation windows. Compare random walk, factor AR/DNS
+and ridge or shallow tree with predeclared lagged features. Tune
+separately by horizon using only matured target labels, then freeze the
+tuning rule.</p>
+<p>Implement a strong DNS baseline independently before ML. Lock
+temporal validation and data features, log all tuning choices and
+missing outcomes, and never select the final model using the final test
+loss.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Curve fit residual table; forecast error matrix; cumulative loss
+plot; tuning log; maturity/horizon robustness.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>GSW curve, random walk, AR/DNS and ridge or shallow tree,
+1/3/12-month forecasts and locked temporal evaluation. Distinct from
+A05.02.01 DNS-only study.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>No random train/test split, full-sample scaling or future factor
+estimation. GSW yields are fitted not transactions. Overlapping forecast
+errors and common shocks require time-series inference. ML complexity
+must be limited; record failures and null improvement.</p>
+<p><strong>Prerequisites:</strong> Fixed income, econometrics,
+regression/ML, Python and sklearn.</p>
+<p><strong>Optional extension:</strong> European AAA curve as external
+evaluation; compare forecasts of synthetic bond returns separately.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: theory and design; W4-6: curves and benchmarks; W7-9: ML and
+tuning; W10-12: locked evaluation; W13-16: documentation and
+writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Convexity Adjustment in Volatility Swap Pricing | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D08.01.02 · Derivatives · Hedging &amp; volatility derivatives</p><h1>The Convexity Adjustment in Volatility Swap Pricing</h1><p class="lead">How does volatility-of-volatility, maturity and mean reversion affect the convexity adjustment in volatility swap pricing?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d08.01.02">Research plan | D08.01.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Unlike the VIX futures project, the random quantity is realized
+integrated variance over the entire swap horizon. Report economic errors
+in volatility points, not only variance units.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive strikes, Jensen bound and second-order correction; compute
+analytic expected variance.</p></li>
+<li><p>Simulate I with matched quadrature conventions, verify simulated
+mean against analytic mean, and estimate gap using paired path
+statistics.</p></li>
+<li><p>Compare Taylor and MC values in volatility points and relative
+units; report sampling intervals using path bootstrap or delta
+method.</p></li>
+<li><p>Map error across maturity, xi and mean reversion and show when
+Taylor breaks down.</p></li>
+<li><p>Diagnose zero-boundary/Feller violations and quadrature bias
+without silently discarding paths.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Strike and gap tables, distribution of I and sqrt(I),
+maturity/vol-of-vol sensitivity maps, MC precision and
+approximation-error plots.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Use annualized variance consistently and quote vol points as
+100*sqrt(I). No Jensen reversal from sampling noise when strikes use
+same paths. Test deterministic-variance limit and time-grid bias. No
+observed swap quotes or calibration claimed.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Analytic mean, validated simulation, exact Jensen comparison,
+second-order approximation and numerical sensitivity to at least
+maturity and xi.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Study a discrete-return realized-variance convention in a full Heston
+price simulation, with monitoring and convexity corrections
+separated.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Risk-neutral pricing, stochastic calculus basics, Monte Carlo and
+Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Variance and volatility contracts;</p></li>
+<li><p>Convexity and CIR moments;</p></li>
+<li><p>Simulation validation;</p></li>
+<li><p>Strike differences and approximation error;</p></li>
+<li><p>Limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: contracts and expansion; W4-6: CIR simulation and mean checks;
+W7-9: sensitivity experiments; W10-12: approximation, MC and grid
+errors; W13-16: economic interpretation and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

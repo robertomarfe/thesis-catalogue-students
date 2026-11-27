@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Stochastic Volatility and the Economic Determinants of the Implied Volatility Smile | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D01.02.02 · Derivatives · Option models &amp; surfaces</p><h1>Stochastic Volatility and the Economic Determinants of the Implied Volatility Smile</h1><p class="lead">Which Heston parameters control distinct smile features, and when do their effects become difficult to distinguish?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html" aria-current="page">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Literature</h2><div class="actions"><a href="files/READING_GUIDE.md" class="button secondary" download>Open READING_GUIDE.md</a><a href="files/references.bib" class="button secondary" download>Open references.bib</a></div><h3 id="annotated-reading-guide-d01.02.02">Annotated reading guide |
+D01.02.02</h3>
+<p>Bibliographic metadata and stated scope checked against
+publisher/repository pages on 25 November 2026. No article PDF is
+bundled; full-text reading and citation/page verification remain the
+student’s task. The following notes describe relevance, not a claim to
+have audited every page.</p>
+<p><strong>1. Heston, S. L. (1993).</strong> A Closed-Form Solution for
+Options with Stochastic Volatility with Applications to Bond and
+Currency Options. <em>Review of Financial Studies</em> 6(2), 327–343. <a
+href="https://doi.org/10.1093/rfs/6.2.327">Publisher/DOI</a>. Mandatory:
+risk-neutral variance dynamics, transform pricing and correlation’s
+role. Derive the forward-normalized version in the methods note and
+reconcile conventions. Access through university if needed.</p>
+<p><strong>2. Gatheral, J. (2006).</strong> <em>The Volatility Surface:
+A Practitioner’s Guide</em>. Wiley. Print ISBN 9780471792512. <a
+href="https://www.wiley-vch.de/en/areas-interest/finance-economics-law/the-volatility-surface-978-0-471-79251-2">Publisher</a>,
+<a href="https://doi.org/10.1002/9781119202073">online edition DOI</a>.
+Mandatory selected reading on implied volatility and stochastic
+volatility; learn why smile geometry is a price representation rather
+than a separate primitive. Use the 2006 print edition or documented
+online edition via library; not assumed free.</p>
+<p><strong>3. Lord, R. and Kahl, C. (2010).</strong> Complex Logarithms
+in Heston-like Models. <em>Mathematical Finance</em> 20(4), 671–694. <a
+href="https://doi.org/10.1111/j.1467-9965.2010.00416.x">DOI</a>, <a
+href="https://www2.math.uni-wuppertal.de/~kahl/publications/complexlogarithmsheston.pdf">author
+working version</a>. Mandatory numerical reading: multivalued logarithms
+can create discontinuities in characteristic functions; compare a stable
+algebraic representation with a numerical Riccati solution. Do not
+assume any arbitrary rewriting of a complex log is safe.</p>
+<p><strong>4. Cui, Y., del Baño Rollin, S., and Germano, G.
+(2017).</strong> Full and fast calibration of the Heston stochastic
+volatility model. <em>European Journal of Operational Research</em>
+263(2), 625–638. <a
+href="https://doi.org/10.1016/j.ejor.2017.05.018">DOI</a>, <a
+href="https://discovery.ucl.ac.uk/id/eprint/1552816/">UCL accepted
+manuscript</a>. Read the discussion of calibration geometry and
+sensitivities before the Jacobian exercise. Their calibration method is
+not the goal of this thesis; our object is the scaled local sensitivity
+of low-dimensional features and its dependence on maturities/noise.</p>
+<p><strong>5. Lee, R. W. (2004).</strong> The Moment Formula for Implied
+Volatility at Extreme Strikes. <em>Mathematical Finance</em> 14(3),
+469–480. <a
+href="https://doi.org/10.1111/j.0960-1627.2004.00200.x">DOI</a>, <a
+href="https://math.uchicago.edu/~rogerlee/moment.pdf">author
+manuscript</a>. Optional advanced reading: tail behavior depends on
+moments of the terminal distribution. The core grid is finite and
+near-ATM; do not present a numerical wing or asymptotic theorem based on
+it.</p>
+<p>Reading output: one page per mandatory source with the precise
+object, assumptions, equation conventions, relevant finding and
+limitation. Compare sources’ definitions of log-price and forward
+moneyness. Identify what is established theory versus the new controlled
+experiment. Literature completeness and student access to full texts are
+not assumed.</p>
+<h4 id="bibliographic-review-v34-25-november-2026">Bibliographic review
+(v34, 25 November 2026)</h4>
+<p>The original references above remain part of the frozen proposal.
+Metadata and source routes below have been reviewed selectively against
+publisher, DOI or academic records. This is not a full-text or
+claim-level review; read the original work before relying on it.</p>
+<ol type="1">
+<li>Heston, Steven L. (1993). <a
+href="https://doi.org/10.1093/rfs/6.2.327">A Closed-Form Solution for
+Options with Stochastic Volatility with Applications to Bond and
+Currency Options</a>. Review of Financial Studies 6 327–343.</li>
+<li>Lee, Roger W. (2004). <a
+href="https://doi.org/10.1111/j.0960-1627.2004.00200.x">The Moment
+Formula for Implied Volatility at Extreme Strikes</a>. Mathematical
+Finance 14 469–480.</li>
+<li>Gatheral, Jim (2006). <a
+href="https://www.wiley.com/en-us/the-volatility-surface-a-practitioner%27s-guide-p-9780471792512">The
+Volatility Surface: A Practitioner’s Guide</a>. Wiley .</li>
+</ol>
+<p>Existing supplementary references (anchor): <a
+href="https://doi.org/10.1111/j.1467-9965.2010.00416.x">Complex
+Logarithms in Heston-like Models</a>, <a
+href="https://doi.org/10.1016/j.ejor.2017.05.018">Full and Fast
+Calibration of the Heston Stochastic Volatility Model</a>.</p>
+<p><strong>Reading focus:</strong> Comparative statics of Heston smile
+features, not estimator ranking.</p>
+<p>Use the research plan and focused methods for the acceptance
+checks.</p>
+<p>Read the original articles for assumptions and derivations; validate
+editions and exact metadata before citation. The bibliographic record is
+inherited from the earlier selective review, not a new full-text
+verification.</p>
+<p><a href="files/READING_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

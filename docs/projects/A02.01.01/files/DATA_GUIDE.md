@@ -1,0 +1,7 @@
+# Data and timing guide
+
+**Gate: pending. No input bytes or use rights validated.** Core input: the author GW/GWZ updated monthly workbook. Inherited expected filename: `Data2025.xlsx`; provider https://sites.google.com/view/agoyal145/ ; previously observed exact spreadsheet https://docs.google.com/spreadsheets/d/17mw_IpaiLFDrGnrPRQ2o1ugV5nJsZuD1/edit . Download Excel if permitted; pin actual version, filename and SHA-256. Do not assume the workbook is real-time vintage data. Optional Shiller series is not a replacement for the return source. Inspect documented d/p, e/p, total return and RF; record percent/decimal/log conventions, month identifiers, availability lags, common coverage, missing observations and earliest valid training/test origins. Target 1927–2025, train through 1964, subject to actual coverage. Use a common calendar and strict label maturity; apply additional earnings-release lag sensitivity. No sample, estimates or scored forecasts supplied. Request supervisor approval of the data gate before empirical work.
+
+## First-meeting acceptance record
+
+Record actual source version or simulation specification, acquisition rights, date and SHA-256 for any local inputs, schema/units, exclusions, sample or parameter grid and independently designed acceptance checks. Stop and agree a revised design if the specified input is not obtainable. No automatic data or assignment approval.

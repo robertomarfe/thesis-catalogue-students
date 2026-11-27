@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Interest Rate Options under Gaussian and Square-Root Dynamics | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D07.02.02 · Derivatives · Fixed income &amp; interest rates</p><h1>Interest Rate Options under Gaussian and Square-Root Dynamics</h1><p class="lead">After matching initial bond prices and at-the-money option volatility approximately, how do Gaussian and square-root dynamics affect out-of-the-money bond options and their Greeks?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Fixed income and interest rates · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Gaussian and square-root models can agree on today’s curve and one
+liquid at-the-money bond option while implying different tails and
+sensitivities. A controlled comparison isolates those distributional
+implications rather than confounding them with different fitted term
+structures.</p>
+<h3 id="research-question">Research question</h3>
+<p>After matching initial bond prices and at-the-money option volatility
+approximately, how do Gaussian and square-root dynamics affect
+out-of-the-money bond options and their Greeks?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For option expiry
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>&lt;</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">u&lt;T</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>0</mn></msub><mo>=</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>𝔼</mi><msup><mi>ℚ</mi><mi>u</mi></msup></msup><mrow><mo stretchy="true" form="prefix">[</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">C_0=P(0,u)\mathbb E^{\mathbb Q^u}[(P(u,T)-K)^+]</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use the common flat curve and prescribed Gaussian/CIR parameters.
+Match the curve via deterministic shifts and solve for one CIR ATM price
+match, then compare other strikes and maturities. Keep stochastic
+parameters and contractual strike fixed for curve bumps, updating only
+the deterministic curve fit.</p>
+<p>Freeze the ATM match before comparing other strikes; report domain
+and uncertainty rather than forcing implied volatilities for zero
+prices. Distinct from A05.01.01 physical transition estimation.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Curve fit table; parity and MC error table; option price and implied
+volatility plots; Greek and tail-scenario comparisons. Bump-convergence
+table and sensitivity per basis point; document unmatched prices and
+structural zeros.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Two affine models on the same synthetic curve, analytic/Monte Carlo
+cross-check, one ATM price match and option smile comparison; compare at
+least one ATM and one non-negligible OTM parallel zero-yield sensitivity
+with strike and stochastic parameters frozen and deterministic curve
+fitting updated. Report convergence in bump size, pricing-domain
+failures and unmatched cases. Distinct from A05.01.01 (physical rate
+dynamics).</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Match curves and ATM price before attributing differences to
+diffusion. Shifted CIR need not have positive total rates. Do not infer
+Q parameters from P estimates. Use CIR boundary/Feller diagnostics;
+distinguish bond option from caplet.</p>
+<p><strong>Prerequisites:</strong> Stochastic calculus, affine
+processes, fixed-income pricing, Python.</p>
+<p><strong>Optional extension:</strong> Compare caplets or Jamshidian
+swaption decomposition under one-factor dynamics.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: affine derivations; W4-6: reference pricers; W7-9: matching and
+validation; W10-12: scenarios and Greeks; W13-16: write and
+reproduce.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

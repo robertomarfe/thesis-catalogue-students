@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Numerical Stability in Finite-Difference Option Pricing | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D05.02.02 · Derivatives · Numerical pricing &amp; exotics</p><h1>Numerical Stability in Finite-Difference Option Pricing</h1><p class="lead">How do explicit, backward-Euler and Crank-Nicolson methods differ in stability, oscillations and accuracy when the option payoff is nonsmooth?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="time-stepping-and-stability">Time stepping and stability</h3>
+<p>Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>S</mi><mi>/</mi><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x=\log(S/K)</annotation></semantics></math>,
+time step
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>
+and uniform spatial step
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\Delta x</annotation></semantics></math>.
+The centered discounted generator
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math>
+gives the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>-method,
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\theta=0,1,1/2</annotation></semantics></math>
+for explicit, backward Euler and Crank–Nicolson. In pure diffusion,
+explicit stability requires
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><mi>h</mi><mi>/</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>Δ</mi><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\sigma^2h/(\Delta x)^2\le1</annotation></semantics></math>;
+with drift and discount test the actual stencil and amplification
+restrictions. CN is A-stable but its amplification factor tends to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math>
+on stiff negative modes; backward Euler damps them. Rannacher startup
+uses implicit half steps before CN.</p>
+<h3 id="payoff-and-sensitivities">Payoff and sensitivities</h3>
+<p>Initialize the call kink and digital jump with specified node or
+cell-average conventions and asymptotic boundaries. In log coordinates
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mo>=</mo><msub><mi>u</mi><mi>x</mi></msub><mi>/</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">\Delta=u_x/S</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Γ</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>u</mi><mrow><mi>x</mi><mi>x</mi></mrow></msub><mo>−</mo><msub><mi>u</mi><mi>x</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><msup><mi>S</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\Gamma=(u_{xx}-u_x)/S^2</annotation></semantics></math>.
+Test errors around strike at positive expiry; report oscillations and
+negative values instead of clipping. Separate temporal, spatial,
+boundary and payoff representation errors.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Compare analytical prices and Greeks over spot, not just ATM.
+A-stability does not imply positivity or accuracy. Exclude deliberately
+unstable runs from successful time-to-tolerance comparisons.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

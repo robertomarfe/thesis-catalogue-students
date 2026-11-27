@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>VIX and VVIX as Indicators of Volatility Derivative Risk | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D08.02.02 · Derivatives · Hedging &amp; volatility derivatives</p><h1>VIX and VVIX as Indicators of Volatility Derivative Risk</h1><p class="lead">Does VVIX contain incremental information beyond VIX about near-term equity downside risk, and are their joint stress signals stable out of sample?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d08.02.02">Research plan | D08.02.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Distinguish D03.04.02’s high realized-variance event from this
+downside-return event. Report rare-event uncertainty and all predeclared
+thresholds. No traded derivative returns or causal conclusions.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Document indices and align dates without carrying across gaps;
+plot levels, changes and joint stress episodes.</p></li>
+<li><p>Estimate models with historical event frequency, log VIX alone,
+log VVIX alone and both, using a fixed threshold and lagged
+data.</p></li>
+<li><p>Produce held-out probabilities, Brier/log loss, calibration and
+event counts; use regularized logistic only if specified on
+validation.</p></li>
+<li><p>Compare semivariance prediction via a simple nonnegative
+benchmark and combined model, reporting robust loss.</p></li>
+<li><p>Repeat on daily overlapping origins with block uncertainty and
+check incremental value across predeclared subperiods.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Joint index scatter/time plots, event counts, coefficient and loss
+tables, calibration plot and held-out predictions with dates; source and
+target definitions.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Use several predeclared thresholds and report all; few tail events
+imply wide uncertainty. Market return is a broad proxy, not exactly SPX.
+Avoid using future stress states as predictors, converting VVIX into
+realized vol-of-vol or interpreting regression association causally. No
+actual VIX option/futures returns are used.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Verified common VIX/VVIX/market panel; descriptive stress analysis
+and incremental out-of-sample downside-event comparison with uncertainty
+and event counts.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Use actual volatility derivative settlement data only after separate
+access and contract-roll validation; index-only conclusions remain
+separate.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Derivatives concepts, logistic regression, time-series validation and
+Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Volatility indices and vol-of-vol;</p></li>
+<li><p>Downside risk measures;</p></li>
+<li><p>Data and prediction protocol;</p></li>
+<li><p>Incremental information and stability;</p></li>
+<li><p>Limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: study VIX/VVIX methods; W4-5: data alignment; W6-8: descriptive
+and baseline models; W9-12: holdout and robustness; W13-16: interpret
+and write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

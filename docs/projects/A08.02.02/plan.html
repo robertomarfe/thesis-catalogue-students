@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Robust Portfolio Optimization under Parameter Uncertainty | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A08.02.02 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Robust Portfolio Optimization under Parameter Uncertainty</h1><p class="lead">Can uncertainty-set portfolio optimization improve realized utility and stability relative to plug-in mean-variance portfolios without excessive conservatism?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a08.02.02">Research plan | A08.02.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Verify support function with explicit worst-case mean vector; radius
+zero nests plug-in and compare two-asset grid with KKT. Freeze radius
+menu, window and caps before final sample, report binding constraints,
+paired OOS net CE and costs with failed windows. If interpreting
+statistical coverage, justify dependence adjustment separately.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Use uncertainty U=Sigma/n_eff (iid baseline), delta=0,1,2,4; gamma=5,
+optional cap .25. Compare support function and worst perturbation,
+delta=0 must equal MV. 500 simulations seed 2027 with 10 assets,
+perturbations aligned with U, separate actual true utility from
+worst-case objective. Rolling 120-month, choose delta on 1985-99
+validation net CE, then lock through 2000-25 test. Same covariance
+estimate, cost and asset set; U diagonal and alternative n_eff
+sensitivity. Report infeasible/failed optimizers.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive support function and implement convex solver; verify
+feasibility, delta=0 and numerical worst-case perturbation.</p></li>
+<li><p>Use simulation to quantify oracle utility loss under mean
+perturbations, and differences between model worst case and actual
+realized risk.</p></li>
+<li><p>Run monthly chronological backtest; fix delta/gamma before test,
+drift portfolio weights before rebalancing, charge common 0/10/25 bp on
+absolute traded weight.</p></li>
+<li><p>Compare net certainty equivalent, Sharpe, volatility, turnover,
+drawdown and concentration using paired block-bootstrap
+intervals.</p></li>
+<li><p>Vary uncertainty set U (diagonal vs covariance), training window
+and radius; distinguish delta effect from covariance shrinkage and
+constraint effects.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Optimization validation, sensitivity frontier, simulated utility-loss
+table, historical net performance and weights, turnover/ambiguity
+trade-off.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Mean uncertainty set does not robustify covariance unless extended;
+iid U may understate estimation risk. No test-set tuning or
+short-selling asymmetry. Historical return panels are not investable
+products; transaction costs illustrative. Distinct from BL subjective
+views and covariance-estimator comparison.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Convex robust formulation, plug-in/GMV/equal benchmarks, fixed radius
+protocol, controlled simulation and monthly historical backtest with net
+utility and turnover.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Use bootstrap-based uncertainty sets or add covariance ambiguity,
+with matched constraints and nested selection.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Portfolio theory, convex optimization, statistics and
+Python/CVXPY.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Estimation risk and robust optimization;</p></li>
+<li><p>Uncertainty sets and solver;</p></li>
+<li><p>Simulation;</p></li>
+<li><p>Historical backtest;</p></li>
+<li><p>Economic trade-offs.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive robust counterpart; W4-6: solver checks and data; W7-9:
+controlled simulations; W10-12: OOS and costs; W13-16: robustness and
+writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

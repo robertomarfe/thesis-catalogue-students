@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Equity Premium Puzzle: Theory and Quantitative Evidence | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A03.01.01 · Asset Pricing · Consumption &amp; equity valuation</p><h1>The Equity Premium Puzzle: Theory and Quantitative Evidence</h1><p class="lead">Can a CRRA stochastic discount factor with plausible risk aversion and discounting simultaneously explain the US market excess return and the average risk-free rate? How sensitive is the answer to consumption measurement and time aggregation?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html" aria-current="page">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Python lab</h2><div class="actions"><a href="files/student_start.ipynb" class="button secondary" download>Open student_start.ipynb</a><a href="files/requirements.txt" class="button secondary" download>Open requirements.txt</a></div><p class="notice">Unexecuted starter only. No solved thesis or external data supplied.</p><h3>Run locally</h3><p>Extract the workspace ZIP and open the notebook in an isolated Python environment. Install requirements.txt, read the data guide, and retain your own results.</p><h3>Run in Codespaces</h3><p><a href="https://codespaces.new/robertomarfe/thesis-catalogue-students/tree/main" class="button secondary">Open student Python environment</a></p><p>Check costs. Use Tasks: Run Task > Prepare my research draft, select A03.01.01, then File > Open File and open /workspaces/thesis-research/A03.01.01/student_start.ipynb. Select the isolated .venv interpreter. No forwarded port required. Do not commit raw data or results.</p><h3 id="a03.01.01-student-research-starter">A03.01.01 | Student research
+starter</h3>
+<p><strong>Current review draft; approval pending.</strong> Empirical
+core; actual rights, coverage and input validation pending.</p>
+<h4 id="goal">Goal</h4>
+<p>The equity premium and the low safe rate impose different
+restrictions on the same marginal utility process. A joint exercise is
+more informative than choosing a risk aversion coefficient that matches
+only one return.</p>
+<p><strong>Research question:</strong> Can a CRRA stochastic discount
+factor with plausible risk aversion and discounting simultaneously
+explain the US market excess return and the average risk-free rate? How
+sensitive is the answer to consumption measurement and time
+aggregation?</p>
+<h4 id="setup-check">Setup check</h4>
+<p>Check quarterly discount-factor conversion. This artificial example
+does not validate the full research design or actual data.</p>
+<pre><code>beta_a=.98
+beta_q=beta_a**.25
+assert abs(beta_q**4-beta_a)&lt;1e-12
+print(&#x27;Setup check passed.&#x27;)</code></pre><h4 id="student-owned-research">Student-owned research</h4>
+<p>On a common quarterly calendar report both Euler residuals and beta
+pricing the bill, then the market residual and covariance identity;
+resample contiguous joint date blocks. Check compounded nominal gross
+legs divided by the same inflation ratio and compare beta annualized by
+beta_q**4. Distinguish arithmetic premium from compound annual growth.
+Report parameter grid including infeasible beta.</p>
+<ol type="1">
+<li><p>Estimate consumption growth and real return moments, align
+quarterly dates, explain time averaging; compute covariance and
+annualized mean excess returns using four times quarterly arithmetic
+mean.</p></li>
+<li><p>For each preference pair compute sample Euler residuals E[mR_m]-1
+and E[mR_bill]-1; plot joint errors, optionally choose beta to price
+bills via sample Euler condition and evaluate market residual.</p></li>
+<li><p>In an iid lognormal illustrative economy evaluate model safe rate
+and premium using calibrated consumption and return covariance; separate
+approximation from exact sample tests.</p></li>
+<li><p>Quantify sampling uncertainty with block bootstrap, compare
+annual aggregation and consumption definitions, and assess economically
+plausible gamma rather than mechanically minimizing residuals.</p></li>
+</ol>
+<p><strong>Minimum viable thesis:</strong> Correct SDF and Euler
+derivation, publicly sourced consumption/market data, grid-based joint
+moment exercise, risk-free proxy distinction and uncertainty. The puzzle
+is assessed even if a chosen sample weakens it.</p>
+<p>Record assumptions, independent checks, uncertainty and limitations
+in a separate research notebook. No core solver or research output is
+supplied.</p>
+<p><a href="files/student_start.ipynb">Notebook source</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

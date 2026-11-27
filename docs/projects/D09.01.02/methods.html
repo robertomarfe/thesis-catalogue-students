@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Structural Credit Models with Early Default | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D09.01.02 · Derivatives · Credit &amp; incomplete markets</p><h1>Structural Credit Models with Early Default</h1><p class="lead">How do default-barrier level and recovery convention alter the credit spread term structure relative to a maturity-only Merton benchmark?</p><p class="small">Synthetic core · Level 3/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="continuous-crossing">Continuous crossing</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>t</mi></msub><mo>=</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mi>t</mi></msub><mi>/</mi><mi>H</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x_t=\log(V_t/H)</annotation></semantics></math>
+under
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℚ</mi><annotation encoding="application/x-tex">\mathbb Q</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>x</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><msubsup><mi>σ</mi><mi>V</mi><mn>2</mn></msubsup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mo>+</mo><msub><mi>σ</mi><mi>V</mi></msub><mi>d</mi><mi>W</mi></mrow><annotation encoding="application/x-tex">dx=(r-\sigma_V^2/2)dt+\sigma_V dW</annotation></semantics></math>.
+Conditional on positive endpoints
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x,y</annotation></semantics></math>
+over length
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>,
+the probability of a hit is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>exp</mo><mrow><mo stretchy="true" form="prefix">[</mo><mi>−</mi><mn>2</mn><mi>x</mi><mi>y</mi><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>σ</mi><mi>V</mi><mn>2</mn></msubsup><mi>h</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\exp[-2xy/(\sigma_V^2h)]</annotation></semantics></math>;
+if either endpoint is nonpositive, a hit is certain. The conditional
+bridge removes the constant drift. Compare this with the unconditional
+first-passage law obtained by reflection. For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">x_0&gt;0</annotation></semantics></math>
+and drift
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>,
+survival to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+equals
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mrow><msub><mi>x</mi><mn>0</mn></msub><mo>+</mo><mi>m</mi><mi>T</mi></mrow><mrow><msub><mi>σ</mi><mi>V</mi></msub><msqrt><mi>T</mi></msqrt></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msup><mi>e</mi><mrow><mi>−</mi><mn>2</mn><mi>m</mi><msub><mi>x</mi><mn>0</mn></msub><mi>/</mi><msubsup><mi>σ</mi><mi>V</mi><mn>2</mn></msubsup></mrow></msup><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mrow><mi>−</mi><msub><mi>x</mi><mn>0</mn></msub><mo>+</mo><mi>m</mi><mi>T</mi></mrow><mrow><msub><mi>σ</mi><mi>V</mi></msub><msqrt><mi>T</mi></msqrt></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\Phi\left(\frac{x_0+mT}{\sigma_V\sqrt T}\right)-e^{-2mx_0/\sigma_V^2}\Phi\left(\frac{-x_0+mT}{\sigma_V\sqrt T}\right).</annotation></semantics></math></p>
+<h3 id="recovery-contract">Recovery contract</h3>
+<p>For maturity-contingent recovery, the terminal payment is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">RF</annotation></semantics></math>
+on an early hit and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>min</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mi>T</mi></msub><mo>,</mo><mi>F</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\min(V_T,F)</annotation></semantics></math>
+otherwise. Price the entire terminal payment at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>T</mi></mrow></msup><annotation encoding="application/x-tex">e^{-rT}</annotation></semantics></math>.
+A recovery paid at the hitting date is a different instrument. Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>F</mi><mo>≤</mo><mi>H</mi><mo>&lt;</mo><mi>F</mi></mrow><annotation encoding="application/x-tex">RF\le H&lt;F</annotation></semantics></math>
+as prescribed; do not infer a general ordering across recovery
+rules.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Show the analytic hit check, bridge versus endpoint-only monitoring
+and common-path paired intervals. Compare the maturity-only benchmark
+under identical terminal inputs. Preserve unsuccessful or high-error
+grid cases and quantify both default timing and loss effects.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

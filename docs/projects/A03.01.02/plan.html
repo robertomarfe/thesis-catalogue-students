@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Risk-Free Rate Puzzle under Time-Additive Utility | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A03.01.02 · Asset Pricing · Consumption &amp; equity valuation</p><h1>The Risk-Free Rate Puzzle under Time-Additive Utility</h1><p class="lead">Can time-additive power utility with plausible risk aversion and discounting reproduce both the mean and time variation of real short rates given observed US consumption growth?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a03.01.02">Research plan | A03.01.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Provide calendar-aware pair counts and separate fitted conditional
+rate mean/SD from ex-post real bill mean/SD; test the Gaussian formula
+by quadrature. Derive beta frontier, retain beta outside (0,1) as
+inadmissible, and include uncertainty in AR persistence and conditional
+variance; a rate-volatility mismatch need not imply rejection solely of
+gamma.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Use identical quarterly inputs as A03.01.01; estimate AR(1) of g on
+contiguous quarterly runs only (no row shift across gaps). For
+stationary g use conditional mean mu+phi(g_t-mu) and residual SD; annual
+log safe rate=4<em>log_safe. Analytic stationary SD of the annualized
+conditional rate is 4</em>gamma<em>abs(phi)</em>sigma_g, with sigma_g
+innovation SD/sqrt(1-phi^2). Compare ex post rolling real bill log
+return proxy, not risk-free asset. Solve annual beta frontier via
+quarterly log rate mean, flag beta&gt;=1. Refit model inside paired
+block bootstrap with gaps respected.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive Euler equation and lognormal short-rate formula, including
+quarterly/annual conversion.</p></li>
+<li><p>Estimate iid and stationary AR(1) consumption growth models,
+reporting mean, variance, persistence and residual diagnostics.</p></li>
+<li><p>Compute model-implied real log short-rate mean and SD on
+beta/gamma grid, annually expressed as 4 times quarterly log rate;
+separate growth and precautionary terms.</p></li>
+<li><p>Compare empirical ex post real bill proxy moments, with HAC or
+block bootstrap uncertainty and caveat on inflation surprises.</p></li>
+<li><p>For each gamma compute beta needed to match the empirical mean;
+identify infeasible or implausible combinations and whether they improve
+the volatility discrepancy.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Consumption moments, implied rate contour plots, discount-factor
+feasibility frontier, model/data moments table, AR(1) predicted rate and
+empirical proxy plots.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Check aggregation and revised data; include alternative sample
+excluding pandemic quarters, and optional verified TIPS yields as
+longer-maturity context only. Ex post proxy variance includes unexpected
+inflation and rolling-rate uncertainty; cannot interpret difference as
+exact model rejection. Constant iid conditional variance cannot generate
+rate variation. Do not optimize all parameters merely to hit
+moments.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Derivation, iid and conditional mean cases, documented quarterly
+consumption/bill dataset and rate-moment/parameter frontier
+analysis.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare with recursive preferences or time-varying consumption
+uncertainty after baseline; avoid duplicating A03.01.01’s equity premium
+target.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Expected utility, macro-finance, lognormal moments and time-series
+regression.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Euler equation and intertemporal substitution;</p></li>
+<li><p>Risk-free rate puzzle;</p></li>
+<li><p>Consumption and bill data;</p></li>
+<li><p>Quantitative restrictions and sensitivity;</p></li>
+<li><p>Interpretation.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive SDF and rate; W4-5: data and units; W6-8: consumption
+models; W9-12: parameter grid and moment uncertainty; W13-16: robustness
+and write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

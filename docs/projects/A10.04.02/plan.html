@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Backtest Overfitting and the Illusion of Predictability | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A10.04.02 · Asset Pricing · Predictability &amp; machine learning</p><h1>Backtest Overfitting and the Illusion of Predictability</h1><p class="lead">How does the number of candidate predictive models affect apparent OOS performance under a no-predictability null, and how much does nested temporal validation reduce the gap between reported and independent test performance?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a10.04.02">Research plan | A10.04.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Perturb immature/final targets and ensure development winner is
+unchanged. Check nested candidate membership, paired common draws,
+strict boundary purge and same benchmark dates. Oracle never used in
+deployable policy. Real illustration remains required under original
+scope.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Freeze T=600, 300/150/150, nested candidate counts 10/50/200, iid and
+conditional-variance null, AR(1) phi .8, &gt;=300 common-seed
+replications. Compare development-selected final performance against
+same-final best (invalid oracle, deliberately labeled). Report paired
+differences and uncertainty. Real illustration uses FF3/Mom/ST/LT lagged
+candidates if actual authorized files, no claim real data satisfy null.
+Synthetic-only redesign requires explicit approval.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Validate simulation null and forecast alignment with known
+no-signal model; generate one forecast per date/candidate using only
+past outcomes.</p></li>
+<li><p>Compare naive best evaluation score (selected on development
+block and reported on it) with same chosen model’s independent final
+score; also compare an inner-validation selector with frozen final
+block. Report selection gap and fraction positive OOS R2 across
+replicates.</p></li>
+<li><p>Vary search size, predictor correlation and conditional
+volatility; report MC intervals and use paired seeds.</p></li>
+<li><p>Reproduce search protocol on real factor data, split before
+inspecting final sample; compare development and final gains without
+claiming real-data false-positive rate. No repeated test-driven
+redesign.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Distribution of apparent versus fresh-test OOS R2 by M, selection gap
+and MC uncertainty plots, false-discovery proxy (positive reported score
+under null, not formal p-value), real example cumulative loss table,
+transparent split/seed and candidate registry.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Preserve predictor persistence and return volatility clustering under
+alternative null, no return-feature forward leakage. Avoid comparing
+selectors on different dates or model menus. Define selection on
+development versus nested training folds precisely; use equal test
+length and independent seeds. Report if honest selection still
+underperforms mean; inference about statistical false rejections
+requires explicit tests, not positive scores alone.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One iid and one conditional-variance null, at least three model
+search sizes, honest versus reused holdout with paired uncertainty, and
+one real-data illustration. Simulation is core; if real file
+unavailable, retain synthetic result and explicitly revise empirical
+scope.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Add stationary bootstrap reality-check or multiple-testing adjustment
+on prespecified strategy returns; validate test size with simulations
+before use.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Predictive regressions, Monte Carlo, time-series dependence, Python
+and basic multiple testing.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Data mining in finance;</p></li>
+<li><p>Model selection and temporal validation;</p></li>
+<li><p>Null DGP and experimental protocol;</p></li>
+<li><p>Simulation and real-data evidence;</p></li>
+<li><p>Implications for research design.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: selection-bias theory and preregister grid; W4-6: implement
+nulls and forecast unit tests; W7-10: run paired experiments and real
+example; W11-13: dependence and uncertainty; W14-16: write and archive
+reproducible registry.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

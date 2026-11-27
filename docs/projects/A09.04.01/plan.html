@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Time-Series Momentum across Asset Classes | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A09.04.01 · Asset Pricing · International, FX &amp; commodities</p><h1>Time-Series Momentum across Asset Classes</h1><p class="lead">How diversified are time-series momentum payoffs across asset classes, and how do their market exposures and conditional performance vary in adverse equity market states?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a09.04.01">Research plan | A09.04.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Verify four sleeves, monthly units, risk scaling and market
+benchmark. Use only trailing data in weights and training thresholds,
+with fixed holdout. No independent futures-position replication
+claim.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Verify methodology, units and factor labels; compute individual
+means, volatility and correlations.</p></li>
+<li><p>Decompose variance contributions and compare fixed equal-weight
+vs rolling inverse-vol sleeves using only past data.</p></li>
+<li><p>Estimate contemporaneous market beta, conditional payoff means
+and correlations in market-tail months; calculate paired block
+intervals.</p></li>
+<li><p>Plot cumulative excess payoffs (or funded wealth only with
+explicit collateral convention), drawdowns with funding convention and
+crisis-event summaries.</p></li>
+<li><p>Compare early/late periods and leave-one-class-out portfolios;
+report whether results depend on bonds or a single crisis.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Factor correlation/variance tables, portfolio comparisons,
+conditional payoff plot, rolling beta, crisis and sensitivity
+analysis.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Published strategies may embed leverage and hypothetical costs; no
+claim of implementable net performance. Do not subtract RF twice.
+Market-tail states are ex post descriptions. Use source methodology
+rather than pretending to reconstruct original contracts.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Four documented monthly sleeves, common sample, diversification
+metrics, equal-weight vs risk-scaled comparison, market-conditional
+evidence and intervals.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare with separately documented long-run trend-following series;
+reconstruct signals only with actual contract-level returns and roll
+rules.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Portfolio theory, futures fundamentals, regression and Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Trend following and multi-asset premia;</p></li>
+<li><p>Portfolio risk and state dependence;</p></li>
+<li><p>Published factors and methodology;</p></li>
+<li><p>Diversification and conditional evidence;</p></li>
+<li><p>Limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: TSMOM literature and source; W4-6: panel and methodology audit;
+W7-9: allocation and risk analysis; W10-12: conditional/robustness
+tests; W13-16: write and reproduce.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

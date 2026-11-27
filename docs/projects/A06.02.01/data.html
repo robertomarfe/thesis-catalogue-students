@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Term Structure of Equity Yields: Evidence from Synthetic Dividend Strips | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A06.02.01 · Asset Pricing · Consumption &amp; equity valuation</p><h1>The Term Structure of Equity Yields: Evidence from Synthetic Dividend Strips</h1><p class="lead">What are the main level, slope and curvature patterns of US aggregate equity yields, and how do they differ in recessions versus expansions? Does subtracting nominal bond yields change the economic interpretation of the slope?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> GKK synthetic strip-yield archive, conventions, rights and common sample.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a06.02.01">Data and model setup |
+A06.02.01</h3>
+<p><strong>Current data gate: conditional.</strong> No actual external
+input bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Download GKK end-of-month aggregate equity yields n=1,…,15 via
+https://stefanogiglio.org/ (Data &amp; Code, Equity Term Structures
+without Dividend Strips Data). Read the codebook and Eq. (32); inspect
+first/last dates, maturity columns, units and file version (do not
+assume all study dates equal release dates). Merge month-end GSW
+SVENY01-15 from
+https://www.federalreserve.gov/data/nominal-yield-curve.htm and FRED
+USREC https://fred.stlouisfed.org/series/USREC for ex post recession
+labels; use full common historical sample. Core data class B plus public
+controls; downloading the actual GKK file is an assignment gate.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>USREC — USREC</strong> (Core / planned robustness). Expected
+file: <code>USREC.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=USREC">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/USREC">provider page</a>.
+Historical v13 inventory note (unverified in current release): Direct
+CSV endpoint constructed from exact series ID; not fetched. Monthly
+recession indicator; retrospective.</li>
+<li><strong>GSW — GSW nominal fitted yield curve</strong> (Core /
+planned robustness). Expected file: <code>feds200628.csv</code>. <a
+href="https://www.federalreserve.gov/data/yield-curve-tables/feds200628.csv">Download
+or provider route</a>; <a
+href="https://www.federalreserve.gov/data/nominal-yield-curve.htm">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed; file not inspected. Nominal off-the-run Treasury
+curve; SVENY zero yields in percent; not OIS.</li>
+<li><strong>GKK — Equity yields synthetic strips</strong> (Core /
+planned robustness). Expected file:
+<code>EqTS_synthetic_strip_yields-JF-2024-03-02.zip</code>. <a
+href="https://drive.google.com/file/d/1eycuEuxPbR5qeOwcbjisjy1B-kVZH9VL/view?usp=sharing">Download
+or provider route</a>; <a href="https://stefanogiglio.org/">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Exact file page observed; click Download. Keep ZIP intact and read
+codebook; model-implied yields.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>GKK Eq.32 equity yields in continuously compounded annual units after
+verifying archive scale and nominal convention. Require complete
+maturity grid 1–15, exact month-end convention and GSW SVENY01–15 common
+last valid date; no maturity interpolation unless explicit robustness.
+Use paired_curves and curve_summary; forward equity yield e-y_b is not
+forward rate between maturities. Descriptive PCA common dates, HAC/block
+intervals, USREC retrospective episode means and counts. If actual
+archive inaccessible, defer or supervisor-approved distinct synthetic
+exercise.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>CONDITIONAL: official archive identified, browser sign-in gate;
+bytes, units, dates, rights, GSW and USREC sample open. Artificial exact
+alignment only.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel/parquet inputs require the relevant
+optional reader (openpyxl, xlrd, pyarrow); inspect raw schema and
+permissions first (not needed for the introductory setup check). If
+source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="stage-2b-student-local-acquisition-and-decision-gate-v47">Stage
+2B | Student-local acquisition and decision gate (v47)</h4>
+<p><strong>Current gate:</strong> conditional. No actual empirical file
+or permission has been validated. Do not redistribute raw files or
+change data source without authorization.</p>
+<h5 id="exact-requested-routes">Exact requested routes</h5>
+<ul>
+<li><strong>GKK — Equity yields synthetic strips</strong>:
+EqTS_synthetic_strip_yields-JF-2024-03-02.zip. Route:
+https://drive.google.com/file/d/1eycuEuxPbR5qeOwcbjisjy1B-kVZH9VL/view?usp=sharing.
+Provider: https://stefanogiglio.org/. Inherited inventory route;
+re-check provider, schema, vintage and permissions locally. Historical
+link note, not fresh verification: Exact file page observed; click
+Download.</li>
+<li><strong>GSW — GSW nominal fitted yield curve</strong>:
+feds200628.csv. Route:
+https://www.federalreserve.gov/data/yield-curve-tables/feds200628.csv.
+Provider: https://www.federalreserve.gov/data/nominal-yield-curve.htm.
+Inherited inventory route; re-check provider, schema, vintage and
+permissions locally. Historical link note, not fresh verification:
+Direct link observed; file not inspected.</li>
+<li><strong>USREC — USREC</strong>: USREC.csv. Route:
+https://fred.stlouisfed.org/graph/fredgraph.csv?id=USREC. Provider:
+https://fred.stlouisfed.org/series/USREC. Inherited inventory route;
+re-check provider, schema, vintage and permissions locally. Historical
+link note, not fresh verification: Direct CSV endpoint constructed from
+exact series ID; not fetched.</li>
+</ul>
+<h5 id="acceptance-of-the-local-input-set">Acceptance of the local input
+set</h5>
+<p>Verify archive/version and Eq.32/33, complete 1-15 annual maturity
+grid, positive dividend normalization and decimals, exact common
+month-end GSW SVENY, not par yields. Report common sample, model-implied
+caveat, slope and fixed curvature definition, centered PCA with sign
+convention and recession episode counts. Inference conditional on
+estimated curves; no independent validation of the underlying GKK
+estimator.</p>
+<p>Keep a local ledger with provider, original filename, release/version
+or commit, download date, SHA-256, terms/permission and permitted use;
+inspect actual headers/tabs, date range, missing/duplicate observations,
+units and calendar; retain raw files only as allowed. Provide code and a
+nonrestricted audit summary, not raw data unless rights permit. Preserve
+planned common-sample and timing rules. The supervisor decides whether
+the input gate passes.</p>
+<h5 id="if-the-gate-fails">If the gate fails</h5>
+<p>Defer if aggregate strip-yield grid cannot be verified; retitled
+synthetic model-implied term structure is a different thesis, not
+measured GKK evidence.</p>
+<h4 id="frozen-research-design-original-catalogue">Frozen research
+design (original catalogue)</h4>
+<p>Download GKK end-of-month aggregate equity yields n=1,…,15 via
+https://stefanogiglio.org/ (Data &amp; Code, Equity Term Structures
+without Dividend Strips Data). Read the codebook and Eq. (32); inspect
+first/last dates, maturity columns, units and file version (do not
+assume all study dates equal release dates). Merge month-end GSW
+SVENY01-15 from
+https://www.federalreserve.gov/data/nominal-yield-curve.htm and FRED
+USREC https://fred.stlouisfed.org/series/USREC for ex post recession
+labels; use full common historical sample. Core data class B plus public
+controls; downloading the actual GKK file is an assignment gate.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Verify archive/version and Eq.32/33, complete 1-15 annual maturity
+grid, positive dividend normalization and decimals, exact common
+month-end GSW SVENY, not par yields. Report common sample, model-implied
+caveat, slope and fixed curvature definition, centered PCA with sign
+convention and recession episode counts. Inference conditional on
+estimated curves; no independent validation of the underlying GKK
+estimator.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Record total, gross and excess return conventions, RF timing,
+sampling frequency, factor definitions and annualization. Freeze common
+date and asset sets, provider vintage and information availability.
+Separate model-implied curves from traded prices, real safe payoffs from
+ex post real returns, and conditional from unconditional moments.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Option Pricing with Levy Processes: Beyond Gaussian Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D01.04.01 · Derivatives · Option models &amp; surfaces</p><h1>Option Pricing with Levy Processes: Beyond Gaussian Returns</h1><p class="lead">Can variance-gamma and finite-activity jump models with comparable variance reproduce different strike and maturity patterns, and which pricing properties are robust to tail and discretization choices?</p><p class="small">Synthetic core · Level 3/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Advanced option pricing · 16 weeks · Level
+3/3</strong><br />
+<strong>Data:</strong> synthetic. <strong>Status:</strong> current
+draft; not approved for assignment.</p>
+<h3 id="motivation">Motivation</h3>
+<p>In the Black–Scholes model, the same volatility parameter prices
+European options of all strikes and maturities. Exponential Lévy models
+relax Gaussianity while retaining independent, stationary increments. A
+comparison at a common forward and log-return variance isolates
+differences in higher cumulants and their consequences for the option
+smile. The aim is not to fit market quotes, but to establish what
+different jump mechanisms imply for prices and for numerical accuracy in
+a controlled experiment.</p>
+<h3 id="research-question">Research question</h3>
+<p>Can variance-gamma and finite-activity jump models with comparable
+variance reproduce different strike and maturity patterns, and which
+pricing properties are robust to tail and discretization choices?</p>
+<h3 id="model-and-economic-mechanism">Model and economic mechanism</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>0</mn></msub><annotation encoding="application/x-tex">S_0</annotation></semantics></math>
+denote the spot,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>
+the continuously compounded risk-free and dividend yields, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+the maturity in years. Under the risk-neutral measure
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℚ</mi><annotation encoding="application/x-tex">\mathbb Q</annotation></semantics></math>,
+let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+be a Lévy process with cumulant exponent
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\kappa(u)</annotation></semantics></math>,
+defined by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝔼</mi><mi>ℚ</mi></msup><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>e</mi><mrow><mi>u</mi><msub><mi>X</mi><mi>T</mi></msub></mrow></msup><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msup><mi>e</mi><mrow><mi>T</mi><mi>κ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup></mrow><annotation encoding="application/x-tex">\mathbb E^{\mathbb Q}[e^{uX_T}]=e^{T\kappa(u)}</annotation></semantics></math>
+on its moment domain. Then</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>T</mi></msub><mo>=</mo><msub><mi>F</mi><mrow><mn>0</mn><mo>,</mo><mi>T</mi></mrow></msub><mo>exp</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>X</mi><mi>T</mi></msub><mo>−</mo><mi>T</mi><mi>κ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="false" form="postfix">}</mo><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>F</mi><mrow><mn>0</mn><mo>,</mo><mi>T</mi></mrow></msub><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex"> S_T=F_{0,T}\exp\{X_T-T\kappa(1)\},\quad F_{0,T}=S_0 e^{(r-q)T}. </annotation></semantics></math></p>
+<p>This correction ensures
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝔼</mi><mi>ℚ</mi></msup><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>S</mi><mi>T</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msub><mi>F</mi><mrow><mn>0</mn><mo>,</mo><mi>T</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\mathbb E^{\mathbb Q}[S_T]=F_{0,T}</annotation></semantics></math>
+if the exponential moment exists. In the variance-gamma (VG) model,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>T</mi></msub><mo>=</mo><mi>θ</mi><msub><mi>G</mi><mi>T</mi></msub><mo>+</mo><mi>σ</mi><msub><mi>W</mi><msub><mi>G</mi><mi>T</mi></msub></msub></mrow><annotation encoding="application/x-tex">X_T=\theta G_T+\sigma W_{G_T}</annotation></semantics></math>,
+where the independent gamma clock
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>G</mi><mi>T</mi></msub><annotation encoding="application/x-tex">G_T</annotation></semantics></math>
+has shape
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>/</mi><mi>ν</mi></mrow><annotation encoding="application/x-tex">T/\nu</annotation></semantics></math>
+and scale
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ν</mi><annotation encoding="application/x-tex">\nu</annotation></semantics></math>.
+Its cumulant exponent is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>−</mi><msup><mi>ν</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>θ</mi><mi>ν</mi><mi>u</mi><mo>−</mo><mfrac displaystyle="false"><mn>1</mn><mn>2</mn></mfrac><msup><mi>σ</mi><mn>2</mn></msup><mi>ν</mi><msup><mi>u</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex"> \kappa(u)=-\nu^{-1}\log(1-\theta\nu u-\tfrac12\sigma^2\nu u^2). </annotation></semantics></math></p>
+<p>Its annual log-return variance is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>+</mo><msup><mi>θ</mi><mn>2</mn></msup><mi>ν</mi></mrow><annotation encoding="application/x-tex">v=\sigma^2+\theta^2\nu</annotation></semantics></math>.
+In a Merton jump-diffusion with Gaussian log jumps of mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>μ</mi><mi>J</mi></msub><annotation encoding="application/x-tex">\mu_J</annotation></semantics></math>
+and standard deviation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>s</mi><mi>J</mi></msub><annotation encoding="application/x-tex">s_J</annotation></semantics></math>,
+intensity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>λ</mi><annotation encoding="application/x-tex">\lambda</annotation></semantics></math>,
+and diffusion volatility
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>σ</mi><mi>M</mi></msub><annotation encoding="application/x-tex">\sigma_M</annotation></semantics></math>,
+the same variance requires
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>σ</mi><mi>M</mi><mn>2</mn></msubsup><mo>=</mo><mi>v</mi><mo>−</mo><mi>λ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>μ</mi><mi>J</mi><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>s</mi><mi>J</mi><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sigma_M^2=v-\lambda(\mu_J^2+s_J^2)\geq0</annotation></semantics></math>.
+The Gaussian benchmark uses volatility
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mi>v</mi></msqrt><annotation encoding="application/x-tex">\sqrt v</annotation></semantics></math>.
+Matching variance and forward does not match skewness, kurtosis or the
+option smile. Independent increments also constrain how cumulants scale
+with maturity.</p>
+<h3 id="experimental-design">Experimental design</h3>
+<p>Use
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">S_0=100</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>2</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">r=2\%</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>1</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">q=1\%</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>0.05</mn><mo>,</mo><mn>0.25</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">T\in\{0.05,0.25,1,2\}</annotation></semantics></math>
+years and forward log-moneyness
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mi>/</mi><msub><mi>F</mi><mrow><mn>0</mn><mo>,</mo><mi>T</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">k=\log(K/F_{0,T})</annotation></semantics></math>
+between
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>0.30</mn></mrow><annotation encoding="application/x-tex">-0.30</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.30</mn><annotation encoding="application/x-tex">0.30</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+is strike. Start with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mi>−</mi><mn>0.12</mn></mrow><annotation encoding="application/x-tex">\theta=-0.12</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi><mo>=</mo><mn>0.2</mn></mrow><annotation encoding="application/x-tex">\nu=0.2</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>=</mo><mn>0.18</mn></mrow><annotation encoding="application/x-tex">\sigma=0.18</annotation></semantics></math>.
+Vary
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>,</mo><mi>ν</mi></mrow><annotation encoding="application/x-tex">\theta,\nu</annotation></semantics></math>
+subject to a feasible variance match and an admissible exponential
+moment. Use conditional Gaussian mixture quadrature for VG and a Poisson
+mixture for Merton; check each with an independent
+characteristic-function or simulation reference. For simulation
+diagnostics start at 100,000 paths and seed 101401. Separate numerical
+error from changes in the risk-neutral law.</p>
+<h3 id="research-tasks-and-required-outputs">Research tasks and required
+outputs</h3>
+<ol type="1">
+<li>Derive cumulants, the martingale correction and the Gaussian limit
+as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ν</mi><mo>→</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\nu\to0</annotation></semantics></math>.</li>
+<li>Implement the VG and Merton pricing integrals and independent
+reference methods. Report truncation, integration and sampling errors
+separately.</li>
+<li>Verify put–call parity, monotonicity and convexity in strike and
+implied-volatility inversion. Flag quotes where inversion is
+ill-conditioned.</li>
+<li>Construct smile and cumulant panels at matched forward and annual
+variance. Discuss how skewness and kurtosis relate to prices without
+assuming a universal ranking.</li>
+<li>Compare convergence and computation time under alternative tail
+parameters and maturities. Document the domain of the pricing transform
+and retain failed or inadmissible cases.</li>
+</ol>
+<p>Submit the smile panels, price/reference error tables, convergence
+and timing tables, and a parameter-domain diagnostic. The Merton
+comparison must include at least two maturities and three log-moneyness
+points. Report price errors in currency per share and implied-volatility
+errors in volatility points.</p>
+<h3 id="minimum-viable-thesis-and-acceptance-criteria">Minimum viable
+thesis and acceptance criteria</h3>
+<p>VG, Gaussian and one finite-activity Merton benchmark with common
+forward and annual log-return variance at two maturities and at least
+three forward log-moneyness points; one independent pricing reference
+for each non-Gaussian model, martingale and put-call parity checks, and
+comparative smile and convergence analysis.</p>
+<h3 id="research-plan-and-scope">Research plan and scope</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Weeks</th>
+<th style="text-align: left;">Deliverable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1–3</td>
+<td style="text-align: left;">Lévy exponents, moments and martingale
+correction</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4–6</td>
+<td style="text-align: left;">Pricing methods, independent references
+and limits</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7–9</td>
+<td style="text-align: left;">Matched-moment smile and cumulant
+experiments</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10–12</td>
+<td style="text-align: left;">Convergence, tail robustness and
+computation cost</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13–16</td>
+<td style="text-align: left;">Interpretation, reproducibility and thesis
+writing</td>
+</tr>
+</tbody>
+</table>
+<p>Prerequisites: stochastic processes, characteristic functions, option
+pricing and quadrature. Optional extension: NIG or CGMY, only after
+establishing moment admissibility. A synthetic exercise cannot establish
+market calibration quality or an unrestricted dynamic smile. Do not
+match a moment that does not exist. Before assignment, agree on the
+parameter domain and reference-method precision with the supervisor.</p>
+<h3 id="core-reading">Core reading</h3>
+<p>Madan, Carr and Chang (1998), <em>European Finance Review</em>, 2,
+79–105. Variance gamma and option pricing.<br />
+Cont and Tankov (2004), <em>Financial Modelling with Jump
+Processes</em>. Chapman &amp; Hall/CRC. Lévy cumulants and
+pricing.<br />
+Carr, Geman, Madan and Yor (2002), <em>Journal of Business</em>, 75,
+305–332. Context for the empirical relevance of Lévy models.<br />
+Use the original workspace reading guide for bibliographic details and
+source routes. Full-text review remains pending.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

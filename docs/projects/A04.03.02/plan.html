@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Monetary Policy and the Joint Response of Nominal and Real Yields | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A04.03.02 · Asset Pricing · Macro-finance &amp; policy</p><h1>Monetary Policy and the Joint Response of Nominal and Real Yields</h1><p class="lead">How do the matched-maturity nominal and real Treasury yield responses to FOMC surprises vary with horizon and communication window, and what is the associated breakeven response?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> USMPD: same-window, same-maturity nominal and real yields, plus surprise data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a04.03.02">Research plan | A04.03.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Validate one actual nominal/real maturity and exact same-window
+surprise mapping. Estimate all three responses with identical design
+rows; verify intercept and slope identity beta_BE=beta_N-beta_R and
+compute inference on the actual difference (not by subtracting standard
+errors). Report unmatched counts and TIPS caveats; if overlap fails
+defer or seek explicit daily redesign.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Use same release USMPD and rate-only surprises as A04.03.01. Verify
+actual same-maturity nominal and TIPS changes (candidate 5y,10y), exact
+same response window and documented timestamp; do not pair intraday
+nominal with daily real. Provider research also reports daily
+Treasury/TIPS responses to high-frequency surprises: if intraday
+matching not available, require explicit supervisor approval of
+daily-response redesign with both daily yield series and separate
+shock-window label, never silently substitute. Common finite mask for
+s,n,r; define BE=n-r in bp, same intercept/regressors, HC3. Coefficient
+identity b_BE=b_N-b_R; use paired meeting bootstrap for maturity
+comparisons, not independent interval subtraction. Interpret breakeven
+as inflation compensation including liquidity/risk premia, not pure
+expectation. 2004-2025 proposal target conditional on verified
+coverage.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Inspect codebook, units, maturity and event IDs; verify surprise
+construction.</p></li>
+<li><p>Construct matched nominal/real/breakeven panel and sample
+flow.</p></li>
+<li><p>Estimate responses with HC3 and meeting-cluster inference if
+stacked.</p></li>
+<li><p>Verify coefficient identity; plot maturity responses and paired
+intervals.</p></li>
+<li><p>Compare statement versus press conference, alternative surprise
+and information-effect controls; report sample changes
+separately.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Event coverage table, maturity response plot, component
+decomposition, paired confidence intervals and sensitivity.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Do not interpret breakeven as pure expected inflation. TIPS liquidity
+and information effects; event-window co-movement not automatic causal
+identification. Data use terms and exact real-yield maturity coverage
+must pass gate.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One verified matched maturity, statements, three response regressions
+on identical events and coefficient identity.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Multiple policy factors or SEP/non-SEP interactions with enough
+common events; adjust for multiple testing.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Bond yields, regression, event studies, Python/R.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Nominal/real yields;</p></li>
+<li><p>Event-study design;</p></li>
+<li><p>Data alignment;</p></li>
+<li><p>Responses and decomposition;</p></li>
+<li><p>Limits.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: codebook/coverage; W4-6: surprise and panel; W7-9: regressions;
+W10-12: communication robustness; W13-16: writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

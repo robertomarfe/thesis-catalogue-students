@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Currency Carry Returns and Global Risk States | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A09.02.02 · Asset Pricing · International, FX &amp; commodities</p><h1>Currency Carry Returns and Global Risk States</h1><p class="lead">Are currency carry returns lower and market exposures larger in risk-off states, and can lagged global risk measures forecast carry returns?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> G10 carry workbook, VIX and NFCI with authorized use and aligned dates.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · International finance, FX and commodities ·
+Level 2/3</strong></p>
+<p><strong>Data:</strong> Empirical design conditional on actual access
+and coverage. <strong>Status:</strong> current review draft; supervisor
+approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Currency carry earns a payoff by holding currencies with higher
+interest-rate-related carry against lower carry currencies. Its exposure
+to global risk-off states may be important even if its unconditional
+average payoff is positive. Distinguish a contemporaneous risk-state
+description from a forecast made before the return period.</p>
+<h3 id="research-question">Research question</h3>
+<p>Are currency carry returns lower and market exposures larger in
+risk-off states, and can lagged global risk measures forecast carry
+returns?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>Compare
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>c</mi><mi>t</mi></msub><mo>∣</mo><msub><mi>I</mi><mi>t</mi></msub><mo>=</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">E[c_t\mid I_t=1]</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>c</mi><mi>t</mi></msub><mo>∣</mo><msub><mi>I</mi><mi>t</mi></msub><mo>=</mo><mn>0</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">E[c_t\mid I_t=0]</annotation></semantics></math>;
+predict
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>c</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">c_{t+1}</annotation></semantics></math>
+using only information at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use the specified published G10 gross carry, monthly market, VIX and
+NFCI series subject to access and coverage. Freeze risk-off thresholds
+in training; contrast contemporaneous stress associations with expanding
+forecasts using lagged indicators. Net is optional and must retain its
+provider definition.</p>
+<p>Audit the G10 gross definition and dates before use. Report state
+counts, training thresholds, information lags and common forecast
+origins. Do not substitute other carry factors or claim causal
+effects.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Carry wealth and drawdown plot; state means/exposures; predictive OOS
+R2 and loss intervals; gross/net comparison.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>One documented G10 gross carry series, common monthly market/VIX
+data, state-dependent returns and lagged forecasting; net optional if
+accessible. Distinct from A09.02.01 bilateral forward premium
+puzzle.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Published carry is not bilateral UIP or newly implementable strategy.
+Check long-short return leverage/normalization. VIX contemporaneous
+conditioning is descriptive; NFCI revised vintage is pseudo-real-time.
+Rare states have limited power.</p>
+<p><strong>Prerequisites:</strong> FX returns, conditional regressions,
+portfolio factors, time-series inference.</p>
+<p><strong>Optional extension:</strong> Compare G10 and broader currency
+universe if same provider definitions; tail regressions.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: theory and data gate; W4-6: common sample; W7-9: state
+exposures; W10-12: forecasts and robustness; W13-16: write.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

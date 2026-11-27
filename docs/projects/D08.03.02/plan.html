@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Put Writing and the Compensation for Downside Risk | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D08.03.02 · Derivatives · Hedging &amp; volatility derivatives</p><h1>Put Writing and the Compensation for Downside Risk</h1><p class="lead">Does the performance of a put-writing benchmark survive comparison with equity/cash portfolios at comparable ex-ante risk, particularly in turbulent markets?</p><p class="small">Data access warning · Level 2/3 · Research draft</p><p class="warning" data-warning="true"><strong>Data access warning: the required datasets may be difficult or costly to obtain. Verify availability, coverage and permitted use with your supervisor. This topic is not currently ready for assignment.</strong><br>Authorized PUT index history and comparable benchmark.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d08.03.02">Research plan | D08.03.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Focus on downside compensation and collateral rather than D08.03.01’s
+upside capture. Defer or explicitly approve redesign if PUT rights or
+history fail. No silent BXM or synthetic substitution.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive payoff and collateral convention, document index roll
+methodology.</p></li>
+<li><p>Align end-month total-return levels and cash returns; validate
+missing dates and extreme observations.</p></li>
+<li><p>Compare cumulative wealth, Sharpe, ES, skewness, downside and
+upside beta.</p></li>
+<li><p>Construct a trailing 60-month volatility-matched equity/cash
+benchmark (weights capped at one) and a fixed 60/40 equity/cash
+control.</p></li>
+<li><p>Evaluate conditional performance in predeclared low/high VIX or
+market-loss regimes; block-bootstrap paired returns, report crisis
+subsamples.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Payoff diagram; common-sample summary and wealth plots; tail/capture
+statistics; matched-risk and regime table.</p>
+<h4 id="robustness">Robustness</h4>
+<p>PUT is a hypothetical index, not directly investable; do not use
+price-only S&amp;P500 as benchmark. Avoid interpreting the spread in
+returns as pure variance premium. Rights, actual data history and launch
+dates are gates. Costs and collateral yield are not silently
+ignored.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Authorized PUT series plus equity total-return comparator or labeled
+French proxy, matched-risk comparison and tail-loss analysis. If PUT
+unavailable, defer or approve a synthetic redesign.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare PUT and BXM with documented collateral and roll differences;
+incorporate trading-cost scenarios.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Option payoff algebra, portfolio statistics, time-series inference
+and Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Put writing and parity;</p></li>
+<li><p>Index construction;</p></li>
+<li><p>Data and benchmarks;</p></li>
+<li><p>Performance and tail risk;</p></li>
+<li><p>Interpretation.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: contract/index methods and download gate; W4-6: data alignment;
+W7-9: matched-risk benchmarks; W10-12: tail and regime checks; W13-16:
+write/reproduce.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

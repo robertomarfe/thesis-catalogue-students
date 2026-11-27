@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Latent Stochastic Volatility versus GARCH | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.03.01 · Derivatives · Volatility &amp; tail risk</p><h1>Latent Stochastic Volatility versus GARCH</h1><p class="lead">Does a parsimonious latent stochastic volatility model improve daily predictive density and multi-day variance forecasts relative to GARCH?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-d03.03.01">Data and model setup |
+D03.03.01</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>French daily market total return (Mkt-RF+RF) from
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html,
+target 1990-2025. Log returns in decimals, train 1990-2009, validation
+2010-2015, final 2016-2025. Start with simulated SV parameters
+mu=log(0.0001), phi=.97,sigma_h=.2 and 3,000 days. Estimate SV by
+approximate log-square state-space likelihood (document approximation
+and zero-return handling) or particle likelihood with multiple starts;
+use bootstrap particle filter for forecast evaluation. Compare GARCH ML
+and historical variance; freeze parameters or common annual refit
+schedule.</p>
+<h4 id="files-to-obtain-locally">Files to obtain locally</h4>
+<ul>
+<li><strong>FF3D — US FF3 daily</strong> (Core). Expected file:
+<code>F-F_Research_Data_Factors_daily_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Link status from v13 inventory: Direct link observed in
+provider page; bytes not inspected. Use correct monthly/daily and
+value-weighted total return block; retain vintage.</li>
+</ul>
+<p>Direct paths are inherited from the frozen acquisition inventory, not
+a guarantee that current bytes or licenses have been verified. If a path
+fails, use the official page and select the exact dataset/frequency.
+Optional sources are not required. Use the provider documentation and
+the return conventions, publication timing and rights checks in this
+guide.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Use the proposed SV DGP and 3000 days for the full student
+experiment. The Gaussian log-square QML uses E log chi-square=-1.27036
+and variance pi^2/2; fix zero-return floor from training, report
+affected fraction. Compare GARCH on raw returns and PF predictive log
+density evaluated before observing the return. Use independent 1000/5000
+particle seeds, ESS and repeated log likelihood; compare filtering (not
+smoothing) and five-day summed variance.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>At sigma_h=0 reproduce analytic Gaussian log density and constant
+variance. Fit approximate SV on a small synthetic sample and confirm PF
+forecasts on identical prefix are unaffected by later observations.</p>
+<p>Build a local inventory, inspect each actual schema and license, save
+an input ledger, row counts and actual dates. Validate session calendar,
+coverage, duplicate keys and missingness before merging; do not compress
+gaps. Provide joint sample and training/validation/evaluation counts,
+mature-label counts for forecasts and state/event counts for conditional
+estimates. No real inputs bundled or verified. If a required source
+fails, seek supervisor-approved adjustment preserving the research
+question or retain the gate. Do not silently replace data or assert a
+real-time backtest from revised values.</p>
+<h4 id="timing-and-units">Timing and units</h4>
+<p>Freeze the provider vintage and documented availability of each
+predictor. Define formation time, return interval, target end and label
+availability separately. Use common dates for model comparisons; never
+encode a missing session as a zero return. A revised historical extract
+supports pseudo-real-time evaluation only unless actual historical
+vintages are verified.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

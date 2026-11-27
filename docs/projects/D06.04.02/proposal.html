@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Quanto Options and Currency Risk in International Derivatives | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D06.04.02 · Derivatives · Numerical pricing &amp; exotics</p><h1>Quanto Options and Currency Risk in International Derivatives</h1><p class="lead">How do FX volatility and equity-FX correlation affect quanto prices and deltas relative to ordinary foreign options converted at spot?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Numerical pricing and exotics · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Fixing currency conversion removes direct exchange-rate exposure at
+settlement but changes the pricing-measure equity drift. The quanto
+correction depends on risk-neutral equity–FX covariance. The study
+separates fixed, random and spot conversion, and evaluates both price
+and equity-delta exposure.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do FX volatility and equity-FX correlation affect quanto prices
+and deltas relative to ordinary foreign options converted at spot?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+domestic currency per foreign unit, the domestic pricing-measure equity
+drift is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>f</mi></msub><mo>−</mo><mi>q</mi><mo>−</mo><mi>ρ</mi><msub><mi>σ</mi><mi>S</mi></msub><msub><mi>σ</mi><mi>X</mi></msub></mrow><annotation encoding="application/x-tex">r_f-q-\rho\sigma_S\sigma_X</annotation></semantics></math>.
+It follows from the domestic value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">XS</annotation></semantics></math>
+earning the domestic risk-free rate including dividends.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use the specified EUR/USD convention, fixed conversion and correlated
+Gaussian terminal law. Compare analytic and simulated quanto prices and
+deltas at two FX volatilities and at least three correlations, including
+random-conversion and spot-converted foreign controls.</p>
+<p>Check the discounted domestic stock martingale and currency units.
+Hold contractual conversion fixed for delta. Validate random conversion
+by numeraire invariance; do not use physical correlation as risk-neutral
+calibration.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Price and delta curves, quanto adjustment heatmap, domestic/foreign
+pricing parity and MC error table. Spot-delta comparison in common
+domestic currency per unit of foreign spot, including numerical
+validation.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Analytic and Monte Carlo quanto call prices and spot deltas for two
+FX volatilities and three equity–FX correlations at one maturity;
+validate the analytic spot delta by a central bump and a pathwise or
+independently simulated estimate, holding the fixed conversion rate and
+FX spot fixed. Include the random-conversion control and the matched
+spot-converted foreign option price and delta.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Zero correlation removes drift correction, not discount or
+fixed-versus-random conversion differences. Reversing X changes sign of
+diffusion and measure, not just labels. No observed quanto prices; no P
+correlations used as Q calibration.</p>
+<p><strong>Prerequisites:</strong> Ito calculus, BSM, change of
+numeraire, Python.</p>
+<p><strong>Optional extension:</strong> Quanto put or basket under
+stochastic correlations and rate scenarios, retaining consistent
+currency ledger.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: currency and measure; W4-6: formulas and MC; W7-9: parity
+checks; W10-12: sensitivity; W13-16: writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

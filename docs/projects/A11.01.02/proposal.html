@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>From Factor Betas to Stochastic Discount Factors | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A11.01.02 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>From Factor Betas to Stochastic Discount Factors</h1><p class="lead">When do beta-pricing and linear SDF estimators produce identical pricing errors, and how do weighting and traded-factor restrictions change the conclusions on common test assets?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Cross-sectional pricing and SDF · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Beta pricing and a linear stochastic discount factor are often
+presented as different empirical approaches. Under a common
+normalization and weighting matrix they can be two parameterizations of
+the same restrictions. Differences in estimates may instead reflect
+constraints, weights or the treatment of traded factors.</p>
+<h3 id="research-question">Research question</h3>
+<p>When do beta-pricing and linear SDF estimators produce identical
+pricing errors, and how do weighting and traded-factor restrictions
+change the conclusions on common test assets?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>With
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mo>=</mo><mo>Cov</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><msubsup><mi>Σ</mi><mi>f</mi><mrow><mi>−</mi><mn>1</mn></mrow></msubsup></mrow><annotation encoding="application/x-tex">B=\operatorname{Cov}(x,f)\Sigma_f^{-1}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><msub><mi>Σ</mi><mi>f</mi></msub><mi>b</mi></mrow><annotation encoding="application/x-tex">\lambda=\Sigma_f b</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><mi>x</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msub><mi>μ</mi><mi>x</mi></msub><mo>−</mo><mi>B</mi><mi>λ</mi></mrow><annotation encoding="application/x-tex">E[mx]=\mu_x-B\lambda</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mn>1</mn><mo>−</mo><msup><mi>b</mi><mi>⊤</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo>−</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>f</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">m=1-b^\top(f-E[f])</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use the original common monthly FF3, 25 size/value and 30 industry
+panels over 1965–2025. Compare the two representations with identical
+inputs and weights, then impose the traded-factor premium restriction
+and examine uncertainty and conditioning.</p>
+<p>Use identical sample conventions for both representations and common
+WLS weights; verify error equivalence before varying weights. Separate
+free versus traded lambda, report rank, sign diagnostics and joint
+date-block refits.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Algebraic proof and unit tests, matched residual table, lambda and b
+estimates, pricing RMSE/weighted loss and bootstrap intervals, rank and
+SDF-sign diagnostics.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Two representations derived and verified, FF3 on two portfolio
+panels, matched weighting, traded/free lambda and uncertainty
+diagnostics.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Do not compare unlike weighting matrices, means or sample periods as
+a test of equivalence. Estimated traded factors may be misspecified. No
+claim that a normalized linear SDF is a positive equilibrium pricing
+kernel. Distinct from A11.02.01 HJ bound and A01.02.01 model
+selection.</p>
+<p><strong>Prerequisites:</strong> Asset pricing, linear algebra,
+covariance estimation, regression and basic GMM.</p>
+<p><strong>Optional extension:</strong> Compare the GMM implementation
+with a two-pass estimator using identical moment restrictions; discuss
+generated-beta and weak-factor inference.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: derivations; W4-6: simulation and data tests; W7-9: matched
+empirical estimators; W10-12: weights and bootstrap; W13-16: diagnostics
+and writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

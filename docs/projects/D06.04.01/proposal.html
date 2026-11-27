@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Basket and Worst-of Options: The Role of Correlation | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D06.04.01 · Derivatives · Numerical pricing &amp; exotics</p><h1>Basket and Worst-of Options: The Role of Correlation</h1><p class="lead">How do correlation and volatility heterogeneity affect arithmetic basket calls and worst-of puts, and when does the sign of correlation sensitivity differ?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Numerical pricing and exotics · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Dependence affects a payoff on the average differently from a payoff
+on the minimum. The former depends on basket dispersion, while the
+latter is exposed to joint tail events. The project keeps marginal asset
+laws fixed and studies how admissible correlation changes alter both
+claims.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do correlation and volatility heterogeneity affect arithmetic
+basket calls and worst-of puts, and when does the sign of correlation
+sensitivity differ?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For normalized prices
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mi>i</mi></msub><mo>=</mo><msub><mi>S</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><msub><mi>S</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">R_i=S_i(T)/S_i(0)</annotation></semantics></math>
+compare
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mo>∑</mo><mi>i</mi></msub><msub><mi>w</mi><mi>i</mi></msub><msub><mi>R</mi><mi>i</mi></msub><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup><annotation encoding="application/x-tex">(\sum_iw_iR_i-K)^+</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo>−</mo><msub><mo>min</mo><mi>i</mi></msub><msub><mi>R</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup><annotation encoding="application/x-tex">(K-\min_iR_i)^+</annotation></semantics></math>.
+A correlation perturbation must preserve the marginal laws and positive
+semidefiniteness.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use two assets as the core with the prescribed correlations, strikes,
+maturities and heterogeneous volatilities. Compare both payoffs on
+paired exact terminal simulations; check the perfect-correlation limit
+and an independent worst-of reference.</p>
+<p>Keep discount and marginal inputs fixed; test PSD before every bump.
+Examine different strikes and volatilities rather than extrapolating one
+correlation sign. Distinguish tail dependence from linear
+correlation.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Payoff definitions; benchmark checks; correlation-price curves;
+sensitivity and uncertainty table; joint-tail diagnostics.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Two assets, exact MC, both payoffs, five admissible correlations,
+perfect-correlation check and paired error bars.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Do not infer correlation sensitivity from a single strike or use
+invalid correlation matrices. Compare same marginal prices and maturity;
+price versus risk exposure distinction. Dependence mixture optional if
+exact marginal matching verified.</p>
+<p><strong>Prerequisites:</strong> Multivariate normal distribution,
+risk-neutral pricing, Monte Carlo, Python.</p>
+<p><strong>Optional extension:</strong> Apply results to a stylized
+worst-of capital-protected note with contract specified separately.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: payoff and model; W4-6: MC/benchmarks; W7-9: correlation grid;
+W10-12: sensitivity and stress; W13-16: document.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

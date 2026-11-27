@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Macroeconomic Forecast Disagreement and Equity Market Risk | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A04.01.02 · Asset Pricing · Macro-finance &amp; policy</p><h1>Macroeconomic Forecast Disagreement and Equity Market Risk</h1><p class="lead">Does forecast disagreement about next-quarter real output growth add predictive information about subsequent equity volatility beyond past volatility and mean expected growth?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> SPF forecast dispersion and mean growth at the same horizon, with release dates.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="mathematical-framework">Mathematical framework</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><msub><mn>2</mn><mi>q</mi></msub></mrow><annotation encoding="application/x-tex">D2_q</annotation></semantics></math>
+denote the published interquartile range of individual annualized
+next-quarter growth forecasts. Define quarterly variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>q</mi></msub><mo>=</mo><msub><mo>∑</mo><mrow><mi>d</mi><mo>∈</mo><mi>q</mi></mrow></msub><msubsup><mi>r</mi><mi>d</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">V_q=\sum_{d\in q}r_d^2</annotation></semantics></math>
+from daily total log returns.</p>
+<p>Fit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><msub><mi>V</mi><mrow><mi>q</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>log</mo><msub><mi>V</mi><mrow><mi>q</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mi>c</mi><mi>E</mi><msub><mi>G</mi><mi>q</mi></msub><mo>+</mo><mi>d</mi><mi>D</mi><msub><mn>2</mn><mi>q</mi></msub><mo>+</mo><msub><mi>e</mi><mrow><mi>q</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\log V_{q+1}=a+b\log V_{q-1}+c EG_q+d D2_q+e_{q+1}</annotation></semantics></math>
+using the preceding completed quarter at survey release. The log-model
+level forecast requires a training-only smearing factor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>E</mi><mo accent="true">̂</mo></mover><mrow><mo stretchy="true" form="prefix">[</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>e</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\widehat E[\exp(e)]</annotation></semantics></math>;
+exponentiation alone is not a mean forecast. Score positive forecasts
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>V</mi><mo>,</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>V</mi><mi>/</mi><mi>f</mi><mo>−</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>V</mi><mi>/</mi><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">L(V,f)=V/f-\log(V/f)-1</annotation></semantics></math>
+and log errors on common dates. Check complete exchange sessions
+independently; do not fill missing returns with zero. Require 80 matured
+quarters before evaluation. Do not pool GNP and GDP without a documented
+historical splice and GDP-only sensitivity.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Match D2 and mean RGDP at the same vintage and q+1 horizon. Audit
+exchange calendar independently; mark a missing daily return as missing
+quarterly RV. Show an 80-quarter warmup and only matured next-quarter
+RV; use training-only log smearing, matched QLIKE and log-MSE with
+paired blocks; GDP-only robustness.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

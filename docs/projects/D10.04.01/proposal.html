@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Currency Option Pricing and Interest Rate Differentials | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D10.04.01 · Derivatives · International, FX &amp; commodities</p><h1>Currency Option Pricing and Interest Rate Differentials</h1><p class="lead">How do domestic and foreign rates affect currency option prices and hedge ratios, and how much of the effect is mediated by forward moneyness?</p><p class="small">Synthetic core · Level 1/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · International finance, FX and commodities ·
+Level 1/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Currency options depend on two interest rates. Their effects operate
+through discounting and the forward, so a comparison at fixed spot
+strike differs from a comparison at matched forward moneyness. Hedging
+must account for interest on the foreign cash position.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do domestic and foreign rates affect currency option prices and
+hedge ratios, and how much of the effect is mediated by forward
+moneyness?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>With
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math>
+USD/EUR,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>=</mo><mi>S</mi><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>r</mi><mi>d</mi></msub><mo>−</mo><msub><mi>r</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi></mrow></msup></mrow><annotation encoding="application/x-tex">F=Se^{(r_d-r_f)T}</annotation></semantics></math>
+and the domestic price discounts the domestic-currency payoff at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>r</mi><mi>d</mi></msub><annotation encoding="application/x-tex">r_d</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use the specified Garman–Kohlhagen grid, first holding K/S fixed
+across rate scenarios, then holding K/F fixed in a separate comparison.
+Derive Greeks at fixed contractual strike, verify against finite
+differences and use a domestic-cash/foreign-money-market delta
+ledger.</p>
+<p>Check parity, fixed-strike sensitivities and self-financing ledger.
+Separate matched moneyness comparisons from Greeks. Keep quote
+orientation and foreign accrual explicit.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Price and Greek grids; parity/finite difference checks; hedge error
+distribution; optional scenario charts.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Synthetic Garman-Kohlhagen pricing and Greek sensitivity with both
+rate and moneyness conventions. Delta ledger tested; historical inputs
+optional.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Quote direction and units fixed. Money market yields are not
+necessarily risk-free or collateralized. Use domestic discounting and
+foreign accrual consistently; no claims about FX basis or market implied
+volatility from synthetic prices.</p>
+<p><strong>Prerequisites:</strong> BSM, probability, FX conventions,
+basic Python.</p>
+<p><strong>Optional extension:</strong> Two deterministic term
+structures or stochastic rates and quanto adjustments.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: derivation; W4-6: pricer and Greeks; W7-9: rate grid; W10-12:
+ledger and optional replay; W13-16: write.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

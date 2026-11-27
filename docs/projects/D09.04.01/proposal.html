@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Counterparty Credit Risk and the Pricing of Uncollateralized Derivatives | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D09.04.01 · Derivatives · Credit &amp; incomplete markets</p><h1>Counterparty Credit Risk and the Pricing of Uncollateralized Derivatives</h1><p class="lead">How do maturity, market volatility, hazard and recovery jointly shape unilateral CVA for an uncollateralized forward, and how sensitive is independence-based CVA to wrong-way risk?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>D09.04.01 · Derivatives · Synthetic data · Difficulty 2/3 ·
+16 weeks</strong></p>
+<p>Current research proposal. Supervisor approval and applicable data
+clearance remain pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>A forward contract can be fairly priced at inception yet expose its
+holder to a loss if the counterparty defaults before settlement. The
+potential loss depends on the future replacement value at the time of
+default, not on the contractual notional alone. A useful valuation
+adjustment therefore requires both a model of market risk and a model of
+default. This project quantifies their joint importance, and asks
+whether an independence approximation remains informative when default
+intensity responds to the underlying price.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do maturity, market volatility, hazard and recovery jointly shape
+unilateral CVA for an uncollateralized forward, and how sensitive is
+independence-based CVA to wrong-way risk?</p>
+<h3 id="model-and-economic-intuition">Model and economic intuition</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mi>t</mi></msub><annotation encoding="application/x-tex">S_t</annotation></semantics></math>
+be an equity price,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>
+the constant short rate,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>
+the dividend yield and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>
+annual volatility. Under the pricing measure
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℚ</mi><annotation encoding="application/x-tex">\mathbb Q</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>S</mi><mi>t</mi></msub><mi>/</mi><msub><mi>S</mi><mi>t</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mo>+</mo><mi>σ</mi><mi>d</mi><msubsup><mi>W</mi><mi>t</mi><mi>ℚ</mi></msubsup></mrow><annotation encoding="application/x-tex">dS_t/S_t=(r-q)dt+\sigma dW_t^{\mathbb Q}</annotation></semantics></math>.
+For a long forward with contractual delivery price
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+and maturity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>,
+the clean replacement value is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>t</mi></msub><mo>=</mo><msub><mi>S</mi><mi>t</mi></msub><msup><mi>e</mi><mrow><mi>−</mi><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo>−</mo><mi>K</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">V_t=S_te^{-q(T-t)}-Ke^{-r(T-t)}.</annotation></semantics></math></p>
+<p>With unilateral counterparty default time
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>τ</mi><mi>d</mi></msub><annotation encoding="application/x-tex">\tau_d</annotation></semantics></math>,
+recovery fraction
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>R</mi><annotation encoding="application/x-tex">R</annotation></semantics></math>
+and clean closeout, the valuation adjustment is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">V</mi><mi mathvariant="normal">A</mi></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>R</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>𝔼</mi><mi>ℚ</mi></msup><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><msub><mi>τ</mi><mi>d</mi></msub></mrow></msup><msubsup><mi>V</mi><msub><mi>τ</mi><mi>d</mi></msub><mo>+</mo></msubsup><msub><mn>𝟏</mn><mrow><mo stretchy="false" form="prefix">{</mo><msub><mi>τ</mi><mi>d</mi></msub><mo>≤</mo><mi>T</mi><mo stretchy="false" form="postfix">}</mo></mrow></msub><mo stretchy="true" form="postfix">]</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\mathrm{CVA}=(1-R)\mathbb E^{\mathbb Q}[e^{-r\tau_d}V_{\tau_d}^+\mathbf 1_{\{\tau_d\le T\}}].</annotation></semantics></math></p>
+<p>The credit-adjusted value is the clean value minus CVA. If default is
+independent with constant intensity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>,
+the default density is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>h</mi><mi>t</mi></mrow></msup></mrow><annotation encoding="application/x-tex">he^{-ht}</annotation></semantics></math>.
+The expected discounted positive exposure can be computed using a
+lognormal call-form expression. Dependence requires a joint model, not
+simply a change in hazard: comparisons should preserve the marginal
+survival curve if their purpose is to isolate dependence.</p>
+<h3 id="experimental-design">Experimental design</h3>
+<p>Use synthetic forwards with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">S_0=100</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi></mrow></msup></mrow><annotation encoding="application/x-tex">K=S_0e^{(r-q)T}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>2</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">r=2\%</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>1</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">q=1\%</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>=</mo><mn>15</mn></mrow><annotation encoding="application/x-tex">\sigma=15</annotation></semantics></math>–<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>40</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">40\%</annotation></semantics></math>,
+maturities 1, 3 and 5 years,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mn>0.5</mn></mrow><annotation encoding="application/x-tex">h=0.5</annotation></semantics></math>–<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">5\%</annotation></semantics></math>
+and baseline
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mn>40</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">R=40\%</annotation></semantics></math>.
+Hold the contractual strike fixed when comparing risk perturbations at
+each maturity. No proprietary quotes are required.</p>
+<h3 id="applied-research-programme">Applied research programme</h3>
+<ol type="1">
+<li><strong>Verify clean value and exposure.</strong> Derive the
+discounted positive exposure and check against lognormal integration;
+test
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h=0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">R=1</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sigma=0</annotation></semantics></math>
+and long/short sign conventions.</li>
+<li><strong>Reconcile continuous and grid valuation.</strong> Compare
+quadrature, exact GBM paths and independently drawn exponential default
+times. Separate grid bias from sampling uncertainty.</li>
+<li><strong>Map credit and market risks.</strong> Report CVA per unit
+notional across maturity, volatility, hazard and recovery. Contrast
+fixed-hazard and fixed-credit-spread scenarios without treating recovery
+and spread as independently identified.</li>
+<li><strong>Isolate wrong-way risk.</strong> At one maturity use an
+adapted Cox intensity depending on the preceding log price; calibrate
+its deterministic baseline on separate paths to match survival at all
+grid nodes. Compare signed dependence with fixed-baseline cases and
+independence; report both marginal default probability and CVA. Refine
+the grid and verify with independently sampled default clocks.</li>
+<li><strong>Interpret the limits.</strong> A risk-neutral hazard is not
+a physical forecast. Clean closeout, deterministic rates and no own
+default, collateral, funding or netting are deliberate
+restrictions.</li>
+</ol>
+<h3 id="deliverables-and-acceptance">Deliverables and acceptance</h3>
+<p>Submit exposure curves, CVA/notional heatmaps, benchmark and
+sensitivity tables, and survival-curve and simulation-uncertainty
+diagnostics. Document seeds and calibration/evaluation separation. Keep
+dependence as a bounded robustness exercise; the distinct D09.04.02
+project makes the dependence mechanism the central question.</p>
+<p><strong>Minimum viable thesis.</strong> One equity forward,
+independent default, analytic exposure and independent Monte Carlo
+check, four hazard/volatility scenarios; at one maturity, compare
+independent and two signed adapted Cox-intensity cases after matching
+the marginal survival curve on a common grid. Report default
+probabilities, CVA, simulation and time-grid uncertainty and the
+separate fixed-baseline comparison.</p>
+<p>Optional extension: portfolio netting or collateral thresholds under
+matched exposure and closeout conventions.</p>
+<h3 id="work-plan-and-prerequisites">Work plan and prerequisites</h3>
+<p>Weeks 1–3: pricing and closeout; 4–6: exposure and MC; 7–9: CVA
+validation; 10–12: sensitivity and dependence; 13–16: robustness and
+writing. Prerequisites: Black–Scholes, credit intensity, numerical
+integration and Python.</p>
+<h3 id="core-reading">Core reading</h3>
+<p>Brigo, Morini and Pallavicini (2013), <em>Counterparty Credit Risk,
+Collateral and Funding</em>, Wiley; Gregory (2020), <em>The xVA
+Challenge</em>, 4th ed., Wiley; Duffie and Singleton (2003), <em>Credit
+Risk</em>, Princeton University Press. See the inherited reading guide.
+No new full-text verification is claimed.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

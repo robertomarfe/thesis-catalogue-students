@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Time-Series Momentum across Asset Classes | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A09.04.01 · Asset Pricing · International, FX &amp; commodities</p><h1>Time-Series Momentum across Asset Classes</h1><p class="lead">How diversified are time-series momentum payoffs across asset classes, and how do their market exposures and conditional performance vary in adverse equity market states?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="portfolio-of-published-trend-payoffs">Portfolio of published
+trend payoffs</h3>
+<p>Time-series momentum takes a direction based on an instrument’s own
+past trend, unlike cross-sectional ranking across securities. Here the
+inputs are published asset-class strategy payoffs rather than raw
+futures trades. Keep four distinct sleeves and document the provider’s
+existing risk normalization. Use a reported aggregate only as a separate
+benchmark. For a trailing allocation, estimate volatilities using data
+through month
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>,
+normalize weights under a fixed gross exposure convention, and multiply
+by realized sleeve payoffs in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">t+1</annotation></semantics></math>.</p>
+<h3 id="stress-and-holdout">Stress and holdout</h3>
+<p>Estimate the market-tail threshold using training data only;
+conditioning on realized market returns in test is descriptive. Keep
+2008 and 2020 event windows separate from the predeclared stress test.
+Report common dates, regime counts, risk and return, portfolio
+covariance and paired block uncertainty. A published excess strategy
+payoff is not a funded wealth return unless a capital and risk-free
+convention is added. Inverse-volatility weighting changes risk
+contributions and can change leverage: report both, not simply the
+Sharpe ratio.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Verify four sleeves, monthly units, risk scaling and market
+benchmark. Use only trailing data in weights and training thresholds,
+with fixed holdout. No independent futures-position replication
+claim.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

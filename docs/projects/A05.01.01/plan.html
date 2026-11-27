@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Gaussian and Square-Root Interest Rate Models: Theory and Empirical Performance | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A05.01.01 · Asset Pricing · Fixed income &amp; interest rates</p><h1>Gaussian and Square-Root Interest Rate Models: Theory and Empirical Performance</h1><p class="lead">Do square-root rate innovations improve the fit and predictive distribution of US short-rate proxies relative to Gaussian mean reversion?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a05.01.01">Research plan | A05.01.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Compare held-out log scores, PIT calibration and parameter
+uncertainty on identical positive observations. Record optimizer
+failures and missing months. Distinct from A05.01.03: primary target is
+the whole conditional density, not conditional variance alone.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive both transition densities and check numerical integration
+and simulated conditional moments.</p></li>
+<li><p>Estimate physical parameters by exact transition maximum
+likelihood with multiple starts, report boundary/condition diagnostics
+and uncertainty.</p></li>
+<li><p>Compare log likelihood, AIC, one-month conditional quantiles, PIT
+and predictive log score on holdout.</p></li>
+<li><p>Simulate stationary or long-run distributions, compare moments,
+autocorrelation, conditional volatility and negative-rate
+probability.</p></li>
+<li><p>Plot illustrative Q bond curves using explicitly hypothetical Q
+parameters; show why P fit alone cannot validate bond prices.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Parameter, fit and forecast score tables, density/QQ plots,
+conditional variance and PIT diagnostics, simulation comparisons and
+illustrative affine yield curves.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Try alternative start dates and monthly average proxy only as
+robustness (not exact point observation); compare crisis regimes and
+discretization of monthly intervals. CIR noncentral chi-square
+likelihood at zero needs explicit treatment; report unsupported
+observations. Real bill maturities differ from instantaneous short rate;
+no direct estimation of market price of risk.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Two exact P transition estimators on a verified positive-rate sample,
+held-out density comparison, simulated rate moments and a clear P/Q
+distinction with illustrative curves.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Jointly estimate risk-neutral parameters using GSW zero yields under
+a measurement-error specification; separate from baseline.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Stochastic calculus, likelihood, noncentral chi-square distributions,
+numerical optimization and Python SciPy.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Short-rate dynamics and affine pricing;</p></li>
+<li><p>Exact transitions and identification;</p></li>
+<li><p>Proxy data and estimation;</p></li>
+<li><p>Fit and forecast comparison;</p></li>
+<li><p>Pricing implications and limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive transitions and bond formulas; W4-6: acquire and
+transform rates; W7-9: MLE and simulation; W10-12: holdout and stress
+analysis; W13-16: Q illustrations and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

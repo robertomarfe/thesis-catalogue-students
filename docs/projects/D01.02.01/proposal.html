@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Option Pricing under Stochastic Volatility: The Heston Model | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D01.02.01 · Derivatives · Option models &amp; surfaces</p><h1>Option Pricing under Stochastic Volatility: The Heston Model</h1><p class="lead">When does stochastic volatility improve pricing beyond constant volatility, and which dimensions of a cross-section of European options identify its parameters? Assess the hypothesis that strike and maturity coverage jointly improve held-out pricing, even when parameter recovery remains weak.</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Vanilla pricing and surfaces · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>A stochastic-volatility model adds economically meaningful degrees of
+freedom, but a low pricing residual does not establish that the
+corresponding parameters are precisely identified. Strike coverage
+informs asymmetry and curvature; maturity coverage informs the variance
+dynamics. The project studies whether additional information improves
+held-out valuation even when the parameter estimates themselves remain
+imprecise.</p>
+<h3 id="research-question">Research question</h3>
+<p>When does stochastic volatility improve pricing beyond constant
+volatility, and which dimensions of a cross-section of European options
+identify its parameters? Assess the hypothesis that strike and maturity
+coverage jointly improve held-out pricing, even when parameter recovery
+remains weak.</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>Heston introduces the variance state
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>v</mi><mi>t</mi></msub><annotation encoding="application/x-tex">v_t</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>v</mi><mi>t</mi></msub><mo>=</mo><mi>κ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo>−</mo><msub><mi>v</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mo>+</mo><mi>ξ</mi><msqrt><msub><mi>v</mi><mi>t</mi></msub></msqrt><mi>d</mi><msubsup><mi>W</mi><mi>t</mi><mi>v</mi></msubsup></mrow><annotation encoding="application/x-tex">dv_t=\kappa(\theta-v_t)dt+\xi\sqrt{v_t}dW_t^v</annotation></semantics></math>.
+Its parameters affect both the pricing law and the conditioning of the
+calibration problem; the latter must be assessed separately from
+held-out error.</p>
+<h3 id="research-design">Research design</h3>
+<p>Generate synthetic calls for a known Heston economy over four
+maturities and multiple strikes. Retain alternating strikes and an
+entire maturity as tests. Fit constant volatility and Heston on
+identical training quotes under noise-free and noisy designs, including
+a flat-volatility truth as a negative control.</p>
+<p>Begin with a checked pricer and a two-parameter fit, then release all
+five parameters. Freeze an entire maturity and alternating strikes
+before generating noise. Report objective profiles, failed starts,
+parameter recovery and held-out prices as separate exhibits.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Table of true and fitted parameters with dispersion and training/test
+errors; smile-by-maturity panels; objective-profile figure for
+kappa/theta or xi/rho; numerical validation log. Interpret fit
+improvements relative to the known noise scale, not only percentage
+changes.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>A correct BSM and Heston pricer, one full noise-free and one noisy
+calibration experiment, a prespecified holdout, and a defensible
+explanation of parameter recovery versus predictive pricing. Pass
+numerical tests before interpreting calibration. A null improvement is
+informative under the flat-volatility generating model.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Check quadrature truncation, alternate initializations, quote
+weighting, Feller-constrained versus unconstrained (with valid numerical
+pricing), strike-only versus maturity holdout, and stress a low-skew
+scenario. Do not describe synthetic holdout fit as market evidence.
+Never reuse the held-out quotes to choose weights or parameter
+bounds.</p>
+<p><strong>Prerequisites:</strong> Risk-neutral pricing, Ito calculus,
+numerical integration, nonlinear optimization, Python/NumPy/SciPy. The
+characteristic-function derivation is the advanced element; use a
+published formula if needed and explain its logic.</p>
+<p><strong>Optional extension:</strong> Optionally add a second
+synthetic generator (Merton jumps) to examine misspecification or a
+single documented free quote snapshot if available; keep actual-market
+validation clearly separate.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: derive pricing equations and reproduce BSM tests; W4-6:
+implement/validate characteristic function and freeze surface design;
+W7-10: calibrate with multistart and noise repetitions, lock test set;
+W11-13: profile parameters and stress scenarios; W14-16: interpret,
+write, reproduce all exhibits from a clean run.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

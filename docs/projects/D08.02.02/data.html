@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>VIX and VVIX as Indicators of Volatility Derivative Risk | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D08.02.02 · Derivatives · Hedging &amp; volatility derivatives</p><h1>VIX and VVIX as Indicators of Volatility Derivative Risk</h1><p class="lead">Does VVIX contain incremental information beyond VIX about near-term equity downside risk, and are their joint stress signals stable out of sample?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-d08.02.02">Data and model setup |
+D08.02.02</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Cboe VIX and VVIX daily closing histories
+https://www.cboe.com/tradable_products/vix/vix_historical_data; French
+daily market total return=Mkt-RF+RF
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html.
+Use common dates, proposed 2007-2025 if available. Sample every fifth
+trading day for nonoverlapping targets; fix calendar phase. First 60%
+train, next 20% validate, last 20% test, with five-day purge at split
+boundaries. Standardize predictors using training only; forecast after
+close t for t+1 onward.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>FF3D — US FF3 daily</strong> (Core / planned robustness).
+Expected file: <code>F-F_Research_Data_Factors_daily_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Link status from v13 inventory: Direct link observed in
+provider page; bytes not inspected. Use correct monthly/daily and
+value-weighted total return block; retain vintage.</li>
+<li><strong>CBOE_VIX — VIX daily closing history</strong> (Core /
+planned robustness). Expected file: <code>VIX_History.csv</code>. <a
+href="https://cdn-api.cboe.com/us/indices/daily_prices/VIX_History.csv">Download
+or provider route</a>; <a
+href="https://www.cboe.com/tradable_products/vix/vix_historical_data">provider
+page</a>. Link status from v13 inventory: Provider lists named
+historical file; candidate direct endpoint not confirmed in this turn.
+If direct endpoint fails select named historical price link; observe use
+terms.</li>
+<li><strong>CBOE_VVIX — VVIX daily closing history</strong> (Core /
+planned robustness). Expected file: <code>VVIX_History.csv</code>. <a
+href="https://cdn-api.cboe.com/api/global/us_indices/daily_prices/VVIX_History.csv">Download
+or provider route</a>; <a
+href="https://www.cboe.com/tradable-products/vix/vix-historical-data/">provider
+page</a>. Link status from v13 inventory: Exact provider-linked endpoint
+observed 2026-11-25; web fetch unsupported CSV; bytes not validated. If
+direct endpoint fails select named historical price link; observe use
+terms.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Construct nonoverlapping future five-session total log returns below
+log(.97) and semivariance, with fixed calendar phase and mature labels.
+Align VIX/VVIX close at origin, use 60/20/20 split and five-session
+purge. Compare constant, VIX-only, VVIX-only, joint models; train-only
+standardization, proper scores, event counts and paired inference.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Actual common VIX/VVIX/FF daily coverage and rights open; no
+missing-session compression or threshold drift.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. If source fails, obtain explicitly
+approved redesign or defer.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Define the pricing measure, path measure, position and loss signs,
+trading dates, initial funding and terminal liquidation. Freeze the
+provider vintage for empirical designs, retain common dates and
+distinguish price indices from total-return indices. A historical replay
+of synthetic option quotes is not a realized traded-option backtest.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

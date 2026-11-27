@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Interest Rate Options under Gaussian and Square-Root Dynamics | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D07.02.02 · Derivatives · Fixed income &amp; interest rates</p><h1>Interest Rate Options under Gaussian and Square-Root Dynamics</h1><p class="lead">After matching initial bond prices and at-the-money option volatility approximately, how do Gaussian and square-root dynamics affect out-of-the-money bond options and their Greeks?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d07.02.02">Research plan | D07.02.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Freeze the ATM match before comparing other strikes; report domain
+and uncertainty rather than forcing implied volatilities for zero
+prices. Distinct from A05.01.01 physical transition estimation.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive bond prices and shift, verify initial curve and forward
+option parity.</p></li>
+<li><p>Implement Gaussian analytic and CIR reference pricers, compare MC
+with time-step refinement.</p></li>
+<li><p>Match ATM price by one volatility parameter; report unmatched
+cases.</p></li>
+<li><p>Compare price/forward-moneyness grids, implied Black vol where
+defined and finite-difference rate sensitivities.</p></li>
+<li><p>Stress low initial rates, negative shifted rates and large
+volatility; keep expiry/delivery fixed. Compare parallel
+initial-zero-curve sensitivities for at least one ATM and one
+non-negligible OTM option; keep contractual strike and stochastic
+parameters fixed and refit only the deterministic curve shift. Treat
+shifted-CIR support restrictions as structural zeros.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Curve fit table; parity and MC error table; option price and implied
+volatility plots; Greek and tail-scenario comparisons. Bump-convergence
+table and sensitivity per basis point; document unmatched prices and
+structural zeros.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Match curves and ATM price before attributing differences to
+diffusion. Shifted CIR need not have positive total rates. Do not infer
+Q parameters from P estimates. Use CIR boundary/Feller diagnostics;
+distinguish bond option from caplet.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Two affine models on the same synthetic curve, analytic/Monte Carlo
+cross-check, one ATM price match and option smile comparison; compare at
+least one ATM and one non-negligible OTM parallel zero-yield sensitivity
+with strike and stochastic parameters frozen and deterministic curve
+fitting updated. Report convergence in bump size, pricing-domain
+failures and unmatched cases. Distinct from A05.01.01 (physical rate
+dynamics).</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare caplets or Jamshidian swaption decomposition under one-factor
+dynamics.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Stochastic calculus, affine processes, fixed-income pricing,
+Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>No-arbitrage bond pricing;</p></li>
+<li><p>Vasicek and CIR;</p></li>
+<li><p>Bond options and matching;</p></li>
+<li><p>Numerical study;</p></li>
+<li><p>Model risk.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: affine derivations; W4-6: reference pricers; W7-9: matching and
+validation; W10-12: scenarios and Greeks; W13-16: write and
+reproduce.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

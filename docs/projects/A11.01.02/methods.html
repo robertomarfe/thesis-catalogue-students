@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>From Factor Betas to Stochastic Discount Factors | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A11.01.02 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>From Factor Betas to Stochastic Discount Factors</h1><p class="lead">When do beta-pricing and linear SDF estimators produce identical pricing errors, and how do weighting and traded-factor restrictions change the conclusions on common test assets?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="reparameterization">Reparameterization</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+be a column of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+excess returns,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>
+a column of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math>
+factors,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mi>x</mi></msub><mo>=</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>x</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\mu_x=E[x]</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mi>f</mi></msub><mo>=</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>f</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\mu_f=E[f]</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Σ</mi><mi>f</mi></msub><mo>=</mo><mo>Var</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Sigma_f=\operatorname{Var}(f)</annotation></semantics></math>.
+Normalize the affine candidate to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mn>1</mn><mo>−</mo><msup><mi>b</mi><mi>⊤</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>f</mi><mo>−</mo><msub><mi>μ</mi><mi>f</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">m=1-b^\top(f-\mu_f)</annotation></semantics></math>.
+Then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><mi>x</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msub><mi>μ</mi><mi>x</mi></msub><mo>−</mo><mo>Cov</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">g(b)=E[mx]=\mu_x-\operatorname{Cov}(x,f)b</annotation></semantics></math>.
+If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Σ</mi><mi>f</mi></msub><annotation encoding="application/x-tex">\Sigma_f</annotation></semantics></math>
+is invertible, the beta representation
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>μ</mi><mi>x</mi></msub><mo>−</mo><mi>B</mi><mi>λ</mi></mrow><annotation encoding="application/x-tex">g(\lambda)=\mu_x-B\lambda</annotation></semantics></math>
+follows by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><msub><mi>Σ</mi><mi>f</mi></msub><mi>b</mi></mrow><annotation encoding="application/x-tex">\lambda=\Sigma_fb</annotation></semantics></math>.
+The same fixed quadratic weight on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>g</mi><annotation encoding="application/x-tex">g</annotation></semantics></math>
+implies identical feasible errors, although coefficients differ. If the
+traded excess factors themselves are priced, their restrictions give
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>=</mo><msub><mi>μ</mi><mi>f</mi></msub></mrow><annotation encoding="application/x-tex">\lambda=\mu_f</annotation></semantics></math>.
+Normalizing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">E[m]=1</annotation></semantics></math>
+for excess moments does not price the bill in levels. Positivity is not
+implied.</p>
+<p>With rank deficiency a one-to-one coefficient map need not exist;
+diagnose the identified span instead of comparing unstable individual
+coefficients.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Use identical sample conventions for both representations and common
+WLS weights; verify error equivalence before varying weights. Separate
+free versus traded lambda, report rank, sign diagnostics and joint
+date-block refits.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

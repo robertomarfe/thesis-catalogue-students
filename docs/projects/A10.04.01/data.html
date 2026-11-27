@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Interpretable Machine Learning for Financial Risk Forecasts | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A10.04.01 · Asset Pricing · Predictability &amp; machine learning</p><h1>Interpretable Machine Learning for Financial Risk Forecasts</h1><p class="lead">Do interpretable nonlinear forecasts of market variance improve on linear/HAR benchmarks, and are their feature attributions stable across periods?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a10.04.01">Data and model setup |
+A10.04.01</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Use French daily market total returns
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html,
+VIXCLS, NFCI, GS10 and TB3MS from https://fred.stlouisfed.org/.
+Construct past 1/3/12-month variance, end-month VIX squared divided by
+12, term spread, lagged NFCI (one-month conservative lag). Common sample
+1990-2025 or verified intersection; train through 2009, validation
+2010-2015, test 2016-2025. Use expanding folds, same features and target
+for all models; retain revised-vintage caveat. Hyperparameters selected
+only in validation, modest tree depth.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>FF3D — US FF3 daily</strong> (Core). Expected file:
+<code>F-F_Research_Data_Factors_daily_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed in provider page; bytes not inspected. Use correct
+monthly/daily and value-weighted total return block; retain
+vintage.</li>
+<li><strong>VIXCLS — VIXCLS</strong> (Core). Expected file:
+<code>VIXCLS.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/VIXCLS">provider page</a>.
+Historical v13 inventory note (unverified in current release): Direct
+CSV endpoint constructed from exact series ID; not fetched. Daily
+closing index, monthly mean only for spread study.</li>
+<li><strong>NFCI — NFCI</strong> (Core). Expected file:
+<code>NFCI.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=NFCI">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/NFCI">provider page</a>.
+Historical v13 inventory note (unverified in current release): Direct
+CSV endpoint constructed from exact series ID; not fetched. Weekly;
+release lag and vintage.</li>
+<li><strong>GS10 — GS10</strong> (Core). Expected file:
+<code>GS10.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=GS10">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/GS10">provider page</a>.
+Historical v13 inventory note (unverified in current release): Direct
+CSV endpoint constructed from exact series ID; not fetched. Monthly
+Treasury yield percent.</li>
+<li><strong>TB3MS — TB3MS</strong> (Core). Expected file:
+<code>TB3MS.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/TB3MS">provider page</a>.
+Historical v13 inventory note (unverified in current release): Direct
+CSV endpoint constructed from exact series ID; not fetched. Monthly
+discount-basis bill rate.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Construct next-month sum squared daily market log returns (or
+centered simple squares consistently as declared); use same target and
+past 1/3/12-month realized variance. VIX^2/12 in decimal units
+approximates monthly Q variance; horizon mismatch disclose,
+NFCI/GS10/TB3MS lagged. Train linear/HAR and shallow RF/boost on
+identical inputs; require positive forecasts for QLIKE with predeclared
+floor, report clipping. Group correlated predictors for permutation
+importance on validation only; final attributions descriptive, no
+tuning.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Actual FF3D and macro/VIX rights, complete sessions and calendar
+commonity pending. Test grouped permutation loss and artificial positive
+variance target.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel/parquet inputs require the relevant
+optional reader (openpyxl, xlrd, pyarrow); inspect raw schema and
+permissions first (not needed for the introductory setup check). If
+source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="frozen-research-design-original-catalogue">Frozen research
+design (original catalogue)</h4>
+<p>Use French daily market total returns
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html,
+VIXCLS, NFCI, GS10 and TB3MS from https://fred.stlouisfed.org/.
+Construct past 1/3/12-month variance, end-month VIX squared divided by
+12, term spread, lagged NFCI (one-month conservative lag). Common sample
+1990-2025 or verified intersection; train through 2009, validation
+2010-2015, test 2016-2025. Use expanding folds, same features and target
+for all models; retain revised-vintage caveat. Hyperparameters selected
+only in validation, modest tree depth.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Hand-check daily squared-return aggregation and annualization (same
+for forecast and target); record zero/clipped values; check availability
+ledger and positive forecasts. Permute grouped blocks, not rows;
+distinguish importance variability from loss uncertainty.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Record total, gross and excess return conventions, RF timing,
+sampling frequency, factor definitions and annualization. Freeze common
+date and asset sets, provider vintage and information availability.
+Distinguish training, validation and holdout; do not treat factor
+returns or long-short spreads as total returns.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Role of Gamma in Delta-Hedging Errors | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D04.01.02 · Derivatives · Hedging &amp; volatility derivatives</p><h1>The Role of Gamma in Delta-Hedging Errors</h1><p class="lead">How accurately does a gamma-weighted quadratic-variation error explain discrete hedging losses across strikes and maturities, and when does the approximation break down?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Hedging and volatility derivatives · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>A delta hedge removes first-order stock exposure at the trading
+instant, but not option curvature between trades. The project asks
+whether a local curvature expansion explains the economically important
+part of replication errors and where it breaks down.</p>
+<h3 id="research-question">Research question</h3>
+<p>How accurately does a gamma-weighted quadratic-variation error
+explain discrete hedging losses across strikes and maturities, and when
+does the approximation break down?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For hedge minus claim, the leading discounted error increment is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>t</mi></mrow></msup><msub><mi>Γ</mi><mi>t</mi></msub><msubsup><mi>S</mi><mi>t</mi><mn>2</mn></msubsup><msup><mi>σ</mi><mn>2</mn></msup><mrow><mo stretchy="true" form="prefix">[</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>Δ</mi><mi>W</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>−</mo><mi>h</mi><mo stretchy="true" form="postfix">]</mo></mrow><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">-e^{-rt}\Gamma_t S_t^2\sigma^2[(\Delta W)^2-h]/2</annotation></semantics></math>
+over a step of length
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>h</mi><annotation encoding="application/x-tex">h</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use exact GBM paths and nested grids, comparing exact cash-ledger
+error against the accumulated left-end gamma approximation across
+strikes and maturities. Hold the premium, path and dates fixed within
+each comparison.</p>
+<p>Distinguish explanatory accuracy from D04.01.01’s convergence study.
+Verify the sign on a single ledger, then report paired residuals, RMSE,
+variance ratio and tail errors normalized by spot as well as
+dollars.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Tested cash ledger, gamma/error scatterplots, contract-grid heatmaps,
+predicted versus realized variance tables and approximation residual
+distributions.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Verified sign and cash ledger, three strikes, three maturities and
+three nested grids, quantitative approximation accuracy and failure
+diagnostics.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>A leading-order expansion is asymptotic, especially delicate near
+expiry. Avoid using terminal information to compute gamma. Same paths
+and notional across contracts; no transaction-cost optimization
+(D04.03.01) or general convergence-only study (D04.01.01).</p>
+<p><strong>Prerequisites:</strong> Stochastic calculus, BSM Greeks,
+Monte Carlo and numerical Python.</p>
+<p><strong>Optional extension:</strong> Compare a gamma-neutral hedge
+with a second option under the same diffusion, incorporating the
+additional rebalancing requirements explicitly.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: Taylor/PDE derivation; W4-6: ledger and matched paths; W7-9:
+contract grid and approximation; W10-12: tail and refinement tests;
+W13-16: interpretation and writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

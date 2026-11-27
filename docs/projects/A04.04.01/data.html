@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Economic Policy Uncertainty and Equity Market Risk | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A04.04.01 · Asset Pricing · Macro-finance &amp; policy</p><h1>Economic Policy Uncertainty and Equity Market Risk</h1><p class="lead">Does economic policy uncertainty improve forecasts of future equity market variance beyond lagged variance and VIX?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a04.04.01">Data and model setup |
+A04.04.01</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Use US news-based monthly index USEPUNEWSINDXM and composite
+USEPUINDXM from https://fred.stlouisfed.org/series/USEPUNEWSINDXM and
+https://fred.stlouisfed.org/series/USEPUINDXM; VIXCLS end-month and
+French daily market total returns
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html.
+Common 1990-2025 target, train to 2004, validation 2005-2009, test
+2010-2025. Use EPU lagged one month at origin, and actual
+release/vintage check (historical reconstruction is not real-time). News
+index baseline; composite robustness includes non-news components. VIX
+percent converted to decimals.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>FF3D — US FF3 daily</strong> (Core). Expected file:
+<code>F-F_Research_Data_Factors_daily_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed in provider page; bytes not inspected. Use correct
+monthly/daily and value-weighted total return block; retain
+vintage.</li>
+<li><strong>VIXCLS — VIXCLS</strong> (Core). Expected file:
+<code>VIXCLS.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/VIXCLS">provider page</a>.
+Historical v13 inventory note (unverified in current release): Direct
+CSV endpoint constructed from exact series ID; not fetched. Daily
+closing index, monthly mean only for spread study.</li>
+<li><strong>USEPUNEWSINDXM — US monthly news-based EPU</strong> (Core).
+Expected file: <code>USEPUNEWSINDXM.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=USEPUNEWSINDXM">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/USEPUNEWSINDXM">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Series metadata confirmed; standard FRED CSV endpoint, not retrieved.
+Check units, publication lag/vintage, citation and redistribution
+conditions; composite includes other components.</li>
+<li><strong>USEPUINDXM — US monthly composite EPU</strong> (Core
+robustness). Expected file: <code>USEPUINDXM.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=USEPUINDXM">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/USEPUINDXM">provider page</a>.
+Historical v13 inventory note (unverified in current release): Series
+metadata confirmed; standard FRED CSV endpoint, not retrieved. Check
+units, publication lag/vintage, citation and redistribution conditions;
+composite includes other components.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>FF3D daily total market log returns, full calendar monthly sum
+squares; no intraday RV claim. VIX at last common session, convert index
+points to decimal annual volatility and square/divide 12 as monthly
+horizon proxy, not exact physical expected variance. News EPU lagged one
+month and release checked; if later, longer lag; historical
+reconstruction/revisions pseudo-OOS. Composite EPU robustness includes
+non-news components. Use common positive rows, nested log-link or log
+OLS with training-only smearing and expanding matured labels. Initial
+train through 2004, validation 2005-09, test 2010-25; no test-based
+selection. Compare lag RV, VIX-only and joint with/without EPU; paired
+QLIKE differences block bootstrap, refit sensitivity, report
+availability losses.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Actual FF3D/VIX/EPU data rights, calendar, release lag and common
+sample required; VIX rights particularly important. News and composite
+not interchangeable. Smearing/positive forecast check only.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel/parquet inputs require the relevant
+optional reader (openpyxl, xlrd, pyarrow); inspect raw schema and
+permissions first (not needed for the introductory setup check). If
+source fails, obtain explicitly approved redesign or defer.</p>
+<p>Provider routes and historical source notes are inherited, not newly
+verified. Independently implement all algorithms described here; private
+helper names, if present, denote methodological steps rather than
+dependencies distributed with this workspace. The v61 source-evidence
+erratum supersedes historical fresh-verification labels.</p>
+<h4 id="frozen-research-design-original-catalogue">Frozen research
+design (original catalogue)</h4>
+<p>Use US news-based monthly index USEPUNEWSINDXM and composite
+USEPUINDXM from https://fred.stlouisfed.org/series/USEPUNEWSINDXM and
+https://fred.stlouisfed.org/series/USEPUINDXM; VIXCLS end-month and
+French daily market total returns
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html.
+Common 1990-2025 target, train to 2004, validation 2005-2009, test
+2010-2025. Use EPU lagged one month at origin, and actual
+release/vintage check (historical reconstruction is not real-time). News
+index baseline; composite robustness includes non-news components. VIX
+percent converted to decimals.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Freeze lag and return-calendar coverage; use only published EPU and
+VIX at origin, report conservative extra-lag sensitivity. Match forecast
+horizon, positive variance units and common origins; train smearing only
+on mature outcomes; compare paired QLIKE/MSE and crisis sensitivity, no
+causal claim.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Record total, gross and excess return conventions, RF timing,
+sampling frequency, factor definitions and annualization. Freeze common
+date and asset sets, provider vintage and information availability.
+Distinguish observation and release dates, gross and log returns,
+physical variance and implied variance, yield changes and holding
+returns, and nominal-real matching on identical dates.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Principal Components and the Dynamics of Government Bond Yields | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A05.02.02 · Asset Pricing · Fixed income &amp; interest rates</p><h1>Principal Components and the Dynamics of Government Bond Yields</h1><p class="lead">How stable are the dimensionality and loading shapes of government yield curves across the US and euro area and across time?</p><p class="small">Data verification pending · Level 1/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Fixed income and interest rates · Level
+1/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Curve shocks across maturities often appear low-dimensional. Whether
+that representation remains stable across economies and episodes matters
+for interpreting common rate risk. This study compares covariance
+eigenspaces, not the forecast performance of a dynamic model.</p>
+<h3 id="research-question">Research question</h3>
+<p>How stable are the dimensionality and loading shapes of government
+yield curves across the US and euro area and across time?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For centered yields
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>,
+covariance PCA uses
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Σ</mi><msub><mi>v</mi><mi>j</mi></msub><mo>=</mo><msub><mi>λ</mi><mi>j</mi></msub><msub><mi>v</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\Sigma v_j=\lambda_jv_j</annotation></semantics></math>
+and projection
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>k</mi></msub><msubsup><mi>V</mi><mi>k</mi><mi>⊤</mi></msubsup></mrow><annotation encoding="application/x-tex">V_kV_k^\top</annotation></semantics></math>
+onto the retained subspace.</p>
+<h3 id="research-design">Research design</h3>
+<p>Build common-date US Treasury and euro-area AAA spot curves on the
+annual 1–10 year grid. Compare levels and adjacent-month changes,
+covariance versus correlation PCA, fixed training bases and rolling
+60-month subspace stability.</p>
+<p>Separate reconstruction from forecasting. Near tied eigenvalues, use
+subspace comparisons rather than interpreting a particular eigenvector
+as an economic structural shock.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Curve comparison, scree and loading panels, held-out RMSE by
+maturity, principal-angle stability and sensitivity table.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Common US/euro area grid, PCA on levels and changes, fixed-basis
+held-out reconstruction and stability comparison. Distinct from
+A05.02.01 forecasting and A05.01.02 model restrictions.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>GSW and ECB curves are model-fitted smooth yields, not individual
+bond prices. PCA dimensionality partly reflects fitting methodology.
+Different currencies, issuer composition and negative yields complicate
+interpretation. No silent interpolation or treating same-date
+reconstruction as prediction.</p>
+<p><strong>Prerequisites:</strong> Bond yields, covariance,
+eigenvectors, basic time series and Python.</p>
+<p><strong>Optional extension:</strong> Compare DNS fixed loadings or
+principal components of forward curves, with additional date/grid
+checks.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: curve definitions and PCA; W4-6: acquire/align series; W7-9:
+level/change analysis; W10-12: held-out and robustness; W13-16:
+report.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>From Discount Curves to Interest Rate Swap Prices | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D07.01.01 · Derivatives · Fixed income &amp; interest rates</p><h1>From Discount Curves to Interest Rate Swap Prices</h1><p class="lead">How do curve shape and interpolation choices affect hypothetical single-curve par swap rates and PV01/key-rate risk across maturities? When are differences economically material for a fixed notional?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Fixed income and interest rates · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Discount curve interpolation changes forward rates and can therefore
+change hypothetical swap values even when two methods reproduce all
+quoted zero-yield nodes. Measure the economic magnitude in basis points
+and currency units for fixed contracts, keeping the single-curve
+abstraction explicit.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do curve shape and interpolation choices affect hypothetical
+single-curve par swap rates and PV01/key-rate risk across maturities?
+When are differences economically material for a fixed notional?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><msub><mo>∑</mo><mi>i</mi></msub><msub><mi>α</mi><mi>i</mi></msub><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><msub><mi>t</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">A=\sum_i\alpha_iP(0,t_i)</annotation></semantics></math>,
+the spot-starting single-curve par rate is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mi>A</mi></mrow><annotation encoding="application/x-tex">K=(1-P(0,T))/A</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use verified GSW nominal zero curves and a predeclared selection of
+six curve regimes. Compare linear zero yields and linear log discounts
+at identical annual/semiannual schedules and notional; report par rates,
+forwards and signed parallel/local sensitivity with fixed coupon.</p>
+<p>Verify node reproduction, discount positivity, zero PV at par and
+bump convergence. Separate interpolation and short-end extrapolation;
+synthetic fallback requires an explicit approved redesign.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Curve and forward plots for selected dates; swap rate/DV01 table and
+time series of interpolation differences; key-rate exposure chart;
+unit/zero-PV tests. Report exact discounting conventions, and treat all
+prices as hypothetical examples rather than market quotes.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>A downloaded verified zero curve, two interpolation schemes, correct
+par identity, at least three swap maturities and curve regimes, plus
+DV01 sensitivity and economic interpretation. Fallback: transparent
+synthetic curves if the dataset cannot be obtained, with amended
+empirical claim.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Check nonpositive discount factors and implausibly oscillating
+forwards; do not impose positive forwards merely as no-arbitrage under
+negative-rate regimes. Compare short-end extrapolation, payment
+frequencies and bump shape; ensure key-rate and parallel bumps are
+consistently defined. Government curves are not OIS, and floating
+projection is an explicit single-curve simplification.</p>
+<p><strong>Prerequisites:</strong> Fixed income, discount factors,
+calculus and interpolation, Python pandas/SciPy. No actual swap dealer
+quotes needed.</p>
+<p><strong>Optional extension:</strong> Add a separate stylized
+projection curve and explain basis risk, or compare ECB AAA government
+zero curves without inferring actual USD/EUR swap market spreads.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: derive par rate and risk measures, acquire data; W4-6: parse
+zero yields and validate synthetic flat curves; W7-10: build panel of
+swap values and key-rate sensitivities; W11-13: stress tests and
+short-end conventions; W14-16: interpret and write.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

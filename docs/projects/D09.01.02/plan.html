@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Structural Credit Models with Early Default | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D09.01.02 · Derivatives · Credit &amp; incomplete markets</p><h1>Structural Credit Models with Early Default</h1><p class="lead">How do default-barrier level and recovery convention alter the credit spread term structure relative to a maturity-only Merton benchmark?</p><p class="small">Synthetic core · Level 3/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d09.01.02">Research plan | D09.01.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Show the analytic hit check, bridge versus endpoint-only monitoring
+and common-path paired intervals. Compare the maturity-only benchmark
+under identical terminal inputs. Preserve unsuccessful or high-error
+grid cases and quantify both default timing and loss effects.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive Merton zero debt price and barrier hitting formula;
+validate no-barrier limit and probability bounds.</p></li>
+<li><p>Implement discrete and bridge survival and compare across grid
+resolutions; report MC intervals.</p></li>
+<li><p>Price debt and compute annual continuously compounded spread
+-(log(B/F))/T-r; distinguish early from terminal default.</p></li>
+<li><p>Compare term structures across H, sigma and recovery, holding F
+and asset dynamics fixed.</p></li>
+<li><p>Test recovery timing as separate scenario using fine-step
+first-passage approximation with convergence; interpret economic rather
+than numerical differences.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Survival validation, debt price and spread curves, default-timing
+decomposition, recovery and monitoring sensitivity table.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Under baseline R*F&lt;=H does not ensure pathwise smaller payout than
+terminal min(V_T,F) after an early hit; do not impose monotonic
+comparison to Merton for positive recovery. At R=0 barrier debt is &lt;=
+Merton pathwise. Q default probability is not historical frequency. No
+empirical credit-spread calibration or equity/debt joint equilibrium
+claimed.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Merton benchmark, one early-default model with explicit recovery,
+analytic hit check, bridge versus discrete monitoring, spread curves for
+two barriers and three volatilities. Distinct from maturity-only default
+thesis.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Use a time-dependent covenant barrier or calibrate to synthetic
+equity and debt quotes with parameter-identification checks.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Stochastic calculus, first-passage distributions, option pricing and
+Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Merton and first-passage debt;</p></li>
+<li><p>Survival and recovery;</p></li>
+<li><p>Analytical and simulation checks;</p></li>
+<li><p>Credit spread comparative statics;</p></li>
+<li><p>Economic limits.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: Merton and barrier theory; W4-6: hit probability and bridge
+code; W7-9: debt prices and curves; W10-12: recovery/timing robustness;
+W13-16: interpret and write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

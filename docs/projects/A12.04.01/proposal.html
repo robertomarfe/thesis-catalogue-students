@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Limits to Arbitrage and the Persistence of Mispricing | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A12.04.01 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Limits to Arbitrage and the Persistence of Mispricing</h1><p class="lead">How do wealth or position constraints and noise persistence affect the magnitude and persistence of mispricing in a stylized finite-horizon market?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Portfolio choice, behavioral finance and
+market frictions · Level 2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Noise demand and predetermined position caps sustain deviations
+before liquidation. The model separates limits and interim risk without
+asserting an endogenous funding equilibrium.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do wealth or position constraints and noise persistence affect
+the magnitude and persistence of mispricing in a stylized finite-horizon
+market?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>P</mi><mo>−</mo><mi>F</mi></mrow><annotation encoding="application/x-tex">d=P-F</annotation></semantics></math>,
+noise demand
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mi>β</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">n-\beta d</annotation></semantics></math>,
+arbitrage
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mo>clip</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><mi>d</mi><mi>/</mi><mi>a</mi><mo>,</mo><mi>−</mi><mi>K</mi><mo>,</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x=\operatorname{clip}(-d/a,-K,K)</annotation></semantics></math>;
+clearing is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mi>β</mi><mi>d</mi><mo>+</mo><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">n-\beta d+x=0</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>F=100, beta=1, a=.5, caps 0/1/5/20/infinity, rho 0/.5/.9, SD4, 50,000
+matched draws, W0=20; persistence, clearing and interim/terminal
+losses.</p>
+<p>Verify analytical regime boundaries, continuity and clearing with
+independent scalar root solution; verify trading gains and wealth
+identities including cap=0/infinity. Use matched noise and report
+binding rates, loss/negative wealth and invalid price rates for every
+cell. Full 50k-path experiment and endogenous wealth constraint remain
+student work.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Piecewise price and position diagrams, mispricing persistence table,
+binding-frequency and loss distributions, matched-path
+sensitivities.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Closed-form clearing, two dates plus liquidation, at least three caps
+and noise regimes, persistence/position/loss metrics and exact residual
+tests.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Reduced-form positions and exogenous caps are not a dynamic optimal
+strategy; known payoff alone does not imply an implementable unlimited
+arbitrage. Do not claim model reproduces actual short-sale or margin
+behavior. No empirical evidence. Distinguish position/holding-cost
+assumption from wealth-based financing constraint.</p>
+<p><strong>Prerequisites:</strong> Microeconomic market clearing, asset
+pricing, probability and Python.</p>
+<p><strong>Optional extension:</strong> Replace fixed caps by
+simultaneous wealth-dependent margin constraints with explicit solvency,
+equilibrium selection and dynamic optimization; verify existence before
+simulation.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: literature and clearing derivation; W4-6: simulation and unit
+tests; W7-9: cap/persistence comparisons; W10-12: loss and sensitivity
+tests; W13-16: interpretation and writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

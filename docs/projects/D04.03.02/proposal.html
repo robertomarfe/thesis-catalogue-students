@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>No-Trade Bands for Option Hedging | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D04.03.02 · Derivatives · Hedging &amp; volatility derivatives</p><h1>No-Trade Bands for Option Hedging</h1><p class="lead">Can a delta-band policy reduce expected replication cost at a given tail hedging-error budget, compared with fixed-frequency rebalancing?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Hedging and volatility derivatives · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>A fixed calendar ignores how far the existing hedge has drifted from
+the current target. A no-trade band can save trading when that deviation
+is small. Compare state-dependent intervention against calendar
+strategies under a common tail-risk budget.</p>
+<h3 id="research-question">Research question</h3>
+<p>Can a delta-band policy reduce expected replication cost at a given
+tail hedging-error budget, compared with fixed-frequency
+rebalancing?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>i</mi></msub><mo>=</mo><msub><mi>Δ</mi><mi>i</mi></msub><mo>−</mo><msub><mi>h</mi><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">d_i=\Delta_i-h_{i-1}</annotation></semantics></math>,
+a band
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>
+leaves the position unchanged when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>d</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">|</mo></mrow><mo>≤</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">|d_i|\le b</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use daily decision opportunities, common paths and identical costs.
+Tune reset and boundary bands plus calendar benchmarks on training paths
+under a declared risk budget, then evaluate on independent paths.</p>
+<p>Report achieved risk, not merely the intended budget. The comparison
+must use the same opportunities, shares, premium and cost convention
+across policies; this is not a neural-policy training study.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Self-financing unit tests; error-cost frontier; turnover and ES
+table; band policy trajectories; out-of-sample stress comparison.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>One ATM call, three nonzero cost levels, two band rules and calendar
+benchmarks, independent evaluation with paired uncertainty. Distinct
+from D04.03.01 (calendar optimization).</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Keep initial premium, trade convention and paths identical.
+Distinguish hedge error before costs from net P&amp;L. Do not optimize
+bands on evaluation paths; compare uncertainty and not just mean loss.
+This is a finite-grid policy comparison, not a proof of global
+optimality.</p>
+<p><strong>Prerequisites:</strong> BSM, stochastic calculus, simulation,
+risk measures and Python.</p>
+<p><strong>Optional extension:</strong> Fit a state-dependent band using
+gamma and remaining maturity, with separate validation; compare under
+Heston dynamics.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: derive ledger and policies; W4-6: validate GBM engine; W7-9:
+train and select bands; W10-12: evaluate and stress; W13-16: reproduce
+and write.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Hansen-Jagannathan Distance and the Comparison of Asset Pricing Models | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A11.02.02 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>Hansen-Jagannathan Distance and the Comparison of Asset Pricing Models</h1><p class="lead">How do CAPM, FF3 and FF5 linear discount factors compare using Hansen-Jagannathan pricing-error distance on common test assets and independent evaluation periods?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a11.02.02">Research plan | A11.02.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Construct gross returns including the actual monthly bill, not excess
+returns with unit prices. Distinguish train and holdout metrics and
+apply common conditioning rules; paired time-block resampling should
+refit the training step and evaluate common holdout draws.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive HJ projection and validate with finite-state exact-pricing
+example.</p></li>
+<li><p>Estimate linear kernels with common G on training set; report
+coefficients, rank and conditioning.</p></li>
+<li><p>Evaluate frozen coefficients on holdout and held-out industries;
+report distance and raw pricing errors.</p></li>
+<li><p>Compare paired moving-block bootstrap differences with refitting
+training steps and common resampled dates; report intervals, not naive
+chi-square rankings.</p></li>
+<li><p>Vary test assets and common truncation/regularization; if
+singular, use independent payoff basis or label regularized metric
+explicitly.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Pricing error and HJ distance tables, train/test comparison, SDF
+volatility and negativity diagnostics, eigenvalues and uncertainty.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Not the HJ volatility bound (A11.02.01). In-sample smaller distances
+in nested classes partly mechanical. FF3/FF5 SMB definitions can differ.
+No arbitrage-free positivity guaranteed. Distances compare only given
+assets and common metric; held-out dates not truly unrevised data.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Three kernels, consistent gross payoff normalization and bill, common
+G, train/holdout distance comparisons and uncertainty with conditioning
+checks.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Evaluate a positivity-constrained distance or compare a consumption
+kernel only after matching real/nominal payoffs and prices.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>SDF, factor models, matrix algebra, GMM basics and Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>SDF pricing and misspecification;</p></li>
+<li><p>HJ projection and estimation;</p></li>
+<li><p>Data and common metric;</p></li>
+<li><p>Model comparison;</p></li>
+<li><p>Statistical and economic limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive projection; W4-6: data and synthetic tests; W7-9: fit
+and evaluate kernels; W10-12: bootstrap and conditioning; W13-16:
+interpretation and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

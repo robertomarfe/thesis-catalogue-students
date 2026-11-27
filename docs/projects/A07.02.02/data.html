@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Downside versus Upside Market Risk in Factor Investing | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A07.02.02 · Asset Pricing · Volatility &amp; tail risk</p><h1>Downside versus Upside Market Risk in Factor Investing</h1><p class="lead">Which equity factors have asymmetric market exposures and payoff distributions across down and up markets, and how stable is the asymmetry?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a07.02.02">Data and model setup |
+A07.02.02</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Monthly US FF5 market, SMB,HML,RMW,CMA plus Mom,
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html.
+Common 1963-2025 target, value-weighted factor returns in decimals; use
+Rm-Rf state and zero cutoff predeclared. Use 1963-1994 and 1995-2025
+splits and rolling 120-month windows; minimum 24 observations per state.
+AQR BAB optional separate factor only if consistent dates/units/rights.
+Factors are long-short returns, not excess returns to a fully funded
+stock portfolio.</p>
+<h4 id="files-to-obtain-locally">Files to obtain locally</h4>
+<ul>
+<li><strong>FF5M — US FF5 monthly</strong> (Core). Expected file:
+<code>F-F_Research_Data_5_Factors_2x3_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_5_Factors_2x3_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Link status from v13 inventory: Direct link observed in
+provider page; bytes not inspected. Use correct monthly/daily and
+value-weighted total return block; retain vintage.</li>
+<li><strong>FFMOM — US momentum monthly</strong> (Core). Expected file:
+<code>F-F_Momentum_Factor_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Momentum_Factor_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Link status from v13 inventory: Direct link observed in
+provider page; bytes not inspected. Use correct monthly/daily and
+value-weighted total return block; retain vintage.</li>
+<li><strong>BAB — Betting Against Beta: Equity Factors Data,
+Monthly</strong> (Optional sensitivity). Expected file:
+<code>Original provider workbook (filename to verify)</code>. <a
+href="https://www.aqr.com/insights/datasets/betting-against-beta-equity-factors-monthly">Download
+or provider route</a>; <a
+href="https://www.aqr.com/insights/datasets/betting-against-beta-equity-factors-monthly">provider
+page</a>. Link status from v13 inventory: Exact dataset page; direct
+file URL unresolved. Select named dataset download and retain original
+file; verify usage terms, no arbitrary substitution.</li>
+</ul>
+<p>Direct paths are inherited from the frozen acquisition inventory, not
+a guarantee that current bytes or licenses have been verified. If a path
+fails, use the official page and select the exact dataset/frequency.
+Optional sources are not required. Use the provider documentation and
+the return conventions, publication timing and rights checks in this
+guide.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>FF5 plus momentum, keep long-short factor returns as supplied; no
+subtraction of RF from factors. Predeclare Mkt-RF&lt;0, two fixed
+periods and 120-month rolling windows with at least 24 observations per
+state. Include state intercept and interaction, verify equivalence to
+separate regressions. Use common time-block resampling across factors,
+Holm correction; training-defined terciles as robustness.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Check separate-slope identity with nonzero intercept shift and exact
+synthetic coefficients; require two states and full rank.</p>
+<p>Build a local inventory, inspect each actual schema and license, save
+an input ledger, row counts and actual dates. Validate session calendar,
+coverage, duplicate keys and missingness before merging; do not compress
+gaps. Provide joint sample and training/validation/evaluation counts,
+mature-label counts for forecasts and state/event counts for conditional
+estimates. No real inputs bundled or verified. If a required source
+fails, seek supervisor-approved adjustment preserving the research
+question or retain the gate. Do not silently replace data or assert a
+real-time backtest from revised values.</p>
+<h4 id="timing-and-units">Timing and units</h4>
+<p>Freeze the provider vintage and documented availability of each
+predictor. Define formation time, return interval, target end and label
+availability separately. Use common dates for model comparisons; never
+encode a missing session as a zero return. A revised historical extract
+supports pseudo-real-time evaluation only unless actual historical
+vintages are verified.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

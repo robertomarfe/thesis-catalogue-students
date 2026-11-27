@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Term Structure of Equity Yields: Evidence from Synthetic Dividend Strips | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A06.02.01 · Asset Pricing · Consumption &amp; equity valuation</p><h1>The Term Structure of Equity Yields: Evidence from Synthetic Dividend Strips</h1><p class="lead">What are the main level, slope and curvature patterns of US aggregate equity yields, and how do they differ in recessions versus expansions? Does subtracting nominal bond yields change the economic interpretation of the slope?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> GKK synthetic strip-yield archive, conventions, rights and common sample.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a06.02.01">Research plan | A06.02.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Verify archive/version and Eq.32/33, complete 1-15 annual maturity
+grid, positive dividend normalization and decimals, exact common
+month-end GSW SVENY, not par yields. Report common sample, model-implied
+caveat, slope and fixed curvature definition, centered PCA with sign
+convention and recession episode counts. Inference conditional on
+estimated curves; no independent validation of the underlying GKK
+estimator.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>GKK Eq.32 equity yields in continuously compounded annual units after
+verifying archive scale and nominal convention. Require complete
+maturity grid 1–15, exact month-end convention and GSW SVENY01–15 common
+last valid date; no maturity interpolation unless explicit robustness.
+Use paired_curves and curve_summary; forward equity yield e-y_b is not
+forward rate between maturities. Descriptive PCA common dates, HAC/block
+intervals, USREC retrospective episode means and counts. If actual
+archive inaccessible, defer or supervisor-approved distinct synthetic
+exercise.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Plot monthly equity yield curves on selected dates and compute
+maturity-by-maturity mean, SD and serial correlation.</p></li>
+<li><p>Define slope e(15)-e(1) and curvature 2*e(5)-e(1)-e(15) as
+descriptive summaries; run PCA on demeaned yields in common units,
+report explained variance and loadings.</p></li>
+<li><p>Construct matched forward equity yields and their slopes; compare
+means, volatility and equity-bond slope correlation.</p></li>
+<li><p>Compare recession and expansion average curves and slope
+differences; use block bootstrap or HAC for serial dependence, and
+recession-episode sensitivity (few independent cycles). Do not treat
+recession labels as real-time predictors.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Maturity moment table; yield and forward-yield curve plots; slope
+time series with recession shading; factor-loading and
+variance-explained chart; conditional means and confidence intervals.
+Clearly label every series ‘model-implied’ and explain expected
+cash-flow growth versus discount-rate variation.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Use alternative slope 10Y-1Y, curvature at a different middle
+maturity, and pre/post-2004 sample comparison if supported. Check yield
+definitions and compounding before subtracting bond yields. Inference
+conditional on estimated GKK inputs does not include first-stage model
+estimation uncertainty. PCA uses full sample for description only, not
+OOS claims.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Verified GKK aggregate file, maturity profiles, slope/PCA analysis
+and matched bond and recession comparison; no replication of GKK
+estimation required. If unavailable, pause or redesign as an explicitly
+synthetic model exercise, not as observed-market evidence.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare a small prespecified selection of GKK characteristic
+portfolios with positive dividends, or relate slopes to lagged macro
+forecasts; avoid a full 102-portfolio search without multiplicity
+control.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Asset pricing SDF, bond yields, time-series statistics and PCA,
+Python. No licensed dividend strip data or full affine estimation
+required.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Dividend strips and economic motivation;</p></li>
+<li><p>Equity yields and forward yields;</p></li>
+<li><p>Model-implied dataset and measures;</p></li>
+<li><p>Curve dynamics and recession evidence;</p></li>
+<li><p>Interpretation and limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: read GKK theory/definitions and verify download; W4-6: align
+yields, bonds and recession dates; W7-10: moments, PCA and forward
+curves; W11-13: conditional comparisons and episode sensitivity; W14-16:
+write and archive code/data provenance.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

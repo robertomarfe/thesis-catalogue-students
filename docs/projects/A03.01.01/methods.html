@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Equity Premium Puzzle: Theory and Quantitative Evidence | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A03.01.01 · Asset Pricing · Consumption &amp; equity valuation</p><h1>The Equity Premium Puzzle: Theory and Quantitative Evidence</h1><p class="lead">Can a CRRA stochastic discount factor with plausible risk aversion and discounting simultaneously explain the US market excess return and the average risk-free rate? How sensitive is the answer to consumption measurement and time aggregation?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="mathematical-framework">Mathematical framework</h3>
+<p>With gross consumption growth
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>G</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">G_{t+1}</annotation></semantics></math>,
+power utility implies
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>β</mi><msubsup><mi>G</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow><mrow><mi>−</mi><mi>γ</mi></mrow></msubsup></mrow><annotation encoding="application/x-tex">m_{t+1}=\beta G_{t+1}^{-\gamma}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><msub><mi>R</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">E[m R_i]=1</annotation></semantics></math>.</p>
+<p>For each
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>,
+the bill Euler equation gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mi>b</mi></msub><mo>=</mo><mn>1</mn><mi>/</mi><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>G</mi><mrow><mi>−</mi><mi>γ</mi></mrow></msup><msub><mi>R</mi><mi>b</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\beta_b=1/E[G^{-\gamma}R_b]</annotation></semantics></math>.
+Evaluate the market Euler residual at that value, rather than refitting
+beta for each asset. For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>R</mi><mi>e</mi></msup><mo>=</mo><msub><mi>R</mi><mi>m</mi></msub><mo>−</mo><msub><mi>R</mi><mi>b</mi></msub></mrow><annotation encoding="application/x-tex">R^e=R_m-R_b</annotation></semantics></math>,
+the exact restriction is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>R</mi><mi>e</mi></msup><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mi>−</mi><mo>Cov</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo>,</mo><msup><mi>R</mi><mi>e</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">E[R^e]=-\operatorname{Cov}(m,R^e)/E[m]</annotation></semantics></math>.
+This is a mean excess payoff identity even if the bill is risky in real
+terms. Use compounded nominal gross legs and a common inflation divisor;
+a quarterly ex post real bill is not a known real safe payoff. Convert
+annual beta by fourth root and distinguish arithmetic annualization from
+compound returns.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>On a common quarterly calendar report both Euler residuals and beta
+pricing the bill, then the market residual and covariance identity;
+resample contiguous joint date blocks. Check compounded nominal gross
+legs divided by the same inflation ratio and compare beta annualized by
+beta_q**4. Distinguish arithmetic premium from compound annual growth.
+Report parameter grid including infeasible beta.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

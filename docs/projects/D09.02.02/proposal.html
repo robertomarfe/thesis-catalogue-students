@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Credit Default Swap Pricing and Recovery Risk | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D09.02.02 · Derivatives · Credit &amp; incomplete markets</p><h1>Credit Default Swap Pricing and Recovery Risk</h1><p class="lead">How do changes in assumed recovery alter fair CDS spreads, mark-to-market and inferred default intensity, under an otherwise identical hazard model?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Credit risk and incomplete markets · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Recovery affects the premium for new protection and the value of an
+existing CDS. These sensitivities have different meanings depending on
+whether one holds the default model fixed or recalibrates it to the same
+observed quote. Keep contractual coupon and par coupon distinct
+throughout.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do changes in assumed recovery alter fair CDS spreads,
+mark-to-market and inferred default intensity, under an otherwise
+identical hazard model?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>From the protection buyer’s perspective
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>R</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>ℒ</mi><mo>−</mo><mi>c</mi><mi>𝒜</mi></mrow><annotation encoding="application/x-tex">V=(1-R)\mathcal L-c\mathcal A</annotation></semantics></math>,
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>
+the contractual annual premium.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use the prescribed quarterly synthetic CDS maturities, hazards,
+recoveries and off-market coupons. Compute fixed-hazard recovery
+sensitivity, then hold the reference spread fixed and recalibrate
+hazard. Compare the resulting mark-to-market under fixed contractual
+coupon.</p>
+<p>Check zero par MTM, buyer/seller antisymmetry and alternate-recovery
+repricing. In the continuous-premium flat-hazard limit,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>R</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>λ</mi></mrow><annotation encoding="application/x-tex">s=(1-R)\lambda</annotation></semantics></math>;
+quarterly accrual is evaluated using its own convention.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Leg PV and repricing tests; recovery/hazard identification contours;
+MTM and DV01 tables; sensitivity plots.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Constant intensity CDS with quarterly accrual, fair spread and
+inverse calibration; fixed-input versus recalibrated recovery
+sensitivity and one off-market MTM example.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>A fair-spread identity is not an observed recovery estimate.
+Distinguish default probabilities under Q from physical probabilities.
+Account for accrual and cashflow timing; no double counting recovery.
+Distinct from D09.02.01, which centers on hazard-curve bootstrap.</p>
+<p><strong>Prerequisites:</strong> Fixed income, survival functions,
+numerical integration and Python.</p>
+<p><strong>Optional extension:</strong> Bootstrap hazard buckets and
+study recovery term structure or a simple dependent default/recovery
+state model.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: pricing and accrual; W4-6: implementation; W7-9: inversion;
+W10-12: sensitivities; W13-16: writing and reproducibility.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

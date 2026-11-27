@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Equity Yield Curves across Investment Styles | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A06.02.02 · Asset Pricing · Consumption &amp; equity valuation</p><h1>Equity Yield Curves across Investment Styles</h1><p class="lead">How do the level, slope and cyclicality of model-implied equity yields differ between high and low characteristic portfolios, especially value and growth?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> GKK archive with verified style labels, matched curves and rights.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a06.02.02">Research plan | A06.02.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Require positive-dividend portfolio IDs and validated exact high/low
+style crosswalk with common 1/5/10y dates; report both individual curves
+and paired differences/slope, joint calendar-block intervals and
+sensitivity across regimes. Keep matched weighting, units and vintage.
+If exact pair not verified, stop rather than substitute FF labels.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>GKK 102 portfolios: choose exact high/low value characteristic labels
+from codebook, validate sign and weighting, do not equate anomaly
+long/short with asset-level dividend yield or French labels. Use exact
+paired same date/maturity 1/5/10 core, optional 2/15 and other styles
+only verified. Report difference high minus low and slope difference,
+block sample common across assets and maturities; GDP/recession labels
+descriptive only. No cash-flow versus discount-rate interpretation
+without decomposition inputs.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Verify portfolio IDs, maturity units, yield normalization,
+missing codes and time coverage; reproduce an aggregate curve
+statistic.</p></li>
+<li><p>Compute paired mean curves, standard deviations and short/long
+slopes; plot value-growth differences over time.</p></li>
+<li><p>Estimate unconditional differences using time-block bootstrap
+jointly across portfolios and maturities.</p></li>
+<li><p>Compare slopes in NBER recession versus expansion or
+predetermined lagged macro states; quantify limited recession
+count.</p></li>
+<li><p>Explore whether differences come from cash-flow growth or
+discounting only if matching decomposition inputs exist; otherwise label
+interpretation as unresolved.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Portfolio crosswalk; mean term structures; slope time series and
+paired uncertainty; regime comparison; documentation of model
+dependence.</p>
+<h4 id="robustness">Robustness</h4>
+<p>GKK curves are estimated from a shared model, not independent
+observed strip quotes. Common sample, same units and vintage are
+essential. Bootstrap treats curves as given and omits estimation
+uncertainty of the underlying GKK model; acknowledge. Do not equate
+equity yields with expected returns or pure duration.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One verified value-growth pair, common 1/5/10y grid, paired
+curve/slope comparison, inference and clear model-implied caveat;
+conditional on archive. Distinct from aggregate A06.02.01 and
+theoretical duration A06.03.02.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare multiple anomaly pairs with multiple-testing controls; add
+model-provided cash-flow/return decomposition only if available.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Asset pricing, term structures, time-series statistics and
+Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Dividend strip pricing;</p></li>
+<li><p>Synthetic equity yields;</p></li>
+<li><p>Dataset and crosswalk;</p></li>
+<li><p>Style differences and regimes;</p></li>
+<li><p>Interpretation.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: literature/archive gate; W4-6: crosswalk and baseline; W7-9:
+paired term structures; W10-12: regimes/robustness; W13-16: writing and
+replication.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

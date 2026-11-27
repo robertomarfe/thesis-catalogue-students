@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Funding Constraints and the Performance of Low-Beta Strategies | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A12.01.02 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Funding Constraints and the Performance of Low-Beta Strategies</h1><p class="lead">Are US BAB returns lower when financial conditions tighten, and do lagged financial conditions predict subsequent BAB returns after controlling for standard factors?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a12.01.02">Research plan | A12.01.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Validate BAB workbook version, long-short orientation/units and
+common FF/Mom panel; separate contemporaneous versus lagged standardized
+states with past-only scaling. Joint date blocks, fixed crisis windows
+and optional ANFCI/NFCICREDIT; report no causality and vintage caveat.
+No OOS claim from contemporaneous controls.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Use AQR monthly US BAB zero-cost long/short, not a total-return
+index; no RF subtraction or assumption of gross/net treatment until
+workbook inspected. NFCI weekly covers Friday, normally published
+Wednesday 8:30 ET, holidays Thursday; use actual release if supplied and
+additional one-week buffer for lagged predictor; revised data label.
+Aggregate month-end last available release, distinguish change during
+month (association) versus lagged level/change (predictive). Standardize
+using training scale; factor regression and HAC, fixed 2008-09/2020
+windows and ANFCI/NFCICREDIT sensitivity, OOS historical mean optional
+if enough data. No causal identification of borrowing constraints.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Inspect BAB metadata, NFCI direction and timestamps; construct
+monthly level/change and lagged predictors, verify no RF subtraction
+from published long-short BAB.</p></li>
+<li><p>Estimate unconditional mean and factor alpha; report
+contemporaneous stress regressions with HAC inference and economic
+effects per one-SD tightening.</p></li>
+<li><p>Run separate predictive regressions using only
+lagged/release-safe proxies; compare with historical mean OOS if sample
+sufficient.</p></li>
+<li><p>Compare high/low stress regime returns using thresholds fixed in
+training period, and test adjusted NFCI/credit subindex sensitivity and
+crisis influence.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>BAB and financial-conditions plots, conditional return and regression
+table, contemporaneous versus predictive results, crisis and proxy
+sensitivity, timestamp and vintage log. Include factor exposure and
+uncertainty rather than equating BAB return with funding cost.</p>
+<h4 id="robustness">Robustness</h4>
+<p>NFCI combines financial markets including equities, so simultaneity
+and shared shocks are material. Adjusted index does not isolate funding
+constraints; predictive results on latest revised data remain
+pseudo-real-time. Report lagged availability assumptions, HAC/block
+bootstrap, multiple proxy results and subsample sensitivity. No
+executable leveraged strategy claim.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Verified US BAB and NFCI monthly alignment, unconditional factor
+analysis, contemporaneous and lagged regressions with uncertainty,
+crisis and alternate proxy sensitivity, explicit noncausal
+interpretation. OOS prediction optional if sample too short.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare international BAB factors with local stress proxies only
+after checking currencies, units and comparable measures; a causal
+funding-shock design requires separate identification.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>CAPM, multifactor regressions, funding liquidity economics,
+time-series HAC and Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Leverage constraints and low-beta anomaly;</p></li>
+<li><p>BAB construction and predictions;</p></li>
+<li><p>Public factors and funding proxies;</p></li>
+<li><p>Conditional returns and predictive tests;</p></li>
+<li><p>Endogeneity and interpretation.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: model theory and source gate; W4-6: align BAB and stress
+measures; W7-10: estimate factor/stress regressions; W11-13: timing,
+regimes and proxy robustness; W14-16: write and reproduce.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

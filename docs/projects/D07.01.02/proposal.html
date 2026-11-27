@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Interest Rate Swaps and the Management of Duration Risk | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D07.01.02 · Derivatives · Fixed income &amp; interest rates</p><h1>Interest Rate Swaps and the Management of Duration Risk</h1><p class="lead">How much interest rate risk can a stylized payer swap eliminate from a government bond portfolio, and when do key-rate hedges outperform a single DV01 hedge?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Fixed income and interest rates · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>A payer swap can offset the duration of a long fixed-income
+portfolio, yet a single parallel sensitivity leaves exposure to twists
+and convexity. Compare a single swap hedge with a key-rate hedge on
+identical historical curve shocks at fixed cash-flow schedules.</p>
+<h3 id="research-question">Research question</h3>
+<p>How much interest rate risk can a stylized payer swap eliminate from
+a government bond portfolio, and when do key-rate hedges outperform a
+single DV01 hedge?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For target signed DV01
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mi>B</mi></msub><annotation encoding="application/x-tex">d_B</annotation></semantics></math>
+and one unit swap sensitivity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>d</mi><mi>S</mi></msub><annotation encoding="application/x-tex">d_S</annotation></semantics></math>,
+the neutral hedge quantity is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mi>−</mi><msub><mi>d</mi><mi>B</mi></msub><mi>/</mi><msub><mi>d</mi><mi>S</mi></msub></mrow><annotation encoding="application/x-tex">h=-d_B/d_S</annotation></semantics></math>
+when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>S</mi></msub><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">d_S\ne0</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>On each eligible GSW date construct the prescribed par bonds and
+swaps; use the next day’s curve as an instantaneous shock. Freeze
+coupons, cash-flow times and original positions. Compare one swap and
+the prescribed two-swap key-rate hedge, keeping shocks and notional
+constraints consistent.</p>
+<p>Report initial zero PV for swaps, matched shocks and risk reduction
+net of exposure sign mistakes. Distinct from D07.04.02: swap
+DV01/key-rate hedging rather than PCA zero-bond spanning.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Curve data audit, hedge ratios, P&amp;L distributions, risk reduction
+by regime and shock type, sensitivity and notional tables, validated
+pricer.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Validated par valuation, signed DV01 hedge, exact shock repricing on
+a verified daily GSW sample and comparison of one- and two-instrument
+residual risk.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Use common dates; no rolling live-position claim, carry or funding
+P&amp;L. Government zero curve is not OIS or term forward curve. Label
+hedge as a historical shock replay using synthetic contracts. Repeat
+with smaller bump sizes, maturity grid and stress dates. No execution
+costs, collateral or basis included.</p>
+<p><strong>Prerequisites:</strong> Fixed-income pricing, linear algebra,
+Python and basic portfolio risk analysis.</p>
+<p><strong>Optional extension:</strong> Implement genuine rolling
+coupon/reset schedule with carry and aging, or compare euro government
+proxy curves; verify separate curves before claiming swap-market
+evidence.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: study curve/swap conventions; W4-6: acquire GSW and validate
+pricer; W7-10: compute hedge ratios and shock P&amp;L; W11-13: stress
+and sensitivity; W14-16: write.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

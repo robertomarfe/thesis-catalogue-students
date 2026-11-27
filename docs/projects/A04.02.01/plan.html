@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Inflation Risk and the Cross-Section of Equity Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A04.02.01 · Asset Pricing · Macro-finance &amp; policy</p><h1>Inflation Risk and the Cross-Section of Equity Returns</h1><p class="lead">Which industry and characteristic portfolios have the strongest nominal and real return exposure to unexpected CPI inflation, and is the cross-sectional relation between inflation beta and average excess return robust to market beta?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a04.02.01">Research plan | A04.02.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Hand-check one quarterly-average CPI realization and one forecast
+error from the prior vintage; compound market, portfolio and bill legs
+separately. Estimate nominal and real exposures on matched quarters and
+jointly bootstrap quarters, re-estimating both stages. Report common
+sample, rank, regime split and revised-CPI caveat.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Use previous-quarter SPF mean CPI forecast for target q, verify
+actual release and annualized quarterly-average SA CPI definition.
+Convert annualized published mean pp to quarterly simple rate via
+(1+f/100)^(1/4)-1; nonlinear transform of mean is not mean of
+individually converted forecasts. Compute realization from three monthly
+SA CPI levels in each adjacent quarter, forecast error on same
+convention. Compound French market, RF and portfolio returns separately;
+compute nominal excess and real excess after deflation, total real hedge
+returns separately. Estimate market-controlled inflation betas with HAC;
+jointly resample calendar quarters and re-estimate both beta and
+cross-sectional slopes (do not bootstrap assets independently).
+1985-2025 target with actual coverage, industry baseline and
+characteristic portfolios robustness; fixed pre/post-2000 split. AR
+proxy only with approval and disclosed distinct design.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Verify SPF target-quarter convention, annualization, CPI
+realization and release date; plot forecast errors.</p></li>
+<li><p>Compound returns and RF separately to quarters, compute nominal
+and real total/excess returns.</p></li>
+<li><p>Estimate inflation betas and market-controlled betas with HAC
+intervals; rank sectors and compare nominal versus real total-return
+hedge exposure.</p></li>
+<li><p>Relate mean excess returns to market and inflation betas across
+portfolios; bootstrap quarters jointly with beta re-estimation.</p></li>
+<li><p>Compare pre/post-2000 and inflation regimes; repeat using a
+lagged AR forecast and alternative CPI vintage if accessible.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Matched forecast/realization panel, innovation figure, portfolio beta
+and hedge tables, cross-sectional scatterplot and joint intervals,
+regime diagnostics.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Match CPI quarterly-average versus end-quarter and annualized-rate
+convention exactly; do not replace forecast errors with raw inflation.
+Revised realized CPI is retrospective; actual release dates define
+expectation timing. Portfolio exposures are not causal or a proof of
+priced inflation risk. Avoid independent-asset standard errors for
+correlated portfolio returns.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One coherent quarterly CPI innovation measure, industry portfolio
+exposures with market control, nominal/real distinction, joint inference
+and regime robustness.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare expected inflation and surprise effects separately or use PCE
+forecasts with matched realized PCE definition.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Asset pricing, macroeconomic data, regression, time-series inference
+and Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Inflation risk and real returns;</p></li>
+<li><p>Expectations and factor exposures;</p></li>
+<li><p>SPF/CPI and portfolio panel;</p></li>
+<li><p>Heterogeneous exposures and pricing diagnostics;</p></li>
+<li><p>Robustness and interpretation.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: inflation and risk pricing theory; W4-6: survey/CPI timing and
+quarterly returns; W7-9: exposure estimates; W10-12: cross-section and
+regimes; W13-16: inference and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

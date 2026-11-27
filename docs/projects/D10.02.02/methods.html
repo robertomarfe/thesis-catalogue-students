@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Pricing Commodity Options under Mean Reversion | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D10.02.02 · Derivatives · International, FX &amp; commodities</p><h1>Pricing Commodity Options under Mean Reversion</h1><p class="lead">How does mean reversion affect the maturity pattern of option prices on commodity forwards, holding the initial forward curve fixed?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="forward-dynamics-and-total-variance">Forward dynamics and total
+variance</h3>
+<p>In a one-factor Gaussian log-price model under pricing probabilities,
+deterministic curve fitting gives a forward with loading
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>κ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>T</mi><mo>−</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup></mrow><annotation encoding="application/x-tex">\sigma e^{-\kappa(T-t)}</annotation></semantics></math>
+and zero drift under deterministic rates. For expiry
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>≤</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">u\le T</annotation></semantics></math>
+its log variance is
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><msup><mi>σ</mi><mn>2</mn></msup><mrow><mn>2</mn><mi>κ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>e</mi><mrow><mi>−</mi><mn>2</mn><mi>κ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>T</mi><mo>−</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo>−</mo><msup><mi>e</mi><mrow><mi>−</mi><mn>2</mn><mi>κ</mi><mi>T</mi></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">v(u,T)=\frac{\sigma^2}{2\kappa}\left(e^{-2\kappa(T-u)}-e^{-2\kappa T}\right).</annotation></semantics></math>
+As
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi><mo>→</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\kappa\to0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>→</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>u</mi></mrow><annotation encoding="application/x-tex">v\to\sigma^2u</annotation></semantics></math>.
+The exact log-forward transition has mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><mi>F</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>v</mi><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\log F(0,T)-v/2</annotation></semantics></math>
+and variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>,
+ensuring the forward martingale. Distinguish
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math>
+from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+and keep the initial forward fixed across models.</p>
+<h3 id="option-valuation-and-matching">Option valuation and
+matching</h3>
+<p>With deterministic
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>,
+use Black-76
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>u</mi></mrow></msup><mrow><mo stretchy="true" form="prefix">[</mo><mi>F</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>K</mi><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">e^{-ru}[F(0,T)\Phi(d_1)-K\Phi(d_2)]</annotation></semantics></math>
+for a call, with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mn>1</mn></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>F</mi><mi>/</mi><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>v</mi><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><msqrt><mi>v</mi></msqrt></mrow><annotation encoding="application/x-tex">d_1=(\log(F/K)+v/2)/\sqrt v</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mn>2</mn></msub><mo>=</mo><msub><mi>d</mi><mn>1</mn></msub><mo>−</mo><msqrt><mi>v</mi></msqrt></mrow><annotation encoding="application/x-tex">d_2=d_1-\sqrt v</annotation></semantics></math>.
+Compare matched instantaneous volatility and matched reference total
+variance at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><mi>T</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">u=T=1</annotation></semantics></math>;
+the second requires rescaling
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>σ</mi><annotation encoding="application/x-tex">\sigma</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>κ</mi><annotation encoding="application/x-tex">\kappa</annotation></semantics></math>.
+Check the martingale, independent payoff simulation, confidence
+intervals and delivery-lag sensitivity. The model assumes positive
+prices and is not fitted to observed oil options.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Check the constant-volatility limit, separate expiry from delivery
+and hold forward/discount fixed. Use independent seeds, report sampling
+error and keep both matching designs distinct.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Variance Risk Premia and Economic Uncertainty | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A07.01.02 · Asset Pricing · Volatility &amp; tail risk</p><h1>Variance Risk Premia and Economic Uncertainty</h1><p class="lead">Is a consistently measured 30-day variance-premium proxy associated with economic policy uncertainty beyond the level of expected physical variance and financial stress?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="separate-the-two-variance-legs">Separate the two variance
+legs</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><msub><mi>V</mi><mrow><mi>t</mi><mo>,</mo><mn>30</mn></mrow></msub></mrow><annotation encoding="application/x-tex">RV_{t,30}</annotation></semantics></math>
+be the sum of squared log returns during the next 30 calendar days. The
+annualized physical forecast is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>365</mn><mi>/</mi><mn>30</mn><mo stretchy="true" form="postfix">)</mo></mrow><msubsup><mi>E</mi><mi>t</mi><mi>ℙ</mi></msubsup><mrow><mo stretchy="true" form="prefix">[</mo><mi>R</mi><msub><mi>V</mi><mrow><mi>t</mi><mo>,</mo><mn>30</mn></mrow></msub><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">(365/30)E_t^{\mathbb P}[RV_{t,30}]</annotation></semantics></math>;
+the risk-neutral leg is approximated by squared decimal VIX. Forecast
+using only matured labels and predeclared historical/HAR-style
+regressors. Use the same units for both legs and show sensitivity to
+physical forecast error. VIX and the broad FF market proxy have
+different underlying definitions.</p>
+<h3 id="association-and-uncertainty">Association and uncertainty</h3>
+<p>Estimate a relation of the form
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>R</mi><msub><mi>P</mi><mi>t</mi></msub><mo>=</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>log</mo><mi>E</mi><mi>P</mi><msub><mi>U</mi><mrow><mi>t</mi><mo>−</mo><mo>ℓ</mo></mrow></msub><mo>+</mo><mi>c</mi><msub><mi>P</mi><mi>t</mi></msub><mo>+</mo><mi>d</mi><mi>N</mi><mi>F</mi><mi>C</mi><msub><mi>I</mi><mrow><mi>t</mi><mo>−</mo><mo>ℓ</mo><mi>′</mi></mrow></msub><mo>+</mo><msub><mi>e</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">VRP_t=a+b\log EPU_{t-\ell}+cP_t+dNFCI_{t-\ell&#39;}+e_t</annotation></semantics></math>.
+Use lags reflecting availability, not a convenient observation-date
+join; revised data cannot establish actual real-time performance.
+Re-estimate the generated physical forecast inside joint time blocks
+where feasible. The regression is descriptive/conditional, not an
+instrumented causal design.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Verify rights for EPU and other series. Keep a release-date ledger,
+include a predeclared crisis sensitivity, and report forecast
+uncertainty alongside association. A positive or negative association is
+not itself a causal finding or a return premium.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

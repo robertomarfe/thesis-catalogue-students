@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Habit Formation and Time-Varying Equity Risk Premia | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A03.02.01 · Asset Pricing · Consumption &amp; equity valuation</p><h1>Habit Formation and Time-Varying Equity Risk Premia</h1><p class="lead">How does the dependence of surplus consumption on consumption shocks change conditional risk prices, equity premia and risk-free rates relative to a CRRA benchmark?</p><p class="small">Synthetic core · Level 3/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Consumption-based asset pricing and equity
+term structures · Level 3/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Even when consumption growth and the surplus-state transition have
+unchanged marginal distributions, their coupling can alter the
+covariance of marginal utility with payoffs. This isolates a mechanism
+distinct from a change in unconditional volatility.</p>
+<h3 id="research-question">Research question</h3>
+<p>How does the dependence of surplus consumption on consumption shocks
+change conditional risk prices, equity premia and risk-free rates
+relative to a CRRA benchmark?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For external habit surplus share
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>t</mi></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">S_t&gt;0</annotation></semantics></math>,
+the kernel is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mi>β</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><msub><mi>S</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mi>/</mi><msub><mi>S</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>−</mi><mi>γ</mi></mrow></msup></mrow><annotation encoding="application/x-tex">m=\beta(G S_{t+1}/S_t)^{-\gamma}</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Quarterly three-state surplus model; fixed transition and shock
+marginals, change only their coupling, then vary move probability and
+gamma.</p>
+<p>Verify each conditional joint row sums to one, shock marginals and P
+are identical across coupling cases, same stationary weights, CRRA
+constant-surplus and Euler checks. Show covariance identity by state and
+distinguish SDF volatility from priced covariance; retain nonfinite
+present-value cells.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Transition matrices, pricing and Euler tests, state-dependent SDF and
+return tables, spectral radius diagnostics and comparative-static
+plots.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Exact finite-state solution with CRRA benchmark,
+dependent/independent surplus cases, state-dependent risk prices and
+comparative statics, including feasibility and risk-free
+diagnostics.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>The bounded surplus process is exogenous external habit, not the
+original continuous surplus law or full general equilibrium calibration.
+Countercyclical premia are a hypothesis, not imposed; boundary effects
+and risk-free variation must be reported. Keep annual/quarterly
+preference units consistent.</p>
+<p><strong>Prerequisites:</strong> Consumption-based asset pricing,
+Markov chains, linear algebra, numerical methods and Python.</p>
+<p><strong>Optional extension:</strong> Approximate the
+Campbell-Cochrane surplus sensitivity function on a refined grid and
+compare risk-free stabilization; optionally match public consumption
+moments after acquisition.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: habit and SDF derivation; W4-6: finite-state transitions and
+solver; W7-9: benchmarks and state outcomes; W10-12: comparative
+statics; W13-16: economic interpretation and writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

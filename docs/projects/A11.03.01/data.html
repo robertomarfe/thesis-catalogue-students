@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Testing Euler Equations with Generalized Method of Moments | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A11.03.01 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>Testing Euler Equations with Generalized Method of Moments</h1><p class="lead">How sensitive are estimated CRRA preference parameters and Euler pricing errors to the selection of test assets, conditioning instruments and GMM weighting matrices? Do weakly informative moments explain instability?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a11.03.01">Data and model setup |
+A11.03.01</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>FRED quarterly real PCE per capita A794RX0Q048SBEA, quarterly price
+index PCECTPI, French monthly RF and 10 Industry portfolios/Mkt-RF.
+https://fred.stlouisfed.org/series/A794RX0Q048SBEA ;
+https://fred.stlouisfed.org/series/PCECTPI ;
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html
+. Compound nominal total returns to quarters then deflate; align g_c
+from t to t+1 with same quarter payoff. Aim 1947-2025 complete sample.
+Base q=3: gross bill, market excess and one prespecified industry excess
+(e.g. utilities). Expanded q adds two industry excess moments;
+instrument sensitivity uses lagged market return observed at t
+(demeaned/scaled using fixed rule). Avoid lagged revised consumption as
+real-time instrument. Parameters beta in [0.8,1.1], gamma in [0,100],
+quarterly; boundary and plausibility reported, not automatic restriction
+to conventional estimates.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>FF3M — US FF3 monthly</strong> (Core / planned robustness).
+Expected file: <code>F-F_Research_Data_Factors_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed in provider page; bytes not inspected. Use correct
+monthly/daily and value-weighted total return block; retain
+vintage.</li>
+<li><strong>FF10M — US 10 industries monthly</strong> (Core / planned
+robustness). Expected file: <code>10_Industry_Portfolios_CSV.zip</code>.
+<a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/10_Industry_Portfolios_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed in provider page; bytes not inspected. Use correct
+monthly/daily and value-weighted total return block; retain
+vintage.</li>
+<li><strong>A794RX0Q048SBEA — A794RX0Q048SBEA</strong> (Core / planned
+robustness). Expected file: <code>A794RX0Q048SBEA.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=A794RX0Q048SBEA">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/A794RX0Q048SBEA">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct CSV endpoint constructed from exact series ID; not fetched.
+Quarterly real PCE per capita; revised vintage.</li>
+<li><strong>PCECTPI — PCECTPI</strong> (Core / planned robustness).
+Expected file: <code>PCECTPI.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCECTPI">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/PCECTPI">provider page</a>.
+Historical v13 inventory note (unverified in current release): Direct
+CSV endpoint constructed from exact series ID; not fetched. Quarterly
+PCE price index; check same quarter.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Use quarterly PCE per capita and PCE deflator with separately
+compounded French gross bill/market/industries. Align all payoffs and gc
+from previous quarter. Base bill plus market and fixed utilities excess
+moments; expanded two other fixed industries. Bounds beta [.8,1.1],
+gamma [0,100]; multistart, fixed identity then two-step Bartlett HAC
+inverse with explicit eigenvalue ridge, analytical Jacobian, rank and
+criterion profiles. Instrument lagged nominal market excess return
+(known at origin), not revised consumption. Bootstrap whole
+quarters/estimate each draw; report boundary, convergence and J
+assumptions. Regularized J not a classical chi-square.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Actual source rights, bytes, dates, decimal units, common sample and
+covariance rank pending; verify real bill is proxy, moments and lagged
+instruments timing, optimizer/rank/boundary and annual-v-quarter
+preference units.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel/parquet inputs require the relevant
+optional reader (openpyxl, xlrd, pyarrow); inspect raw schema and
+permissions first (not needed for the introductory setup check). If
+source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Use quarterly parameters and same-quarter consumption/payoffs;
+preserve the original broad bounds and fixed moments. Report scaling,
+HAC bandwidth, effective rank and convergence. Validate independently on
+a designed simulation before empirical estimation; do not select moments
+after viewing rejection.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Record total, gross and excess return conventions, RF timing,
+sampling frequency, factor definitions and annualization. Freeze common
+date and asset sets, provider vintage and information availability.
+Distinguish training, validation and holdout; do not treat factor
+returns or long-short spreads as total returns.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

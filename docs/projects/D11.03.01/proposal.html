@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>No-Arbitrage Bounds for Contingent Claims in Incomplete Markets | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D11.03.01 · Derivatives · Credit &amp; incomplete markets</p><h1>No-Arbitrage Bounds for Contingent Claims in Incomplete Markets</h1><p class="lead">How do additional traded securities narrow no-arbitrage bounds for a nonreplicable payoff, and when do bounds collapse to a single price? How sensitive are bounds to incomplete state coverage and quote uncertainty?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Credit risk and incomplete markets · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>When traded securities do not span a claim, absence of arbitrage
+restricts prices without necessarily choosing a unique one. Study how
+new payoff directions, state coverage and bid-ask uncertainty change
+that interval, and distinguish closed mathematical endpoints from
+admissible interior prices.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do additional traded securities narrow no-arbitrage bounds for a
+nonreplicable payoff, and when do bounds collapse to a single price? How
+sensitive are bounds to incomplete state coverage and quote
+uncertainty?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>
+be the state-by-asset payoff matrix. Over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝒬</mi><mi>c</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>q</mi><mo>≥</mo><mn>0</mn><mo>:</mo><msup><mi>X</mi><mi>⊤</mi></msup><mi>q</mi><mo>=</mo><mi>p</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\mathcal Q_c=\{q\ge0:X^\top q=p\}</annotation></semantics></math>,
+closed bounds are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>inf</mo><msup><mi>q</mi><mi>⊤</mi></msup><mi>H</mi></mrow><annotation encoding="application/x-tex">\inf q^\top H</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>sup</mo><msup><mi>q</mi><mi>⊤</mi></msup><mi>H</mi></mrow><annotation encoding="application/x-tex">\sup q^\top H</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Construct the prescribed finite stock grids and strictly positive
+generating probabilities; add call payoffs sequentially, compare primal
+and dual bounds for digital and call claims, then vary state support and
+bid-ask bands. Verify complete-market collapse and reject infeasible
+quotes.</p>
+<p>Verify primal/dual matching, strict feasibility separately, and
+nested intervals on consistent grids. Report statewise residuals and the
+role of new payoff directions; do not interpret a failed LP as an
+economic bound.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>State payoff and prices table; LP primal/dual reconciliation and
+feasibility checks; bound-width plot by added instruments;
+sub/superhedging payoff figure; stress table for quote bands and state
+support. Quantify the marginal value of traded instruments in reducing
+pricing ambiguity.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Finite-state example with no-arbitrage feasibility, primal/dual
+matching, monotone interval narrowing as assets are added, and a
+complete-market limit. No observed option chain needed.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Check solver status and duality gaps; no interpretation of infeasible
+markets as valid price ranges. Recompute with alternative positive state
+probabilities and extreme states, normalize payoffs and prices. When
+bid-ask bounds are introduced, derive consistent long/short trading
+costs or use only the dual quote-band problem with explicit assumptions.
+No price outside a finite state grid is certified in a continuous
+market.</p>
+<p><strong>Prerequisites:</strong> Linear algebra, no-arbitrage theory,
+linear programming, Python/SciPy. Mathematical proof and numerical
+construction are both important.</p>
+<p><strong>Optional extension:</strong> Explore constrained short sales
+or robust bounds with bid-ask costs and extra states; avoid
+extrapolating finite-state results to model-free continuous-market
+claims without proving conditions.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: finite-state asset pricing and LP duality; W4-6: build
+feasibility and replication tests; W7-10: run instrument-addition
+experiment; W11-13: state-grid and quote-band robustness; W14-16: write
+and reproduce all numerical results.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

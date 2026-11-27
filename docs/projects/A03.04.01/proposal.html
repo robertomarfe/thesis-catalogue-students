@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Rare Disasters and the Joint Behavior of Equity and Bond Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A03.04.01 · Asset Pricing · Consumption &amp; equity valuation</p><h1>Rare Disasters and the Joint Behavior of Equity and Bond Returns</h1><p class="lead">How do disaster probability, severity and cash-flow exposure jointly affect equity premia, real safe rates and returns on defaultable or nominal bond claims?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Consumption-based asset pricing and equity
+term structures · Level 2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Disasters affect both the pricing kernel and cash-flow payoffs. The
+same shock can raise the price of a safe real payoff while reducing the
+value of an exposed dividend or defaultable payoff.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do disaster probability, severity and cash-flow exposure jointly
+affect equity premia, real safe rates and returns on defaultable or
+nominal bond claims?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>=</mo><mi>μ</mi><mo>+</mo><mi>σ</mi><mi>ϵ</mi><mo>+</mo><mi>J</mi><mi>I</mi></mrow><annotation encoding="application/x-tex">g=\mu+\sigma\epsilon+JI</annotation></semantics></math>
+with independent Gaussian
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ϵ</mi><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math>
+and Bernoulli
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>e</mi><mrow><mi>k</mi><mi>g</mi></mrow></msup><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msup><mi>e</mi><mrow><mi>k</mi><mi>μ</mi><mo>+</mo><msup><mi>k</mi><mn>2</mn></msup><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn></mrow></msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo>+</mo><mi>p</mi><msup><mi>e</mi><mrow><mi>k</mi><mi>J</mi></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">E[e^{kg}]=e^{k\mu+k^2\sigma^2/2}(1-p+pe^{kJ})</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>IID disaster mixture, mean-matched and feasible variance-matched
+cases, distinct dividend, safe, defaultable and nominal payoffs;
+independent MC.</p>
+<p>Report ordinary variance required by total variance law before
+solving, regime probabilities and q_d, q_f and payoff prices. Check p=0
+and deterministic-mixture exact values, then stratified simulation with
+disaster counts; compare fixed-mean and feasible fixed-variance designs.
+Show conditional-on-no-disaster versus unconditional premium without
+labeling one a population estimate.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Closed-form derivation; parameter/existence maps; premium and
+safe-rate tables; bond recovery and inflation sensitivities; sample
+uncertainty.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Exact CRRA mixture, distinct dividend and safe claims, one risky bond
+payoff, disaster comparative statics and MC check.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Do not conflate disaster probability with risk-neutral probability,
+nominal with real safe rate, or consumption claim with equities. i.i.d.
+model has no predictable time variation; parameter grid is illustrative
+not calibrated evidence. Report nonexistence rather than clipping
+ratios.</p>
+<p><strong>Prerequisites:</strong> Consumption-based pricing,
+probability mixtures, numerical simulation, Python.</p>
+<p><strong>Optional extension:</strong> Introduce two-state disaster
+probability with Markov transitions and solve finite-state pricing
+recursion; consider EZ only after baseline.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: theory; W4-6: exact moments/prices; W7-9: scenario grid;
+W10-12: bond and finite samples; W13-16: reproducibility and
+writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

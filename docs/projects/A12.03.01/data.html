@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Momentum and Long-Term Reversal: Competing Return Patterns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A12.03.01 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Momentum and Long-Term Reversal: Competing Return Patterns</h1><p class="lead">Do published portfolios sorted on past returns show systematically different average spreads and factor-adjusted returns across formation windows, and how stable are the differences across market regimes?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a12.03.01">Data and model setup |
+A12.03.01</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>French Data Library
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html
+; exact monthly ST Rev, Mom, LT Rev and FF3, optional 10 portfolios
+formed on each sorting signal; definitions
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_st_rev_factor.html
+and
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_lt_rev_factor.html
+. Value-weighted, US, percentage returns; common Jan 1931-Dec 2025 if
+file supports, split pre/post 1990 fixed before analysis. Download raw
+factor and portfolio descriptions; compare matched samples and note
+annual/monthly reconstitution differences. Do not reconstruct individual
+stock histories from factor spreads.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>FF3M — US FF3 monthly</strong> (Core / planned robustness).
+Expected file: <code>F-F_Research_Data_Factors_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed in provider page; bytes not inspected. Use correct
+monthly/daily and value-weighted total return block; retain
+vintage.</li>
+<li><strong>FFMOM — US momentum monthly</strong> (Core / planned
+robustness). Expected file: <code>F-F_Momentum_Factor_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Momentum_Factor_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed in provider page; bytes not inspected. Use correct
+monthly/daily and value-weighted total return block; retain
+vintage.</li>
+<li><strong>FFST — US short-term reversal monthly</strong> (Core /
+planned robustness). Expected file:
+<code>F-F_ST_Reversal_Factor_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_ST_Reversal_Factor_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed in provider page; bytes not inspected. Use correct
+monthly/daily and value-weighted total return block; retain
+vintage.</li>
+<li><strong>FFLT — US long-term reversal monthly</strong> (Core /
+planned robustness). Expected file:
+<code>F-F_LT_Reversal_Factor_CSV.zip</code>. <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_LT_Reversal_Factor_CSV.zip">Download
+or provider route</a>; <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed in provider page; bytes not inspected. Use correct
+monthly/daily and value-weighted total return block; retain
+vintage.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>French US monthly ST_Rev low-minus-high formation t-1, Mom
+high-minus-low t-12..t-2, LT_Rev low-minus-high t-60..t-13; portfolios
+formed monthly, holding one month. Align all to exact common Jan
+1931-Dec 2025 if supported and FF3. Keep published profitable
+orientation primary; for continuation comparison explicitly negate
+reversal factors. CAPM/FF3 HAC on same dates; paired differences using
+direct regressions of difference rather than independent SE. Fixed
+pre/post-1990, optional recession dates and decile profiles after
+verifying sort and weights; no RF subtraction from factors or turnover
+inference.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Actual FFST/FFMOM/FFLT/FF3M files, date/units, orientation and
+construction; common sample and paired identity.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel/parquet inputs require the relevant
+optional reader (openpyxl, xlrd, pyarrow); inspect raw schema and
+permissions first (not needed for the introductory setup check). If
+source fails, obtain explicitly approved redesign or defer.</p>
+<p>Provider routes and historical source notes are inherited, not newly
+verified. Independently implement all algorithms described here; private
+helper names, if present, denote methodological steps rather than
+dependencies distributed with this workspace. The v61 source-evidence
+erratum supersedes historical fresh-verification labels.</p>
+<h4 id="frozen-research-design-original-catalogue">Frozen research
+design (original catalogue)</h4>
+<p>French Data Library
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html
+; exact monthly ST Rev, Mom, LT Rev and FF3, optional 10 portfolios
+formed on each sorting signal; definitions
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_st_rev_factor.html
+and
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_lt_rev_factor.html
+. Value-weighted, US, percentage returns; common Jan 1931-Dec 2025 if
+file supports, split pre/post 1990 fixed before analysis. Download raw
+factor and portfolio descriptions; compare matched samples and note
+annual/monthly reconstitution differences. Do not reconstruct individual
+stock histories from factor spreads.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Verify ST, Mom and LT definitions and exact units; align common dates
+and test the paired return/alpha difference directly with HAC/blocks.
+Freeze pre/post-1990 dates and report dependent returns; do not claim
+individual-level trading evidence or use future selection.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Record total, gross and excess return conventions, RF timing,
+sampling frequency, factor definitions and annualization. Freeze common
+date and asset sets, provider vintage and information availability.
+Distinguish funded wealth from zero-investment spreads, gross from net
+performance, allocation-time moments from realized risk, and actual
+turnover from hypothetical trading costs.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

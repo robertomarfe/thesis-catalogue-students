@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Limits to Arbitrage and the Persistence of Mispricing | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A12.04.01 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Limits to Arbitrage and the Persistence of Mispricing</h1><p class="lead">How do wealth or position constraints and noise persistence affect the magnitude and persistence of mispricing in a stylized finite-horizon market?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a12.04.01">Research plan | A12.04.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Verify analytical regime boundaries, continuity and clearing with
+independent scalar root solution; verify trading gains and wealth
+identities including cap=0/infinity. Use matched noise and report
+binding rates, loss/negative wealth and invalid price rates for every
+cell. Full 50k-path experiment and endogenous wealth constraint remain
+student work.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Known F=100 at t=2, beta=1,a=.5, cap 0/1/5/20/infinity. Noise
+n1=rho<em>n0+eps, both innovations SD4, rho 0/.5/.9; 50,000 matched
+draws seed123. Interior p-F=n/(beta+1/a); constrained d=(n+x)/beta, x
+clipped. W0=20, W1=W0+x0</em>(p1-p0), terminal W1+x1<em>(F-p1). Report
+losses, negative wealth, binding fractions, deviation persistence and
+conditional profits; no liquidation before t=2 in baseline, no claim
+implementable unlimited arbitrage. If charging a</em>x^2/2 as actual
+holding cost label separate convention. Optional endogenous cap requires
+new equilibrium proof.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive clearing price in interior and constrained regimes; verify
+numerical solution continuity and monotonicity.</p></li>
+<li><p>Simulate persistent shocks on matched paths and compare price
+deviations, autocorrelation and binding rates.</p></li>
+<li><p>Calculate interim mark-to-market and terminal trading gains,
+including reduced-form cost a*x^2/2 if treated as actual cost (label
+convention).</p></li>
+<li><p>Compare no-arbitrageur, unconstrained risk-averse/holding-cost
+and constrained cases to separate mechanisms.</p></li>
+<li><p>Vary noise volatility and persistence; report regimes where
+constraints amplify deviation rather than assume universal sign for
+profits.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Piecewise price and position diagrams, mispricing persistence table,
+binding-frequency and loss distributions, matched-path
+sensitivities.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Reduced-form positions and exogenous caps are not a dynamic optimal
+strategy; known payoff alone does not imply an implementable unlimited
+arbitrage. Do not claim model reproduces actual short-sale or margin
+behavior. No empirical evidence. Distinguish position/holding-cost
+assumption from wealth-based financing constraint.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Closed-form clearing, two dates plus liquidation, at least three caps
+and noise regimes, persistence/position/loss metrics and exact residual
+tests.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Replace fixed caps by simultaneous wealth-dependent margin
+constraints with explicit solvency, equilibrium selection and dynamic
+optimization; verify existence before simulation.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Microeconomic market clearing, asset pricing, probability and
+Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Noise-trader risk and limits to arbitrage;</p></li>
+<li><p>Stylized market and clearing;</p></li>
+<li><p>Numerical design;</p></li>
+<li><p>Persistence and losses;</p></li>
+<li><p>Limits of the model.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: literature and clearing derivation; W4-6: simulation and unit
+tests; W7-9: cap/persistence comparisons; W10-12: loss and sensitivity
+tests; W13-16: interpretation and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

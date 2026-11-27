@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Arbitrage-Free Interpolation of Implied Volatility Smiles | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D02.03.01 · Derivatives · Option models &amp; surfaces</p><h1>Arbitrage-Free Interpolation of Implied Volatility Smiles</h1><p class="lead">Which interpolation method balances fidelity to sparse and noisy quotes, accuracy at unobserved strikes and the absence of butterfly arbitrage? What is the cost of imposing no-arbitrage restrictions?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="finite-grid-no-arbitrage">Finite-grid no arbitrage</h3>
+<p>For fixed expiry, forward
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>F</mi><annotation encoding="application/x-tex">F</annotation></semantics></math>
+and discount
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>,
+a call must satisfy
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>F</mi><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup><mo>≤</mo><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mi>D</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">D(F-K)^+\le C(K)\le DF</annotation></semantics></math>.
+On ordered strikes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mn>1</mn></msub><mo>&lt;</mo><mi>⋯</mi><mo>&lt;</mo><msub><mi>K</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">K_1&lt;\cdots&lt;K_n</annotation></semantics></math>,
+define secants
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mi>j</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>K</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>K</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>K</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><msub><mi>K</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">s_j=[C(K_{j+1})-C(K_j)]/(K_{j+1}-K_j)</annotation></semantics></math>.
+Required slopes are in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mi>−</mi><mi>D</mi><mo>,</mo><mn>0</mn><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[-D,0]</annotation></semantics></math>
+and nondecreasing. The convexity inequality corresponds to a nonnegative
+cost for a properly weighted butterfly on irregular strikes. In a smooth
+model
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mrow><mi>K</mi><mi>K</mi></mrow></msub><mo>=</mo><mi>D</mi><msub><mi>f</mi><mi>Q</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">C_{KK}=D f_Q(K)</annotation></semantics></math>;
+a piecewise-linear interpolant instead has discrete atoms at changes in
+slope. Do not treat its knots as a smooth density.</p>
+<h3 id="projection-versus-interpolation">Projection versus
+interpolation</h3>
+<p>Compare cubic IV interpolation, unconstrained price interpolation,
+and a constrained price projection minimizing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∑</mo><mrow><mi>j</mi><mo>∈</mo><mi>𝒯</mi></mrow></msub><msub><mi>a</mi><mi>j</mi></msub><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>c</mi><mi>j</mi></msub><mo>−</mo><msubsup><mi>C</mi><mi>j</mi><mrow><mi>o</mi><mi>b</mi><mi>s</mi></mrow></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\sum_{j\in\mathcal T}a_j(c_j-C_j^{obs})^2</annotation></semantics></math>
+under the above linear inequalities with prespecified positive weights
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mi>j</mi></msub><annotation encoding="application/x-tex">a_j</annotation></semantics></math>.
+Interpolate projected prices linearly on the interior grid. Test all
+knot intervals and evaluate errors on dense untouched clean strikes.
+Record optimization failures, actual adjustments to quotes, and size of
+butterfly violations before and after projection. Individual price
+clipping does not guarantee convexity. Endpoints and extrapolation
+require separate assumptions; the baseline is an interior-domain
+exercise.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Use irregular strike spacing, two independently constructed clean
+laws and fixed noise draws. Report adjustment cost and holdout recovery
+separately; distinguish discrete state-price mass from a differentiable
+density.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

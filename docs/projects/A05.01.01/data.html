@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Gaussian and Square-Root Interest Rate Models: Theory and Empirical Performance | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A05.01.01 · Asset Pricing · Fixed income &amp; interest rates</p><h1>Gaussian and Square-Root Interest Rate Models: Theory and Empirical Performance</h1><p class="lead">Do square-root rate innovations improve the fit and predictive distribution of US short-rate proxies relative to Gaussian mean reversion?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a05.01.01">Data and model setup |
+A05.01.01</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Use monthly last valid daily 3-month Treasury bill discount quote
+DTB3 https://fred.stlouisfed.org/series/DTB3; transform d in decimal to
+approximate continuous yield -log(1-d*91/360)/(91/365), fixed 91-day
+proxy explicitly labeled. Proposed 1960-2007 positive-rate baseline;
+1960-1994 train, 1995-2007 test. Use monthly time step 1/12 and verify
+missing months. 2008-2025 stress sample: if zero/negative rates appear,
+report CIR support limitation; do not silently floor rates. All models
+share same observed proxy and training sample.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>DTB3 — DTB3</strong> (Core / planned robustness). Expected
+file: <code>DTB3.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTB3">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/DTB3">provider page</a>. Link
+status from v13 inventory: Direct CSV endpoint constructed from exact
+series ID; not fetched. Daily discount basis bill yield.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Convert observed DTB3 percent to decimal before bill_yield; use last
+valid monthly observation and exact adjacent-month pairs, no forward
+fill. Estimate P OU and CIR by exact likelihood on the same positive
+baseline, check optimizer boundary and multiple starts, freeze
+parameters for test. Report average log score, PIT histogram and
+conditional mean/variance. In the stress period exclude no negative
+rates silently; CIR score unavailable on unsupported observations. Show
+illustrative Q curves only with separately declared Q parameters.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Verify the original 91-day approximation and actual local DTB3
+history/rights. CIR strictly positive sample; report support failures
+and sensitivity to 90/92 days. Check transition densities and finite
+likelihood; actual fits pending.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel inputs can be inspected with
+pandas/openpyxl locally (not needed for the introductory setup check).
+If source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Compare held-out log scores, PIT calibration and parameter
+uncertainty on identical positive observations. Record optimizer
+failures and missing months. Distinct from A05.01.03: primary target is
+the whole conditional density, not conditional variance alone.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Specify nominal or real, continuous zero yield versus par yield,
+maturity in years, year fractions, rate units and the information
+available at each origin. Keep price versus yield changes and aged-bond
+returns distinct. State the probability measure and discounting
+convention. Freeze provider vintage; never infer real-time availability
+from observation dates alone.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

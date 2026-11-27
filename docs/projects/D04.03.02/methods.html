@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>No-Trade Bands for Option Hedging | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D04.03.02 · Derivatives · Hedging &amp; volatility derivatives</p><h1>No-Trade Bands for Option Hedging</h1><p class="lead">Can a delta-band policy reduce expected replication cost at a given tail hedging-error budget, compared with fixed-frequency rebalancing?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="state-dependent-decisions">State-dependent decisions</h3>
+<p>When
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>d</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">|</mo></mrow><mo>&gt;</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">|d_i|&gt;b</annotation></semantics></math>,
+a reset rule trades to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Δ</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\Delta_i</annotation></semantics></math>,
+while a boundary rule trades to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Δ</mi><mi>i</mi></msub><mo>−</mo><mi>b</mi><mo>sgn</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Delta_i-b\operatorname{sgn}(d_i)</annotation></semantics></math>.
+Both use only current information. Opening and compulsory liquidation
+must be treated consistently, independently of the band rule.</p>
+<h3 id="cost-and-tail-constraint">Cost and tail constraint</h3>
+<p>Use the discounted seller loss, including opening, rebalancing and
+closing costs. Expected shortfall at confidence
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+averages the upper
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mi>α</mi></mrow><annotation encoding="application/x-tex">1-\alpha</annotation></semantics></math>
+loss mass, with fractional boundary weight if needed. Select feasible
+bands by training costs subject to a predeclared tail constraint. Report
+infeasibility instead of silently relaxing it. Compare paired test
+differences and risk-cost frontiers.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Report achieved risk, not merely the intended budget. The comparison
+must use the same opportunities, shares, premium and cost convention
+across policies; this is not a neural-policy training study.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

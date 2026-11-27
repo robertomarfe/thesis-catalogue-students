@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>From Factor Betas to Stochastic Discount Factors | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A11.01.02 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>From Factor Betas to Stochastic Discount Factors</h1><p class="lead">When do beta-pricing and linear SDF estimators produce identical pricing errors, and how do weighting and traded-factor restrictions change the conclusions on common test assets?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a11.01.02">Research plan | A11.01.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Use identical sample conventions for both representations and common
+WLS weights; verify error equivalence before varying weights. Separate
+free versus traded lambda, report rank, sign diagnostics and joint
+date-block refits.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive mapping and verify equality numerically on a known
+simulated factor system.</p></li>
+<li><p>Estimate beta and SDF parameters using the same sample moments;
+check equality of residual vectors and objective to numerical
+precision.</p></li>
+<li><p>Compare weighting choices, traded restrictions and factor
+inclusion; report condition numbers and rank.</p></li>
+<li><p>Estimate uncertainty using a joint moving-block bootstrap that
+recomputes all moments and weights.</p></li>
+<li><p>Compare pricing errors by portfolio group and inspect fraction of
+negative fitted normalized m as a diagnostic, not a complete
+no-arbitrage test.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Algebraic proof and unit tests, matched residual table, lambda and b
+estimates, pricing RMSE/weighted loss and bootstrap intervals, rank and
+SDF-sign diagnostics.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Do not compare unlike weighting matrices, means or sample periods as
+a test of equivalence. Estimated traded factors may be misspecified. No
+claim that a normalized linear SDF is a positive equilibrium pricing
+kernel. Distinct from A11.02.01 HJ bound and A01.02.01 model
+selection.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Two representations derived and verified, FF3 on two portfolio
+panels, matched weighting, traded/free lambda and uncertainty
+diagnostics.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare the GMM implementation with a two-pass estimator using
+identical moment restrictions; discuss generated-beta and weak-factor
+inference.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Asset pricing, linear algebra, covariance estimation, regression and
+basic GMM.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Euler restrictions and beta pricing;</p></li>
+<li><p>Linear SDF and mapping;</p></li>
+<li><p>Data and estimation;</p></li>
+<li><p>Empirical equivalence and weighting;</p></li>
+<li><p>Interpretation and limits.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derivations; W4-6: simulation and data tests; W7-9: matched
+empirical estimators; W10-12: weights and bootstrap; W13-16: diagnostics
+and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

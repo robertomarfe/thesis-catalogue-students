@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Volatility Regimes and Crisis Forecasting | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.03.02 · Derivatives · Volatility &amp; tail risk</p><h1>Volatility Regimes and Crisis Forecasting</h1><p class="lead">Do filtered two-state volatility regimes improve short-horizon variance and stress-event forecasts relative to GARCH and simple historical variance?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="state-inference">State inference</h3>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><mo>Pr</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>s</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>j</mi><mo stretchy="false" form="prefix">|</mo><msub><mi>s</mi><mi>t</mi></msub><mo>=</mo><mi>i</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">P_{ij}=\Pr(s_{t+1}=j|s_t=i)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mrow><mi>t</mi><mo stretchy="false" form="prefix">|</mo><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">p_{t|t}</annotation></semantics></math>
+be a row vector. Predict
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><msub><mi>p</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn><mo stretchy="false" form="prefix">|</mo><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mi>P</mi></mrow><annotation encoding="application/x-tex">a=p_{t-1|t-1}P</annotation></semantics></math>,
+then update
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mrow><mi>t</mi><mo stretchy="false" form="prefix">|</mo><mi>t</mi><mo>,</mo><mi>j</mi></mrow></msub><mo>=</mo><msub><mi>a</mi><mi>j</mi></msub><msub><mi>f</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>u</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><msub><mo>∑</mo><mi>k</mi></msub><msub><mi>a</mi><mi>k</mi></msub><msub><mi>f</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>u</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">p_{t|t,j}=a_j f_j(u_t)/\sum_k a_k f_k(u_t)</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>j</mi></msub><annotation encoding="application/x-tex">f_j</annotation></semantics></math>
+is the state-specific Gaussian density. The likelihood contribution is
+the normalizing denominator. Impose an ordering of state variances and
+monitor occupation, transition boundaries and expected duration
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msub><mi>P</mi><mrow><mi>j</mi><mi>j</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">1/(1-P_{jj})</annotation></semantics></math>.</p>
+<h3 id="stress-forecast">Stress forecast</h3>
+<p>For horizon
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>,
+average the expected squared innovations,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>H</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>H</mi></msubsup><msub><mi>p</mi><mrow><mi>t</mi><mo stretchy="false" form="prefix">|</mo><mi>t</mi></mrow></msub><msup><mi>P</mi><mi>j</mi></msup><mi>v</mi></mrow><annotation encoding="application/x-tex">H^{-1}\sum_{j=1}^H p_{t|t}P^j v</annotation></semantics></math>,
+for state variances in column vector
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>.
+Forecast the event that the realized mean square exceeds the frozen
+training percentile using predictive paths; the probability of a high
+latent state is not this event probability. Compare Brier and
+logarithmic loss for the event and QLIKE for variance. Use filtered
+probabilities, not smoothed probabilities, at forecast origins.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Verify the transition convention, use the same target for GARCH and
+rolling forecasts, retain false alarms and rare-event counts, and
+account for overlap. The stress event is high realized variance, not a
+recession indicator.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

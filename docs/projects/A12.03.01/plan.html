@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Momentum and Long-Term Reversal: Competing Return Patterns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A12.03.01 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Momentum and Long-Term Reversal: Competing Return Patterns</h1><p class="lead">Do published portfolios sorted on past returns show systematically different average spreads and factor-adjusted returns across formation windows, and how stable are the differences across market regimes?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a12.03.01">Research plan | A12.03.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Verify ST, Mom and LT definitions and exact units; align common dates
+and test the paired return/alpha difference directly with HAC/blocks.
+Freeze pre/post-1990 dates and report dependent returns; do not claim
+individual-level trading evidence or use future selection.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>French US monthly ST_Rev low-minus-high formation t-1, Mom
+high-minus-low t-12..t-2, LT_Rev low-minus-high t-60..t-13; portfolios
+formed monthly, holding one month. Align all to exact common Jan
+1931-Dec 2025 if supported and FF3. Keep published profitable
+orientation primary; for continuation comparison explicitly negate
+reversal factors. CAPM/FF3 HAC on same dates; paired differences using
+direct regressions of difference rather than independent SE. Fixed
+pre/post-1990, optional recession dates and decile profiles after
+verifying sort and weights; no RF subtraction from factors or turnover
+inference.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Verify orientation, formation and holding windows; reproduce
+spread means and autocorrelations on common months.</p></li>
+<li><p>Estimate CAPM and FF3 alphas, with HAC intervals for each and
+paired difference tests between continuation spreads.</p></li>
+<li><p>Analyze optional decile portfolio mean/alpha profiles across
+formation windows, compare value versus equal-weight if files support
+and distinguish factor vs decile construction.</p></li>
+<li><p>Prespecify subperiod and recession sensitivity using available
+NBER dates (optional), report covariance and severe loss episodes;
+distinguish turnover-sensitive short reversal from long
+reversal.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Three orientation-consistent mean/alpha comparisons, factor return
+and cumulative P&amp;L plots, formation-window diagram, decile profiles
+if available, dependence-aware paired tests and stability table.
+Zero-cost cumulative P&amp;L not wealth without capital convention.</p>
+<h4 id="robustness">Robustness</h4>
+<p>No inference that the same stock reverses after momentum from
+unrelated sorted portfolios; no causal identification of investor
+psychology. Factor construction, skip months, rebalance frequency,
+microstructure and costs differ. Do not subtract RF from zero-cost
+factors, or claim net tradable performance. Common sample and alternate
+HAC bandwidth; report uncertainty and publication-vintage
+limitations.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Verified three factor files and FF3, aligned formation orientation,
+CAPM/FF3 and paired comparisons, prespecified subperiod stability,
+careful distinction of formation versus holding horizon. Decile analysis
+desirable but not mandatory.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Use individual-stock signal histories from a verified public
+replication package to trace within-stock horizon dynamics, avoiding
+look-ahead and survivorship; do not assume such files accessible in
+core.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Factor models, portfolio returns, OLS/HAC and Python data
+handling.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Return continuation and reversal mechanisms;</p></li>
+<li><p>Portfolio formation and factor adjustment;</p></li>
+<li><p>Public data and protocol;</p></li>
+<li><p>Horizon patterns and stability;</p></li>
+<li><p>Alternative explanations and conclusion.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: read literature and verify windows; W4-6: clean factor and
+portfolio series; W7-10: descriptive and alpha comparisons; W11-13:
+uncertainty, subsamples and cost caveats; W14-16: write and
+reproduce.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

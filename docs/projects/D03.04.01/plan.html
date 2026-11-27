@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Does the VIX Improve Realized Volatility Forecasts? | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.04.01 · Derivatives · Volatility &amp; tail risk</p><h1>Does the VIX Improve Realized Volatility Forecasts?</h1><p class="lead">Does lagged VIX improve one-month physical variance forecasts relative to historical and GARCH-based forecasts in genuine chronological evaluation?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d03.04.01">Research plan | D03.04.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>The value added by VIX is a forecasting question, not evidence that
+the risk-neutral and physical measures are equal. Treat month-length
+scaling and broad-market versus SPX mismatch as limitations and preserve
+missing close dates.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Align close dates and calculate past/future monthly RV, verify
+scale.</p></li>
+<li><p>Fit rolling historical RV and daily GARCH with summed forecast
+variance.</p></li>
+<li><p>Fit RV/VIX combination with training-only coefficient
+updates.</p></li>
+<li><p>Compare held-out QLIKE/MSE, paired block bootstrap or HAC loss
+differences and crisis subsamples.</p></li>
+<li><p>Examine calibration, forecast bias and incremental value
+conditional on prior volatility; report negative results.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Data alignment audit; time-series forecasts; QLIKE/MSE table and
+uncertainty; bias plots; reproducible forecast origin ledger.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Avoid overlapping horizons in baseline, revised inputs and missing
+VIX dates; daily squared returns are noisy proxies. Do not call VIX
+physical expectation, and do not claim index-specific replication with
+French data. Use daily SP500 only if authorized, price-only and limited
+sample.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Common sample, two historical benchmarks and VIX-augmented forecast,
+expanding evaluation and loss comparison.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Add VIX3M term structure using matched three-month targets and HAC
+for overlap.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Time series, GARCH, regression, Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Variance and risk-neutral expectations;</p></li>
+<li><p>Forecast models;</p></li>
+<li><p>Data and timing;</p></li>
+<li><p>Out-of-sample results;</p></li>
+<li><p>Interpretation.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: theory and data; W4-6: RV/GARCH; W7-9: VIX alignment and
+forecasts; W10-12: evaluation; W13-16: robustness and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Hedging with Model-Free Regression Policies | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D04.04.02 · Derivatives · Hedging &amp; volatility derivatives</p><h1>Hedging with Model-Free Regression Policies</h1><p class="lead">Can transparent regression hedges improve on BSM delta when the underlying follows a stochastic-volatility or jump process and the policy is trained without access to true model parameters?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Hedging and volatility derivatives · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Transparent regression hedges offer a structural-model alternative
+when model parameters are unavailable. Their value depends on observable
+features that predict useful conditional covariances. The question is
+whether a richer feasible basis improves replication on independent
+paths.</p>
+<h3 id="research-question">Research question</h3>
+<p>Can transparent regression hedges improve on BSM delta when the
+underlying follows a stochastic-volatility or jump process and the
+policy is trained without access to true model parameters?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>In a discounted martingale market, minimize
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝔼</mi><mrow><mo stretchy="true" form="prefix">[</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>−</mo><msub><mi>p</mi><mn>0</mn></msub><mo>−</mo><msub><mo>∑</mo><mi>i</mi></msub><msub><mi>h</mi><mi>i</mi></msub><mi>Δ</mi><msub><mover><mi>S</mi><mo accent="true">̃</mo></mover><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\mathbb E[(Y-p_0-\sum_i h_i\Delta\widetilde S_i)^2]</annotation></semantics></math>
+over adapted positions.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use GBM and one or both prescribed misspecified DGPs with martingale
+discounted stock. Fit linear and enriched bases on training paths, tune
+regularization on validation and compare against BSM delta at matched
+initial ATM IV.</p>
+<p>Distinguish quadratic regression hedges from neural entropic-risk
+optimization. Test future-input perturbation, rank and conditioning,
+validation-only penalty choice, paired test squared loss and tails.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Held-out hedging error table, policy slices, basis/penalty
+diagnostics, learning curve and distribution-shift results.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>GBM and one misspecified DGP, linear and enriched basis, independent
+test and BSM benchmark.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Model-free describes policy inputs, not data generation. No observed
+market performance; no claim of global optimality or cost-optimal
+policy. Shared discounted ledger and identical constraints; separate
+latent oracle from feasible inputs.</p>
+<p><strong>Prerequisites:</strong> BSM, regression, Monte Carlo,
+Python.</p>
+<p><strong>Optional extension:</strong> Train cost-aware policy with
+backward regression or compare neural policies on identical paths.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: ledger and theory; W4-6: simulations; W7-9: policy fitting;
+W10-12: independent tests; W13-16: writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

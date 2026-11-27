@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Volatility Regimes and Crisis Forecasting | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.03.02 · Derivatives · Volatility &amp; tail risk</p><h1>Volatility Regimes and Crisis Forecasting</h1><p class="lead">Do filtered two-state volatility regimes improve short-horizon variance and stress-event forecasts relative to GARCH and simple historical variance?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d03.03.02">Research plan | D03.03.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Verify the transition convention, use the same target for GARCH and
+rolling forecasts, retain false alarms and rare-event counts, and
+account for overlap. The stress event is high realized variance, not a
+recession indicator.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Simulate known two-state DGP and validate filtered
+probabilities/transition recovery with label sorting and multiple
+starts.</p></li>
+<li><p>Fit two-state and GARCH, check likelihood, state occupancy and
+degenerate transitions.</p></li>
+<li><p>Forecast 5/20-day variance and event probabilities, using models
+with identical information cutoff.</p></li>
+<li><p>Compare QLIKE, Brier score, calibration and precision-recall;
+report event counts.</p></li>
+<li><p>Use non-overlap and block bootstrap, predeclare episode summaries
+(e.g. 2020) and inspect false alarms rather than selecting crises after
+fitting.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Filtered probability and variance plots; forecast loss and event
+calibration tables; transition and state-duration diagnostics.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Crisis event means high realized variance, not recession or causal
+prediction. VIX is option-implied not physical future variance. Revised
+source data yield pseudo-OOS; overlapping windows invalidate naive IID
+tests.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Validated two-state filter, GARCH/rolling benchmarks, common held-out
+variance and event score comparison. Distinct from D03.03.01 continuous
+latent SV density forecasting.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Student-t emissions or Markov-switching GARCH with careful likelihood
+validation.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Time series, likelihood, simulation, probability, Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Volatility regimes;</p></li>
+<li><p>Filtering and benchmarks;</p></li>
+<li><p>Data and validation;</p></li>
+<li><p>Held-out forecasting;</p></li>
+<li><p>Stress interpretation.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: Markov filtering; W4-6: simulated validation; W7-9: empirical
+fits; W10-12: forecasts and rare events; W13-16: write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

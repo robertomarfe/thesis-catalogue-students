@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Do Corporate Bond Spreads Forecast Economic Downturns? | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D09.03.02 · Derivatives · Credit &amp; incomplete markets</p><h1>Do Corporate Bond Spreads Forecast Economic Downturns?</h1><p class="lead">Do corporate credit spreads and the excess bond premium improve recession forecasts relative to the Treasury term spread?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Credit risk and incomplete markets · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Credit-market valuations may contain forward-looking information
+beyond the Treasury slope. Evaluate whether credit spreads and the
+excess bond premium add predictive value for a dated recession outcome,
+relative to a base-rate and term-spread benchmark, without treating a
+revised series as a genuine real-time forecast.</p>
+<h3 id="research-question">Research question</h3>
+<p>Do corporate credit spreads and the excess bond premium improve
+recession forecasts relative to the Treasury term spread?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>Define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mi>t</mi></msub><mo>=</mo><mn>𝟏</mn><mo stretchy="false" form="prefix">{</mo><msub><mo>max</mo><mrow><mn>1</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mn>12</mn></mrow></msub><msub><mrow><mi mathvariant="normal">U</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">E</mi><mi mathvariant="normal">C</mi></mrow><mrow><mi>t</mi><mo>+</mo><mi>j</mi></mrow></msub><mo>=</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">Y_t=\mathbf 1\{\max_{1\le j\le12}\mathrm{USREC}_{t+j}=1\}</annotation></semantics></math>
+for complete future monthly windows.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use the specified Fed GZ/EBP file, GS10, TB3MS and USREC; retain the
+one-month information lag as an approximation and the 12-month outcome
+horizon. Fit expanding logit models on matured labels, compare
+common-origin probabilities and evaluate Brier/log loss and recession
+episodes.</p>
+<p>Validate the actual file columns, release metadata, units and common
+coverage before estimation. Preserve pseudo-OOS wording and the planned
+ridge sensitivity if separation occurs. No inference based solely on a
+convenient AUC or retrospective fit.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Forecast probability plot, calibration plot, loss/skill table,
+recession episode analysis and vintage/timing audit.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Public GZ/EBP and Treasury spread, expanding time-ordered logit,
+base-rate and term-spread comparisons, two proper scores and episode
+diagnostics.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>NBER dates are retrospective and recognition is delayed; label
+maturation alone is not real-time availability. Latest-vintage EBP is
+revised and cannot establish real-time performance. Test extra
+training-label buffer and report scarcity of recessions. Rights review
+before any optional Moody’s comparison.</p>
+<p><strong>Prerequisites:</strong> Fixed income, logistic regression,
+time series and Python.</p>
+<p><strong>Optional extension:</strong> Obtain dated predictor and
+recession-announcement vintages for a true real-time exercise; add
+permitted rating spreads only as separate robustness.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: literature and label design; W4-6: merge, release and unit
+audit; W7-9: expanding forecasts; W10-12: calibration and episode
+robustness; W13-16: inference, reproducibility and writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Principal Components and the Dynamics of Government Bond Yields | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A05.02.02 · Asset Pricing · Fixed income &amp; interest rates</p><h1>Principal Components and the Dynamics of Government Bond Yields</h1><p class="lead">How stable are the dimensionality and loading shapes of government yield curves across the US and euro area and across time?</p><p class="small">Data verification pending · Level 1/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="statistical-object">Statistical object</h3>
+<p>Use decimal yields or bp consistently; rescaling all maturities
+together leaves covariance eigenvectors unchanged. Correlation PCA
+standardizes each maturity, so reconstruction must reverse the training
+scaling. Persistent yield levels and innovations are different
+covariance objects.</p>
+<h3 id="stability">Stability</h3>
+<p>For orthonormal loading matrices
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>,</mo><mi>W</mi><mo>∈</mo><msup><mi>ℝ</mi><mrow><mi>m</mi><mo>×</mo><mi>k</mi></mrow></msup></mrow><annotation encoding="application/x-tex">V,W\in\mathbb R^{m\times k}</annotation></semantics></math>,
+singular values of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mi>⊤</mi></msup><mi>W</mi></mrow><annotation encoding="application/x-tex">V^\top W</annotation></semantics></math>
+equal cosines of principal angles. These are invariant to signs and
+rotations within the subspace. Report eigenvalue gaps and held-out error
+by maturity. Align curves on actual common dates and quote type; US
+off-the-run and euro AAA issuer universes are not identical risk-free
+instruments.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Separate reconstruction from forecasting. Near tied eigenvalues, use
+subspace comparisons rather than interpreting a particular eigenvector
+as an economic structural shock.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Black-Scholes Model and the Economic Implications of Its Assumptions | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D01.01.01 · Derivatives · Option models &amp; surfaces</p><h1>The Black-Scholes Model and the Economic Implications of Its Assumptions</h1><p class="lead">How do volatility, interest rates, dividends and time to maturity change European option prices and Greeks? How large are the pricing differences when the lognormal assumption is relaxed while matching forward and terminal variance?</p><p class="small">Synthetic core · Level 1/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-d01.01.01">Data and model setup |
+D01.01.01</h3>
+<p><strong>Current data gate: not_required.</strong> No actual external
+input bytes are supplied or validated.</p>
+<h4 id="simulation-specification">Simulation specification</h4>
+<p>Use S=100, K/S=0.7 to 1.3, T=0.0833,0.5,1,2 years, sigma=0.1 to 0.5,
+r=0 to 0.08, q=0 to 0.04. All rates continuously compounded. Use exact
+BSM and independent discounted integration under Q. In the mixture set
+equal weights and solve the second component variance to match
+E_Q[S_T^2] for each T; retain only admissible cases. Optional contextual
+rates from FRED https://fred.stlouisfed.org/series/DGS1 (not needed for
+the baseline).</p>
+<h4 id="input-construction-and-acceptance">Input construction and
+acceptance</h4>
+<p>Record a parameter table in annualized decimal units, deterministic
+seed policy, independent reference method, admissibility checks and
+failed configurations. Retain the distinction between a simulated
+risk-neutral economy and any physical scenario. Optional external
+context does not change the synthetic core.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Modeling and Forecasting the Yield Curve with the Dynamic Nelson-Siegel Model | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A05.02.01 · Asset Pricing · Fixed income &amp; interest rates</p><h1>Modeling and Forecasting the Yield Curve with the Dynamic Nelson-Siegel Model</h1><p class="lead">Does dynamic Nelson-Siegel improve monthly nominal zero-yield forecasts at 1, 3 and 12 months relative to a no-change forecast, and at which maturities and horizons does it help?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a05.02.01">Research plan | A05.02.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Freeze decay or select it only on training data. A negative OOS
+result is informative. Do not describe a fitted DNS model as
+automatically arbitrage-free or an implementable trading rule.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Check curve metadata, calendar, missing nodes and compounding;
+plot representative curves and PCs for context.</p></li>
+<li><p>Fit DNS factors per date with fixed loadings, report
+cross-sectional residuals and factors; validate reconstruction in
+synthetic examples.</p></li>
+<li><p>At each forecast origin estimate factor AR(1) on expanding
+history and forecast h=1,3,12 months ahead; compare no-change forecast
+at each maturity and direct yield AR(1). VAR as optional predeclared
+alternative.</p></li>
+<li><p>Score RMSE and MAE in bp at identical origins; calculate
+uncertainty of paired squared-error differences using HAC/block
+bootstrap, especially for overlapping horizons. Test whether any
+advantage concentrates in slope or curvature movements.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Average curve and factor loading figure; factor and residual
+diagnostics; RMSE/MAE heatmap by maturity/horizon; comparative forecast
+plots and loss-difference intervals; prespecified sample sensitivity
+table. Separate curve fit quality from dynamic forecast performance.</p>
+<h4 id="robustness">Robustness</h4>
+<p>No lambda or VAR lag selection using OOS scores; all models receive
+identical information sets. Compare rolling window and ECB zero curves
+only if conventions are aligned. Acknowledge GSW revisions and
+fitted-curve structure; do not claim exact real-time forecasting on
+revised histories.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>One consistent monthly zero-yield panel, fixed-lambda DNS, AR
+factors, no-change benchmark, common-sample 1/3/12-month forecast table
+with uncertainty and interpretation. DNS need not outperform.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Compare VAR factors, an arbitrage-free Nelson-Siegel formulation or
+portfolio duration-risk forecast implications; avoid expanding to return
+predictability before baseline passes.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Fixed income, linear regression, AR/VAR basics, time-series
+validation, Python. No bond transaction database required.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Term structure and forecasting;</p></li>
+<li><p>Nelson-Siegel and factor dynamics;</p></li>
+<li><p>Zero-yield data and pseudo-OOS protocol;</p></li>
+<li><p>Forecast evidence;</p></li>
+<li><p>Robustness and limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive loadings and acquire GSW; W4-6: clean monthly curves and
+validate fits; W7-10: implement recursive forecasts and benchmarks;
+W11-13: evaluate loss differences and stability; W14-16: write and
+reproduce.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

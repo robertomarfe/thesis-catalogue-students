@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Forecasting Equity Market Volatility: GARCH versus Historical Volatility | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.01.01 · Derivatives · Volatility &amp; tail risk</p><h1>Forecasting Equity Market Volatility: GARCH versus Historical Volatility</h1><p class="lead">Does GARCH(1,1) improve genuinely out-of-sample forecasts of daily and 21-trading-day market variance relative to rolling historical variance? Is the ranking stable in high- and low-volatility periods?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="required-tasks">Required tasks</h3>
+<ol type="1">
+<li><p>Plot returns and squared returns, estimate autocorrelations and
+ARCH diagnostics; fix forecast origins and loss evaluation
+dates.</p></li>
+<li><p>Fit GARCH on training only (omega&gt;0, alpha,beta&gt;=0 and
+alpha+beta&lt;1); record failures and compare with constant and
+rolling-variance benchmarks.</p></li>
+<li><p>Generate recursive forecasts at t for t+1 and cumulative t+1 to
+t+21. Score QLIKE=log(h)+RV/h (positive forecast floor declared), MSE
+and forecast bias.</p></li>
+<li><p>Compare losses via HAC inference or block bootstrap; evaluate
+21-day nonoverlapping dates as a robustness check and display loss by
+regimes defined using lagged information.</p></li>
+</ol>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Data summary and autocorrelation plot; parameter/persistence table;
+dated forecast-versus-proxy figures; loss and confidence interval table
+by horizon and model; convergence/failure report. Compare ranking and
+magnitude of improvement, not only coefficient significance.</p>
+<h3 id="robustness">Robustness</h3>
+<p>Vary historical window and GARCH refit frequency; use Student-t
+innovations as extension; alternate simple vs log returns; check common
+origins and 21-day annualization (do not compare annualized to daily
+variance); report 2008/2020 influence without choosing samples by
+outcomes. Squared daily returns omit intraday realized variation; do not
+claim high-frequency forecast performance.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>One clean daily series; rolling historical and GARCH forecasts at
+both horizons on a common evaluation sample; QLIKE and MSE,
+uncertainty-aware loss comparisons, and honest treatment of noisy
+targets. No requirement that GARCH wins.</p>
+<h3 id="optional-extension">Optional extension</h3>
+<p>Compare EWMA or asymmetric GJR-GARCH; add VIX as a distinct
+risk-neutral predictor with horizon matching rather than as a directly
+comparable realized variance.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Time-series econometrics, maximum likelihood basics, data handling,
+Python pandas/statsmodels/arch. No intraday feed required.</p>
+<h3 id="thesis-outline">Thesis outline</h3>
+<ol type="1">
+<li><p>Motivation and volatility stylized facts;</p></li>
+<li><p>Conditional heteroskedasticity and forecast evaluation;</p></li>
+<li><p>Data and recursive protocol;</p></li>
+<li><p>Forecast results and regimes;</p></li>
+<li><p>Robustness and practical implications.</p></li>
+</ol>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: study GARCH and forecast scoring, acquire and clean factor
+file; W4-6: define targets and validate historical baseline; W7-10:
+estimate/refit and generate chronological forecasts; W11-13: evaluate
+losses, inference and regimes; W14-16: finalize reproducible tables and
+dissertation.</p>
+<p>At every meeting submit your own code, inputs/parameter ledger,
+outputs and unresolved issues. Report null results and failed cases.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Interest Rate Volatility and the Performance of Affine Term Structure Models | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A05.01.03 · Asset Pricing · Fixed income &amp; interest rates</p><h1>Interest Rate Volatility and the Performance of Affine Term Structure Models</h1><p class="lead">Does level-dependent short-rate volatility improve conditional variance forecasts and account for the state dependence of Treasury yield changes?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a05.01.03">Research plan | A05.01.03</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Use identical dates for comparisons, rate-bin diagnostics and a
+predeclared mean/variance scoring convention. Distinguish this
+variance-target experiment from A05.01.01 density forecasting.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Audit rate conversion, zero/negative episodes, sample and time
+steps.</p></li>
+<li><p>Estimate P dynamics, examine conditional variance by rate bins
+and standardized residuals; verify CIR conditional moments by
+simulation.</p></li>
+<li><p>Freeze expanding estimation procedure, forecast squared rate
+innovations and score QLIKE/MSE; report errors by rate regime.</p></li>
+<li><p>Fit yield-on-short-rate empirical loadings on training dates;
+test implied relative conditional variances and residual covariance on
+held-out dates.</p></li>
+<li><p>Compare against direct rolling yield variance forecasts and
+sensitivity to sampling frequency; quantify measurement error from bill
+proxy.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Transition estimates, conditional variance curves, forecast losses
+and rate-bin diagnostics, yield residual variance/rank table and
+exclusion report.</p>
+<h4 id="robustness">Robustness</h4>
+<p>CIR near zero can be problematic with noisy bill quotes; no silent
+clipping or shifting. Actual rate innovations are not observed; squared
+forecast residuals are noisy proxies and mean-model misspecification
+matters. Empirical yield loadings are not Q pricing parameters. Distinct
+from A05.01.01 transition fit and A05.01.02 rank-one mean
+reconstruction.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Common-positive sample exact-transition Vasicek/CIR, conditional
+variance forecasts against rolling benchmark, rate-bin and two-maturity
+yield-volatility diagnostics.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Estimate a two-factor model or a shifted square-root process with
+shift selected on training only; compare likelihood and conditional
+variance.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Stochastic processes, likelihood, fixed income and time-series
+forecasting.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Affine short-rate models;</p></li>
+<li><p>Conditional moments and data;</p></li>
+<li><p>Estimation;</p></li>
+<li><p>Volatility forecasts and yield restrictions;</p></li>
+<li><p>Limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive conditional moments; W4-6: align rates and curves; W7-9:
+fit and validate transitions; W10-12: forecast and cross-maturity
+diagnostics; W13-16: write and audit.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

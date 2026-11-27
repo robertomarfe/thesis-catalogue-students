@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Commodity Forward Curves and Convenience Yield | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D10.01.02 · Derivatives · International, FX &amp; commodities</p><h1>Commodity Forward Curves and Convenience Yield</h1><p class="lead">How do current net convenience yield, its persistence and its correlation with spot shocks affect the shape and risk of commodity forward curves?</p><p class="small">Synthetic core · Level 3/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>D10.01.02 · Deterministic rates · Risk-neutral
+valuation</strong></p>
+<h3 id="integrated-yield-and-gaussian-law">1. Integrated yield and
+Gaussian law</h3>
+<p>Fix the observation time
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+and delivery time
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mi>t</mi><mo>+</mo><mi>u</mi></mrow><annotation encoding="application/x-tex">T=t+u</annotation></semantics></math>.
+Suppress time
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+in conditional quantities. The OU solution is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>δ</mi><mrow><mi>t</mi><mo>+</mo><mi>s</mi></mrow></msub><mo>=</mo><mi>a</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>δ</mi><mi>t</mi></msub><mo>−</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mi>e</mi><mrow><mi>−</mi><mi>κ</mi><mi>s</mi></mrow></msup><mo>+</mo><msub><mi>σ</mi><mi>δ</mi></msub><msubsup><mo>∫</mo><mn>0</mn><mi>s</mi></msubsup><msup><mi>e</mi><mrow><mi>−</mi><mi>κ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mo>−</mo><mi>v</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mi>d</mi><msubsup><mi>W</mi><mrow><mi>t</mi><mo>+</mo><mi>v</mi></mrow><mi>δ</mi></msubsup><mi>.</mi></mrow><annotation encoding="application/x-tex">\delta_{t+s}=a+(\delta_t-a)e^{-\kappa s}+\sigma_\delta\int_0^s e^{-\kappa(s-v)}dW^\delta_{t+v}.</annotation></semantics></math></p>
+<p>With
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>κ</mi><mi>s</mi></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mi>κ</mi></mrow><annotation encoding="application/x-tex">B(s)=(1-e^{-\kappa s})/\kappa</annotation></semantics></math>,
+stochastic Fubini gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mi>t</mi><mi>T</mi></msubsup><msub><mi>δ</mi><mi>s</mi></msub><mi>d</mi><mi>s</mi><mo>=</mo><mi>a</mi><mi>u</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>δ</mi><mi>t</mi></msub><mo>−</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msub><mi>σ</mi><mi>δ</mi></msub><msubsup><mo>∫</mo><mn>0</mn><mi>u</mi></msubsup><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo>−</mo><mi>v</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><msubsup><mi>W</mi><mrow><mi>t</mi><mo>+</mo><mi>v</mi></mrow><mi>δ</mi></msubsup><mi>.</mi></mrow><annotation encoding="application/x-tex">\int_t^T\delta_sds=au+(\delta_t-a)B(u)+\sigma_\delta\int_0^u B(u-v)dW^\delta_{t+v}.</annotation></semantics></math></p>
+<p>The terminal log spot is conditionally normal with mean
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mo>log</mo><msub><mi>S</mi><mi>t</mi></msub><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><mi>a</mi><mo>−</mo><msubsup><mi>σ</mi><mi>S</mi><mn>2</mn></msubsup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>u</mi><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>δ</mi><mi>t</mi></msub><mo>−</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">m=\log S_t+(r-a-\sigma_S^2/2)u-(\delta_t-a)B(u)</annotation></semantics></math>
+and variance</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>=</mo><msubsup><mi>σ</mi><mi>S</mi><mn>2</mn></msubsup><mi>u</mi><mo>+</mo><msubsup><mi>σ</mi><mi>δ</mi><mn>2</mn></msubsup><mi>J</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>2</mn><mi>ρ</mi><msub><mi>σ</mi><mi>S</mi></msub><msub><mi>σ</mi><mi>δ</mi></msub><mi>I</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">v=\sigma_S^2u+\sigma_\delta^2J(u)-2\rho\sigma_S\sigma_\delta I(u),</annotation></semantics></math></p>
+<p>where the integrals have closed forms</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>u</mi></msubsup><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>s</mi><mo>=</mo><mfrac><mrow><mi>u</mi><mo>−</mo><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mi>κ</mi></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">I(u)=\int_0^u B(s)ds=\frac{u-B(u)}{\kappa},</annotation></semantics></math>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>u</mi></msubsup><mi>B</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mi>d</mi><mi>s</mi><mo>=</mo><mfrac><mrow><mi>u</mi><mo>−</mo><mn>2</mn><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msub><mi>B</mi><mrow><mn>2</mn><mi>κ</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><msup><mi>κ</mi><mn>2</mn></msup></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">J(u)=\int_0^u B(s)^2ds=\frac{u-2B(u)+B_{2\kappa}(u)}{\kappa^2},</annotation></semantics></math></p>
+<p>and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mrow><mn>2</mn><mi>κ</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mi>−</mi><mn>2</mn><mi>κ</mi><mi>u</mi></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mi>κ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">B_{2\kappa}(u)=(1-e^{-2\kappa u})/(2\kappa)</annotation></semantics></math>.
+These differences may lose numerical precision when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi><mi>u</mi></mrow><annotation encoding="application/x-tex">\kappa u</annotation></semantics></math>
+is very small; quadrature or stable series can be used for checks. Under
+constant rates the forward equals the conditional mean spot,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mrow><mi>t</mi><mo>,</mo><mi>T</mi></mrow></msub><mo>=</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo>+</mo><mi>v</mi><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">F_{t,T}=\exp(m+v/2).</annotation></semantics></math></p>
+<p>For deterministic constant yield
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>δ</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sigma_\delta=0</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>δ</mi><mi>t</mi></msub><mo>=</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">\delta_t=a</annotation></semantics></math>),
+this reduces to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>t</mi></msub><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><msub><mi>δ</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>u</mi></mrow></msup></mrow><annotation encoding="application/x-tex">S_te^{(r-\delta_t)u}</annotation></semantics></math>.
+If the initial yield differs from its long-run mean, a deterministic but
+time-varying carry remains. This distinction is essential for the
+constant-carry benchmark.</p>
+<h3 id="independent-price-verification">2. Independent price
+verification</h3>
+<p>Numerical quadrature of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>J</mi><annotation encoding="application/x-tex">J</annotation></semantics></math>
+provides a reference. Independently evaluate the closed forms above,
+then generate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>log</mo><msub><mi>S</mi><mi>T</mi></msub><mo>=</mo><mi>m</mi><mo>+</mo><msqrt><mi>v</mi></msqrt><mi>Z</mi></mrow><annotation encoding="application/x-tex">\log S_T=m+\sqrt v Z</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>∼</mo><mi>N</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">Z\sim N(0,1)</annotation></semantics></math>.
+For antithetic simulation, average the pair
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mi>m</mi></msup><mo>cosh</mo><mrow><mo stretchy="true" form="prefix">(</mo><msqrt><mi>v</mi></msqrt><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">e^m\cosh(\sqrt v Z)</annotation></semantics></math>
+and compute the standard error across independent pair means (not across
+correlated individual draws). This checks marginal prices, not the joint
+covariance of the forward curve. A separate OU path simulation with
+correlated innovations is needed to validate the joint dynamics.</p>
+<h3 id="sensitivities-and-curve-covariance">3. Sensitivities and curve
+covariance</h3>
+<p>At fixed delivery,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>∂</mi><mrow><mo>log</mo><msub><mi>S</mi><mi>t</mi></msub></mrow></msub><mo>log</mo><msub><mi>F</mi><mrow><mi>t</mi><mo>,</mo><mi>T</mi></mrow></msub><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>∂</mi><msub><mi>δ</mi><mi>t</mi></msub></msub><mo>log</mo><msub><mi>F</mi><mrow><mi>t</mi><mo>,</mo><mi>T</mi></mrow></msub><mo>=</mo><mi>−</mi><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">\partial_{\log S_t}\log F_{t,T}=1,\qquad \partial_{\delta_t}\log F_{t,T}=-B(u).</annotation></semantics></math></p>
+<p>The diffusion of the log forward for a fixed delivery is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>S</mi></msub><mi>d</mi><msubsup><mi>W</mi><mi>t</mi><mi>S</mi></msubsup><mo>−</mo><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>σ</mi><mi>δ</mi></msub><mi>d</mi><msubsup><mi>W</mi><mi>t</mi><mi>δ</mi></msubsup></mrow><annotation encoding="application/x-tex">\sigma_SdW_t^S-B(u)\sigma_\delta dW_t^\delta</annotation></semantics></math>.
+Therefore the instantaneous covariance rate for deliveries
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>i</mi></msub><mo>,</mo><msub><mi>T</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">T_i,T_j</annotation></semantics></math>
+is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>c</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><msubsup><mi>σ</mi><mi>S</mi><mn>2</mn></msubsup><mo>+</mo><msub><mi>B</mi><mi>i</mi></msub><msub><mi>B</mi><mi>j</mi></msub><msubsup><mi>σ</mi><mi>δ</mi><mn>2</mn></msubsup><mo>−</mo><mi>ρ</mi><msub><mi>σ</mi><mi>S</mi></msub><msub><mi>σ</mi><mi>δ</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>B</mi><mi>i</mi></msub><mo>+</mo><msub><mi>B</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">c_{ij}=\sigma_S^2+B_i B_j\sigma_\delta^2-\rho\sigma_S\sigma_\delta(B_i+B_j).</annotation></semantics></math></p>
+<p>This covariance matrix is positive semidefinite and has rank at most
+two. It is an instantaneous fixed-delivery result, not the covariance of
+monthly rolled-futures returns. To compare a one-factor constant-carry
+curve, choose its carry
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>=</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>F</mi><mrow><mi>t</mi><mo>,</mo><msub><mi>T</mi><mn>1</mn></msub></mrow></msub><mi>/</mi><msub><mi>S</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>T</mi><mn>1</mn></msub><mo>−</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">c=\log(F_{t,T_1}/S_t)/(T_1-t)</annotation></semantics></math>
+and compute
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>t</mi></msub><msup><mi>e</mi><mrow><mi>c</mi><mi>u</mi></mrow></msup></mrow><annotation encoding="application/x-tex">S_te^{cu}</annotation></semantics></math>
+for every delivery. The match at the first delivery is mechanical;
+differences elsewhere reflect curve shape.</p>
+<h3 id="notation-and-code-crosswalk">4. Notation and code crosswalk</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math></td>
+<td>Time to delivery, years</td>
+<td><code>T</code> in routine</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>δ</mi><mi>t</mi></msub><mo>,</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">\delta_t,a</annotation></semantics></math></td>
+<td>Net yield, long-run level</td>
+<td><code>delta</code>, <code>a</code></td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>κ</mi><annotation encoding="application/x-tex">\kappa</annotation></semantics></math></td>
+<td>Mean reversion, per year</td>
+<td><code>k</code></td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>S</mi></msub><mo>,</mo><msub><mi>σ</mi><mi>δ</mi></msub></mrow><annotation encoding="application/x-tex">\sigma_S,\sigma_\delta</annotation></semantics></math></td>
+<td>Diffusion loadings</td>
+<td><code>sigS</code>, <code>sigd</code></td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>u</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">B(u)</annotation></semantics></math></td>
+<td>Yield sensitivity magnitude</td>
+<td><code>B</code></td>
+</tr>
+</tbody>
+</table>
+<p>Implement the full grid, independent path simulation, covariance
+diagnostics and economic interpretation. A synthetic pricing law does
+not identify physical commodity risk premia.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

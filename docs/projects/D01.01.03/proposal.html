@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Impact of Non-Normal Returns on European Option Pricing | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D01.01.03 · Derivatives · Option models &amp; surfaces</p><h1>The Impact of Non-Normal Returns on European Option Pricing</h1><p class="lead">How do risk-neutral skewness and excess kurtosis change European option prices and implied volatility smiles when forward and log variance are matched?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Vanilla pricing and surfaces · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>Vanilla options reveal distributional information beyond mean and
+variance because their payoffs are nonlinear. A controlled
+terminal-distribution experiment can isolate how asymmetry and tail
+thickness affect the smile without confounding the comparison with a
+different forward or log-return variance. The task is not to recover a
+unique distribution from its first four moments.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do risk-neutral skewness and excess kurtosis change European
+option prices and implied volatility smiles when forward and log
+variance are matched?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For normalized log spot
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mi>T</mi></msub><mi>/</mi><mi>F</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">X=\log(S_T/F)</annotation></semantics></math>,
+impose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝔼</mi><mi>ℚ</mi></msup><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>e</mi><mi>X</mi></msup><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\mathbb E^{\mathbb Q}[e^X]=1</annotation></semantics></math>.
+Matching
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>Var</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\operatorname{Var}(X)</annotation></semantics></math>
+still leaves higher moments and the nonlinear payoff expectation
+unrestricted.</p>
+<h3 id="research-design">Research design</h3>
+<p>Generate a Gaussian law, a symmetric variance mixture and asymmetric
+location mixtures (including a mirror case). Match forward and log
+variance at each selected maturity. Compare conditional analytic option
+prices to independent Monte Carlo and use a common forward-moneyness
+grid.</p>
+<p>Match log variance and forward before reporting skew or kurtosis.
+Include a symmetric variance mixture, an asymmetric location mixture and
+its mirror. Use the same strike coordinates and display the actual
+moments alongside the smile; the arithmetic variance match is a
+robustness exercise.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Density and moment tables, option price differences, IV smiles,
+skew/wing metrics and analytic/MC diagnostics.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>At one maturity: Gaussian and at least three mixture cases, exact
+forward/log variance matches, analytic pricing, no-arbitrage checks and
+smile comparisons. Distinct from D01.01.01 sensitivities and D01.01.02
+dynamic hedging.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Distributions are terminal Q marginals, not dynamic hedging models;
+maturity-by-maturity construction need not be calendar-arbitrage-free.
+Do not infer Q tails from P returns. IV inversions near price bounds can
+be unstable; use explicit tolerance and flags. Cumulants are
+descriptive, not sufficient statistics for all strikes.</p>
+<p><strong>Prerequisites:</strong> Probability, lognormal pricing,
+numerical root finding and Python.</p>
+<p><strong>Optional extension:</strong> Use a martingale jump-diffusion
+over all maturities to study how skew and kurtosis vary jointly with
+maturity.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: Q moments and pricing; W4-6: construct mixtures and validate
+prices; W7-9: smile analysis; W10-12: alternate matching and MC checks;
+W13-16: interpretation and writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

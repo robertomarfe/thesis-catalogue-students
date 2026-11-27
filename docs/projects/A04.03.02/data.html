@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Monetary Policy and the Joint Response of Nominal and Real Yields | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A04.03.02 · Asset Pricing · Macro-finance &amp; policy</p><h1>Monetary Policy and the Joint Response of Nominal and Real Yields</h1><p class="lead">How do the matched-maturity nominal and real Treasury yield responses to FOMC surprises vary with horizon and communication window, and what is the associated breakeven response?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> USMPD: same-window, same-maturity nominal and real yields, plus surprise data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a04.03.02">Data and model setup |
+A04.03.02</h3>
+<p><strong>Current data gate: conditional.</strong> No actual external
+input bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>SF Fed USMPD
+https://www.frbsf.org/research-and-insights/data-and-indicators/us-monetary-policy-event-study-database/
+includes Treasury/TIPS changes and policy surprises/code. Freeze
+release; choose maturities with documented same-window overlap
+(candidate 5y/10y, verify actual columns), common events and no
+imputation. Baseline statement windows, separate press conferences,
+never treat combined events as independent. Use provider surprise
+sign/scale; proposed 2004-2025 conditional on coverage. No matching
+across different windows.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>USMPD — Full USMPD</strong> (Core). Expected file:
+<code>USMPD.xlsx</code>. <a
+href="https://www.frbsf.org/wp-content/uploads/USMPD.xlsx?2026-11-24=">Download
+or provider route</a>; <a
+href="https://www.frbsf.org/research-and-insights/data-and-indicators/us-monetary-policy-event-study-database/">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed; file not inspected. Use full workbook, not chart
+data; query suffix may rotate.</li>
+<li><strong>USMPD_SURPRISE — Monetary policy surprises and code</strong>
+(Core). Expected file: <code>monetary-policy-surprises.zip</code>. <a
+href="https://www.frbsf.org/wp-content/uploads/monetary-policy-surprises.zip?2026-11-24=">Download
+or provider route</a>; <a
+href="https://www.frbsf.org/research-and-insights/data-and-indicators/us-monetary-policy-event-study-database/">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct link observed; file not inspected. Preserve code and event-window
+documentation.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>Use same release USMPD and rate-only surprises as A04.03.01. Verify
+actual same-maturity nominal and TIPS changes (candidate 5y,10y), exact
+same response window and documented timestamp; do not pair intraday
+nominal with daily real. Provider research also reports daily
+Treasury/TIPS responses to high-frequency surprises: if intraday
+matching not available, require explicit supervisor approval of
+daily-response redesign with both daily yield series and separate
+shock-window label, never silently substitute. Common finite mask for
+s,n,r; define BE=n-r in bp, same intercept/regressors, HC3. Coefficient
+identity b_BE=b_N-b_R; use paired meeting bootstrap for maturity
+comparisons, not independent interval subtraction. Interpret breakeven
+as inflation compensation including liquidity/risk premia, not pure
+expectation. 2004-2025 proposal target conditional on verified
+coverage.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>CONDITIONAL: verify actual common TIPS/nominal maturity and response
+window, surprise definition/units, usable common events and rights. If
+no common window, explicit redesign or defer. Do not assume provider raw
+columns.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel/parquet inputs require the relevant
+optional reader (openpyxl, xlrd, pyarrow); inspect raw schema and
+permissions first (not needed for the introductory setup check). If
+source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="stage-2b-student-local-acquisition-and-decision-gate-v47">Stage
+2B | Student-local acquisition and decision gate (v47)</h4>
+<p><strong>Current gate:</strong> conditional. No actual empirical file
+or permission has been validated. Do not redistribute raw files or
+change data source without authorization.</p>
+<h5 id="exact-requested-routes">Exact requested routes</h5>
+<ul>
+<li><strong>USMPD — Full USMPD</strong>: USMPD.xlsx. Route:
+https://www.frbsf.org/wp-content/uploads/USMPD.xlsx?2026-11-24=.
+Provider:
+https://www.frbsf.org/research-and-insights/data-and-indicators/us-monetary-policy-event-study-database/.
+Full Excel listed; statements 30 minutes, press conferences 70 minutes,
+combined and minutes separate. Source LSEG Tick History; rights and
+actual maturity columns require review. Historical link note, not fresh
+verification: Direct link observed; file not inspected.</li>
+<li><strong>USMPD_SURPRISE — Monetary policy surprises and
+code</strong>: monetary-policy-surprises.zip. Route:
+https://www.frbsf.org/wp-content/uploads/monetary-policy-surprises.zip?2026-11-24=.
+Provider:
+https://www.frbsf.org/research-and-insights/data-and-indicators/us-monetary-policy-event-study-database/.
+Separate ZIP contains surprise code/output; rate-path PCA, not
+necessarily structural shock; match release/event/window. Historical
+link note, not fresh verification: Direct link observed; file not
+inspected.</li>
+</ul>
+<h5 id="acceptance-of-the-local-input-set">Acceptance of the local input
+set</h5>
+<p>Validate one actual nominal/real maturity and exact same-window
+surprise mapping. Estimate all three responses with identical design
+rows; verify intercept and slope identity beta_BE=beta_N-beta_R and
+compute inference on the actual difference (not by subtracting standard
+errors). Report unmatched counts and TIPS caveats; if overlap fails
+defer or seek explicit daily redesign.</p>
+<p>Keep a local ledger with provider, original filename, release/version
+or commit, download date, SHA-256, terms/permission and permitted use;
+inspect actual headers/tabs, date range, missing/duplicate observations,
+units and calendar; retain raw files only as allowed. Provide code and a
+nonrestricted audit summary, not raw data unless rights permit. Preserve
+planned common-sample and timing rules. The supervisor decides whether
+the input gate passes.</p>
+<h5 id="if-the-gate-fails">If the gate fails</h5>
+<p>If common Treasury/TIPS maturity and window unavailable, defer; a
+daily nominal-real design requires new identification and timing
+protocol.</p>
+<p>Provider routes and historical source notes are inherited, not newly
+verified. Independently implement all algorithms described here; private
+helper names, if present, denote methodological steps rather than
+dependencies distributed with this workspace. The v61 source-evidence
+erratum supersedes historical fresh-verification labels.</p>
+<h4 id="frozen-research-design-original-catalogue">Frozen research
+design (original catalogue)</h4>
+<p>SF Fed USMPD
+https://www.frbsf.org/research-and-insights/data-and-indicators/us-monetary-policy-event-study-database/
+includes Treasury/TIPS changes and policy surprises/code. Freeze
+release; choose maturities with documented same-window overlap
+(candidate 5y/10y, verify actual columns), common events and no
+imputation. Baseline statement windows, separate press conferences,
+never treat combined events as independent. Use provider surprise
+sign/scale; proposed 2004-2025 conditional on coverage. No matching
+across different windows.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Validate one actual nominal/real maturity and exact same-window
+surprise mapping. Estimate all three responses with identical design
+rows; verify intercept and slope identity beta_BE=beta_N-beta_R and
+compute inference on the actual difference (not by subtracting standard
+errors). Report unmatched counts and TIPS caveats; if overlap fails
+defer or seek explicit daily redesign.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Record total, gross and excess return conventions, RF timing,
+sampling frequency, factor definitions and annualization. Freeze common
+date and asset sets, provider vintage and information availability.
+Distinguish observation and release dates, gross and log returns,
+physical variance and implied variance, yield changes and holding
+returns, and nominal-real matching on identical dates.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Digital Assets and Traditional Asset Pricing Factors | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A09.04.02 · Asset Pricing · International, FX &amp; commodities</p><h1>Digital Assets and Traditional Asset Pricing Factors</h1><p class="lead">How stable is Bitcoin&#x27;s exposure to conventional equity factors and lagged stress conditions, and how much does time aggregation affect this inference?</p><p class="small">Data access warning · Level 2/3 · Research draft</p><p class="warning" data-warning="true"><strong>Data access warning: the required datasets may be difficult or costly to obtain. Verify availability, coverage and permitted use with your supervisor. This topic is not currently ready for assignment.</strong><br>Authorized Bitcoin price series, plus matching factor/VIX files.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="calendar-and-quote-convention">Calendar and quote
+convention</h3>
+<p>Use USD prices and the documented observation timestamp; the
+historical source recipe mentions 5 PM PST, which must be verified
+against actual provider documentation. Do not infer a trading-day
+calendar from daily crypto observations. For the first monthly return
+retain the prior month-end level. Use simple returns and subtract the
+same monthly USD RF used in factors. Missing exact endpoints are a gate,
+not an invitation to interpolate. The last-US-trading-day alternative
+requires an independent exchange calendar and acknowledges asynchronous
+closes.</p>
+<h3 id="factor-exposure">Factor exposure</h3>
+<p>For monthly factors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mi>t</mi></msub><annotation encoding="application/x-tex">f_t</annotation></semantics></math>,
+estimate the intercept and market, size and value exposures on matched
+dates; define a trailing window and minimum count before reporting
+rolling betas. Use dependence-aware uncertainty and distinguish
+descriptive rolling estimates from any lagged predictive specification.
+Check a lagged VIX specification separately. Neither a changing beta nor
+an intercept identifies crypto-wide risk pricing. Large valid returns
+remain in the baseline; investigate errors, not inconvenient
+observations.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Blocked until permission, actual coverage and timestamp are
+validated. Retain the baseline 72-month and split 36-month thresholds
+from the input protocol; require exact prior endpoints and documented
+timing robustness. No unapproved substitute or raw redistribution.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

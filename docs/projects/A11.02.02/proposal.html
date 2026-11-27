@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Hansen-Jagannathan Distance and the Comparison of Asset Pricing Models | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A11.02.02 · Asset Pricing · Cross-sectional pricing &amp; SDF</p><h1>Hansen-Jagannathan Distance and the Comparison of Asset Pricing Models</h1><p class="lead">How do CAPM, FF3 and FF5 linear discount factors compare using Hansen-Jagannathan pricing-error distance on common test assets and independent evaluation periods?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Asset pricing · Cross-sectional pricing and SDF · Level
+3/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>A misspecified pricing model can be compared to others by asking how
+much its discount factor would have to change to price the same payoff
+span. The Hansen–Jagannathan distance answers this question in an
+unrestricted quadratic metric. It is not the volatility bound and does
+not certify positivity.</p>
+<h3 id="research-question">Research question</h3>
+<p>How do CAPM, FF3 and FF5 linear discount factors compare using
+Hansen-Jagannathan pricing-error distance on common test assets and
+independent evaluation periods?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For gross unit-price payoffs
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>=</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>m</mi><mi>X</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>−</mo><mn>𝟏</mn></mrow><annotation encoding="application/x-tex">g=E[mX]-\mathbf{1}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>X</mi><msup><mi>X</mi><mi>⊤</mi></msup><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">G=E[XX^\top]</annotation></semantics></math>,
+the unconstrained distance is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>g</mi><mi>⊤</mi></msup><msup><mi>G</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><mi>g</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mn>1</mn><mi>/</mi><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">d=(g^\top G^{-1}g)^{1/2}</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Estimate CAPM, FF3 and FF5 affine kernels on the prescribed 25
+size/value gross returns plus bill through 1994. Freeze coefficients and
+evaluate later dates and the separate industry panel with a common
+metric per comparison.</p>
+<p>Construct gross returns including the actual monthly bill, not excess
+returns with unit prices. Distinguish train and holdout metrics and
+apply common conditioning rules; paired time-block resampling should
+refit the training step and evaluate common holdout draws.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Pricing error and HJ distance tables, train/test comparison, SDF
+volatility and negativity diagnostics, eigenvalues and uncertainty.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Three kernels, consistent gross payoff normalization and bill, common
+G, train/holdout distance comparisons and uncertainty with conditioning
+checks.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Not the HJ volatility bound (A11.02.01). In-sample smaller distances
+in nested classes partly mechanical. FF3/FF5 SMB definitions can differ.
+No arbitrage-free positivity guaranteed. Distances compare only given
+assets and common metric; held-out dates not truly unrevised data.</p>
+<p><strong>Prerequisites:</strong> SDF, factor models, matrix algebra,
+GMM basics and Python.</p>
+<p><strong>Optional extension:</strong> Evaluate a
+positivity-constrained distance or compare a consumption kernel only
+after matching real/nominal payoffs and prices.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: derive projection; W4-6: data and synthetic tests; W7-9: fit
+and evaluate kernels; W10-12: bootstrap and conditioning; W13-16:
+interpretation and writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

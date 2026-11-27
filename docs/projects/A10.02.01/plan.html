@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Tree-Based Models for Stock Market Return Predictability | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A10.02.01 · Asset Pricing · Predictability &amp; machine learning</p><h1>Tree-Based Models for Stock Market Return Predictability</h1><p class="lead">Do shallow tree ensembles provide incremental out-of-sample equity-premium forecast accuracy relative to linear models under identical information and model-selection rules?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a10.02.01">Research plan | A10.02.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>No random cross-validation; identical dates/features and mature label
+rules; perturb future inputs and labels; verify depth/minimum leaf
+constraints; record seeds and failed fits, not only successful
+winners.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Freeze original six features and small RF/boosting grid,
+training-only scaler inside pipeline. Tune on past folds, lock model
+menu; report time budget and failed fits. Compare ridge and mean on
+exact dates, permutation/partial dependence only on past validation; no
+outcome-driven feature search.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Reproduce expanding mean and ridge; audit feature timing and
+target dates.</p></li>
+<li><p>Implement expanding RF and gradient boosting with inner
+walk-forward folds; select hyperparameters by past-only MSE, never
+final-period outcomes.</p></li>
+<li><p>Compare final loss, OOS R2, forecast correlation, paired
+block-bootstrap uncertainty and subperiods.</p></li>
+<li><p>Inspect partial dependence or validation permutation importance
+for a few prespecified features, cautioning correlated
+predictors.</p></li>
+<li><p>Evaluate bounded market weight from forecasts and past variance
+against static allocation, with transaction costs and consistent
+funding.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Forecast ledger, chosen hyperparameter history, loss/OOS R2 table,
+uncertainty, interpretability figures and optional economic value
+comparison.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Current workbook revised; pseudo-OOS not real-time. No random
+cross-validation or full-sample scaling. Tree extrapolation is limited
+and feature importance not causal. If no gains, interpret
+complexity/variance trade-off, not failed thesis.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Expanding mean, ridge and one shallow ensemble, nested chronological
+tuning, untouched holdout loss table and uncertainty. Distinct from
+A10.01.01 linear regularization and A10.04.02 search-bias
+simulations.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Test real-time vintages or a predefined interaction model; do not
+expand the model zoo until baseline protocol is frozen.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Time series, basic ML, Python/scikit-learn and return arithmetic.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Equity return forecasting;</p></li>
+<li><p>Trees and regularization;</p></li>
+<li><p>Data and temporal validation;</p></li>
+<li><p>Forecast results;</p></li>
+<li><p>Interpretability and economic value.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: literature and forecast design; W4-6: data and linear
+benchmarks; W7-9: nested trees; W10-12: held-out inference; W13-16:
+interpretation, code and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

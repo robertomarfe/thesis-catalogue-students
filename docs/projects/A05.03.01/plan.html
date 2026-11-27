@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Predictability of Government Bond Excess Returns | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A05.03.01 · Asset Pricing · Fixed income &amp; interest rates</p><h1>The Predictability of Government Bond Excess Returns</h1><p class="lead">Can forward rates predict one-year government zero-coupon bond excess returns out of sample, relative to historical mean and slope predictors?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a05.03.01">Research plan | A05.03.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Focus on predictive gains of forward information rather than the
+common-factor restriction in A05.03.02. Report overlap and
+latest-vintage pseudo-OOS limitations explicitly.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Construct log prices, one-year forwards and excess holding
+returns; test flat-curve zero excess when future curve
+unchanged.</p></li>
+<li><p>Estimate in-sample slope and forward regressions and compare
+coefficients.</p></li>
+<li><p>Fit CP factor recursively on average realized matured returns,
+then individual maturity regressions on training only.</p></li>
+<li><p>Compare OOS R2, RMSE and paired block/HAC loss differences;
+report maturity-by-maturity and aggregate.</p></li>
+<li><p>Analyze subperiods, nonoverlap and sensitivity to first/last
+month selection; separate statistical forecast from
+tradability.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Price/return construction tests; forward regression table; CP loading
+plot; OOS accuracy and sample-origin audit.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Do not use yield changes as returns or constant-maturity yield as
+coupon bond return. Last available estimate may be revised; overlapping
+outcomes and generated CP factor require robust inference. No
+full-sample predictor construction in OOS.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>GSW 1-5Y, historical mean, slope and forward/CP model; rolling-origin
+evaluation with matured labels and overlap-aware inference.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Add macro predictors using actual release dates; compare real yields
+over available TIPS sample separately.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Fixed income mathematics, regressions, HAC, Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Expectations hypothesis and premia;</p></li>
+<li><p>Zero-bond return construction;</p></li>
+<li><p>Predictors and sample;</p></li>
+<li><p>In- and out-of-sample tests;</p></li>
+<li><p>Limits.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: fixed income and paper; W4-6: returns/forwards; W7-9:
+regressions; W10-12: OOS and inference; W13-16: replicate and write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

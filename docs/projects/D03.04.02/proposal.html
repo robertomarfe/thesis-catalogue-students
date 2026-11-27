@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Volatility-of-Volatility and the Forecasting of Extreme Volatility | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.04.02 · Derivatives · Volatility &amp; tail risk</p><h1>Volatility-of-Volatility and the Forecasting of Extreme Volatility</h1><p class="lead">Does VVIX incrementally forecast extreme physical volatility over the next month after controlling for VIX and lagged realized variance?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Volatility forecasting and tail risk · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Empirical core; actual rights, coverage and
+input validation pending. <strong>Status:</strong> current review draft;
+supervisor approval pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>High volatility and uncertainty about volatility are distinct
+phenomena. VVIX measures option-implied variation of the volatility
+index; its incremental forecasting value should be assessed after
+controlling for the prevailing VIX level and past market variance. The
+focus is calibrated tail-event probabilities.</p>
+<h3 id="research-question">Research question</h3>
+<p>Does VVIX incrementally forecast extreme physical volatility over the
+next month after controlling for VIX and lagged realized variance?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>Define
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mn>𝟏</mn><mrow><mo stretchy="false" form="prefix">{</mo><msub><mi>Y</mi><mrow><mi>t</mi><mo>,</mo><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">h</mi></mrow></mrow></msub><mo>&gt;</mo><mi>c</mi><mo stretchy="false" form="postfix">}</mo></mrow></msub></mrow><annotation encoding="application/x-tex">D_{t+1}=\mathbf1_{\{Y_{t,\mathrm{month}}&gt;c\}}</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics></math>
+fixed from initial training. Compare nested logistic forecasts
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>t</mi></msub><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>+</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>−</mi><msubsup><mi>x</mi><mi>t</mi><mi>⊤</mi></msubsup><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><msup><mo stretchy="false" form="postfix">}</mo><mrow><mi>−</mi><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">p_t=\{1+\exp(-x_t^\top b)\}^{-1}</annotation></semantics></math>
+with and without lagged VVIX.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use the common observed VIX, VVIX and market dates with no
+interpolation. Freeze the training threshold, compare intercept-only and
+nested models, and choose regularization without consulting final-period
+outcomes.</p>
+<p>Do not treat VVIX as realized equity variance. Report all nested
+comparisons on identical matured dates, label rights and backfill risks,
+and use predeclared threshold sensitivity. Retain failed or single-class
+training fits.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Tail-probability paths, calibration plot, paired scores, event
+counts, coefficient stability and coverage audit.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Two nested logistic forecasts plus unconditional benchmark, common
+dates and at least two proper scores.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Limited extreme events and backfilled index history constrain
+inference. No Q=P identification or causal mechanism. Do not optimize
+tail threshold on test dates; rights and actual VVIX history must be
+confirmed.</p>
+<p><strong>Prerequisites:</strong> Probability, logistic regression,
+time-series forecasting, Python.</p>
+<p><strong>Optional extension:</strong> Add trailing realized variation
+of VIX as a physical proxy, with lagged availability and matched
+horizon.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: data and labels; W4-6: baseline; W7-9: VVIX forecasts; W10-12:
+score and calibration; W13-16: robustness and writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Forecasting Equity Market Volatility: GARCH versus Historical Volatility | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.01.01 · Derivatives · Volatility &amp; tail risk</p><h1>Forecasting Equity Market Volatility: GARCH versus Historical Volatility</h1><p class="lead">Does GARCH(1,1) improve genuinely out-of-sample forecasts of daily and 21-trading-day market variance relative to rolling historical variance? Is the ranking stable in high- and low-volatility periods?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><p>No empirical input bytes are included or validated.</p>
+<h3 id="input-contract">Input contract</h3>
+<p>French US daily Fama/French 3 Factors, columns Mkt-RF and RF,
+reconstructed market simple return in decimals; use log(1+R) where
+defined. Target 1990-2025, subject to file inspection. Use 1990-2004
+initial estimation, 2005-2025 untouched sequential evaluation; document
+any shorter common sample. Fix rolling windows 21 and 252 days and a
+5-year GARCH estimation window; monthly refits with daily filtering.
+Keep the data vintage, ignore missing sentinel codes, never fill missing
+dates as zero. Daily target is squared demeaned return using a
+predetermined mean convention; 21-day target is the sum of squared
+future innovations over trading days. Source:
+https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html</p>
+<h3 id="acquisition-and-acceptance">Acquisition and acceptance</h3>
+<p>Only required file:
+<code>F-F_Research_Data_Factors_daily_CSV.zip</code>, <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip">direct
+download</a>. Official <a
+href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">library</a>.
+Use daily US factors from a single version. Store raw bytes privately,
+record original filename, date, hash, provider copyright and permitted
+use. No central upload required. VIX is optional, not a required second
+input. Do not redistribute without permission.</p>
+<h3 id="sample-timing-and-transformations">Sample, timing and
+transformations</h3>
+<p>Target 1990-01 to 2025-12 (dates inclusive subject to availability),
+initial estimation/choice 1990–2004, evaluation origins from 2005
+through final dates whose future labels are fully observed within 2025.
+Proposed acceptance before work: continuous available series covering
+initial 1990–2004 training and at least 15 calendar years of evaluation,
+no unexplained missing daily returns; if shorter seek supervisor
+approval of a revised frozen split before viewing forecast performance.
+No padding missing trading days. Fixed initial demean convention: use
+training-only mean for all models/targets (alternative past-only rolling
+mean in robustness). Define u_t=x_t-mu_train. Label daily
+v_{t,1}=u_(t+1)^2; cumulative v_{t,21}=sum_{j=1}<sup>{21}u_(t+j)</sup>2
+over 21 trading observations with complete coverage. Store origin date,
+first/last target date, horizon and maturity indicator. For historical
+forecast h, use only preceding 21 or 252 observed squared innovations;
+for GARCH refit monthly using preceding 5 years, update variance daily.
+Both horizons sum forecasts in per-horizon variance units, not
+annualized volatility. Fit/validation uses only matured target labels
+when necessary. No model selection on test losses. Omit the last 21
+origins lacking complete labels. QLIKE log(h)+v/h with positive
+documented h floor; MSE in matching units; same valid origins for
+comparisons. Explain why noisy squared innovations are not intraday
+realized variance; 21 trading days not exactly one calendar month. Main
+analysis and inference remain student tasks.</p>
+<h3 id="week-12-input-gate">Week 1–2 input gate</h3>
+<p>Deliver local manifest, independently implemented input validation,
+counts missing and excluded by reason, sample date coverage and dated
+label preview (no raw-data transfer if not entitled). Manually check
+first and final complete target windows and the training/test split. If
+raw access, acceptable coverage or units fail: stop, ask supervisor for
+approved source/sample redesign, never imply GARCH forecast result. A
+passed recipe or toy test alone does not pass the actual-data gate. If
+accepted, continue W3–6 benchmark and W7–10 main analysis per
+proposal.</p>
+<p>Use standard Python ZIP/CSV tools to inspect the actual file and
+manually reconcile header, rows and calendar; no reader or forecasting
+implementation is provided.</p>
+<h3 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h3>
+<p>Record actual source version or simulation specification, acquisition
+rights, date and SHA-256 for any local inputs, schema/units, exclusions,
+sample or parameter grid and independently designed acceptance checks.
+Stop and agree a revised design if the specified input is not
+obtainable. No automatic data or assignment approval.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

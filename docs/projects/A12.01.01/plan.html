@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Liquidity-Related Anomalies and Factor Pricing | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A12.01.01 · Asset Pricing · Portfolios &amp; market frictions</p><h1>Liquidity-Related Anomalies and Factor Pricing</h1><p class="lead">Are published liquidity-related long-short returns explained by standard factors, and do their residual returns vary with financial conditions?</p><p class="small">Conditional data access · Level 2/3 · Research draft</p><p class="notice"><strong>Conditional data access.</strong> Matching OSAP revision, liquidity signal definitions and factor/NFCI coverage.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a12.01.01">Research plan | A12.01.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Pin same OSAP dictionary and return revision, exactly three named
+signals and direction; match factors/RF conventions and release-aware
+NFCI. Fit unconditional and interaction models on same dates;
+conditional alpha=a+c<em>z, conditional beta=b+d</em>z. Joint blocks and
+multiple-comparison sensitivity; defer if no authorized bytes.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Pin OSAP original-paper long-short returns and matching SignalDoc
+same revision; original proposed October 2026 not verified, public
+website accessible but repository inaccessible. Verify Illiquidity,
+BidAskSpread and BetaLiquidityPS names, long-short orientation, holding
+period and units before data outcomes; do not switch to a different
+signal silently. FF3/5+Mom common monthly sample, one-month lagged NFCI
+subject to release, revised vintage label. HAC common dates, state
+interaction with both alpha and factor loadings, joint calendar-block
+uncertainty and multiple testing. No RF subtraction for zero-cost
+returns; no causal liquidity-price claim.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Freeze release, signal definitions, long/short orientation and
+portfolio formation metadata; inspect missingness without
+filling.</p></li>
+<li><p>Estimate mean returns, volatility, drawdowns (clearly funded
+hypothetical spread convention) and factor alphas with HAC.</p></li>
+<li><p>Test joint alpha restrictions with common-date block bootstrap,
+report Holm-adjusted individual tests.</p></li>
+<li><p>Estimate NFCI-state interactions and conditional alphas with same
+factors; compare stable subsamples.</p></li>
+<li><p>Apply transparent fixed cost hurdles as sensitivity, not
+estimated turnover costs, and compare alternative OSAP portfolio
+weighting if available.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Signal dictionary, sample and missingness audit, alpha tables, factor
+exposure heatmap, conditional estimates and corrected p-values.</p>
+<h4 id="robustness">Robustness</h4>
+<p>October 2026 release migrated to CRSP CIZ and Hugging Face; do not
+splice earlier releases. Published spread direction and weighting may
+differ by signal; confirm documentation before interpretation. Portfolio
+series do not identify causal trading-cost or aggregate liquidity-risk
+effects. No stock-level data needed.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Three prespecified liquid/illiquid-related long-short series and
+FF3/5+Mom alpha comparisons with inference and NFCI interaction. If
+files fail, hold assignment pending; substitution requires supervisor
+approval. Distinct from A12.01.02’s BAB mechanism.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Alternative equal/value weighting, turnover-aware analysis if
+documented turnover available, or compare to a genuine traded liquidity
+factor.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Factor models, regression/HAC, panel of portfolio returns, Python
+parquet support.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Liquidity and asset pricing;</p></li>
+<li><p>Signal construction;</p></li>
+<li><p>Factor tests;</p></li>
+<li><p>Financial states and robustness;</p></li>
+<li><p>Interpretation.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: acquire release and verify signals; W4-6: merge and descriptive
+checks; W7-9: factor tests; W10-12: state dependence and costs; W13-16:
+write.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

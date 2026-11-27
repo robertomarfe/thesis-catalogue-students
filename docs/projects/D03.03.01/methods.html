@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Latent Stochastic Volatility versus GARCH | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D03.03.01 · Derivatives · Volatility &amp; tail risk</p><h1>Latent Stochastic Volatility versus GARCH</h1><p class="lead">Does a parsimonious latent stochastic volatility model improve daily predictive density and multi-day variance forecasts relative to GARCH?</p><p class="small">Data verification pending · Level 3/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="filtering-versus-prediction">Filtering versus prediction</h3>
+<p>For latent log variance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>t</mi></msub><annotation encoding="application/x-tex">x_t</annotation></semantics></math>,
+update the predictive law
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>t</mi></msub><mo stretchy="false" form="prefix">|</mo><msub><mi>ℱ</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">p(x_t|\mathcal F_{t-1})</annotation></semantics></math>
+using the likelihood
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mi>t</mi></msub><mo stretchy="false" form="prefix">|</mo><msub><mi>x</mi><mi>t</mi></msub><mo>∼</mo><mi>N</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><msup><mi>e</mi><msub><mi>x</mi><mi>t</mi></msub></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">u_t|x_t\sim N(0,e^{x_t})</annotation></semantics></math>.
+The one-step predictive density is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>u</mi><mi>t</mi></msub><mo stretchy="false" form="prefix">|</mo><msub><mi>ℱ</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>∫</mo><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>u</mi><mi>t</mi></msub><mo stretchy="false" form="prefix">|</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="false" form="prefix">|</mo><msub><mi>ℱ</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">p(u_t|\mathcal F_{t-1})=\int p(u_t|x)p(x|\mathcal F_{t-1})dx</annotation></semantics></math>.
+In a bootstrap particle filter, propagate, weight by the likelihood,
+normalize and resample as needed. Monitor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>S</mi><mi>S</mi><mo>=</mo><mn>1</mn><mi>/</mi><msub><mo>∑</mo><mi>i</mi></msub><msubsup><mi>w</mi><mi>i</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">ESS=1/\sum_i w_i^2</annotation></semantics></math>
+for normalized weights. A smoothed state uses future observations and
+cannot enter a forecast.</p>
+<h3 id="multi-step-targets">Multi-step targets</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+days, forecast
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>H</mi></msubsup><msub><mi>E</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>e</mi><msub><mi>x</mi><mrow><mi>t</mi><mo>+</mo><mi>j</mi></mrow></msub></msup><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\sum_{j=1}^H E_t[e^{x_{t+j}}]</annotation></semantics></math>,
+integrating over state and transition uncertainty. Use predictive log
+score (negative log density) for the next observation and QLIKE/MSE for
+matched variance outcomes. An approximate log-square likelihood is not
+the exact likelihood; report zero handling, optimization noise and
+sensitivity to particle budget.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Use the specified simulated filter check, compare effective sample
+sizes and independent seeds, then freeze the model-selection protocol.
+Separate uncertainty from latent states, parameters and finite particle
+budgets.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

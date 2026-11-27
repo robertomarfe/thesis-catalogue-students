@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Covered Interest Parity and Synthetic FX Forward Rates | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D10.03.01 · Derivatives · International, FX &amp; commodities</p><h1>Covered Interest Parity and Synthetic FX Forward Rates</h1><p class="lead">How do the level and differential of short-term USD and EUR interest rates shape synthetic EUR/USD forward prices, and how sensitive is the result to rate conventions and proxy choice?</p><p class="small">Data verification pending · Level 2/3 · Research draft</p><p class="notice"><strong>Data verification pending.</strong> Core inputs have been mapped, but actual files, permissions, coverage and conventions have not been validated.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-d10.03.01">Data and model setup |
+D10.03.01</h3>
+<p><strong>Current data gate: pending.</strong> No actual external input
+bytes are supplied or validated.</p>
+<h4 id="original-input-contract-and-sample">Original input contract and
+sample</h4>
+<p>Use FRED DEXUSEU daily USD/EUR and OECD monthly three-month interbank
+rate proxies IR3TIB01USM156N and IR3TIB01EZM156N, percent p.a. Source
+https://fred.stlouisfed.org/series/DEXUSEU ;
+https://fred.stlouisfed.org/series/IR3TIB01USM156N ;
+https://fred.stlouisfed.org/series/IR3TIB01EZM156N . Baseline 1999-2025
+common dates, month-end last valid spot with latest published
+prior-month rate averages (use two-month lag if release timing is
+unknown) as deliberately stale proxies (same-month averages descriptive
+sensitivity only); tau=0.25, simple accrual. Verify series definition
+changes and EA19 end coverage. Compute 3m points in pips (0.0001
+USD/EUR). Compare with alternative rate-proxy pair only if definitions
+and overlap verified.</p>
+<h4 id="inputs">Inputs</h4>
+<ul>
+<li><strong>DEXUSEU — DEXUSEU</strong> (Core / planned robustness).
+Expected file: <code>DEXUSEU.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=DEXUSEU">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/DEXUSEU">provider page</a>.
+Historical v13 inventory note (unverified in current release): Direct
+CSV endpoint constructed from exact series ID; not fetched. USD per
+EUR.</li>
+<li><strong>IR3TIB01USM156N — IR3TIB01USM156N</strong> (Core / planned
+robustness). Expected file: <code>IR3TIB01USM156N.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=IR3TIB01USM156N">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/IR3TIB01USM156N">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct CSV endpoint constructed from exact series ID; not fetched.
+Monthly annual percentage rate proxy.</li>
+<li><strong>IR3TIB01EZM156N — IR3TIB01EZM156N</strong> (Core / planned
+robustness). Expected file: <code>IR3TIB01EZM156N.csv</code>. <a
+href="https://fred.stlouisfed.org/graph/fredgraph.csv?id=IR3TIB01EZM156N">Download
+or provider route</a>; <a
+href="https://fred.stlouisfed.org/series/IR3TIB01EZM156N">provider
+page</a>. Historical v13 inventory note (unverified in current release):
+Direct CSV endpoint constructed from exact series ID; not fetched. EA19
+monthly annual rate proxy; verify coverage.</li>
+</ul>
+<p>For external inputs, direct paths are inherited from the frozen
+inventory, not a guarantee of availability or license. If the expected
+filename is unspecified, save the actual authorized export under a
+documented local filename and update your local manifest. Optional
+sources are not required. Use the provider documentation and document
+conventions, rights and parsing locally.</p>
+<h4 id="construction-and-timing">Construction and timing</h4>
+<p>DEXUSEU USD/EUR month-end fixing and monthly US/EA19 OECD rate
+proxies percent p.a.; exact prior-month rate, default two-month lag if
+release unknown. Convert percent once; simple tau=.25, positive accrual;
+points (F-S)/.0001. Invert quote and swap domestic/foreign rates; legacy
+value with fixed contractual K and remaining tenor. Hypothetical basis
+shift in domestic accrual, not empirical basis.</p>
+<h4 id="acceptance-and-first-meeting">Acceptance and first meeting</h4>
+<p>Verify actual overlap, units, rate definitions, dates and permission;
+no actual forward quotes. Synthetic parity, inversion and MTM identities
+passed; any missing-source redesign requires approval.</p>
+<p>Build a local inventory; inspect actual schema and rights. Save input
+ledger, actual dates, joint sample, complete calendar and missing
+counts. No actual files validated. Use local normalized CSV exports only
+after inspecting raw metadata; Excel inputs can be inspected with
+pandas/openpyxl locally (not needed for the introductory setup check).
+If source fails, obtain explicitly approved redesign or defer.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Verify quote orientation, rate units, positive accrual, zero initial
+PV and reciprocal identity. Record availability and exact overlap. No
+observed basis or executable trade claim.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Fix currency quote orientation, base currency, return units,
+settlement dates, funding convention, measure and annualization. For
+empirical panels freeze provider vintage and distinguish observation
+date, availability and outcome maturity. For simulations distinguish
+expiry from delivery and quote rate from payoff currency.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

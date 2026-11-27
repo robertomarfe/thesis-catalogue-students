@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Calibrating Hull-White to the Initial Yield Curve | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D07.02.01 · Derivatives · Fixed income &amp; interest rates</p><h1>Calibrating Hull-White to the Initial Yield Curve</h1><p class="lead">How does Hull-White exact initial-curve fitting affect bond-option prices, and how much valuation uncertainty remains after all models fit the same curve?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d07.02.01">Research plan | D07.02.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Report curve recovery, price and numerical error separately; evaluate
+all prescribed curves and a range of option parameters. Do not present
+an exact fit as evidence that option values are identified.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive shift and bond formula; verify curve recovery to numerical
+tolerance on a maturity grid and sigma-&gt;0 limit.</p></li>
+<li><p>Implement bond option closed form and put-call parity;
+independently value using exact joint Gaussian simulation of x and
+integral x with 100,000 paths, seed</p></li>
+<li><ol start="3" type="1">
+<li>Compare same-curve models varying a,sigma and quantify option-price
+range.</li>
+</ol></li>
+<li><p>Compare constant-drift approximation’s curve residuals and
+derivative prices; separate curve-fit error from dynamics.</p></li>
+<li><p>Test optional GSW interpolation and sensitivity of forward
+differentiation; report zero rate and forward residuals.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Input/recovered curves, fit-error table, option sensitivity heatmaps,
+MC validation, interpolation diagnostic.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Government fitted curves are not collateralized swap/OIS curves. No
+swaption volatility data needed for core; parameters are scenarios, not
+calibrated to market option prices. Avoid differentiating noisy discrete
+rates without interpolation; do not confuse fit of initial discount
+factors with model validation.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Three synthetic curves, exact shift/discount recovery, analytical
+bond option and independent validation at multiple a,sigma. Optional GSW
+makes empirical illustration richer but is not required.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Calibrate a,sigma on generated caplet or swaption quotes and assess
+identification using a Jacobian/synthetic holdout.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Fixed income, Gaussian processes, stochastic discounting and
+Python.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Gaussian affine term structure;</p></li>
+<li><p>Time-dependent shift;</p></li>
+<li><p>Curve recovery and validation;</p></li>
+<li><p>Derivative valuation sensitivity;</p></li>
+<li><p>Identification limits.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive shift and pricing; W4-6: implement curves and Gaussian
+integrals; W7-9: bond-option benchmark; W10-12: sensitivity and optional
+GSW; W13-16: write and reproduce.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

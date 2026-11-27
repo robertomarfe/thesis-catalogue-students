@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Variance Swap Pricing and Discrete Monitoring Bias | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D08.01.01 · Derivatives · Hedging &amp; volatility derivatives</p><h1>Variance Swap Pricing and Discrete Monitoring Bias</h1><p class="lead">How large is the discrete-monitoring correction to variance-swap fair strikes in diffusion and jump-diffusion models, and how much of the difference from log-contract replication is due to jumps rather than discretization?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-d08.01.01">Research plan | D08.01.01</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Verify the diffusion limit and jump moments, isolate monitoring, jump
+and option-strip errors, and report MC intervals even if a small
+correction is unresolved.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Derive analytical expectations of sampled variance, continuous QV
+and log-contract payoff.</p></li>
+<li><p>Verify Q martingale numerically and compare simulated fair
+strikes to exact expressions with MC uncertainty.</p></li>
+<li><p>Decompose log-contract minus discrete fair strike into jump and
+sampling terms across scenarios; contrast the direction of
+each.</p></li>
+<li><p>Approximate the log contract via OTM option integration using
+analytic or independently converged jump-mixture prices; vary strike
+truncation and quadrature density so integration bias is not confused
+with monitoring bias.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Table of fair strikes, MC errors and confidence intervals,
+monitoring-frequency convergence figures, jump correction plots and
+strip integration convergence. Include exact GBM baseline and at least
+one compound-Poisson case with economically interpreted variance
+notional.</p>
+<h4 id="robustness">Robustness</h4>
+<p>Use common nested increments when comparing monitoring frequency;
+independent seeds for uncertainty checks. Maintain risk-neutral
+compensator, payoffs in log-return variance and exact contract
+convention. Distinguish quadratic variation, log-contract price,
+variance risk premium and volatility swap; no calibration to traded
+quotes.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Exact GBM and jump formulas with independent simulation validation;
+at least two frequencies and jump scenarios, decomposition and numerical
+log-contract/option-strip illustration. Report MC uncertainty even if
+bias is not statistically resolvable.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Add stochastic volatility or explore daily return conventions,
+business-day versus calendar scaling and discretization under stochastic
+rates.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Ito calculus, risk-neutral pricing, compound Poisson processes, Monte
+Carlo and numerical integration.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Variance derivatives and replication;</p></li>
+<li><p>Diffusion and jump model fair strikes;</p></li>
+<li><p>Simulation and quadrature design;</p></li>
+<li><p>Monitoring and jump correction results;</p></li>
+<li><p>Contract limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: derive variance/log-contract formulas; W4-6: implement and test
+exact increments; W7-10: run pricing and integration grids; W11-13:
+convergence and jump sensitivity; W14-16: interpretation and thesis.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

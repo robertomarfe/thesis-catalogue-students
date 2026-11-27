@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Put Writing and the Compensation for Downside Risk | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D08.03.02 · Derivatives · Hedging &amp; volatility derivatives</p><h1>Put Writing and the Compensation for Downside Risk</h1><p class="lead">Does the performance of a put-writing benchmark survive comparison with equity/cash portfolios at comparable ex-ante risk, particularly in turbulent markets?</p><p class="small">Data access warning · Level 2/3 · Research draft</p><p class="warning" data-warning="true"><strong>Data access warning: the required datasets may be difficult or costly to obtain. Verify availability, coverage and permitted use with your supervisor. This topic is not currently ready for assignment.</strong><br>Authorized PUT index history and comparable benchmark.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html" aria-current="page">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Theory &amp; methods</h2><div class="actions"><a href="files/methods.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open methods.pdf</a><a href="files/methods.md" class="button secondary" download>Open methods.md</a></div><p><strong>Purpose.</strong> Understand the theoretical restrictions and
+plan an independent implementation. This note supplies derivations and
+conventions, not solved research results.</p>
+<h3 id="funding">Funding</h3>
+<p>With zero dividends, parity equates
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub><mo>−</mo><msub><mi>C</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">S_0-C_0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>T</mi></mrow></msup><mo>−</mo><msub><mi>P</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">Ke^{-rT}-P_0</annotation></semantics></math>.
+Cash-secured writing requires collateral and receives premium; both
+determine initial funding. Rolling index returns do not isolate variance
+premium.</p>
+<h3 id="tail-comparison">Tail comparison</h3>
+<p>A lagged equity weight gives return
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>R</mi><mi>t</mi><mi>f</mi></msubsup><mo>+</mo><msub><mi>w</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>R</mi><mi>t</mi><mi>M</mi></msubsup><mo>−</mo><msubsup><mi>R</mi><mi>t</mi><mi>f</mi></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">R^f_t+w_{t-1}(R^M_t-R^f_t)</annotation></semantics></math>.
+Disclose weight bounds and realized mismatch. Compute tail loss on
+common months with a consistent loss sign. Turbulence labels based on
+future returns are descriptive; lagged VIX regimes are a different,
+feasible design. Separate launch and backfill.</p>
+<h3 id="research-checks">Research checks</h3>
+<p>Focus on downside compensation and collateral rather than D08.03.01’s
+upside capture. Defer or explicitly approve redesign if PUT rights or
+history fail. No silent BXM or synthetic substitution.</p>
+<p><a href="files/methods.md">Source Markdown</a></p><p><a href="files/methods.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

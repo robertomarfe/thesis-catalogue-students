@@ -1,0 +1,7 @@
+# Event data guide
+
+**Gate: conditional. No input bytes, sample or use rights validated.** SF Fed US Monetary Policy Event-Study Database: https://www.frbsf.org/research-and-insights/data-and-indicators/us-monetary-policy-event-study-database/ . Obtain full `USMPD.xlsx`, `monetary-policy-surprises.zip` and documentation from the same release. Inherited file routes: https://www.frbsf.org/wp-content/uploads/USMPD.xlsx and https://www.frbsf.org/wp-content/uploads/monetary-policy-surprises.zip ; recheck actual provider links and terms. Not chart CSVs or independently acquired proprietary tick data. Record exact release, download date, hash, rights, sample and units. Statement 30 minutes, conference 70 minutes. Normalize timezone to UTC with documented DST; if timestamps are absent, do not fabricate them. Verify rates-only surprise, sign, event key and exact matched equity returns. No overlapping combined windows in paired tests. If conference sample insufficient, obtain supervisor approval for statement-only scope. No empirical results provided.
+
+## First-meeting acceptance record
+
+Record actual source version or simulation specification, acquisition rights, date and SHA-256 for any local inputs, schema/units, exclusions, sample or parameter grid and independently designed acceptance checks. Stop and agree a revised design if the specified input is not obtainable. No automatic data or assignment approval.

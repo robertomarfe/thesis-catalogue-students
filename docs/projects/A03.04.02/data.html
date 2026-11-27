@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>Limited Market Participation and Consumption-Based Pricing | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A03.04.02 · Asset Pricing · Consumption &amp; equity valuation</p><h1>Limited Market Participation and Consumption-Based Pricing</h1><p class="lead">How does shareholder consumption exposure to aggregate dividend shocks affect the equity premium and risk-free rate in a transparent limited-participation pricing experiment?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html" aria-current="page">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Data &amp; sources</h2><div class="actions"><a href="files/DATA_GUIDE.md" class="button secondary" download>Open DATA_GUIDE.md</a></div><h3 id="data-and-model-setup-a03.04.02">Data and model setup |
+A03.04.02</h3>
+<p><strong>Current data gate: not_required.</strong> No actual external
+input bytes are supplied or validated.</p>
+<h4 id="simulation-specification">Simulation specification</h4>
+<p>Synthetic annual mu=.02, sigma_c=.02, mu_s=.02, sigma_s=.02-.10,
+rho=.25-1, mu_d=.02, sigma_d=.12, beta=.96-.99,gamma=2,5,8. Evaluate
+exact lognormal expectations and independent MC. For higher shareholder
+risk, also mean-adjust mu_s to match expected gross consumption growth.
+No claim that these exogenous processes clear aggregate goods markets or
+represent a calibrated two-agent equilibrium. FRED consumption
+illustration optional.</p>
+<h4 id="input-construction-and-acceptance">Input construction and
+acceptance</h4>
+<p>Record a parameter table in annualized decimal units, deterministic
+seed policy, independent reference method, admissibility checks and
+failed configurations. Distinguish physical growth laws, state-price
+kernels and traded payoff definitions. Optional external context does
+not change the synthetic core.</p>
+<h4 id="frozen-research-design-original-catalogue">Frozen research
+design (original catalogue)</h4>
+<p>Synthetic annual mu=.02, sigma_c=.02, mu_s=.02, sigma_s=.02-.10,
+rho=.25-1, mu_d=.02, sigma_d=.12, beta=.96-.99,gamma=2,5,8. Evaluate
+exact lognormal expectations and independent MC. For higher shareholder
+risk, also mean-adjust mu_s to match expected gross consumption growth.
+No claim that these exogenous processes clear aggregate goods markets or
+represent a calibrated two-agent equilibrium. FRED consumption
+illustration optional.</p>
+<h4 id="design-specific-acceptance">Design-specific acceptance</h4>
+<p>Show FMP equality and zero covariance zero premium; report matched
+expected gross growth, covariance and q_d existence across four cases.
+Separate variance-only and covariance changes (when feasible), and
+beta-adjusted safe-rate diagnostic with bounds. Verify pricing moments
+by independent Gaussian integration or MC and report price-existence
+failures.</p>
+<h4 id="timing-accounting-and-units">Timing, accounting and units</h4>
+<p>Record total, gross and excess return conventions, RF timing,
+sampling frequency, factor definitions and annualization. Freeze common
+date and asset sets, provider vintage and information availability.
+Separate model-implied curves from traded prices, real safe payoffs from
+ex post real returns, and conditional from unconditional moments.</p>
+<h4 id="first-meeting-acceptance-record">First-meeting acceptance
+record</h4>
+<p>Document actual input rights and original filename, version/date,
+SHA-256, units and sample or parameter ledger. Preserve rejected cases
+and missing observations. No automatic approval; if the core input
+fails, defer or agree an explicit redesign.</p>
+<p><a href="files/DATA_GUIDE.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

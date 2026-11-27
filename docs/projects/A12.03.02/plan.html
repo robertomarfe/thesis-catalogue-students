@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Disposition Effect and Return Predictability: A Simulation Study | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">A12.03.02 · Asset Pricing · Portfolios &amp; market frictions</p><h1>The Disposition Effect and Return Predictability: A Simulation Study</h1><p class="lead">Can asymmetric selling relative to investors&#x27; purchase reference prices produce short-run underreaction or subsequent return reversals in a stylized market with identical fundamental news?</p><p class="small">Synthetic core · Level 3/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html" aria-current="page">Research plan</a></nav></aside><article class="article"><h2>Research plan</h2><div class="actions"><a href="files/RESEARCH_PLAN.md" class="button secondary" download>Open RESEARCH_PLAN.md</a></div><h3 id="research-plan-a12.03.02">Research plan | A12.03.02</h3>
+<h4 id="study-design-and-independent-work">Study design and independent
+work</h4>
+<p>Check monotone market clearing, nonnegative holdings and exact
+inventory accounting; reproduce purchase-weighted reference update and
+no-reference/symmetric/asymmetric controls with identical shocks. Add
+explicit matched-turnover calibration on development paths only, report
+unmatched paths and paired simulation intervals; use strictly lagged
+predictive variables. No claim on actual investor data.</p>
+<h4 id="prespecified-implementation">Prespecified implementation</h4>
+<p>Positive log-random-walk F, N=100, initial shares/reference
+dispersion. Signed investor trades max[a_i(F-P)/P_prev-s_i h_i,-h_i];
+liquidity-provider order mm(F-P)/P_prev, strictly monotone clearing in
+P; cap investor selling by holdings, investor cash unconstrained and
+provider may short (explicit stylized baseline). Update purchase
+reference using weighted costs for positive buys, unchanged for sales,
+reset at zero. Propensity
+s_i=base+strength*(I(P_prev&gt;A_i)-cross-sectional mean I) matches
+average propensity, not realized turnover; no-reference control match
+realized turnover only using independent calibration paths. Reject
+nonpositive price, record all failures. Common 200 paths, 500 dates/burn
+100; news response, gap, return continuation/reversal, lagged overhang;
+no empirical mechanism claim.</p>
+<h4 id="required-tasks">Required tasks</h4>
+<ol type="1">
+<li><p>Write exact order, clearing, holdings and purchase-reference
+updates; test one period by hand and verify aggregate shares.</p></li>
+<li><p>Freeze symmetric and asymmetric parameter scenarios, check
+positive prices and turnover; report infeasible paths rather than
+deleting them.</p></li>
+<li><p>Compare price-fundamental gaps, signed news responses,
+autocorrelation and momentum/reversal regressions with lagged aggregate
+capital-gain overhang.</p></li>
+<li><p>Vary strength of disposition, liquidity elasticity and
+fundamental volatility independently using matched seeds.</p></li>
+<li><p>Add a no-reference-price control with matched average turnover to
+distinguish generic trading pressure from reference dependence.</p></li>
+</ol>
+<h4 id="required-exhibits">Required exhibits</h4>
+<p>Documented simulation rules, accounting and clearing tests, price-gap
+trajectories, return autocorrelation and predictability distributions,
+turnover and sensitivity plots.</p>
+<h4 id="robustness">Robustness</h4>
+<p>No empirical causal inference or claim that stylized demand is
+structurally estimated. Avoid interpreting price pressure as risk
+premium without an SDF. Keep fundamental shocks identical across
+treatments and define reference updates for new/zero holdings. Report
+sensitivity to market-maker and positivity rules.</p>
+<h4 id="minimum-viable-thesis">Minimum viable thesis</h4>
+<p>Audited market clearing and share accounting,
+symmetric/asymmetric/no-reference controls, replicated paths, news
+response and predictability metrics with uncertainty.</p>
+<h4 id="optional-extension">Optional extension</h4>
+<p>Add heterogeneous beliefs or endogenous participation as a separate
+mechanism; compare price pressure and return predictability holding
+disposition parameters fixed.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>Behavioral finance, probability, numerical root finding, simulation
+and basic regression.</p>
+<h4 id="thesis-outline">Thesis outline</h4>
+<ol type="1">
+<li><p>Behavioral trading and the disposition effect;</p></li>
+<li><p>Reference-dependent market design;</p></li>
+<li><p>Simulation and validation;</p></li>
+<li><p>Return dynamics and controlled comparisons;</p></li>
+<li><p>Interpretation and limitations.</p></li>
+</ol>
+<h4 id="milestones">Milestones</h4>
+<p>W1-3: literature and model rules; W4-6: clearing and reference
+accounting; W7-9: matched simulation; W10-12: counterfactual and
+sensitivity; W13-16: interpretation and writing.</p>
+<p>At each meeting submit your independent code, parameter/input ledger,
+results and unresolved issues. Document failures and null findings.</p>
+<p><a href="files/RESEARCH_PLAN.md">Source Markdown</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>

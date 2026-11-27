@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>The Convexity Adjustment in Volatility Swap Pricing | Master’s Thesis Research Library</title><link rel="stylesheet" href="../../assets/site.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap head"><a class="brand" href="../../index.html">Master’s Thesis Research Library<small>Derivatives &amp; Asset Pricing</small></a><nav aria-label="Main"><a href="../../index.html">Home</a><a href="../../explorer.html">Explorer</a><a href="../../all.html">All topics</a><a href="../../guide.html">How to choose</a></nav></div></header><div class="strip"><div class="wrap">STUDENT RESEARCH DRAFT · Assignment subject to supervisor confirmation</div></div><main id="main"><section class="project-head"><div class="wrap"><a href="../../explorer.html">← Research explorer</a><p class="eyebrow">D08.01.02 · Derivatives · Hedging &amp; volatility derivatives</p><h1>The Convexity Adjustment in Volatility Swap Pricing</h1><p class="lead">How does volatility-of-volatility, maturity and mean reversion affect the convexity adjustment in volatility swap pricing?</p><p class="small">Synthetic core · Level 2/3 · Research draft</p><p class="notice"><strong>Synthetic core.</strong> No external dataset required for the core design; optional extensions may require data.</p></div></section><div class="wrap workspace"><aside><nav aria-label="Research workspace"><a href="index.html">Overview</a><a href="proposal.html" aria-current="page">Research proposal</a><a href="methods.html">Theory &amp; methods</a><a href="literature.html">Literature</a><a href="data.html">Data &amp; sources</a><a href="python.html">Python lab</a><a href="plan.html">Research plan</a></nav></aside><article class="article"><h2>Research proposal</h2><div class="actions"><a href="files/proposal.pdf" class="button secondary" target="_blank" rel="noopener noreferrer">Open proposal.pdf</a><a href="files/proposal.md" class="button secondary" download>Open proposal.md</a></div><p><strong>Derivatives · Hedging and volatility derivatives · Level
+2/3</strong></p>
+<p><strong>Data:</strong> Synthetic core; no mandatory external data.
+<strong>Status:</strong> current review draft; supervisor approval
+pending.</p>
+<h3 id="motivation">Motivation</h3>
+<p>A volatility swap is sensitive to the distribution of future
+integrated variance rather than only its expectation. The research
+measures when a second-order convexity adjustment is economically
+adequate and when a nonlinear numerical benchmark is needed.</p>
+<h3 id="research-question">Research question</h3>
+<p>How does volatility-of-volatility, maturity and mean reversion affect
+the convexity adjustment in volatility swap pricing?</p>
+<h3 id="economic-mechanism">Economic mechanism</h3>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mi>T</mi></msub><mo>=</mo><msup><mi>T</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><msub><mi>v</mi><mi>s</mi></msub><mi>d</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">V_T=T^{-1}\int_0^T v_s ds</annotation></semantics></math>,
+the fair volatility strike is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝔼</mi><mi>ℚ</mi></msup><msqrt><msub><mi>V</mi><mi>T</mi></msub></msqrt></mrow><annotation encoding="application/x-tex">\mathbb E^{\mathbb Q}\sqrt{V_T}</annotation></semantics></math>,
+not
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mrow><msup><mi>𝔼</mi><mi>ℚ</mi></msup><msub><mi>V</mi><mi>T</mi></msub></mrow></msqrt><annotation encoding="application/x-tex">\sqrt{\mathbb E^{\mathbb Q}V_T}</annotation></semantics></math>.</p>
+<h3 id="research-design">Research design</h3>
+<p>Use exact CIR transitions and refined integration, including the
+deterministic limit. Compare Jensen gap and second-order approximation
+across maturity and vol-of-vol with independent MC precision and
+integration diagnostics.</p>
+<p>Unlike the VIX futures project, the random quantity is realized
+integrated variance over the entire swap horizon. Report economic errors
+in volatility points, not only variance units.</p>
+<h3 id="required-exhibits">Required exhibits</h3>
+<p>Strike and gap tables, distribution of I and sqrt(I),
+maturity/vol-of-vol sensitivity maps, MC precision and
+approximation-error plots.</p>
+<h3 id="minimum-viable-thesis">Minimum viable thesis</h3>
+<p>Analytic mean, validated simulation, exact Jensen comparison,
+second-order approximation and numerical sensitivity to at least
+maturity and xi.</p>
+<h3 id="scope-and-feasibility">Scope and feasibility</h3>
+<p>Use annualized variance consistently and quote vol points as
+100*sqrt(I). No Jensen reversal from sampling noise when strikes use
+same paths. Test deterministic-variance limit and time-grid bias. No
+observed swap quotes or calibration claimed.</p>
+<p><strong>Prerequisites:</strong> Risk-neutral pricing, stochastic
+calculus basics, Monte Carlo and Python.</p>
+<p><strong>Optional extension:</strong> Study a discrete-return
+realized-variance convention in a full Heston price simulation, with
+monitoring and convexity corrections separated.</p>
+<h3 id="milestones">Milestones</h3>
+<p>W1-3: contracts and expansion; W4-6: CIR simulation and mean checks;
+W7-9: sensitivity experiments; W10-12: approximation, MC and grid
+errors; W13-16: economic interpretation and writing.</p>
+<p>Agree the parameter/data contract and acceptance tests with the
+supervisor before the full research begins. Detailed tasks, milestones
+and acquisition instructions are in the student workspace.</p>
+<p><a href="files/proposal.md">Source Markdown</a></p><p><a href="files/proposal.pdf">PDF version</a></p><p class="notice">All materials are research drafts for exploration and independent planning. Public access does not confirm assignment, scientific approval, data access or permission to redistribute data.</p></article></div></main><footer><div class="wrap">Master’s Thesis Research Library · Full student research drafts · v105</div></footer></body></html>
